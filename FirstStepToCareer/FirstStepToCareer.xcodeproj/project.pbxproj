@@ -6,17 +6,40 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		FB2724B42E50CFB90092408E /* FirstStepToCareerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724A52E50CFB90092408E /* FirstStepToCareerApp.swift */; };
+		FB2724B52E50CFB90092408E /* Color+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724A72E50CFB90092408E /* Color+AppColors.swift */; };
+		FB2724B62E50CFB90092408E /* AppPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724A92E50CFB90092408E /* AppPage.swift */; };
+		FB2724B72E50CFB90092408E /* AppTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724AA2E50CFB90092408E /* AppTab.swift */; };
+		FB2724B82E50CFB90092408E /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724AB2E50CFB90092408E /* NavigationController.swift */; };
+		FB2724B92E50CFB90092408E /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724AF2E50CFB90092408E /* CustomTabBarView.swift */; };
+		FB2724BA2E50CFB90092408E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724B02E50CFB90092408E /* RootView.swift */; };
+		FB2724BB2E50CFB90092408E /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724B12E50CFB90092408E /* SplashView.swift */; };
+		FB2724BC2E50CFB90092408E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB2724AD2E50CFB90092408E /* Assets.xcassets */; };
+		FB2724C02E50DAAB0092408E /* InterviewTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724BF2E50DAAB0092408E /* InterviewTabView.swift */; };
+		FB2724C22E50DAC20092408E /* CompanyListTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724C12E50DAC20092408E /* CompanyListTabView.swift */; };
+		FB2724C42E50DAD40092408E /* ScheduleTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724C32E50DAD40092408E /* ScheduleTabView.swift */; };
+		FB2724D42E50DC0D0092408E /* AnalysisTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724D32E50DC0D0092408E /* AnalysisTabView.swift */; };
+		FB2724D62E50DC190092408E /* SettingsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724D52E50DC190092408E /* SettingsTabView.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		FB2724502E50B3CF0092408E /* FirstStepToCareer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirstStepToCareer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB2724A52E50CFB90092408E /* FirstStepToCareerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStepToCareerApp.swift; sourceTree = "<group>"; };
+		FB2724A72E50CFB90092408E /* Color+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+AppColors.swift"; sourceTree = "<group>"; };
+		FB2724A92E50CFB90092408E /* AppPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPage.swift; sourceTree = "<group>"; };
+		FB2724AA2E50CFB90092408E /* AppTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTab.swift; sourceTree = "<group>"; };
+		FB2724AB2E50CFB90092408E /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		FB2724AD2E50CFB90092408E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FB2724AF2E50CFB90092408E /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
+		FB2724B02E50CFB90092408E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		FB2724B12E50CFB90092408E /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		FB2724BF2E50DAAB0092408E /* InterviewTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewTabView.swift; sourceTree = "<group>"; };
+		FB2724C12E50DAC20092408E /* CompanyListTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListTabView.swift; sourceTree = "<group>"; };
+		FB2724C32E50DAD40092408E /* ScheduleTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTabView.swift; sourceTree = "<group>"; };
+		FB2724D32E50DC0D0092408E /* AnalysisTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisTabView.swift; sourceTree = "<group>"; };
+		FB2724D52E50DC190092408E /* SettingsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		FB2724522E50B3CF0092408E /* FirstStepToCareer */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = FirstStepToCareer;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		FB27244D2E50B3CF0092408E /* Frameworks */ = {
@@ -32,7 +55,7 @@
 		FB2724472E50B3CF0092408E = {
 			isa = PBXGroup;
 			children = (
-				FB2724522E50B3CF0092408E /* FirstStepToCareer */,
+				FB2724B32E50CFB90092408E /* FirstStepToCareer */,
 				FB2724512E50B3CF0092408E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +66,131 @@
 				FB2724502E50B3CF0092408E /* FirstStepToCareer.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		FB2724A62E50CFB90092408E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FB2724A52E50CFB90092408E /* FirstStepToCareerApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FB2724A82E50CFB90092408E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FB2724A72E50CFB90092408E /* Color+AppColors.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		FB2724AC2E50CFB90092408E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FB2724A92E50CFB90092408E /* AppPage.swift */,
+				FB2724AA2E50CFB90092408E /* AppTab.swift */,
+				FB2724AB2E50CFB90092408E /* NavigationController.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FB2724AE2E50CFB90092408E /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				FB2724AD2E50CFB90092408E /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		FB2724B22E50CFB90092408E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FB2724CE2E50DB970092408E /* Root */,
+				FB2724D12E50DB970092408E /* TabBar */,
+				FB2724CD2E50DB970092408E /* Interview */,
+				FB2724D22E50DB970092408E /* CompanyList */,
+				FB2724CF2E50DB970092408E /* Schedule */,
+				FB2724CC2E50DB970092408E /* Analysis */,
+				FB2724D02E50DB970092408E /* Settings */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FB2724B32E50CFB90092408E /* FirstStepToCareer */ = {
+			isa = PBXGroup;
+			children = (
+				FB2724A62E50CFB90092408E /* App */,
+				FB2724AC2E50CFB90092408E /* Model */,
+				FB2724B22E50CFB90092408E /* View */,
+				FB2724BE2E50CFCD0092408E /* ViewModel */,
+				FB2724A82E50CFB90092408E /* Extension */,
+				FB2724AE2E50CFB90092408E /* Resource */,
+			);
+			path = FirstStepToCareer;
+			sourceTree = "<group>";
+		};
+		FB2724BE2E50CFCD0092408E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FB2724CC2E50DB970092408E /* Analysis */ = {
+			isa = PBXGroup;
+			children = (
+				FB2724D32E50DC0D0092408E /* AnalysisTabView.swift */,
+			);
+			path = Analysis;
+			sourceTree = "<group>";
+		};
+		FB2724CD2E50DB970092408E /* Interview */ = {
+			isa = PBXGroup;
+			children = (
+				FB2724BF2E50DAAB0092408E /* InterviewTabView.swift */,
+			);
+			path = Interview;
+			sourceTree = "<group>";
+		};
+		FB2724CE2E50DB970092408E /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				FB2724B02E50CFB90092408E /* RootView.swift */,
+				FB2724B12E50CFB90092408E /* SplashView.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		FB2724CF2E50DB970092408E /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				FB2724C32E50DAD40092408E /* ScheduleTabView.swift */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		FB2724D02E50DB970092408E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FB2724D52E50DC190092408E /* SettingsTabView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		FB2724D12E50DB970092408E /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				FB2724AF2E50CFB90092408E /* CustomTabBarView.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		FB2724D22E50DB970092408E /* CompanyList */ = {
+			isa = PBXGroup;
+			children = (
+				FB2724C12E50DAC20092408E /* CompanyListTabView.swift */,
+			);
+			path = CompanyList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,9 +207,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				FB2724522E50B3CF0092408E /* FirstStepToCareer */,
 			);
 			name = FirstStepToCareer;
 			packageProductDependencies = (
@@ -109,6 +254,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB2724BC2E50CFB90092408E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +265,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB2724B42E50CFB90092408E /* FirstStepToCareerApp.swift in Sources */,
+				FB2724B52E50CFB90092408E /* Color+AppColors.swift in Sources */,
+				FB2724D42E50DC0D0092408E /* AnalysisTabView.swift in Sources */,
+				FB2724C42E50DAD40092408E /* ScheduleTabView.swift in Sources */,
+				FB2724C22E50DAC20092408E /* CompanyListTabView.swift in Sources */,
+				FB2724B62E50CFB90092408E /* AppPage.swift in Sources */,
+				FB2724C02E50DAAB0092408E /* InterviewTabView.swift in Sources */,
+				FB2724B72E50CFB90092408E /* AppTab.swift in Sources */,
+				FB2724B82E50CFB90092408E /* NavigationController.swift in Sources */,
+				FB2724D62E50DC190092408E /* SettingsTabView.swift in Sources */,
+				FB2724B92E50CFB90092408E /* CustomTabBarView.swift in Sources */,
+				FB2724BA2E50CFB90092408E /* RootView.swift in Sources */,
+				FB2724BB2E50CFB90092408E /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
