@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RootView: View {
     // MARK: - Variables
-    @State private var isAppReady = false
+    @State private var isAppReady = true
     
     @EnvironmentObject private var navController: NavigationController
     

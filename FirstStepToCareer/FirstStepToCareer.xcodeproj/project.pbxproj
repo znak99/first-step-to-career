@@ -31,6 +31,9 @@
 		FB2724E92E50E5200092408E /* NotoSansJP-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB2724E12E50E5200092408E /* NotoSansJP-Thin.ttf */; };
 		FB2724EA2E50E5200092408E /* NotoSansJP-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB2724DC2E50E5200092408E /* NotoSansJP-ExtraLight.ttf */; };
 		FB2724ED2E50E5DA0092408E /* Font+AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724EC2E50E5DA0092408E /* Font+AppFonts.swift */; };
+		FB2724EF2E50EE960092408E /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724EE2E50EE960092408E /* AppConstants.swift */; };
+		FB2724F12E50F6720092408E /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724F02E50F6720092408E /* SampleView.swift */; };
+		FB2724F72E50F9050092408E /* CircleLineShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724F62E50F9050092408E /* CircleLineShape.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +63,9 @@
 		FB2724E12E50E5200092408E /* NotoSansJP-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Thin.ttf"; sourceTree = "<group>"; };
 		FB2724EB2E50E5330092408E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FB2724EC2E50E5DA0092408E /* Font+AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+AppFonts.swift"; sourceTree = "<group>"; };
+		FB2724EE2E50EE960092408E /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		FB2724F02E50F6720092408E /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
+		FB2724F62E50F9050092408E /* CircleLineShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleLineShape.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				FB2724A52E50CFB90092408E /* FirstStepToCareerApp.swift */,
+				FB2724EE2E50EE960092408E /* AppConstants.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -135,6 +142,7 @@
 				FB2724CF2E50DB970092408E /* Schedule */,
 				FB2724CC2E50DB970092408E /* Analysis */,
 				FB2724D02E50DB970092408E /* Settings */,
+				FB2724F32E50F8C90092408E /* Component */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -149,6 +157,7 @@
 				FB2724BE2E50CFCD0092408E /* ViewModel */,
 				FB2724A82E50CFB90092408E /* Extension */,
 				FB2724AE2E50CFB90092408E /* Resource */,
+				FB2724F02E50F6720092408E /* SampleView.swift */,
 			);
 			path = FirstStepToCareer;
 			sourceTree = "<group>";
@@ -231,6 +240,14 @@
 				FB2724E12E50E5200092408E /* NotoSansJP-Thin.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		FB2724F32E50F8C90092408E /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				FB2724F62E50F9050092408E /* CircleLineShape.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,10 +335,13 @@
 				FB2724B52E50CFB90092408E /* Color+AppColors.swift in Sources */,
 				FB2724D42E50DC0D0092408E /* AnalysisTabView.swift in Sources */,
 				FB2724ED2E50E5DA0092408E /* Font+AppFonts.swift in Sources */,
+				FB2724EF2E50EE960092408E /* AppConstants.swift in Sources */,
 				FB2724C42E50DAD40092408E /* ScheduleTabView.swift in Sources */,
 				FB2724C22E50DAC20092408E /* CompanyListTabView.swift in Sources */,
 				FB2724B62E50CFB90092408E /* AppPage.swift in Sources */,
+				FB2724F12E50F6720092408E /* SampleView.swift in Sources */,
 				FB2724C02E50DAAB0092408E /* InterviewTabView.swift in Sources */,
+				FB2724F72E50F9050092408E /* CircleLineShape.swift in Sources */,
 				FB2724B72E50CFB90092408E /* AppTab.swift in Sources */,
 				FB2724B82E50CFB90092408E /* NavigationController.swift in Sources */,
 				FB2724D62E50DC190092408E /* SettingsTabView.swift in Sources */,
