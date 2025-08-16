@@ -24,8 +24,7 @@ struct SplashView: View {
                     .resizable()
                     .frame(width: logoSize, height: logoSize)
                 Text("就活一歩")
-                    .font(.title2)
-                    .fontWeight(.bold)
+                    .font(.custom(Font.appSemiBold, size: 24, relativeTo: .title))
                     .foregroundStyle(.white)
             }
         }
