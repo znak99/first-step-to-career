@@ -8,8 +8,23 @@
 import SwiftUI
 
 struct InterviewTabView: View {
+    // MARK: - Variables
+    
+    // MARK: - UI
     var body: some View {
-        Text("Interview")
+        ZStack {
+            // Background
+            Color.appBackground.ignoresSafeArea()
+            
+            // Main Contents
+            VStack {
+                Text("Mock Interview")
+                    .font(.custom(Font.appThin, size: 24, relativeTo: .subheadline))
+                
+                Spacer()
+            }
+            .padding(.horizontal, 16)
+        }
     }
 }
 

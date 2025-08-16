@@ -21,6 +21,16 @@
 		FB2724C42E50DAD40092408E /* ScheduleTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724C32E50DAD40092408E /* ScheduleTabView.swift */; };
 		FB2724D42E50DC0D0092408E /* AnalysisTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724D32E50DC0D0092408E /* AnalysisTabView.swift */; };
 		FB2724D62E50DC190092408E /* SettingsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724D52E50DC190092408E /* SettingsTabView.swift */; };
+		FB2724E22E50E5200092408E /* NotoSansJP-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB2724DF2E50E5200092408E /* NotoSansJP-Regular.ttf */; };
+		FB2724E32E50E5200092408E /* NotoSansJP-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB2724DA2E50E5200092408E /* NotoSansJP-Bold.ttf */; };
+		FB2724E42E50E5200092408E /* NotoSansJP-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB2724DB2E50E5200092408E /* NotoSansJP-ExtraBold.ttf */; };
+		FB2724E52E50E5200092408E /* NotoSansJP-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB2724D92E50E5200092408E /* NotoSansJP-Black.ttf */; };
+		FB2724E62E50E5200092408E /* NotoSansJP-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB2724E02E50E5200092408E /* NotoSansJP-SemiBold.ttf */; };
+		FB2724E72E50E5200092408E /* NotoSansJP-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB2724DD2E50E5200092408E /* NotoSansJP-Light.ttf */; };
+		FB2724E82E50E5200092408E /* NotoSansJP-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB2724DE2E50E5200092408E /* NotoSansJP-Medium.ttf */; };
+		FB2724E92E50E5200092408E /* NotoSansJP-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB2724E12E50E5200092408E /* NotoSansJP-Thin.ttf */; };
+		FB2724EA2E50E5200092408E /* NotoSansJP-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB2724DC2E50E5200092408E /* NotoSansJP-ExtraLight.ttf */; };
+		FB2724ED2E50E5DA0092408E /* Font+AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724EC2E50E5DA0092408E /* Font+AppFonts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +49,17 @@
 		FB2724C32E50DAD40092408E /* ScheduleTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTabView.swift; sourceTree = "<group>"; };
 		FB2724D32E50DC0D0092408E /* AnalysisTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisTabView.swift; sourceTree = "<group>"; };
 		FB2724D52E50DC190092408E /* SettingsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabView.swift; sourceTree = "<group>"; };
+		FB2724D92E50E5200092408E /* NotoSansJP-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Black.ttf"; sourceTree = "<group>"; };
+		FB2724DA2E50E5200092408E /* NotoSansJP-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Bold.ttf"; sourceTree = "<group>"; };
+		FB2724DB2E50E5200092408E /* NotoSansJP-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-ExtraBold.ttf"; sourceTree = "<group>"; };
+		FB2724DC2E50E5200092408E /* NotoSansJP-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-ExtraLight.ttf"; sourceTree = "<group>"; };
+		FB2724DD2E50E5200092408E /* NotoSansJP-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Light.ttf"; sourceTree = "<group>"; };
+		FB2724DE2E50E5200092408E /* NotoSansJP-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Medium.ttf"; sourceTree = "<group>"; };
+		FB2724DF2E50E5200092408E /* NotoSansJP-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Regular.ttf"; sourceTree = "<group>"; };
+		FB2724E02E50E5200092408E /* NotoSansJP-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-SemiBold.ttf"; sourceTree = "<group>"; };
+		FB2724E12E50E5200092408E /* NotoSansJP-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Thin.ttf"; sourceTree = "<group>"; };
+		FB2724EB2E50E5330092408E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		FB2724EC2E50E5DA0092408E /* Font+AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+AppFonts.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				FB2724A72E50CFB90092408E /* Color+AppColors.swift */,
+				FB2724EC2E50E5DA0092408E /* Font+AppFonts.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -97,6 +119,7 @@
 		FB2724AE2E50CFB90092408E /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				FB2724D82E50E51E0092408E /* Fonts */,
 				FB2724AD2E50CFB90092408E /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -119,6 +142,7 @@
 		FB2724B32E50CFB90092408E /* FirstStepToCareer */ = {
 			isa = PBXGroup;
 			children = (
+				FB2724EB2E50E5330092408E /* Info.plist */,
 				FB2724A62E50CFB90092408E /* App */,
 				FB2724AC2E50CFB90092408E /* Model */,
 				FB2724B22E50CFB90092408E /* View */,
@@ -193,6 +217,22 @@
 			path = CompanyList;
 			sourceTree = "<group>";
 		};
+		FB2724D82E50E51E0092408E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FB2724D92E50E5200092408E /* NotoSansJP-Black.ttf */,
+				FB2724DA2E50E5200092408E /* NotoSansJP-Bold.ttf */,
+				FB2724DB2E50E5200092408E /* NotoSansJP-ExtraBold.ttf */,
+				FB2724DC2E50E5200092408E /* NotoSansJP-ExtraLight.ttf */,
+				FB2724DD2E50E5200092408E /* NotoSansJP-Light.ttf */,
+				FB2724DE2E50E5200092408E /* NotoSansJP-Medium.ttf */,
+				FB2724DF2E50E5200092408E /* NotoSansJP-Regular.ttf */,
+				FB2724E02E50E5200092408E /* NotoSansJP-SemiBold.ttf */,
+				FB2724E12E50E5200092408E /* NotoSansJP-Thin.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -255,6 +295,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB2724BC2E50CFB90092408E /* Assets.xcassets in Resources */,
+				FB2724E22E50E5200092408E /* NotoSansJP-Regular.ttf in Resources */,
+				FB2724E32E50E5200092408E /* NotoSansJP-Bold.ttf in Resources */,
+				FB2724E42E50E5200092408E /* NotoSansJP-ExtraBold.ttf in Resources */,
+				FB2724E52E50E5200092408E /* NotoSansJP-Black.ttf in Resources */,
+				FB2724E62E50E5200092408E /* NotoSansJP-SemiBold.ttf in Resources */,
+				FB2724E72E50E5200092408E /* NotoSansJP-Light.ttf in Resources */,
+				FB2724E82E50E5200092408E /* NotoSansJP-Medium.ttf in Resources */,
+				FB2724E92E50E5200092408E /* NotoSansJP-Thin.ttf in Resources */,
+				FB2724EA2E50E5200092408E /* NotoSansJP-ExtraLight.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +317,7 @@
 				FB2724B42E50CFB90092408E /* FirstStepToCareerApp.swift in Sources */,
 				FB2724B52E50CFB90092408E /* Color+AppColors.swift in Sources */,
 				FB2724D42E50DC0D0092408E /* AnalysisTabView.swift in Sources */,
+				FB2724ED2E50E5DA0092408E /* Font+AppFonts.swift in Sources */,
 				FB2724C42E50DAD40092408E /* ScheduleTabView.swift in Sources */,
 				FB2724C22E50DAC20092408E /* CompanyListTabView.swift in Sources */,
 				FB2724B62E50CFB90092408E /* AppPage.swift in Sources */,
@@ -415,6 +465,7 @@
 				DEVELOPMENT_TEAM = SHUGXU55KP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FirstStepToCareer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -443,6 +494,7 @@
 				DEVELOPMENT_TEAM = SHUGXU55KP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FirstStepToCareer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

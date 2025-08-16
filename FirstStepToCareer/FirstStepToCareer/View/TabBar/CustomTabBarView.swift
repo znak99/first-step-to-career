@@ -15,8 +15,6 @@ struct CustomTabBarView: View {
     // MARK: - UI
     var body: some View {
         VStack(spacing: 0) {
-            Spacer()
-            
             switch currentTab {
             case .interview:
                 InterviewTabView()

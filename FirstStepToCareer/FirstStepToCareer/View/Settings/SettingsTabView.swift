@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct SettingsTabView: View {
+    // MARK: - Variables
+    
+    // MARK: - UI
     var body: some View {
         Text("Settings")
     }
