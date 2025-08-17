@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// 앱 화면 시작점 (스플래쉬 화면과 메인 화면 스위칭)
 struct RootView: View {
     // MARK: - Variables
     @State private var isAppReady = false

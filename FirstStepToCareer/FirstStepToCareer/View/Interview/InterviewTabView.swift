@@ -9,8 +9,8 @@ import SwiftUI
 
 struct InterviewTabView: View {
     // MARK: - Variables
-    @StateObject var viewmodel = InterviewViewModel()
-    @EnvironmentObject var navigationController: NavigationController
+    @StateObject var interviewVM = InterviewViewModel()
+    @EnvironmentObject private var navigationController: NavigationController
     @FocusState private var focus: FocusTarget?
     
     // MARK: - UI
@@ -18,122 +18,101 @@ struct InterviewTabView: View {
         ZStack {
             // Background
             Color.appBackground.ignoresSafeArea()
-            
             // Main Contents
             VStack {
-                
                 // Header
-                VStack {
-                    HStack {
-                        Image(systemName: "video.fill")
-                            .font(.title2)
-                            .frame(width: 24, height: 24)
-                            .rotationEffect(.degrees(-10))
-                        Text("Mock Interview")
-                            .font(.custom(Font.appExtraBold, size: 24, relativeTo: .title2))
-                        Spacer()
-                    }
-                    .foregroundStyle(Color.appGrayFont)
-                    Text("模擬面接で本番を想定した練習をすれば\n落ち着いて話せて自分らしさをしっかり伝えられます！")
-                        .font(.custom(Font.appMedium, size: 12, relativeTo: .title2))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                }
-                
+                TabViewHeader(
+                    icon: "video.fill",
+                    iconRotateDegrees: -10,
+                    title: "Mock Interview",
+                    caption: "模擬面接で本番を想定した練習をすれば\n落ち着いて話せて自分らしさをしっかり伝えられます！"
+                )
                 // Scroll View
                 ScrollView(.vertical, showsIndicators: false) {
                     // History
                     VStack {
-                        if let _ = viewmodel.bestHistory {
-                            VStack {
-                                Text("模擬面接データがないようですね\nログインすると過去の模擬面接が確認できます！")
-                                    .font(.custom(Font.appMedium, size: 12, relativeTo: .subheadline))
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                Button(action: {
-                                    // TODO: - Navigation 처리
-                                }) {
-                                    HStack {
-                                        Spacer()
-                                        Text("ログインする")
-                                            .font(.custom(Font.appSemiBold, size: 16, relativeTo: .footnote))
-                                        Spacer()
-                                        Image(systemName: AppConstants.chevronRight)
-                                            .fontWeight(.semibold)
+                        if let bestResult = interviewVM.bestResult {
+                            Button(
+                                action: { // TODO: - 모의면접 상세화면(최고점수)으로 Navigation 처리하기
+                                    
+                                },
+                                label: {
+                                    VStack {
+                                        Text("この模擬面接すごく良かったです！👍")
+                                            .appCaptionStyle()
+                                        HStack(alignment: .firstTextBaseline) {
+                                            Text(bestResult.companyName.truncated(24))
+                                                .font(.custom(Font.appBold, size: 20, relativeTo: .title))
+                                            Spacer()
+                                            Text(AppConstants.formatDate(bestResult.createdAt))
+                                                .font(.custom(Font.appRegular, size: 12, relativeTo: .subheadline))
+                                                .foregroundStyle(Color.appGrayFont)
+                                        }
+                                        HStack {
+                                            VStack(alignment: .center) {
+                                                Image(systemName: "building.2.fill")
+                                                Image(systemName: bestResult.recruitType == RecruitType.new.label ?
+                                                      RecruitType.new.icon : RecruitType.old.icon)
+                                            }
+                                            .font(.footnote)
+                                            VStack(alignment: .leading) {
+                                                Text(bestResult.companyType)
+                                                Text(bestResult.recruitType)
+                                            }
+                                            .font(.custom(Font.appMedium, size: 14, relativeTo: .subheadline))
+                                            Spacer()
+                                            ZStack {
+                                                CircleLineShape()
+                                                    .stroke(Color.appTabBarAccent.opacity(0.2),
+                                                            style: StrokeStyle(lineWidth: 8, lineCap: .round))
+                                                CircleLineShape(endAngleAt: 136)
+                                                    .stroke(Color.appTabBarAccent,
+                                                            style: StrokeStyle(lineWidth: 8, lineCap: .round))
+                                                Text("\(String(format: "%.1f", bestResult.score))")
+                                                    .font(.custom(Font.appSemiBold, size: 16))
+                                            }
+                                            .frame(width: 40, height: 40)
+                                            Text("点")
+                                                .font(.custom(Font.appBold, size: 20, relativeTo: .subheadline))
+                                            Spacer()
+                                            Text("詳細はここ！👆")
+                                                .appCaptionStyle()
+                                                .foregroundStyle(Color.black)
+                                        }
                                     }
                                 }
-                                .foregroundStyle(.white)
-                                .frame(maxWidth: .infinity)
-                                .padding(.horizontal, 12)
-                                .padding(.vertical, 8)
-                                .background {
-                                    LinearGradient(colors: [.appPrimaryGradient01, .appPrimaryGradient02],
-                                                   startPoint: .leading,
-                                                   endPoint: .trailing)
-                                }
-                                .clipShape(RoundedRectangle(cornerRadius: AppConstants.boxRadius))
-                                .padding(4)
-                            }
-                        } else {
-                            Button(action: {
-                                // TODO: - Navigation 처리
-                            }) {
-                                VStack {
-                                    Text("この模擬面接すごく良かったです！👍")
-                                        .font(.custom(Font.appMedium, size: 12, relativeTo: .subheadline))
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                    HStack(alignment: .firstTextBaseline) {
-                                        Text("株式会社就活一歩")
-                                            .font(.custom(Font.appBold, size: 20, relativeTo: .title))
-                                        Spacer()
-                                        Text("12/2")
-                                            .font(.custom(Font.appRegular, size: 12, relativeTo: .subheadline))
-                                            .foregroundStyle(Color.appGrayFont)
-                                    }
-                                    HStack {
-                                        VStack(alignment: .center) {
-                                            Image(systemName: "building.2.fill")
-                                            Image(systemName: "graduationcap.fill")
-                                        }
-                                        .font(.footnote)
-                                        VStack(alignment: .leading) {
-                                            Text("IT企業")
-                                            Text("新卒")
-                                        }
-                                        .font(.custom(Font.appMedium, size: 14, relativeTo: .subheadline))
-                                        Spacer()
-                                        ZStack {
-                                            CircleLineShape()
-                                                .stroke(Color.appTabBarAccent.opacity(0.2),
-                                                        style: StrokeStyle(lineWidth: 8, lineCap: .round))
-                                            CircleLineShape(endAngleAt: 136)
-                                                .stroke(Color.appTabBarAccent,
-                                                        style: StrokeStyle(lineWidth: 8, lineCap: .round))
-                                            Text("\(String(format: "%.1f", 9.9))")
-                                                .font(.custom(Font.appSemiBold, size: 16))
-                                        }
-                                        .frame(width: 40, height: 40)
-                                        Text("点")
-                                            .font(.custom(Font.appBold, size: 20, relativeTo: .subheadline))
-                                        Spacer()
-                                        Text("詳細はここ！👆")
-                                            .font(.custom(Font.appRegular, size: 12, relativeTo: .footnote))
-                                            .multilineTextAlignment(.leading)
-                                            .foregroundStyle(Color.black)
-                                    }
-                                }
-                            }
+                            )
                             .foregroundStyle(.black)
                             Divider()
-                            Button(action: {}) {
-                                HStack {
-                                    Text("過去の模擬面接を見る")
-                                        .font(.custom(Font.appRegular, size: 12, relativeTo: .subheadline))
-                                    Spacer()
-                                    Image(systemName: "chevron.right")
-                                        .font(.subheadline)
-                                        .fontWeight(.regular)
+                            Button(
+                                action: { // TODO: - 과거모의면접리스트화면으로 Navigation 처리하기
+                                    
+                                },
+                                label: {
+                                    HStack {
+                                        Text("過去の模擬面接を見る")
+                                            .font(.custom(Font.appRegular, size: 12, relativeTo: .subheadline))
+                                        Spacer()
+                                        Image(systemName: AppConstants.chevronRight)
+                                            .font(.subheadline)
+                                            .fontWeight(.regular)
+                                    }
                                 }
-                            }
+                            )
                             .foregroundStyle(.black)
+                        } else {
+                            VStack {
+                                Text("模擬面接データがないようですね\nログインすると過去の模擬面接が確認できます！")
+                                    .appCaptionStyle()
+                                InterviewInfoNavigationButton(
+                                    label: "ログインする",
+                                    isCenterLabel: true,
+                                    fontWeight: Font.appSemiBold,
+                                    textColor: Color.white,
+                                    backgroundColor: Color.appAccentColor) { // TODO: - 로그인화면으로 Navigation 처리하기
+                                        
+                                    }
+                            }
                         }
                     }
                     .frame(maxWidth: .infinity)
@@ -144,29 +123,19 @@ struct InterviewTabView: View {
                     Divider()
                     // Mock Interview Info
                     Text("簡単な情報を入力して模擬面接を行いましょう！")
-                        .font(.custom(Font.appMedium, size: 12, relativeTo: .title2))
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .appCaptionStyle()
                     VStack {
                         VStack {
                             // Company Name
                             VStack(spacing: 2) {
-                                HStack {
-                                    Circle()
-                                        .frame(width: 4, height: 4)
-                                    Text("会社名")
-                                        .font(.custom(Font.appSemiBold, size: 16, relativeTo: .subheadline))
-                                    Text("（必須）")
-                                        .font(.custom(Font.appRegular, size: 12, relativeTo: .subheadline))
-                                        .foregroundStyle(Color.appGrayFont)
-                                }
-                                .frame(maxWidth: .infinity, alignment: .leading)
+                                InterviewInfoFieldTitle(title: "会社名", isRequired: true)
                                 ZStack(alignment: .leading) {
-                                    if viewmodel.mockInterviewInfo.companyName.isEmpty {
+                                    if interviewVM.mockInterviewInfo.companyName.isEmpty {
                                         Text("株式会社就活一歩")
                                             .foregroundColor(.gray)
                                             .offset(y: 0)
                                     }
-                                    TextField("", text: $viewmodel.mockInterviewInfo.companyName)
+                                    TextField("", text: $interviewVM.mockInterviewInfo.companyName)
                                         .autocorrectionDisabled(true)
                                         .textInputAutocapitalization(.never)
                                         .keyboardType(.default)
@@ -183,128 +152,58 @@ struct InterviewTabView: View {
                             
                             // Recruit Type
                             VStack(spacing: 2) {
-                                HStack {
-                                    Circle()
-                                        .frame(width: 4, height: 4)
-                                    Text("活動区分")
-                                        .font(.custom(Font.appSemiBold, size: 16, relativeTo: .subheadline))
-                                    Text("（必須）")
-                                        .font(.custom(Font.appRegular, size: 12, relativeTo: .subheadline))
-                                        .foregroundStyle(Color.appGrayFont)
-                                }
-                                .frame(maxWidth: .infinity, alignment: .leading)
+                                InterviewInfoFieldTitle(title: "活動区分", isRequired: true)
                                 HStack(spacing: 24) {
-                                    Button(action: {
-                                        viewmodel.mockInterviewInfo.recruitType = .new
-                                    }) {
-                                        HStack {
-                                            Image(systemName: RecruitType.new.icon)
-                                                .font(.subheadline)
-                                            Text(RecruitType.new.label)
+                                    InterviewInfoRecruitTypeButton(
+                                        icon: RecruitType.new.icon,
+                                        label: RecruitType.new.label,
+                                        isNew: interviewVM.mockInterviewInfo.recruitType == .new) {
+                                            interviewVM.mockInterviewInfo.recruitType = .new
                                         }
-                                        .frame(maxWidth: .infinity)
-                                    }
-                                    .padding(8)
-                                    .background(viewmodel.mockInterviewInfo.recruitType == .new ? Color.appPrimaryGradient01 : Color.appBackground)
-                                    .foregroundStyle(viewmodel.mockInterviewInfo.recruitType == .new ? Color.white : Color.black)
-                                    .clipShape(RoundedRectangle(cornerRadius: AppConstants.boxRadius))
-                                    Button(action: {
-                                        viewmodel.mockInterviewInfo.recruitType = .old
-                                    }) {
-                                        HStack {
-                                            Image(systemName: RecruitType.old.icon)
-                                                .font(.subheadline)
-                                            Text(RecruitType.old.label)
+                                    InterviewInfoRecruitTypeButton(
+                                        icon: RecruitType.old.icon,
+                                        label: RecruitType.old.label,
+                                        isNew: interviewVM.mockInterviewInfo.recruitType == .old) {
+                                            interviewVM.mockInterviewInfo.recruitType = .old
                                         }
-                                        .frame(maxWidth: .infinity)
-                                    }
-                                    .padding(8)
-                                    .background(viewmodel.mockInterviewInfo.recruitType == .old ? Color.appPrimaryGradient01 : Color.appBackground)
-                                    .foregroundStyle(viewmodel.mockInterviewInfo.recruitType == .old ? Color.white : Color.black)
-                                    .clipShape(RoundedRectangle(cornerRadius: AppConstants.boxRadius))
                                 }
-                                .font(.custom(Font.appSemiBold, size: 16, relativeTo: .subheadline))
                                 .padding(.vertical, 4)
                             }
                             
                             // Company Type
                             VStack(spacing: 2) {
-                                HStack {
-                                    Circle()
-                                        .frame(width: 4, height: 4)
-                                    Text("企業分野")
-                                        .font(.custom(Font.appSemiBold, size: 16, relativeTo: .subheadline))
-                                    Text("（必須）")
-                                        .font(.custom(Font.appRegular, size: 12, relativeTo: .subheadline))
-                                        .foregroundStyle(Color.appGrayFont)
-                                }
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                Button(action: {
-                                    // Navigation처리
-                                }) {
-                                    HStack {
-                                        Text(viewmodel.mockInterviewInfo.companyType.rawValue)
-                                        Spacer()
-                                        Image(systemName: AppConstants.chevronRight)
-                                            .font(.subheadline)
+                                InterviewInfoFieldTitle(title: "企業分野", isRequired: true)
+                                InterviewInfoNavigationButton(
+                                    label: interviewVM.mockInterviewInfo.companyType.rawValue,
+                                    isCenterLabel: false,
+                                    fontWeight: Font.appRegular,
+                                    textColor: Color.black,
+                                    backgroundColor: Color.white) { // TODO: - 기업분야 선택화면으로 Navigation 처리하기
+                                        
                                     }
-                                    .frame(maxWidth: .infinity)
-                                    .padding(.horizontal)
-                                }
-                                .padding([.vertical, .trailing], 8)
-                                .background(Color.white)
-                                .foregroundStyle(Color.black)
-                                .clipShape(RoundedRectangle(cornerRadius: AppConstants.boxRadius))
-                                .font(.custom(Font.appRegular, size: 16, relativeTo: .subheadline))
                             }
                             
                             // CareerType
                             VStack(spacing: 2) {
-                                HStack {
-                                    Circle()
-                                        .frame(width: 4, height: 4)
-                                    Text("希望職種")
-                                        .font(.custom(Font.appSemiBold, size: 16, relativeTo: .subheadline))
-                                    Text("（必須）")
-                                        .font(.custom(Font.appRegular, size: 12, relativeTo: .subheadline))
-                                        .foregroundStyle(Color.appGrayFont)
-                                }
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                Button(action: {
-                                    // Navigation처리
-                                }) {
-                                    HStack {
-                                        Text(viewmodel.mockInterviewInfo.companyType.rawValue)
-                                        Spacer()
-                                        Image(systemName: AppConstants.chevronRight)
-                                            .font(.subheadline)
+                                InterviewInfoFieldTitle(title: "希望職種", isRequired: true)
+                                InterviewInfoNavigationButton(
+                                    label: interviewVM.mockInterviewInfo.careerType.rawValue,
+                                    isCenterLabel: false,
+                                    fontWeight: Font.appRegular,
+                                    textColor: Color.black,
+                                    backgroundColor: Color.white) { // TODO: - 기업분야 선택화면으로 Navigation 처리하기
+                                        
                                     }
-                                    .frame(maxWidth: .infinity)
-                                    .padding(.horizontal)
-                                }
-                                .padding([.vertical, .trailing], 8)
-                                .background(Color.white)
-                                .foregroundStyle(Color.black)
-                                .clipShape(RoundedRectangle(cornerRadius: AppConstants.boxRadius))
-                                .font(.custom(Font.appRegular, size: 16, relativeTo: .subheadline))
                             }
                             Divider()
-                            Button(action:{}) {
-                                HStack {
-                                    Spacer()
-                                    Text("模擬面接を始める")
-                                        .font(.custom(Font.appSemiBold, size: 16, relativeTo: .title2))
-                                    Spacer()
-                                    Image(systemName: AppConstants.chevronRight)
-                                        .font(.subheadline)
-                                        .fontWeight(.semibold)
+                            InterviewInfoNavigationButton(
+                                label: "模擬面接を始める",
+                                isCenterLabel: true,
+                                fontWeight: Font.appSemiBold,
+                                textColor: Color.white,
+                                backgroundColor: Color.appAccentColor) { // TODO: - 모의면접 준비화면으로 Navigation 처리하기
+                                    
                                 }
-                                .foregroundStyle(.white)
-                            }
-                            .padding(.vertical, 8)
-                            .padding(.horizontal, 12)
-                            .background(Color.appTabBarAccent)
-                            .clipShape(RoundedRectangle(cornerRadius: AppConstants.componentRadius))
                         }
                         .padding(.top, 2)
                     }

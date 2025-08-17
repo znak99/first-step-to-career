@@ -10,7 +10,7 @@ import UIKit
 import SwiftUI
 
 struct KeyboardPrewarmView: UIViewRepresentable {
-    
+    // MARK: - Functions
     func makeUIView(context: Context) -> UITextField {
         let tf = UITextField(frame: .zero)
         tf.isHidden = true

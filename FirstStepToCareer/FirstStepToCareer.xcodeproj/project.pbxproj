@@ -43,6 +43,13 @@
 		FB2725112E512A910092408E /* CareerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2725102E512A8B0092408E /* CareerType.swift */; };
 		FB2725132E51CC970092408E /* MockInterviewResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2725122E51CC970092408E /* MockInterviewResult.swift */; };
 		FB2725152E51CD420092408E /* MockInterviewQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2725142E51CD420092408E /* MockInterviewQuestion.swift */; };
+		FB27251D2E5201F10092408E /* TabViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27251C2E5201F00092408E /* TabViewHeader.swift */; };
+		FB27251F2E52103C0092408E /* String+CustomFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27251E2E5210250092408E /* String+CustomFunctions.swift */; };
+		FB2725212E5213450092408E /* AppCaptionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2725202E5213390092408E /* AppCaptionStyle.swift */; };
+		FB2725232E52139A0092408E /* View+AppStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2725222E52138E0092408E /* View+AppStyles.swift */; };
+		FB2725252E5214A40092408E /* InterviewInfoFieldTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2725242E5214A40092408E /* InterviewInfoFieldTitle.swift */; };
+		FB2725272E5215CC0092408E /* InterviewInfoRecruitTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2725262E5215CC0092408E /* InterviewInfoRecruitTypeButton.swift */; };
+		FB27252B2E521B0F0092408E /* InterviewInfoNavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27252A2E521B0F0092408E /* InterviewInfoNavigationButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,7 +75,7 @@
 		FB2724DF2E50E5200092408E /* NotoSansJP-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Regular.ttf"; sourceTree = "<group>"; };
 		FB2724E02E50E5200092408E /* NotoSansJP-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-SemiBold.ttf"; sourceTree = "<group>"; };
 		FB2724E12E50E5200092408E /* NotoSansJP-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Thin.ttf"; sourceTree = "<group>"; };
-		FB2724EB2E50E5330092408E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		FB2724EB2E50E5330092408E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB2724EC2E50E5DA0092408E /* Font+AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+AppFonts.swift"; sourceTree = "<group>"; };
 		FB2724EE2E50EE960092408E /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		FB2724F02E50F6720092408E /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
@@ -84,6 +91,13 @@
 		FB2725102E512A8B0092408E /* CareerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareerType.swift; sourceTree = "<group>"; };
 		FB2725122E51CC970092408E /* MockInterviewResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockInterviewResult.swift; sourceTree = "<group>"; };
 		FB2725142E51CD420092408E /* MockInterviewQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockInterviewQuestion.swift; sourceTree = "<group>"; };
+		FB27251C2E5201F00092408E /* TabViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewHeader.swift; sourceTree = "<group>"; };
+		FB27251E2E5210250092408E /* String+CustomFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CustomFunctions.swift"; sourceTree = "<group>"; };
+		FB2725202E5213390092408E /* AppCaptionStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCaptionStyle.swift; sourceTree = "<group>"; };
+		FB2725222E52138E0092408E /* View+AppStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+AppStyles.swift"; sourceTree = "<group>"; };
+		FB2725242E5214A40092408E /* InterviewInfoFieldTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewInfoFieldTitle.swift; sourceTree = "<group>"; };
+		FB2725262E5215CC0092408E /* InterviewInfoRecruitTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewInfoRecruitTypeButton.swift; sourceTree = "<group>"; };
+		FB27252A2E521B0F0092408E /* InterviewInfoNavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewInfoNavigationButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +139,8 @@
 		FB2724A82E50CFB90092408E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				FB2725222E52138E0092408E /* View+AppStyles.swift */,
+				FB27251E2E5210250092408E /* String+CustomFunctions.swift */,
 				FB2724A72E50CFB90092408E /* Color+AppColors.swift */,
 				FB2724EC2E50E5DA0092408E /* Font+AppFonts.swift */,
 			);
@@ -135,9 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				FB2724FB2E511B5C0092408E /* Global */,
-				FB2725042E511B9F0092408E /* TabBar */,
 				FB2725092E51255E0092408E /* Interview */,
-				FB2725012E511B9F0092408E /* Navigation */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -174,6 +188,7 @@
 				FB2724AC2E50CFB90092408E /* Model */,
 				FB2724B22E50CFB90092408E /* View */,
 				FB2724BE2E50CFCD0092408E /* ViewModel */,
+				FB27251B2E5201590092408E /* ViewModifier */,
 				FB2724A82E50CFB90092408E /* Extension */,
 				FB2724AE2E50CFB90092408E /* Resource */,
 				FB2724F02E50F6720092408E /* SampleView.swift */,
@@ -267,6 +282,10 @@
 			children = (
 				FB2724F62E50F9050092408E /* CircleLineShape.swift */,
 				FB2724F82E51179D0092408E /* KeyboardPrewarmView.swift */,
+				FB27251C2E5201F00092408E /* TabViewHeader.swift */,
+				FB2725242E5214A40092408E /* InterviewInfoFieldTitle.swift */,
+				FB2725262E5215CC0092408E /* InterviewInfoRecruitTypeButton.swift */,
+				FB27252A2E521B0F0092408E /* InterviewInfoNavigationButton.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -275,38 +294,32 @@
 			isa = PBXGroup;
 			children = (
 				FB2724FC2E511B610092408E /* FocusTarget.swift */,
+				FB2725032E511B9F0092408E /* AppTab.swift */,
 				FB2724A92E50CFB90092408E /* AppPage.swift */,
-			);
-			path = Global;
-			sourceTree = "<group>";
-		};
-		FB2725012E511B9F0092408E /* Navigation */ = {
-			isa = PBXGroup;
-			children = (
 				FB2725002E511B9F0092408E /* NavigationController.swift */,
 			);
-			path = Navigation;
-			sourceTree = "<group>";
-		};
-		FB2725042E511B9F0092408E /* TabBar */ = {
-			isa = PBXGroup;
-			children = (
-				FB2725032E511B9F0092408E /* AppTab.swift */,
-			);
-			path = TabBar;
+			path = Global;
 			sourceTree = "<group>";
 		};
 		FB2725092E51255E0092408E /* Interview */ = {
 			isa = PBXGroup;
 			children = (
-				FB2725102E512A8B0092408E /* CareerType.swift */,
 				FB27250E2E51275C0092408E /* MockInterviewInfo.swift */,
+				FB2725102E512A8B0092408E /* CareerType.swift */,
 				FB27250C2E5126620092408E /* CompanyType.swift */,
 				FB27250A2E51256C0092408E /* RecruitType.swift */,
 				FB2725122E51CC970092408E /* MockInterviewResult.swift */,
 				FB2725142E51CD420092408E /* MockInterviewQuestion.swift */,
 			);
 			path = Interview;
+			sourceTree = "<group>";
+		};
+		FB27251B2E5201590092408E /* ViewModifier */ = {
+			isa = PBXGroup;
+			children = (
+				FB2725202E5213390092408E /* AppCaptionStyle.swift */,
+			);
+			path = ViewModifier;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,14 +427,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB2725232E52139A0092408E /* View+AppStyles.swift in Sources */,
 				FB2725072E5124110092408E /* InterviewViewModel.swift in Sources */,
 				FB2724B42E50CFB90092408E /* FirstStepToCareerApp.swift in Sources */,
 				FB2725132E51CC970092408E /* MockInterviewResult.swift in Sources */,
+				FB2725272E5215CC0092408E /* InterviewInfoRecruitTypeButton.swift in Sources */,
 				FB2725152E51CD420092408E /* MockInterviewQuestion.swift in Sources */,
 				FB2724B52E50CFB90092408E /* Color+AppColors.swift in Sources */,
 				FB27250F2E51276A0092408E /* MockInterviewInfo.swift in Sources */,
 				FB2724D42E50DC0D0092408E /* AnalysisTabView.swift in Sources */,
+				FB27251D2E5201F10092408E /* TabViewHeader.swift in Sources */,
+				FB2725212E5213450092408E /* AppCaptionStyle.swift in Sources */,
 				FB27250B2E51257E0092408E /* RecruitType.swift in Sources */,
+				FB27251F2E52103C0092408E /* String+CustomFunctions.swift in Sources */,
 				FB2725052E511B9F0092408E /* AppTab.swift in Sources */,
 				FB2724ED2E50E5DA0092408E /* Font+AppFonts.swift in Sources */,
 				FB2724EF2E50EE960092408E /* AppConstants.swift in Sources */,
@@ -430,6 +448,7 @@
 				FB2724C22E50DAC20092408E /* CompanyListTabView.swift in Sources */,
 				FB2724B62E50CFB90092408E /* AppPage.swift in Sources */,
 				FB2724F92E51179D0092408E /* KeyboardPrewarmView.swift in Sources */,
+				FB27252B2E521B0F0092408E /* InterviewInfoNavigationButton.swift in Sources */,
 				FB2724F12E50F6720092408E /* SampleView.swift in Sources */,
 				FB2724C02E50DAAB0092408E /* InterviewTabView.swift in Sources */,
 				FB2724F72E50F9050092408E /* CircleLineShape.swift in Sources */,
@@ -437,6 +456,7 @@
 				FB2724FD2E511B660092408E /* FocusTarget.swift in Sources */,
 				FB2724D62E50DC190092408E /* SettingsTabView.swift in Sources */,
 				FB2724B92E50CFB90092408E /* CustomTabBarView.swift in Sources */,
+				FB2725252E5214A40092408E /* InterviewInfoFieldTitle.swift in Sources */,
 				FB2724BA2E50CFB90092408E /* RootView.swift in Sources */,
 				FB2724BB2E50CFB90092408E /* SplashView.swift in Sources */,
 				FB2725112E512A910092408E /* CareerType.swift in Sources */,

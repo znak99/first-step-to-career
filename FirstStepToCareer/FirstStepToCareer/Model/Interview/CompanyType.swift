@@ -7,6 +7,7 @@
 
 import Foundation
 
+// 모의면접을 위한 기업분야 리스트
 enum CompanyType: String, Identifiable, CaseIterable {
     
     var id: String {

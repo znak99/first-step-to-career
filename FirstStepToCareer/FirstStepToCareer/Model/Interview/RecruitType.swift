@@ -5,6 +5,7 @@
 //  Created by seungwoo on 2025/08/17.
 //
 
+// 모의면접을 위한 신입/경력 정보
 enum RecruitType {
     case new
     case old

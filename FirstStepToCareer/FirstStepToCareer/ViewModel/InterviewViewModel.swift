@@ -9,5 +9,5 @@ import Foundation
 
 class InterviewViewModel: ObservableObject {
     @Published var mockInterviewInfo: MockInterviewInfo = .init()
-    @Published var bestHistory: MockInterviewResult?
+    @Published var bestResult: MockInterviewResult?
 }

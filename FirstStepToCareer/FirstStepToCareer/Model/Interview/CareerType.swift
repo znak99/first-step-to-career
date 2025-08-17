@@ -7,6 +7,7 @@
 
 import Foundation
 
+// 모의면접을 위한 희망직종 리스트
 enum CareerType: String, Identifiable, CaseIterable {
     
     var id: String {

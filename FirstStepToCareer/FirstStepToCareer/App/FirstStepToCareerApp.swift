@@ -10,13 +10,13 @@ import SwiftUI
 @main
 struct FirstStepToCareerApp: App {
     // MARK: - Variables
-    @StateObject var navController = NavigationController()
+    @StateObject var nc = NavigationController()
     
     // MARK: - UI
     var body: some Scene {
         WindowGroup {
             RootView()
-                .environmentObject(navController)
+                .environmentObject(nc)
         }
     }
 }
