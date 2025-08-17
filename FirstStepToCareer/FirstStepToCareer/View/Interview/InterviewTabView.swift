@@ -77,6 +77,7 @@ struct InterviewTabView: View {
                                         // TODO: - 정보입력하라는 Alert 띄우기
                                     }
                                 }
+                                .tapScaleEffect()
                         }
                         .padding(.top, 2)
                     }
@@ -169,6 +170,7 @@ private extension InterviewTabView {
             }
         )
         .foregroundStyle(.black)
+        .tapScaleEffect()
         Divider()
         Button(
             action: { // TODO: - 과거모의면접리스트화면으로 Navigation 처리하기
@@ -202,6 +204,7 @@ private extension InterviewTabView {
                 verticalPadding: 4) { // TODO: - 로그인화면으로 Navigation 처리하기
                     
                 }
+                .tapScaleEffect()
         }
     }
 }
@@ -239,7 +242,9 @@ private extension InterviewTabView {
             inputFormTitle(title: "活動区分", isRequired: true)
             HStack(spacing: 24) {
                 inputFormRecruitTypeButton(isNew: true)
+                    .tapScaleEffect()
                 inputFormRecruitTypeButton(isNew: false)
+                    .tapScaleEffect()
             }
             .padding(.vertical, 4)
         }
@@ -258,6 +263,7 @@ private extension InterviewTabView {
                 verticalPadding: 4) {
                     nc.pagePath.append(.interviewInfoCompanyTypeListView)
                 }
+                .tapScaleEffect()
         }
     }
     
@@ -274,6 +280,7 @@ private extension InterviewTabView {
                 verticalPadding: 4) {
                     nc.pagePath.append(.interviewInfoCareerTypeListView)
                 }
+                .tapScaleEffect()
         }
     }
 }
@@ -298,6 +305,8 @@ private extension InterviewTabView {
 private extension InterviewTabView {
     @ViewBuilder
     func inputFormRecruitTypeButton(isNew: Bool) -> some View {
+        let type = isNew ? RecruitType.new : RecruitType.old
+        
         Button(
             action: {
                 if isNew {
@@ -318,8 +327,9 @@ private extension InterviewTabView {
         )
         .padding(.vertical, 4)
         .padding(.horizontal, 12)
-        .background(isNew ? Color.appAccentColor : Color.appBackground)
-        .foregroundStyle(isNew ? Color.white : Color.black)
+        .background(type == interviewVM.mockInterviewInfo.recruitType
+                    ? Color.appAccentColor : Color.appBackground)
+        .foregroundStyle(type == interviewVM.mockInterviewInfo.recruitType ? .white : .black)
         .clipShape(RoundedRectangle(cornerRadius: AppConstants.buttonRadius))
     }
 }

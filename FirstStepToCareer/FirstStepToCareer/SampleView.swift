@@ -67,7 +67,10 @@ struct SampleView: View {
                 }
             }) {
                 Text("Random")
+                    .padding()
+                    .background(.black)
             }
+            .tapScaleEffect()
             
             Spacer()
         }

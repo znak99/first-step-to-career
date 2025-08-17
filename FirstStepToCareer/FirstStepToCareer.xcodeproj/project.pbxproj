@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		FB1BED662E5284A800041053 /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BED652E5284A800041053 /* NavigationButton.swift */; };
+		FB1BED682E528AD900041053 /* TapScaleEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BED672E528AC900041053 /* TapScaleEffect.swift */; };
+		FB1BED6A2E528D9400041053 /* View+TapScaleEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BED692E528D8A00041053 /* View+TapScaleEffect.swift */; };
 		FB2724B42E50CFB90092408E /* FirstStepToCareerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724A52E50CFB90092408E /* FirstStepToCareerApp.swift */; };
 		FB2724B52E50CFB90092408E /* Color+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724A72E50CFB90092408E /* Color+AppColors.swift */; };
 		FB2724B62E50CFB90092408E /* AppPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724A92E50CFB90092408E /* AppPage.swift */; };
@@ -57,6 +59,8 @@
 
 /* Begin PBXFileReference section */
 		FB1BED652E5284A800041053 /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
+		FB1BED672E528AC900041053 /* TapScaleEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapScaleEffect.swift; sourceTree = "<group>"; };
+		FB1BED692E528D8A00041053 /* View+TapScaleEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+TapScaleEffect.swift"; sourceTree = "<group>"; };
 		FB2724502E50B3CF0092408E /* FirstStepToCareer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirstStepToCareer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB2724A52E50CFB90092408E /* FirstStepToCareerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStepToCareerApp.swift; sourceTree = "<group>"; };
 		FB2724A72E50CFB90092408E /* Color+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+AppColors.swift"; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 		FB2724A82E50CFB90092408E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				FB1BED692E528D8A00041053 /* View+TapScaleEffect.swift */,
 				FB2725222E52138E0092408E /* View+AppStyles.swift */,
 				FB27251E2E5210250092408E /* String+CustomFunctions.swift */,
 				FB2724A72E50CFB90092408E /* Color+AppColors.swift */,
@@ -326,6 +331,7 @@
 		FB27251B2E5201590092408E /* ViewModifier */ = {
 			isa = PBXGroup;
 			children = (
+				FB1BED672E528AC900041053 /* TapScaleEffect.swift */,
 				FB2725202E5213390092408E /* AppCaptionStyle.swift */,
 			);
 			path = ViewModifier;
@@ -436,6 +442,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB1BED682E528AD900041053 /* TapScaleEffect.swift in Sources */,
 				FB2725232E52139A0092408E /* View+AppStyles.swift in Sources */,
 				FB2725072E5124110092408E /* InterviewViewModel.swift in Sources */,
 				FB2724B42E50CFB90092408E /* FirstStepToCareerApp.swift in Sources */,
@@ -459,6 +466,7 @@
 				FB27250D2E51266F0092408E /* CompanyType.swift in Sources */,
 				FB2724C22E50DAC20092408E /* CompanyListTabView.swift in Sources */,
 				FB2724B62E50CFB90092408E /* AppPage.swift in Sources */,
+				FB1BED6A2E528D9400041053 /* View+TapScaleEffect.swift in Sources */,
 				FB2724F92E51179D0092408E /* KeyboardPrewarmView.swift in Sources */,
 				FB2724F12E50F6720092408E /* SampleView.swift in Sources */,
 				FB2724C02E50DAAB0092408E /* InterviewTabView.swift in Sources */,
