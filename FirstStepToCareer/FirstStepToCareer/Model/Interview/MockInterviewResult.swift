@@ -20,7 +20,7 @@ struct MockInterviewResult {
     
     let questions: [MockInterviewQuestion]
     
-    let score: String
+    let score: Float
     
     let createdAt: Date
     let updatedAt: Date
