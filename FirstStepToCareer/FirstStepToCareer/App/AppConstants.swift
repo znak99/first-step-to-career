@@ -14,6 +14,7 @@ enum AppConstants {
     static let buttonRadius: CGFloat = 12
     
     // MARK: - SF Symbols
+    static let chevronLeft = "chevron.left"
     static let chevronRight = "chevron.right"
     
     // MARK: - Util Fuctions

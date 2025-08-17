@@ -10,7 +10,7 @@ import SwiftUI
 struct InterviewTabView: View {
     // MARK: - Variables
     @StateObject var interviewVM = InterviewViewModel()
-    @EnvironmentObject private var navigationController: NavigationController
+    @EnvironmentObject private var nc: NavigationController
     @FocusState private var focus: FocusTarget?
     
     // MARK: - UI
@@ -109,7 +109,8 @@ struct InterviewTabView: View {
                                     isCenterLabel: true,
                                     fontWeight: Font.appSemiBold,
                                     textColor: Color.white,
-                                    backgroundColor: Color.appAccentColor) { // TODO: - 로그인화면으로 Navigation 처리하기
+                                    backgroundColor: Color.appAccentColor,
+                                    verticalPadding: 4) { // TODO: - 로그인화면으로 Navigation 처리하기
                                         
                                     }
                             }
@@ -178,8 +179,9 @@ struct InterviewTabView: View {
                                     isCenterLabel: false,
                                     fontWeight: Font.appRegular,
                                     textColor: Color.black,
-                                    backgroundColor: Color.white) { // TODO: - 기업분야 선택화면으로 Navigation 처리하기
-                                        
+                                    backgroundColor: Color.white,
+                                    verticalPadding: 4) {
+                                        nc.pagePath.append(.interviewInfoCompanyTypeListView)
                                     }
                             }
                             
@@ -191,17 +193,19 @@ struct InterviewTabView: View {
                                     isCenterLabel: false,
                                     fontWeight: Font.appRegular,
                                     textColor: Color.black,
-                                    backgroundColor: Color.white) { // TODO: - 기업분야 선택화면으로 Navigation 처리하기
-                                        
+                                    backgroundColor: Color.white,
+                                    verticalPadding: 4) { // TODO: - 기업분야 선택화면으로 Navigation 처리하기
+                                        nc.pagePath.append(.interviewInfoCareerTypeListView)
                                     }
                             }
                             Divider()
                             InterviewInfoNavigationButton(
                                 label: "模擬面接を始める",
                                 isCenterLabel: true,
-                                fontWeight: Font.appSemiBold,
+                                fontWeight: Font.appMedium,
                                 textColor: Color.white,
-                                backgroundColor: Color.appAccentColor) { // TODO: - 모의면접 준비화면으로 Navigation 처리하기
+                                backgroundColor: Color.appAccentColor,
+                                verticalPadding: 8) { // TODO: - 모의면접 준비화면으로 Navigation 처리하기
                                     
                                 }
                         }
@@ -217,6 +221,16 @@ struct InterviewTabView: View {
                 Spacer()
             }
             .padding(.horizontal, 16)
+            .navigationDestination(for: AppPage.self) { page in
+                switch page {
+                case .interviewInfoCompanyTypeListView:
+                    InterviewInfoCompanyTypeListView(interviewVM: interviewVM)
+                case .interviewInfoCareerTypeListView:
+                    InterviewInfoCareerTypeListView(interviewVM: interviewVM)
+                default:
+                    EmptyView()
+                }
+            }
             
             Color.clear
                 .ignoresSafeArea()

@@ -13,6 +13,7 @@ struct InterviewInfoNavigationButton: View {
     let fontWeight: String
     let textColor: Color
     let backgroundColor: Color
+    let verticalPadding: CGFloat
     let action: () -> Void
     
     var body: some View {
@@ -33,7 +34,7 @@ struct InterviewInfoNavigationButton: View {
             }
         )
         .padding(.trailing, 12)
-        .padding(.vertical, 4)
+        .padding(.vertical, verticalPadding)
         .background(backgroundColor)
         .foregroundStyle(textColor)
         .clipShape(RoundedRectangle(cornerRadius: AppConstants.buttonRadius))
@@ -47,5 +48,6 @@ struct InterviewInfoNavigationButton: View {
         fontWeight: Font.appSemiBold,
         textColor: Color.white,
         backgroundColor: Color.black,
+        verticalPadding: 8,
         action: {})
 }

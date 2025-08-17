@@ -50,6 +50,8 @@
 		FB2725252E5214A40092408E /* InterviewInfoFieldTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2725242E5214A40092408E /* InterviewInfoFieldTitle.swift */; };
 		FB2725272E5215CC0092408E /* InterviewInfoRecruitTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2725262E5215CC0092408E /* InterviewInfoRecruitTypeButton.swift */; };
 		FB27252B2E521B0F0092408E /* InterviewInfoNavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27252A2E521B0F0092408E /* InterviewInfoNavigationButton.swift */; };
+		FB27252D2E52239F0092408E /* InterviewInfoCompanyTypeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27252C2E52239F0092408E /* InterviewInfoCompanyTypeListView.swift */; };
+		FB27252F2E5229380092408E /* InterviewInfoCareerTypeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27252E2E5229380092408E /* InterviewInfoCareerTypeListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +100,8 @@
 		FB2725242E5214A40092408E /* InterviewInfoFieldTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewInfoFieldTitle.swift; sourceTree = "<group>"; };
 		FB2725262E5215CC0092408E /* InterviewInfoRecruitTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewInfoRecruitTypeButton.swift; sourceTree = "<group>"; };
 		FB27252A2E521B0F0092408E /* InterviewInfoNavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewInfoNavigationButton.swift; sourceTree = "<group>"; };
+		FB27252C2E52239F0092408E /* InterviewInfoCompanyTypeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewInfoCompanyTypeListView.swift; sourceTree = "<group>"; };
+		FB27252E2E5229380092408E /* InterviewInfoCareerTypeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewInfoCareerTypeListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +220,8 @@
 			isa = PBXGroup;
 			children = (
 				FB2724BF2E50DAAB0092408E /* InterviewTabView.swift */,
+				FB27252C2E52239F0092408E /* InterviewInfoCompanyTypeListView.swift */,
+				FB27252E2E5229380092408E /* InterviewInfoCareerTypeListView.swift */,
 			);
 			path = Interview;
 			sourceTree = "<group>";
@@ -435,6 +441,7 @@
 				FB2725152E51CD420092408E /* MockInterviewQuestion.swift in Sources */,
 				FB2724B52E50CFB90092408E /* Color+AppColors.swift in Sources */,
 				FB27250F2E51276A0092408E /* MockInterviewInfo.swift in Sources */,
+				FB27252F2E5229380092408E /* InterviewInfoCareerTypeListView.swift in Sources */,
 				FB2724D42E50DC0D0092408E /* AnalysisTabView.swift in Sources */,
 				FB27251D2E5201F10092408E /* TabViewHeader.swift in Sources */,
 				FB2725212E5213450092408E /* AppCaptionStyle.swift in Sources */,
@@ -457,6 +464,7 @@
 				FB2724D62E50DC190092408E /* SettingsTabView.swift in Sources */,
 				FB2724B92E50CFB90092408E /* CustomTabBarView.swift in Sources */,
 				FB2725252E5214A40092408E /* InterviewInfoFieldTitle.swift in Sources */,
+				FB27252D2E52239F0092408E /* InterviewInfoCompanyTypeListView.swift in Sources */,
 				FB2724BA2E50CFB90092408E /* RootView.swift in Sources */,
 				FB2724BB2E50CFB90092408E /* SplashView.swift in Sources */,
 				FB2725112E512A910092408E /* CareerType.swift in Sources */,
