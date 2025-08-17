@@ -18,8 +18,6 @@ struct CustomTabBarView: View {
             switch currentTab {
             case .interview:
                 InterviewTabView()
-            case .analysis:
-                AnalysisTabView()
             case .schedule:
                 ScheduleTabView()
             case .companyList:
@@ -32,7 +30,6 @@ struct CustomTabBarView: View {
                 Spacer()
                 HStack {
                     tabButton(.interview, label: AppTab.interview.label, icon: AppTab.interview.icon)
-                    tabButton(.analysis, label: AppTab.analysis.label, icon: AppTab.analysis.icon)
                     tabButton(.schedule, label: AppTab.schedule.label, icon: AppTab.schedule.icon)
                     tabButton(.companyList, label: AppTab.companyList.label, icon: AppTab.companyList.icon)
                     tabButton(.settings, label: AppTab.settings.label, icon: AppTab.settings.icon)

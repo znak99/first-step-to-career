@@ -20,7 +20,6 @@
 		FB2724C02E50DAAB0092408E /* InterviewTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724BF2E50DAAB0092408E /* InterviewTabView.swift */; };
 		FB2724C22E50DAC20092408E /* CompanyListTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724C12E50DAC20092408E /* CompanyListTabView.swift */; };
 		FB2724C42E50DAD40092408E /* ScheduleTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724C32E50DAD40092408E /* ScheduleTabView.swift */; };
-		FB2724D42E50DC0D0092408E /* AnalysisTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724D32E50DC0D0092408E /* AnalysisTabView.swift */; };
 		FB2724D62E50DC190092408E /* SettingsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724D52E50DC190092408E /* SettingsTabView.swift */; };
 		FB2724E22E50E5200092408E /* NotoSansJP-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB2724DF2E50E5200092408E /* NotoSansJP-Regular.ttf */; };
 		FB2724E32E50E5200092408E /* NotoSansJP-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB2724DA2E50E5200092408E /* NotoSansJP-Bold.ttf */; };
@@ -50,8 +49,6 @@
 		FB27251F2E52103C0092408E /* String+CustomFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27251E2E5210250092408E /* String+CustomFunctions.swift */; };
 		FB2725212E5213450092408E /* AppCaptionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2725202E5213390092408E /* AppCaptionStyle.swift */; };
 		FB2725232E52139A0092408E /* View+AppStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2725222E52138E0092408E /* View+AppStyles.swift */; };
-		FB2725252E5214A40092408E /* InterviewInfoFieldTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2725242E5214A40092408E /* InterviewInfoFieldTitle.swift */; };
-		FB2725272E5215CC0092408E /* InterviewInfoRecruitTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2725262E5215CC0092408E /* InterviewInfoRecruitTypeButton.swift */; };
 		FB27252D2E52239F0092408E /* InterviewInfoCompanyTypeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27252C2E52239F0092408E /* InterviewInfoCompanyTypeListView.swift */; };
 		FB27252F2E5229380092408E /* InterviewInfoCareerTypeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27252E2E5229380092408E /* InterviewInfoCareerTypeListView.swift */; };
 		FB2725332E5233C60092408E /* MockInterviewPrepareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2725322E5233C60092408E /* MockInterviewPrepareView.swift */; };
@@ -72,7 +69,6 @@
 		FB2724BF2E50DAAB0092408E /* InterviewTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewTabView.swift; sourceTree = "<group>"; };
 		FB2724C12E50DAC20092408E /* CompanyListTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListTabView.swift; sourceTree = "<group>"; };
 		FB2724C32E50DAD40092408E /* ScheduleTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTabView.swift; sourceTree = "<group>"; };
-		FB2724D32E50DC0D0092408E /* AnalysisTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisTabView.swift; sourceTree = "<group>"; };
 		FB2724D52E50DC190092408E /* SettingsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabView.swift; sourceTree = "<group>"; };
 		FB2724D92E50E5200092408E /* NotoSansJP-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Black.ttf"; sourceTree = "<group>"; };
 		FB2724DA2E50E5200092408E /* NotoSansJP-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Bold.ttf"; sourceTree = "<group>"; };
@@ -103,8 +99,6 @@
 		FB27251E2E5210250092408E /* String+CustomFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CustomFunctions.swift"; sourceTree = "<group>"; };
 		FB2725202E5213390092408E /* AppCaptionStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCaptionStyle.swift; sourceTree = "<group>"; };
 		FB2725222E52138E0092408E /* View+AppStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+AppStyles.swift"; sourceTree = "<group>"; };
-		FB2725242E5214A40092408E /* InterviewInfoFieldTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewInfoFieldTitle.swift; sourceTree = "<group>"; };
-		FB2725262E5215CC0092408E /* InterviewInfoRecruitTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewInfoRecruitTypeButton.swift; sourceTree = "<group>"; };
 		FB27252C2E52239F0092408E /* InterviewInfoCompanyTypeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewInfoCompanyTypeListView.swift; sourceTree = "<group>"; };
 		FB27252E2E5229380092408E /* InterviewInfoCareerTypeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewInfoCareerTypeListView.swift; sourceTree = "<group>"; };
 		FB2725322E5233C60092408E /* MockInterviewPrepareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockInterviewPrepareView.swift; sourceTree = "<group>"; };
@@ -184,7 +178,6 @@
 				FB2724CD2E50DB970092408E /* Interview */,
 				FB2724D22E50DB970092408E /* CompanyList */,
 				FB2724CF2E50DB970092408E /* Schedule */,
-				FB2724CC2E50DB970092408E /* Analysis */,
 				FB2724D02E50DB970092408E /* Settings */,
 				FB2724F32E50F8C90092408E /* Component */,
 			);
@@ -213,14 +206,6 @@
 				FB2725062E5124110092408E /* InterviewViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		FB2724CC2E50DB970092408E /* Analysis */ = {
-			isa = PBXGroup;
-			children = (
-				FB2724D32E50DC0D0092408E /* AnalysisTabView.swift */,
-			);
-			path = Analysis;
 			sourceTree = "<group>";
 		};
 		FB2724CD2E50DB970092408E /* Interview */ = {
@@ -297,8 +282,6 @@
 				FB2724F62E50F9050092408E /* CircleLineShape.swift */,
 				FB2724F82E51179D0092408E /* KeyboardPrewarmView.swift */,
 				FB27251C2E5201F00092408E /* TabViewHeader.swift */,
-				FB2725242E5214A40092408E /* InterviewInfoFieldTitle.swift */,
-				FB2725262E5215CC0092408E /* InterviewInfoRecruitTypeButton.swift */,
 				FB1BED652E5284A800041053 /* NavigationButton.swift */,
 			);
 			path = Component;
@@ -448,12 +431,10 @@
 				FB2724B42E50CFB90092408E /* FirstStepToCareerApp.swift in Sources */,
 				FB1BED662E5284A800041053 /* NavigationButton.swift in Sources */,
 				FB2725132E51CC970092408E /* MockInterviewResult.swift in Sources */,
-				FB2725272E5215CC0092408E /* InterviewInfoRecruitTypeButton.swift in Sources */,
 				FB2725152E51CD420092408E /* MockInterviewQuestion.swift in Sources */,
 				FB2724B52E50CFB90092408E /* Color+AppColors.swift in Sources */,
 				FB27250F2E51276A0092408E /* MockInterviewInfo.swift in Sources */,
 				FB27252F2E5229380092408E /* InterviewInfoCareerTypeListView.swift in Sources */,
-				FB2724D42E50DC0D0092408E /* AnalysisTabView.swift in Sources */,
 				FB27251D2E5201F10092408E /* TabViewHeader.swift in Sources */,
 				FB2725212E5213450092408E /* AppCaptionStyle.swift in Sources */,
 				FB27250B2E51257E0092408E /* RecruitType.swift in Sources */,
@@ -475,7 +456,6 @@
 				FB2724FD2E511B660092408E /* FocusTarget.swift in Sources */,
 				FB2724D62E50DC190092408E /* SettingsTabView.swift in Sources */,
 				FB2724B92E50CFB90092408E /* CustomTabBarView.swift in Sources */,
-				FB2725252E5214A40092408E /* InterviewInfoFieldTitle.swift in Sources */,
 				FB27252D2E52239F0092408E /* InterviewInfoCompanyTypeListView.swift in Sources */,
 				FB2724BA2E50CFB90092408E /* RootView.swift in Sources */,
 				FB2724BB2E50CFB90092408E /* SplashView.swift in Sources */,
