@@ -141,9 +141,7 @@ struct InterviewTabView: View {
                     .background(.white)
                     .clipShape(RoundedRectangle(cornerRadius: AppConstants.boxRadius))
                     .padding(.top)
-                    
                     Divider()
-                    
                     // Mock Interview Info
                     Text("簡単な情報を入力して模擬面接を行いましょう！")
                         .font(.custom(Font.appMedium, size: 12, relativeTo: .title2))

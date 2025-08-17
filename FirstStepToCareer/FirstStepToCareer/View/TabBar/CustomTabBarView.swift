@@ -46,18 +46,23 @@ struct CustomTabBarView: View {
     
     // MARK: - Functions
     private func tabButton(_ tab: AppTab, label: String, icon: String) -> some View {
-        Button(action: { currentTab = tab}) {
-            VStack {
-                Image(systemName: icon)
-                    .font(.system(size: tabIconSize))
-                    .frame(width: tabIconSize, height: tabIconSize)
-                Text(label)
-                    .font(.caption)
+        Button(
+            action: {
+                currentTab = tab
+            },
+            label: {
+                VStack {
+                    Image(systemName: icon)
+                        .font(.system(size: tabIconSize))
+                        .frame(width: tabIconSize, height: tabIconSize)
+                    Text(label)
+                        .font(.caption)
+                }
+                .padding(.horizontal)
+                .foregroundColor(currentTab == tab ? .appTabBarAccent : .appTabBarGray)
+                .frame(maxWidth: .infinity)
             }
-            .padding(.horizontal)
-            .foregroundColor(currentTab == tab ? .appTabBarAccent : .appTabBarGray)
-            .frame(maxWidth: .infinity)
-        }
+        )
     }
 }
 
