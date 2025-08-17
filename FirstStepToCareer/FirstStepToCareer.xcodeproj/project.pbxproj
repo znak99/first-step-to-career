@@ -52,6 +52,7 @@
 		FB27252B2E521B0F0092408E /* InterviewInfoNavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27252A2E521B0F0092408E /* InterviewInfoNavigationButton.swift */; };
 		FB27252D2E52239F0092408E /* InterviewInfoCompanyTypeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27252C2E52239F0092408E /* InterviewInfoCompanyTypeListView.swift */; };
 		FB27252F2E5229380092408E /* InterviewInfoCareerTypeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27252E2E5229380092408E /* InterviewInfoCareerTypeListView.swift */; };
+		FB2725332E5233C60092408E /* MockInterviewPrepareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2725322E5233C60092408E /* MockInterviewPrepareView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +103,7 @@
 		FB27252A2E521B0F0092408E /* InterviewInfoNavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewInfoNavigationButton.swift; sourceTree = "<group>"; };
 		FB27252C2E52239F0092408E /* InterviewInfoCompanyTypeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewInfoCompanyTypeListView.swift; sourceTree = "<group>"; };
 		FB27252E2E5229380092408E /* InterviewInfoCareerTypeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewInfoCareerTypeListView.swift; sourceTree = "<group>"; };
+		FB2725322E5233C60092408E /* MockInterviewPrepareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockInterviewPrepareView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 				FB2724BF2E50DAAB0092408E /* InterviewTabView.swift */,
 				FB27252C2E52239F0092408E /* InterviewInfoCompanyTypeListView.swift */,
 				FB27252E2E5229380092408E /* InterviewInfoCareerTypeListView.swift */,
+				FB2725322E5233C60092408E /* MockInterviewPrepareView.swift */,
 			);
 			path = Interview;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				FB2724ED2E50E5DA0092408E /* Font+AppFonts.swift in Sources */,
 				FB2724EF2E50EE960092408E /* AppConstants.swift in Sources */,
 				FB2724C42E50DAD40092408E /* ScheduleTabView.swift in Sources */,
+				FB2725332E5233C60092408E /* MockInterviewPrepareView.swift in Sources */,
 				FB27250D2E51266F0092408E /* CompanyType.swift in Sources */,
 				FB2724C22E50DAC20092408E /* CompanyListTabView.swift in Sources */,
 				FB2724B62E50CFB90092408E /* AppPage.swift in Sources */,

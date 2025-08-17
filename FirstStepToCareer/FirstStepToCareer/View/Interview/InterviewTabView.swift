@@ -194,7 +194,7 @@ struct InterviewTabView: View {
                                     fontWeight: Font.appRegular,
                                     textColor: Color.black,
                                     backgroundColor: Color.white,
-                                    verticalPadding: 4) { // TODO: - 기업분야 선택화면으로 Navigation 처리하기
+                                    verticalPadding: 4) {
                                         nc.pagePath.append(.interviewInfoCareerTypeListView)
                                     }
                             }
@@ -205,8 +205,12 @@ struct InterviewTabView: View {
                                 fontWeight: Font.appMedium,
                                 textColor: Color.white,
                                 backgroundColor: Color.appAccentColor,
-                                verticalPadding: 8) { // TODO: - 모의면접 준비화면으로 Navigation 처리하기
-                                    
+                                verticalPadding: 8) {
+                                    if interviewVM.isValidMockInterviewInfo() {
+                                        nc.pagePath.append(.mockInterviewPrepareView)
+                                    } else {
+                                        // TODO: - 정보입력하라는 Alert 띄우기
+                                    }
                                 }
                         }
                         .padding(.top, 2)
@@ -227,6 +231,8 @@ struct InterviewTabView: View {
                     InterviewInfoCompanyTypeListView(interviewVM: interviewVM)
                 case .interviewInfoCareerTypeListView:
                     InterviewInfoCareerTypeListView(interviewVM: interviewVM)
+                case .mockInterviewPrepareView:
+                    MockInterviewPrepareView(interviewVM: interviewVM)
                 default:
                     EmptyView()
                 }
