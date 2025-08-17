@@ -1,27 +1,29 @@
 //
-//  InterviewInfoNavigationButton.swift
+//  NavigationButton.swift
 //  FirstStepToCareer
 //
-//  Created by seungwoo on 2025/08/17.
+//  Created by seungwoo on 2025/08/18.
 //
 
 import SwiftUI
 
-struct InterviewInfoNavigationButton: View {
+struct NavigationButton: View {
+    // MARK: - Variables
     let label: String
-    let isCenterLabel: Bool
+    let isLabelCenter: Bool
     let fontWeight: String
     let textColor: Color
     let backgroundColor: Color
     let verticalPadding: CGFloat
     let action: () -> Void
     
+    // MARK: - UI
     var body: some View {
         Button(
             action: action,
             label: {
                 HStack {
-                    if isCenterLabel {
+                    if isLabelCenter {
                         Spacer()
                     }
                     Text(label)
@@ -42,12 +44,10 @@ struct InterviewInfoNavigationButton: View {
 }
 
 #Preview {
-    InterviewInfoNavigationButton(
-        label: "模擬面接を始める",
-        isCenterLabel: true,
+    NavigationButton(
+        label: "LABEL",
+        isLabelCenter: true,
         fontWeight: Font.appSemiBold,
-        textColor: Color.white,
-        backgroundColor: Color.black,
-        verticalPadding: 8,
-        action: {})
+        textColor: .appBackground,
+        backgroundColor: .blue, verticalPadding: 8, action: {})
 }
