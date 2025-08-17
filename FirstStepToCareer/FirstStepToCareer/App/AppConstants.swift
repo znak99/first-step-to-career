@@ -9,4 +9,7 @@ import Foundation
 
 enum AppConstants {
     static let boxRadius: CGFloat = 16
+    static let componentRadius: CGFloat = 12
+    
+    static let chevronRight = "chevron.right"
 }

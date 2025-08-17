@@ -14,7 +14,7 @@ struct CustomTabBarView: View {
     
     // MARK: - UI
     var body: some View {
-        VStack(spacing: 0) {
+        ZStack {
             switch currentTab {
             case .interview:
                 InterviewTabView()
@@ -28,17 +28,19 @@ struct CustomTabBarView: View {
                 SettingsTabView()
             }
             
-            Spacer()
-            
-            HStack {
-                tabButton(.interview, label: AppTab.interview.label, icon: AppTab.interview.icon)
-                tabButton(.companyList, label: AppTab.companyList.label, icon: AppTab.companyList.icon)
-                tabButton(.schedule, label: AppTab.schedule.label, icon: AppTab.schedule.icon)
-                tabButton(.analysis, label: AppTab.analysis.label, icon: AppTab.analysis.icon)
-                tabButton(.settings, label: AppTab.settings.label, icon: AppTab.settings.icon)
+            VStack(spacing: 0) {
+                Spacer()
+                HStack {
+                    tabButton(.interview, label: AppTab.interview.label, icon: AppTab.interview.icon)
+                    tabButton(.companyList, label: AppTab.companyList.label, icon: AppTab.companyList.icon)
+                    tabButton(.schedule, label: AppTab.schedule.label, icon: AppTab.schedule.icon)
+                    tabButton(.analysis, label: AppTab.analysis.label, icon: AppTab.analysis.icon)
+                    tabButton(.settings, label: AppTab.settings.label, icon: AppTab.settings.icon)
+                }
+                .padding(.top, 8)
+                .background(Color.appTabBarBackground)
             }
-            .padding(.top, 8)
-            .background(Color.appTabBarBackground)
+            .ignoresSafeArea(.keyboard, edges: .bottom)
         }
     }
     

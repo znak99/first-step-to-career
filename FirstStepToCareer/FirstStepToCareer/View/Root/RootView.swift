@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RootView: View {
     // MARK: - Variables
-    @State private var isAppReady = true
+    @State private var isAppReady = false
     
     @EnvironmentObject private var navController: NavigationController
     
@@ -17,7 +17,11 @@ struct RootView: View {
     var body: some View {
         NavigationStack(path: $navController.pagePath) {
             if isAppReady {
-                CustomTabBarView()
+                ZStack {
+                    CustomTabBarView()
+                    KeyboardPrewarmView()
+                        .frame(width: 0, height: 0)
+                }
             } else {
                 SplashView()
             }
