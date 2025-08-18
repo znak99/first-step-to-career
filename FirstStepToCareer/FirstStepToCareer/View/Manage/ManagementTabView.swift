@@ -1,13 +1,13 @@
 //
-//  ScheduleTabView.swift
+//  ManagementTabView.swift
 //  FirstStepToCareer
 //
-//  Created by seungwoo on 2025/08/17.
+//  Created by seungwoo on 2025/08/18.
 //
 
 import SwiftUI
 
-struct ScheduleTabView: View {
+struct ManagementTabView: View {
     // MARK: - Variables
     
     // MARK: - UI
@@ -20,9 +20,9 @@ struct ScheduleTabView: View {
             VStack {
                 // Header
                 TabViewHeader(
-                    icon: AppConstants.scheduleTabHeaderIcon,
-                    title: "Schedule",
-                    caption: "就活はスケジュール管理が大事！\n締切守れば準備がはかどって、余裕もできます！"
+                    icon: AppConstants.managementTabHeaderIcon,
+                    title: "Management",
+                    caption: "進捗・締切・連絡履歴を一元化すれば、\n抜け漏れ防止＆次の一手が速く決められます！"
                 )
                 
                 Spacer()
@@ -39,5 +39,5 @@ struct ScheduleTabView: View {
 }
 
 #Preview {
-    ScheduleTabView()
+    ManagementTabView()
 }

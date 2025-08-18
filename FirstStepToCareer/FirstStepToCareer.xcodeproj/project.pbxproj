@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FB1BED662E5284A800041053 /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BED652E5284A800041053 /* NavigationButton.swift */; };
 		FB1BED682E528AD900041053 /* TapScaleEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BED672E528AC900041053 /* TapScaleEffect.swift */; };
 		FB1BED6A2E528D9400041053 /* View+TapScaleEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BED692E528D8A00041053 /* View+TapScaleEffect.swift */; };
-		FB1BED6E2E53416C00041053 /* ManageTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BED6D2E53416C00041053 /* ManageTabView.swift */; };
+		FB1BED6E2E53416C00041053 /* ManagementTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BED6D2E53416C00041053 /* ManagementTabView.swift */; };
+		FB1BED722E535A4D00041053 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BED712E535A4D00041053 /* CustomTextField.swift */; };
+		FB1BED752E53743000041053 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = FB1BED742E53743000041053 /* Shimmer */; };
+		FB1BED772E537AB900041053 /* InterviewAnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BED762E537AB900041053 /* InterviewAnalysisView.swift */; };
+		FB1BED792E537AD000041053 /* InterviewHistoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BED782E537AD000041053 /* InterviewHistoryListView.swift */; };
+		FB1BED7B2E537AE000041053 /* InterviewPrepareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BED7A2E537AE000041053 /* InterviewPrepareView.swift */; };
 		FB2724B42E50CFB90092408E /* FirstStepToCareerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724A52E50CFB90092408E /* FirstStepToCareerApp.swift */; };
 		FB2724B52E50CFB90092408E /* Color+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724A72E50CFB90092408E /* Color+AppColors.swift */; };
 		FB2724B62E50CFB90092408E /* AppPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724A92E50CFB90092408E /* AppPage.swift */; };
@@ -51,14 +55,16 @@
 		FB2725232E52139A0092408E /* View+AppStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2725222E52138E0092408E /* View+AppStyles.swift */; };
 		FB27252D2E52239F0092408E /* InterviewInfoCompanyTypeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27252C2E52239F0092408E /* InterviewInfoCompanyTypeListView.swift */; };
 		FB27252F2E5229380092408E /* InterviewInfoCareerTypeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27252E2E5229380092408E /* InterviewInfoCareerTypeListView.swift */; };
-		FB2725332E5233C60092408E /* MockInterviewPrepareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2725322E5233C60092408E /* MockInterviewPrepareView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FB1BED652E5284A800041053 /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
 		FB1BED672E528AC900041053 /* TapScaleEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapScaleEffect.swift; sourceTree = "<group>"; };
 		FB1BED692E528D8A00041053 /* View+TapScaleEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+TapScaleEffect.swift"; sourceTree = "<group>"; };
-		FB1BED6D2E53416C00041053 /* ManageTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTabView.swift; sourceTree = "<group>"; };
+		FB1BED6D2E53416C00041053 /* ManagementTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementTabView.swift; sourceTree = "<group>"; };
+		FB1BED712E535A4D00041053 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		FB1BED762E537AB900041053 /* InterviewAnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewAnalysisView.swift; sourceTree = "<group>"; };
+		FB1BED782E537AD000041053 /* InterviewHistoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewHistoryListView.swift; sourceTree = "<group>"; };
+		FB1BED7A2E537AE000041053 /* InterviewPrepareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewPrepareView.swift; sourceTree = "<group>"; };
 		FB2724502E50B3CF0092408E /* FirstStepToCareer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirstStepToCareer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB2724A52E50CFB90092408E /* FirstStepToCareerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStepToCareerApp.swift; sourceTree = "<group>"; };
 		FB2724A72E50CFB90092408E /* Color+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+AppColors.swift"; sourceTree = "<group>"; };
@@ -101,7 +107,6 @@
 		FB2725222E52138E0092408E /* View+AppStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+AppStyles.swift"; sourceTree = "<group>"; };
 		FB27252C2E52239F0092408E /* InterviewInfoCompanyTypeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewInfoCompanyTypeListView.swift; sourceTree = "<group>"; };
 		FB27252E2E5229380092408E /* InterviewInfoCareerTypeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewInfoCareerTypeListView.swift; sourceTree = "<group>"; };
-		FB2725322E5233C60092408E /* MockInterviewPrepareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockInterviewPrepareView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB1BED752E53743000041053 /* Shimmer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,7 +124,7 @@
 		FB1BED6C2E5340F000041053 /* Manage */ = {
 			isa = PBXGroup;
 			children = (
-				FB1BED6D2E53416C00041053 /* ManageTabView.swift */,
+				FB1BED6D2E53416C00041053 /* ManagementTabView.swift */,
 			);
 			path = Manage;
 			sourceTree = "<group>";
@@ -222,7 +228,9 @@
 				FB2724BF2E50DAAB0092408E /* InterviewTabView.swift */,
 				FB27252C2E52239F0092408E /* InterviewInfoCompanyTypeListView.swift */,
 				FB27252E2E5229380092408E /* InterviewInfoCareerTypeListView.swift */,
-				FB2725322E5233C60092408E /* MockInterviewPrepareView.swift */,
+				FB1BED762E537AB900041053 /* InterviewAnalysisView.swift */,
+				FB1BED782E537AD000041053 /* InterviewHistoryListView.swift */,
+				FB1BED7A2E537AE000041053 /* InterviewPrepareView.swift */,
 			);
 			path = Interview;
 			sourceTree = "<group>";
@@ -282,7 +290,7 @@
 				FB2724F62E50F9050092408E /* CircleLineShape.swift */,
 				FB2724F82E51179D0092408E /* KeyboardPrewarmView.swift */,
 				FB27251C2E5201F00092408E /* TabViewHeader.swift */,
-				FB1BED652E5284A800041053 /* NavigationButton.swift */,
+				FB1BED712E535A4D00041053 /* CustomTextField.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -338,6 +346,7 @@
 			);
 			name = FirstStepToCareer;
 			packageProductDependencies = (
+				FB1BED742E53743000041053 /* Shimmer */,
 			);
 			productName = FirstStepToCareer;
 			productReference = FB2724502E50B3CF0092408E /* FirstStepToCareer.app */;
@@ -368,6 +377,7 @@
 			mainGroup = FB2724472E50B3CF0092408E;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
+				FB1BED732E53743000041053 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FB2724512E50B3CF0092408E /* Products */;
@@ -429,24 +439,26 @@
 				FB2725232E52139A0092408E /* View+AppStyles.swift in Sources */,
 				FB2725072E5124110092408E /* InterviewViewModel.swift in Sources */,
 				FB2724B42E50CFB90092408E /* FirstStepToCareerApp.swift in Sources */,
-				FB1BED662E5284A800041053 /* NavigationButton.swift in Sources */,
+				FB1BED772E537AB900041053 /* InterviewAnalysisView.swift in Sources */,
+				FB1BED7B2E537AE000041053 /* InterviewPrepareView.swift in Sources */,
 				FB2725132E51CC970092408E /* MockInterviewResult.swift in Sources */,
 				FB2725152E51CD420092408E /* MockInterviewQuestion.swift in Sources */,
 				FB2724B52E50CFB90092408E /* Color+AppColors.swift in Sources */,
 				FB27250F2E51276A0092408E /* MockInterviewInfo.swift in Sources */,
 				FB27252F2E5229380092408E /* InterviewInfoCareerTypeListView.swift in Sources */,
 				FB27251D2E5201F10092408E /* TabViewHeader.swift in Sources */,
+				FB1BED792E537AD000041053 /* InterviewHistoryListView.swift in Sources */,
 				FB2725212E5213450092408E /* AppCaptionStyle.swift in Sources */,
 				FB27250B2E51257E0092408E /* RecruitType.swift in Sources */,
 				FB27251F2E52103C0092408E /* String+CustomFunctions.swift in Sources */,
 				FB2725052E511B9F0092408E /* AppTab.swift in Sources */,
+				FB1BED722E535A4D00041053 /* CustomTextField.swift in Sources */,
 				FB2724ED2E50E5DA0092408E /* Font+AppFonts.swift in Sources */,
 				FB2724EF2E50EE960092408E /* AppConstants.swift in Sources */,
 				FB2724C42E50DAD40092408E /* ScheduleTabView.swift in Sources */,
-				FB2725332E5233C60092408E /* MockInterviewPrepareView.swift in Sources */,
 				FB27250D2E51266F0092408E /* CompanyType.swift in Sources */,
 				FB2724B62E50CFB90092408E /* AppPage.swift in Sources */,
-				FB1BED6E2E53416C00041053 /* ManageTabView.swift in Sources */,
+				FB1BED6E2E53416C00041053 /* ManagementTabView.swift in Sources */,
 				FB1BED6A2E528D9400041053 /* View+TapScaleEffect.swift in Sources */,
 				FB2724F92E51179D0092408E /* KeyboardPrewarmView.swift in Sources */,
 				FB2724F12E50F6720092408E /* SampleView.swift in Sources */,
@@ -683,6 +695,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FB1BED732E53743000041053 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/markiv/SwiftUI-Shimmer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FB1BED742E53743000041053 /* Shimmer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB1BED732E53743000041053 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;
+			productName = Shimmer;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FB2724482E50B3CF0092408E /* Project object */;
 }

@@ -56,7 +56,7 @@ struct SampleView: View {
             }
             .padding(.horizontal)
             
-            Button(action: {
+            Button("Random") {
                 withAnimation {
                     purpleChartPercent = (Double.random(in: 1..<100) * 10).rounded() / 10
                     greenChartPercent = (Double.random(in: 1..<100) * 10).rounded() / 10
@@ -65,11 +65,9 @@ struct SampleView: View {
                     purpleChartEnd += 270 * (purpleChartPercent * 0.01)
                     greenChartEnd += 270 * (greenChartPercent * 0.01)
                 }
-            }) {
-                Text("Random")
-                    .padding()
-                    .background(.black)
             }
+            .padding()
+            .background(.black)
             .tapScaleEffect()
             
             Spacer()

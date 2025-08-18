@@ -6,334 +6,241 @@
 //
 
 import SwiftUI
+import Charts
+
+// Temp Data
+struct InterviewData: Identifiable {
+    let id: UUID = .init()
+    let day: String
+    let count: Int
+}
 
 struct InterviewTabView: View {
     // MARK: - Variables
+    let buttonDelay: DispatchTime = .now() + 0.1
+    @State private var isSomeButtonTapped = false
     @StateObject var interviewVM = InterviewViewModel()
     @EnvironmentObject private var nc: NavigationController
     @FocusState private var focus: FocusTarget?
+    
+    let data: [InterviewData] = [
+        InterviewData(day: "1", count: 2),
+        InterviewData(day: "2", count: 1),
+        InterviewData(day: "3", count: 3),
+        InterviewData(day: "4", count: 0),
+        InterviewData(day: "5", count: 0),
+        InterviewData(day: "6", count: 1),
+        InterviewData(day: "7", count: 0),
+        InterviewData(day: "8", count: 1),
+        InterviewData(day: "9", count: 0),
+        InterviewData(day: "10", count: 0),
+        InterviewData(day: "11", count: 0),
+        InterviewData(day: "12", count: 3),
+        InterviewData(day: "13", count: 0),
+        InterviewData(day: "14", count: 0),
+        InterviewData(day: "15", count: 2),
+        InterviewData(day: "16", count: 0),
+        InterviewData(day: "17", count: 1),
+        InterviewData(day: "18", count: 0),
+        InterviewData(day: "19", count: 4),
+        InterviewData(day: "20", count: 0),
+        InterviewData(day: "21", count: 3),
+        InterviewData(day: "21", count: 0),
+        InterviewData(day: "22", count: 1),
+        InterviewData(day: "23", count: 0),
+        InterviewData(day: "24", count: 1),
+        InterviewData(day: "25", count: 0),
+        InterviewData(day: "26", count: 1),
+        InterviewData(day: "27", count: 0),
+        InterviewData(day: "28", count: 0),
+        InterviewData(day: "29", count: 1),
+        InterviewData(day: "30", count: 1),
+        InterviewData(day: "31", count: 2)
+    ]
     
     // MARK: - UI
     var body: some View {
         ZStack {
             // Background
             Color.appBackground.ignoresSafeArea()
+            
             // Main Contents
             VStack {
                 // Header
                 TabViewHeader(
-                    icon: "video.fill",
-                    iconRotateDegrees: -10,
-                    title: "Mock Interview",
+                    icon: AppConstants.interviewTabHeaderIcon,
+                    title: "Interview",
                     caption: "模擬面接で本番を想定した練習をすれば\n落ち着いて話せて自分らしさをしっかり伝えられます！"
                 )
-                // Scroll View
-                ScrollView(.vertical) {
-                    // History
-                    VStack {
-                        if let bestResult = interviewVM.bestResult {
-                            interviewResultBox(bestResult: bestResult)
-                        } else {
-                            noInterviewResultLoginBox()
+                
+                ScrollView {
+                    // Analysis
+                    // TODO: - 분석할 데이터 없을때 보여줄 뷰 작성하기
+                    VStack(spacing: 2) {
+                        categoryTitle(icon: AppConstants.interviewTabAnalysisIcon, text: "分析")
+                        VStack { // TODO: - 차트 디자인 및 내용 수정하기
+                            Chart(data) { item in
+                                BarMark(
+                                    x: .value("", item.day),
+                                    y: .value("", item.count))
+                            }
+                            .frame(maxHeight: 120)
+                            .foregroundStyle(Color.appGrayFont)
+                            .clipShape(RoundedRectangle(cornerRadius: 6))
+                            Divider()
+                            Button(
+                                action: {
+                                    isSomeButtonTapped = true
+                                    DispatchQueue.main.asyncAfter(deadline: buttonDelay) {
+                                        nc.pagePath.append(.interviewAnalysisView)
+                                        isSomeButtonTapped = false
+                                    }
+                                },
+                                label: {
+                                    HStack {
+                                        Text("分析結果の詳細を見る")
+                                            .font(.custom(Font.appSemiBold, size: 14))
+                                        Spacer()
+                                        Image(systemName: AppConstants.chevronRight)
+                                    }
+                                }
+                            )
+                            .disabled(isSomeButtonTapped)
+                            .tapScaleEffect()
+                            .foregroundStyle(Color.appGrayFont)
                         }
+                        .padding()
+                        .background(.white)
+                        .clipShape(RoundedRectangle(cornerRadius: AppConstants.sectionRadius))
                     }
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: AppConstants.boxRadius))
                     .padding(.top)
                     
                     Divider()
                     
-                    // Mock Interview Info
-                    Text("簡単な情報を入力して模擬面接を行いましょう！")
-                        .appCaptionStyle()
-                    VStack {
+                    // History
+                    // TODO: - 로그인 안되어있을때 보여줄 뷰 작성하기
+                    VStack(spacing: 2) {
+                        categoryTitle(icon: AppConstants.interviewTabHistoryIcon, text: "履歴")
                         VStack {
-                            // Company Name
-                            inputFormCompanyName()
-                            
-                            // Recruit Type
-                            inputFormRecruitType()
-                            
-                            // Company Type
-                            inputFormCompanyType()
-                            
-                            // CareerType
-                            inputFormCareerType()
-                            
+                            Text("この模擬面接すごく良かったです！👍")
+                                .appCaptionStyle()
+                            HStack(alignment: .firstTextBaseline) {
+                                Text("株式会社就活一歩")
+                                    .font(.custom(Font.appSemiBold, size: 20))
+                                Spacer()
+                                Text("2025/08/01")
+                                    .font(.custom(Font.appSemiBold, size: 12))
+                                    .foregroundStyle(Color.appGrayFont)
+                            }
                             Divider()
-                            
-                            NavigationButton(
-                                label: "模擬面接を始める",
-                                isLabelCenter: true,
-                                fontWeight: Font.appMedium,
-                                textColor: Color.white,
-                                backgroundColor: Color.appAccentColor,
-                                verticalPadding: 8) {
-                                    if interviewVM.isValidMockInterviewInfo() {
-                                        nc.pagePath.append(.mockInterviewPrepareView)
-                                    } else {
-                                        // TODO: - 정보입력하라는 Alert 띄우기
+                            Button(
+                                action: {
+                                    isSomeButtonTapped = true
+                                    DispatchQueue.main.asyncAfter(deadline: buttonDelay) {
+                                        nc.pagePath.append(.interviewHistoryListView)
+                                        isSomeButtonTapped = false
+                                    }
+                                },
+                                label: {
+                                    HStack {
+                                        Text("過去の面接履歴を見る")
+                                            .font(.custom(Font.appSemiBold, size: 14))
+                                        Spacer()
+                                        Image(systemName: AppConstants.chevronRight)
                                     }
                                 }
-                                .tapScaleEffect()
+                            )
+                            .disabled(isSomeButtonTapped)
+                            .tapScaleEffect()
+                            .foregroundStyle(Color.appGrayFont)
                         }
-                        .padding(.top, 2)
+                        .padding()
+                        .background(.white)
+                        .clipShape(RoundedRectangle(cornerRadius: AppConstants.sectionRadius))
                     }
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: AppConstants.boxRadius))
+                    .padding(.top)
+                    
+                    Divider()
+                    
+                    // Interview
+                    VStack(spacing: 2) {
+                        categoryTitle(icon: AppConstants.interviewTabInterviewIcon, text: "面接")
+                        VStack {
+                            Text("簡単な情報を入力して模擬面接を行いましょう！")
+                                .appCaptionStyle()
+                            Button(
+                                action: {
+                                    isSomeButtonTapped = true
+                                    DispatchQueue.main.asyncAfter(deadline: buttonDelay) {
+                                        nc.pagePath.append(.interviewPrepareView)
+                                        isSomeButtonTapped = false
+                                    }
+                                },
+                                label: {
+                                    HStack {
+                                        Image(AppConstants.interviewTabFocus)
+                                            .resizable()
+                                            .frame(width: 20, height: 20)
+                                        Text("模擬面接を始める")
+                                            .font(.custom(Font.appSemiBold, size: 16))
+                                        Spacer()
+                                        Image(systemName: AppConstants.chevronRight)
+                                    }
+                                }
+                            )
+                            .disabled(isSomeButtonTapped)
+                            .tapScaleEffect()
+                            .padding(12)
+                            .background {
+                                LinearGradient(
+                                    colors: [Color.appPrimaryGradient01, Color.appPrimaryGradient02],
+                                    startPoint: .top, endPoint: .bottom)
+                            }
+                            .clipShape(RoundedRectangle(cornerRadius: AppConstants.boxRadius))
+                            .foregroundStyle(.white)
+                            .padding(.top, 8)
+                        }
+                        .padding()
+                        .background(.white)
+                        .clipShape(RoundedRectangle(cornerRadius: AppConstants.sectionRadius))
+                    }
+                    .padding(.top)
                 }
-                .scrollDismissesKeyboard(.interactively)
-                
-                Spacer()
             }
             .padding(.horizontal, 16)
             .navigationDestination(for: AppPage.self) { page in
                 switch page {
-                case .interviewInfoCompanyTypeListView:
-                    InterviewInfoCompanyTypeListView(interviewVM: interviewVM)
-                case .interviewInfoCareerTypeListView:
-                    InterviewInfoCareerTypeListView(interviewVM: interviewVM)
-                case .mockInterviewPrepareView:
-                    MockInterviewPrepareView(interviewVM: interviewVM)
+                case .interviewAnalysisView:
+                    InterviewAnalysisView()
+                case .interviewHistoryListView:
+                    InterviewHistoryListView()
+                case .interviewPrepareView:
+                    InterviewPrepareView()
                 default:
                     EmptyView()
                 }
             }
-            
-            Color.clear
-                .ignoresSafeArea()
-                .contentShape(Rectangle())
-                .allowsHitTesting(focus != nil)
-                .onTapGesture {
-                    focus = nil
-                }
         }
-    }
-}
-
-// MARK: - Sub View
-private extension InterviewTabView {
-    @ViewBuilder
-    func interviewResultBox(bestResult: MockInterviewResult) -> some View {
-        Button(
-            action: { // TODO: - 모의면접 상세화면(최고점수)으로 Navigation 처리하기
-                
-            },
-            label: {
-                VStack {
-                    Text("この模擬面接すごく良かったです！👍")
-                        .appCaptionStyle()
-                    HStack(alignment: .firstTextBaseline) {
-                        Text(bestResult.companyName.truncated(24))
-                            .font(.custom(Font.appBold, size: 20, relativeTo: .title))
-                        Spacer()
-                        Text(AppConstants.formatDate(bestResult.createdAt))
-                            .font(.custom(Font.appRegular, size: 12, relativeTo: .subheadline))
-                            .foregroundStyle(Color.appGrayFont)
-                    }
-                    HStack {
-                        VStack(alignment: .center) {
-                            Image(systemName: "building.2.fill")
-                            Image(systemName: bestResult.recruitType == RecruitType.new.label ?
-                                  RecruitType.new.icon : RecruitType.old.icon)
-                        }
-                        .font(.footnote)
-                        VStack(alignment: .leading) {
-                            Text(bestResult.companyType)
-                            Text(bestResult.recruitType)
-                        }
-                        .font(.custom(Font.appMedium, size: 14, relativeTo: .subheadline))
-                        Spacer()
-                        ZStack {
-                            CircleLineShape()
-                                .stroke(Color.appTabBarAccent.opacity(0.2),
-                                        style: StrokeStyle(lineWidth: 8, lineCap: .round))
-                            CircleLineShape(endAngleAt: 136)
-                                .stroke(Color.appTabBarAccent,
-                                        style: StrokeStyle(lineWidth: 8, lineCap: .round))
-                            Text("\(String(format: "%.1f", bestResult.score))")
-                                .font(.custom(Font.appSemiBold, size: 16))
-                        }
-                        .frame(width: 40, height: 40)
-                        Text("点")
-                            .font(.custom(Font.appBold, size: 20, relativeTo: .subheadline))
-                        Spacer()
-                        Text("詳細はここ！👆")
-                            .appCaptionStyle()
-                            .foregroundStyle(Color.black)
-                    }
-                }
-            }
-        )
-        .foregroundStyle(.black)
-        .tapScaleEffect()
-        Divider()
-        Button(
-            action: { // TODO: - 과거모의면접리스트화면으로 Navigation 처리하기
-                
-            },
-            label: {
-                HStack {
-                    Text("過去の模擬面接を見る")
-                        .font(.custom(Font.appRegular, size: 12, relativeTo: .subheadline))
-                    Spacer()
-                    Image(systemName: AppConstants.chevronRight)
-                        .font(.subheadline)
-                        .fontWeight(.regular)
-                }
-            }
-        )
-        .foregroundStyle(.black)
-    }
-    
-    @ViewBuilder
-    func noInterviewResultLoginBox() -> some View {
-        VStack {
-            Text("模擬面接データがないようですね\nログインすると過去の模擬面接が確認できます！")
-                .appCaptionStyle()
-            NavigationButton(
-                label: "ログインする",
-                isLabelCenter: true,
-                fontWeight: Font.appSemiBold,
-                textColor: Color.white,
-                backgroundColor: Color.appAccentColor,
-                verticalPadding: 4) { // TODO: - 로그인화면으로 Navigation 처리하기
-                    
-                }
-                .tapScaleEffect()
-        }
-    }
-}
-
-private extension InterviewTabView {
-    @ViewBuilder
-    func inputFormCompanyName() -> some View {
-        VStack(spacing: 2) {
-            inputFormTitle(title: "会社名", isRequired: true)
-            ZStack(alignment: .leading) {
-                if interviewVM.mockInterviewInfo.companyName.isEmpty {
-                    Text("株式会社就活一歩")
-                        .foregroundColor(.gray)
-                        .offset(y: 0)
-                }
-                TextField("", text: $interviewVM.mockInterviewInfo.companyName)
-                    .autocorrectionDisabled(true)
-                    .textInputAutocapitalization(.never)
-                    .keyboardType(.default)
-                    .focused($focus, equals: .companyName)
-            }
-            .font(.custom(Font.appRegular, size: 16, relativeTo: .subheadline))
-            .padding(8)
-            .background(
-                RoundedRectangle(cornerRadius: AppConstants.boxRadius)
-                    .fill(Color.appBackground)
-            )
-            .padding(.vertical, 4)
-        }
-    }
-    
-    @ViewBuilder
-    func inputFormRecruitType() -> some View {
-        VStack(spacing: 2) {
-            inputFormTitle(title: "活動区分", isRequired: true)
-            HStack(spacing: 24) {
-                inputFormRecruitTypeButton(isNew: true)
-                    .tapScaleEffect()
-                inputFormRecruitTypeButton(isNew: false)
-                    .tapScaleEffect()
-            }
-            .padding(.vertical, 4)
-        }
-    }
-    
-    @ViewBuilder
-    func inputFormCompanyType() -> some View {
-        VStack(spacing: 2) {
-            inputFormTitle(title: "企業分野", isRequired: true)
-            NavigationButton(
-                label: interviewVM.mockInterviewInfo.companyType.rawValue,
-                isLabelCenter: false,
-                fontWeight: Font.appRegular,
-                textColor: Color.black,
-                backgroundColor: Color.white,
-                verticalPadding: 4) {
-                    nc.pagePath.append(.interviewInfoCompanyTypeListView)
-                }
-                .tapScaleEffect()
-        }
-    }
-    
-    @ViewBuilder
-    func inputFormCareerType() -> some View {
-        VStack(spacing: 2) {
-            inputFormTitle(title: "希望職種", isRequired: true)
-            NavigationButton(
-                label: interviewVM.mockInterviewInfo.careerType.rawValue,
-                isLabelCenter: false,
-                fontWeight: Font.appRegular,
-                textColor: Color.black,
-                backgroundColor: Color.white,
-                verticalPadding: 4) {
-                    nc.pagePath.append(.interviewInfoCareerTypeListView)
-                }
-                .tapScaleEffect()
-        }
-    }
-}
-
-// MARK: - Recycle Sub View
-private extension InterviewTabView {
-    @ViewBuilder
-    func inputFormTitle(title: String, isRequired: Bool) -> some View {
-        HStack {
-            Circle()
-                .frame(width: 4, height: 4)
-            Text(title)
-                .font(.custom(Font.appSemiBold, size: 16, relativeTo: .subheadline))
-            Text(isRequired ? "（必須）" : "（任意）")
-                .font(.custom(Font.appRegular, size: 12, relativeTo: .subheadline))
-                .foregroundStyle(Color.appGrayFont)
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-    }
-}
-
-private extension InterviewTabView {
-    @ViewBuilder
-    func inputFormRecruitTypeButton(isNew: Bool) -> some View {
-        let type = isNew ? RecruitType.new : RecruitType.old
         
-        Button(
-            action: {
-                if isNew {
-                    interviewVM.mockInterviewInfo.recruitType = .new
-                } else {
-                    interviewVM.mockInterviewInfo.recruitType = .old
-                }
-            },
-            label: {
-                HStack {
-                    Image(systemName: isNew ? RecruitType.new.icon : RecruitType.old.icon)
-                        .font(.subheadline)
-                    Text(isNew ? RecruitType.new.label : RecruitType.old.label)
-                        .font(.custom(Font.appSemiBold, size: 16, relativeTo: .subheadline))
-                }
-                .frame(maxWidth: .infinity)
-            }
-        )
-        .padding(.vertical, 4)
-        .padding(.horizontal, 12)
-        .background(type == interviewVM.mockInterviewInfo.recruitType
-                    ? Color.appAccentColor : Color.appBackground)
-        .foregroundStyle(type == interviewVM.mockInterviewInfo.recruitType ? .white : .black)
-        .clipShape(RoundedRectangle(cornerRadius: AppConstants.buttonRadius))
     }
 }
-// MARK: - Preview
+
+// MARK: - Sub Views
+private extension InterviewTabView {
+    @ViewBuilder
+    private func categoryTitle(icon: String, text: String) -> some View {
+        HStack(spacing: 4) {
+            Image(icon)
+                .resizable()
+                .frame(width: 24, height: 24)
+            Text(text)
+                .font(.custom(Font.appMedium, size: 18))
+                .foregroundStyle(Color.appGrayFont)
+            Spacer()
+        }
+    }
+}
+
 #Preview {
     InterviewTabView()
         .environmentObject(NavigationController())

@@ -10,12 +10,22 @@ import Foundation
 // 앱의 전역에서 여러번 재사용되는 상수들 정의
 enum AppConstants {
     // MARK: - Designs
-    static let boxRadius: CGFloat = 16
-    static let buttonRadius: CGFloat = 12
+    static let sectionRadius: CGFloat = 16
+    static let fieldRadius: CGFloat = 8
+    static let boxRadius: CGFloat = 12
     
     // MARK: - SF Symbols
     static let chevronLeft = "chevron.left"
     static let chevronRight = "chevron.right"
+    
+    // MARK: - App Icons
+    static let interviewTabHeaderIcon = "InterviewTabHeaderIcon"
+    static let interviewTabAnalysisIcon = "InterviewTabChart"
+    static let interviewTabHistoryIcon = "InterviewTabHistory"
+    static let interviewTabInterviewIcon = "InterviewTabVideo"
+    static let interviewTabFocus = "InterviewTabFocus"
+    static let scheduleTabHeaderIcon = "ScheduleTabHeaderIcon"
+    static let managementTabHeaderIcon = "ManagementTabHeaderIcon"
     
     // MARK: - Util Fuctions
     // Date객체를 문자열 yyyy/MM/dd포맷으로 변환하는 함수

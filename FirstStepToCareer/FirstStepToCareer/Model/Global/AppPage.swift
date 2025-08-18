@@ -11,11 +11,14 @@ import Foundation
 // TODO: - 앱 구성 다 되면 화면들 추가
 enum AppPage {
     // Interview
+    case interviewAnalysisView
+    case interviewHistoryListView
+    case interviewHistoryDetailView
+    case interviewPrepareView
     case interviewInfoCompanyTypeListView
     case interviewInfoCareerTypeListView
-    case mockInterviewPrepareView
-    case mockInterviewView
-    case mockInterviewResultView
+    case interviewView
+    case interviewResultView
     
     // Schedule
     

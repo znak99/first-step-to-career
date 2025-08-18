@@ -21,7 +21,6 @@ struct TapScaleEffect: ViewModifier {
     func body(content: Content) -> some View {
         content
             .scaleEffect(isPressed && isEnabled ? scale : 1.0)
-            // isPressed 변화시에만 감지 → 눌림(true)일 때만 햅틱, 아니면 nil 반환
             .sensoryFeedback(trigger: isPressed) { _, newValue in
                 guard haptic, newValue else { return nil }
                 return .impact(weight: .medium, intensity: 0.85)

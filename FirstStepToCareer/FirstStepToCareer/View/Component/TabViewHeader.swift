@@ -10,7 +10,6 @@ import SwiftUI
 struct TabViewHeader: View {
     // MARK: - Variables
     let icon: String
-    let iconRotateDegrees: CGFloat
     let title: String
     let caption: String
     
@@ -18,12 +17,19 @@ struct TabViewHeader: View {
     var body: some View {
         VStack {
             HStack {
-                Image(systemName: icon)
-                    .font(.title2)
-                    .frame(width: 24, height: 24)
-                    .rotationEffect(.degrees(iconRotateDegrees))
-                Text(title)
-                    .font(.custom(Font.appExtraBold, size: 24, relativeTo: .title2))
+                Image(icon)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(
+                        minWidth: 75, idealWidth: 80, maxWidth: 85,
+                        minHeight: 75, idealHeight: 80, maxHeight: 85,
+                        alignment: .center)
+                ViewThatFits(in: .horizontal) {
+                    Text(title)
+                        .font(.custom(Font.appBlack, size: 32, relativeTo: .title2))
+                    Text(title)
+                        .font(.custom(Font.appBlack, size: 28, relativeTo: .title2))
+                }
                 Spacer()
             }
             .foregroundStyle(Color.appGrayFont)
@@ -35,8 +41,7 @@ struct TabViewHeader: View {
 
 #Preview {
     TabViewHeader(
-        icon: "video.fill",
-        iconRotateDegrees: -10,
+        icon: AppConstants.interviewTabHeaderIcon,
         title: "Mock Interview",
         caption: "模擬面接で本番を想定した練習をすれば\n落ち着いて話せて自分らしさをしっかり伝えられます！"
     )
