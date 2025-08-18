@@ -17,11 +17,9 @@ enum AppPage {
     case mockInterviewView
     case mockInterviewResultView
     
-    // List
-    
     // Schedule
     
-    // Analysis
+    // Manage
     
     // Settings
     

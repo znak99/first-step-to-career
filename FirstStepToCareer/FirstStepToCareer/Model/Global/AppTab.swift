@@ -9,7 +9,7 @@ import SwiftUI
 
 // Custom Tab Bar 관리용 enum
 enum AppTab {
-    case interview, schedule, companyList, settings
+    case interview, schedule, manage, settings
     
     var label: String {
         switch self {
@@ -17,7 +17,7 @@ enum AppTab {
             return "面接"
         case .schedule:
             return "日程"
-        case .companyList:
+        case .manage:
             return "選考"
         case .settings:
             return "設定"
@@ -30,7 +30,7 @@ enum AppTab {
             return "person.crop.rectangle"
         case .schedule:
             return "calendar"
-        case .companyList:
+        case .manage:
             return "list.bullet.rectangle"
         case .settings:
             return "line.3.horizontal"

@@ -10,6 +10,7 @@
 		FB1BED662E5284A800041053 /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BED652E5284A800041053 /* NavigationButton.swift */; };
 		FB1BED682E528AD900041053 /* TapScaleEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BED672E528AC900041053 /* TapScaleEffect.swift */; };
 		FB1BED6A2E528D9400041053 /* View+TapScaleEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BED692E528D8A00041053 /* View+TapScaleEffect.swift */; };
+		FB1BED6E2E53416C00041053 /* ManageTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BED6D2E53416C00041053 /* ManageTabView.swift */; };
 		FB2724B42E50CFB90092408E /* FirstStepToCareerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724A52E50CFB90092408E /* FirstStepToCareerApp.swift */; };
 		FB2724B52E50CFB90092408E /* Color+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724A72E50CFB90092408E /* Color+AppColors.swift */; };
 		FB2724B62E50CFB90092408E /* AppPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724A92E50CFB90092408E /* AppPage.swift */; };
@@ -18,7 +19,6 @@
 		FB2724BB2E50CFB90092408E /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724B12E50CFB90092408E /* SplashView.swift */; };
 		FB2724BC2E50CFB90092408E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB2724AD2E50CFB90092408E /* Assets.xcassets */; };
 		FB2724C02E50DAAB0092408E /* InterviewTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724BF2E50DAAB0092408E /* InterviewTabView.swift */; };
-		FB2724C22E50DAC20092408E /* CompanyListTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724C12E50DAC20092408E /* CompanyListTabView.swift */; };
 		FB2724C42E50DAD40092408E /* ScheduleTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724C32E50DAD40092408E /* ScheduleTabView.swift */; };
 		FB2724D62E50DC190092408E /* SettingsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724D52E50DC190092408E /* SettingsTabView.swift */; };
 		FB2724E22E50E5200092408E /* NotoSansJP-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB2724DF2E50E5200092408E /* NotoSansJP-Regular.ttf */; };
@@ -58,6 +58,7 @@
 		FB1BED652E5284A800041053 /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
 		FB1BED672E528AC900041053 /* TapScaleEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapScaleEffect.swift; sourceTree = "<group>"; };
 		FB1BED692E528D8A00041053 /* View+TapScaleEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+TapScaleEffect.swift"; sourceTree = "<group>"; };
+		FB1BED6D2E53416C00041053 /* ManageTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTabView.swift; sourceTree = "<group>"; };
 		FB2724502E50B3CF0092408E /* FirstStepToCareer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirstStepToCareer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB2724A52E50CFB90092408E /* FirstStepToCareerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStepToCareerApp.swift; sourceTree = "<group>"; };
 		FB2724A72E50CFB90092408E /* Color+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+AppColors.swift"; sourceTree = "<group>"; };
@@ -67,7 +68,6 @@
 		FB2724B02E50CFB90092408E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		FB2724B12E50CFB90092408E /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		FB2724BF2E50DAAB0092408E /* InterviewTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewTabView.swift; sourceTree = "<group>"; };
-		FB2724C12E50DAC20092408E /* CompanyListTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListTabView.swift; sourceTree = "<group>"; };
 		FB2724C32E50DAD40092408E /* ScheduleTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTabView.swift; sourceTree = "<group>"; };
 		FB2724D52E50DC190092408E /* SettingsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabView.swift; sourceTree = "<group>"; };
 		FB2724D92E50E5200092408E /* NotoSansJP-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Black.ttf"; sourceTree = "<group>"; };
@@ -115,6 +115,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB1BED6C2E5340F000041053 /* Manage */ = {
+			isa = PBXGroup;
+			children = (
+				FB1BED6D2E53416C00041053 /* ManageTabView.swift */,
+			);
+			path = Manage;
+			sourceTree = "<group>";
+		};
 		FB2724472E50B3CF0092408E = {
 			isa = PBXGroup;
 			children = (
@@ -176,8 +184,8 @@
 				FB2724CE2E50DB970092408E /* Root */,
 				FB2724D12E50DB970092408E /* TabBar */,
 				FB2724CD2E50DB970092408E /* Interview */,
-				FB2724D22E50DB970092408E /* CompanyList */,
 				FB2724CF2E50DB970092408E /* Schedule */,
+				FB1BED6C2E5340F000041053 /* Manage */,
 				FB2724D02E50DB970092408E /* Settings */,
 				FB2724F32E50F8C90092408E /* Component */,
 			);
@@ -250,14 +258,6 @@
 				FB2724AF2E50CFB90092408E /* CustomTabBarView.swift */,
 			);
 			path = TabBar;
-			sourceTree = "<group>";
-		};
-		FB2724D22E50DB970092408E /* CompanyList */ = {
-			isa = PBXGroup;
-			children = (
-				FB2724C12E50DAC20092408E /* CompanyListTabView.swift */,
-			);
-			path = CompanyList;
 			sourceTree = "<group>";
 		};
 		FB2724D82E50E51E0092408E /* Fonts */ = {
@@ -445,8 +445,8 @@
 				FB2724C42E50DAD40092408E /* ScheduleTabView.swift in Sources */,
 				FB2725332E5233C60092408E /* MockInterviewPrepareView.swift in Sources */,
 				FB27250D2E51266F0092408E /* CompanyType.swift in Sources */,
-				FB2724C22E50DAC20092408E /* CompanyListTabView.swift in Sources */,
 				FB2724B62E50CFB90092408E /* AppPage.swift in Sources */,
+				FB1BED6E2E53416C00041053 /* ManageTabView.swift in Sources */,
 				FB1BED6A2E528D9400041053 /* View+TapScaleEffect.swift in Sources */,
 				FB2724F92E51179D0092408E /* KeyboardPrewarmView.swift in Sources */,
 				FB2724F12E50F6720092408E /* SampleView.swift in Sources */,

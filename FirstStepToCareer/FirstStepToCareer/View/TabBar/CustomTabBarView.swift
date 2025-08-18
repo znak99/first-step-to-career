@@ -20,8 +20,8 @@ struct CustomTabBarView: View {
                 InterviewTabView()
             case .schedule:
                 ScheduleTabView()
-            case .companyList:
-                CompanyListTabView()
+            case .manage:
+                ManageTabView()
             case .settings:
                 SettingsTabView()
             }
@@ -31,7 +31,7 @@ struct CustomTabBarView: View {
                 HStack {
                     tabButton(.interview, label: AppTab.interview.label, icon: AppTab.interview.icon)
                     tabButton(.schedule, label: AppTab.schedule.label, icon: AppTab.schedule.icon)
-                    tabButton(.companyList, label: AppTab.companyList.label, icon: AppTab.companyList.icon)
+                    tabButton(.manage, label: AppTab.manage.label, icon: AppTab.manage.icon)
                     tabButton(.settings, label: AppTab.settings.label, icon: AppTab.settings.icon)
                 }
                 .padding(.top, 8)
