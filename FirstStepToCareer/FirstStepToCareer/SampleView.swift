@@ -24,56 +24,7 @@ struct SampleView: View {
                 
                 Spacer()
             }
-            
-            HStack {
-                VStack {
-                    ZStack {
-                        CircleLineShape()
-                            .stroke(Color.purple.opacity(0.3), style: StrokeStyle(lineWidth: 20, lineCap: .round))
-                        CircleLineShape(endAngleAt: purpleChartEnd)
-                            .stroke(Color.purple, style: StrokeStyle(lineWidth: 20, lineCap: .round))
-                        Text("\(String(format: "%.1f", purpleChartPercent))%")
-                            .font(.title2)
-                            .fontWeight(.bold)
-                            .foregroundStyle(.purple)
-                    }
-                }
-                .padding()
-                
-                VStack {
-                    ZStack {
-                        CircleLineShape()
-                            .stroke(Color.green.opacity(0.3), style: StrokeStyle(lineWidth: 20, lineCap: .round))
-                        CircleLineShape(endAngleAt: greenChartEnd)
-                            .stroke(Color.green, style: StrokeStyle(lineWidth: 20, lineCap: .round))
-                        Text("\(String(format: "%.1f", greenChartPercent))%")
-                            .font(.title2)
-                            .fontWeight(.bold)
-                            .foregroundStyle(.green)
-                    }
-                }
-                .padding()
-            }
-            .padding(.horizontal)
-            
-            Button("Random") {
-                withAnimation {
-                    purpleChartPercent = (Double.random(in: 1..<100) * 10).rounded() / 10
-                    greenChartPercent = (Double.random(in: 1..<100) * 10).rounded() / 10
-                    purpleChartEnd = 135
-                    greenChartEnd = 135
-                    purpleChartEnd += 270 * (purpleChartPercent * 0.01)
-                    greenChartEnd += 270 * (greenChartPercent * 0.01)
-                }
-            }
-            .padding()
-            .background(.black)
-            .tapScaleEffect()
-            
-            Spacer()
-        }
-        .padding([.top, .horizontal])
-    }
+        }}
 }
 
 #Preview {

@@ -6,14 +6,6 @@
 //
 
 import SwiftUI
-import Charts
-
-// Temp Data
-struct InterviewData: Identifiable {
-    let id: UUID = .init()
-    let day: String
-    let count: Int
-}
 
 struct InterviewTabView: View {
     // MARK: - Variables
@@ -22,41 +14,6 @@ struct InterviewTabView: View {
     @StateObject var interviewVM = InterviewViewModel()
     @EnvironmentObject private var nc: NavigationController
     @FocusState private var focus: FocusTarget?
-    
-    let data: [InterviewData] = [
-        InterviewData(day: "1", count: 2),
-        InterviewData(day: "2", count: 1),
-        InterviewData(day: "3", count: 3),
-        InterviewData(day: "4", count: 0),
-        InterviewData(day: "5", count: 0),
-        InterviewData(day: "6", count: 1),
-        InterviewData(day: "7", count: 0),
-        InterviewData(day: "8", count: 1),
-        InterviewData(day: "9", count: 0),
-        InterviewData(day: "10", count: 0),
-        InterviewData(day: "11", count: 0),
-        InterviewData(day: "12", count: 3),
-        InterviewData(day: "13", count: 0),
-        InterviewData(day: "14", count: 0),
-        InterviewData(day: "15", count: 2),
-        InterviewData(day: "16", count: 0),
-        InterviewData(day: "17", count: 1),
-        InterviewData(day: "18", count: 0),
-        InterviewData(day: "19", count: 4),
-        InterviewData(day: "20", count: 0),
-        InterviewData(day: "21", count: 3),
-        InterviewData(day: "21", count: 0),
-        InterviewData(day: "22", count: 1),
-        InterviewData(day: "23", count: 0),
-        InterviewData(day: "24", count: 1),
-        InterviewData(day: "25", count: 0),
-        InterviewData(day: "26", count: 1),
-        InterviewData(day: "27", count: 0),
-        InterviewData(day: "28", count: 0),
-        InterviewData(day: "29", count: 1),
-        InterviewData(day: "30", count: 1),
-        InterviewData(day: "31", count: 2)
-    ]
     
     // MARK: - UI
     var body: some View {
@@ -76,17 +33,52 @@ struct InterviewTabView: View {
                 ScrollView {
                     // Analysis
                     // TODO: - 분석할 데이터 없을때 보여줄 뷰 작성하기
-                    VStack(spacing: 2) {
+                    VStack(spacing: 16) { // TODO: - 차트 디자인 및 내용 수정하기
                         categoryTitle(icon: AppConstants.interviewTabAnalysisIcon, text: "分析")
-                        VStack { // TODO: - 차트 디자인 및 내용 수정하기
-                            Chart(data) { item in
-                                BarMark(
-                                    x: .value("", item.day),
-                                    y: .value("", item.count))
+                        if interviewVM.interviewResults != nil && !(interviewVM.interviewResults?.isEmpty ?? false) {
+                            // TODO: - 그래프 그리기
+                            HStack {
+                                Spacer()
+                                ProgressRing(progress: interviewVM.a, thickness: 8, gradient: .init(
+                                    gradient: Gradient(colors: [.yellow]),
+                                    center: .center
+                                ))
+                                .frame(width: 48, height: 48)
+                                Spacer()
+                                ProgressRing(progress: interviewVM.b, thickness: 8, gradient: .init(
+                                    gradient: Gradient(colors: [.red]),
+                                    center: .center
+                                ))
+                                .frame(width: 48, height: 48)
+                                Spacer()
+                                ProgressRing(progress: interviewVM.c, thickness: 8, gradient: .init(
+                                    gradient: Gradient(colors: [.green]),
+                                    center: .center
+                                ))
+                                .frame(width: 48, height: 48)
+                                Spacer()
                             }
-                            .frame(maxHeight: 120)
-                            .foregroundStyle(Color.appGrayFont)
-                            .clipShape(RoundedRectangle(cornerRadius: 6))
+                            HStack {
+                                Spacer()
+                                ProgressRing(progress: interviewVM.d, thickness: 8, gradient: .init(
+                                    gradient: Gradient(colors: [.orange]),
+                                    center: .center
+                                ))
+                                .frame(width: 48, height: 48)
+                                Spacer()
+                                ProgressRing(progress: interviewVM.e, thickness: 8, gradient: .init(
+                                    gradient: Gradient(colors: [.purple]),
+                                    center: .center
+                                ))
+                                .frame(width: 48, height: 48)
+                                Spacer()
+                                ProgressRing(progress: interviewVM.f, thickness: 8, gradient: .init(
+                                    gradient: Gradient(colors: [.cyan]),
+                                    center: .center
+                                ))
+                                .frame(width: 48, height: 48)
+                                Spacer()
+                            }
                             Divider()
                             Button(
                                 action: {
@@ -108,81 +100,95 @@ struct InterviewTabView: View {
                             .disabled(isSomeButtonTapped)
                             .tapScaleEffect()
                             .foregroundStyle(Color.appGrayFont)
+                        } else {
+                            HStack {
+                                Image(AppConstants.interviewTabNoData)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(
+                                        minWidth: 28, idealWidth: 32, maxWidth: 36,
+                                        minHeight: 28, idealHeight: 32, maxHeight: 36, alignment: .center)
+                                Text("分析できそうなデータが見つかりません")
+                                    .appCaptionStyle()
+                                Spacer()
+                            }
                         }
-                        .padding()
-                        .background(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: AppConstants.sectionRadius))
                     }
+                    .padding()
+                    .background(.white)
+                    .clipShape(RoundedRectangle(cornerRadius: AppConstants.sectionRadius))
                     .padding(.top)
+                    
                     
                     Divider()
                     
                     // History
                     // TODO: - 로그인 안되어있을때 보여줄 뷰 작성하기
-                    VStack(spacing: 2) {
+                    VStack {
                         categoryTitle(icon: AppConstants.interviewTabHistoryIcon, text: "履歴")
-                        VStack {
-                            Text("この模擬面接すごく良かったです！👍")
-                                .appCaptionStyle()
-                            HStack(alignment: .firstTextBaseline) {
-                                Text("株式会社就活一歩")
-                                    .font(.custom(Font.appSemiBold, size: 20))
-                                Spacer()
-                                Text("2025/08/01")
-                                    .font(.custom(Font.appSemiBold, size: 12))
-                                    .foregroundStyle(Color.appGrayFont)
-                            }
-                            Divider()
-                            Button(
-                                action: {
-                                    isSomeButtonTapped = true
-                                    DispatchQueue.main.asyncAfter(deadline: buttonDelay) {
-                                        nc.pagePath.append(.interviewHistoryListView)
-                                        isSomeButtonTapped = false
-                                    }
-                                },
-                                label: {
-                                    HStack {
-                                        Text("過去の面接履歴を見る")
-                                            .font(.custom(Font.appSemiBold, size: 14))
-                                        Spacer()
-                                        Image(systemName: AppConstants.chevronRight)
-                                    }
+                        if let results = interviewVM.interviewResults,
+                           let highestResult = interviewVM.highestScoreResult {
+                            if results.isEmpty {
+                                // TODO: - 과거 모의면접 데이터 없을때 보여줄 뷰 작성하기
+                            } else {
+                                Text("この模擬面接すごく良かったです！")
+                                    .appCaptionStyle()
+                                HStack(alignment: .firstTextBaseline) {
+                                    Text(highestResult.companyName)
+                                        .font(.custom(Font.appSemiBold, size: 20))
+                                    Spacer()
+                                    Text(AppConstants.formatDate((highestResult.createdAt?.dateValue())!))
+                                        .font(.custom(Font.appSemiBold, size: 12))
+                                        .foregroundStyle(Color.appGrayFont)
                                 }
-                            )
-                            .disabled(isSomeButtonTapped)
-                            .tapScaleEffect()
-                            .foregroundStyle(Color.appGrayFont)
-                        }
-                        .padding()
-                        .background(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: AppConstants.sectionRadius))
-                    }
-                    .padding(.top)
-                    
-                    Divider()
-                    
-                    // Interview
-                    VStack(spacing: 2) {
-                        categoryTitle(icon: AppConstants.interviewTabInterviewIcon, text: "面接")
-                        VStack {
-                            Text("簡単な情報を入力して模擬面接を行いましょう！")
-                                .appCaptionStyle()
+                                Divider()
+                                Button(
+                                    action: {
+                                        isSomeButtonTapped = true
+                                        DispatchQueue.main.asyncAfter(deadline: buttonDelay) {
+                                            nc.pagePath.append(.interviewHistoryListView)
+                                            isSomeButtonTapped = false
+                                        }
+                                    },
+                                    label: {
+                                        HStack {
+                                            Text("過去の面接履歴を見る")
+                                                .font(.custom(Font.appSemiBold, size: 14))
+                                            Spacer()
+                                            Image(systemName: AppConstants.chevronRight)
+                                        }
+                                    }
+                                )
+                                .disabled(isSomeButtonTapped)
+                                .tapScaleEffect()
+                                .foregroundStyle(Color.appGrayFont)
+                            }
+                        } else {
+                            HStack {
+                                Image(AppConstants.interviewTabUnauthorized)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(
+                                        minWidth: 28, idealWidth: 32, maxWidth: 36,
+                                        minHeight: 28, idealHeight: 32, maxHeight: 36, alignment: .center)
+                                Text("会員情報がないようです\nログインしたら模擬面接結果が保存されます！")
+                                    .appCaptionStyle()
+                                Spacer()
+                            }
                             Button(
                                 action: {
                                     isSomeButtonTapped = true
                                     DispatchQueue.main.asyncAfter(deadline: buttonDelay) {
-//                                        nc.pagePath.append(.interviewPrepareView)
-                                        interviewVM.forTestMakeDummyData() // TODO: - For Test
+                                        interviewVM.forTestMakeDummyData()
                                         isSomeButtonTapped = false
                                     }
                                 },
                                 label: {
                                     HStack {
-                                        Image(AppConstants.interviewTabFocus)
+                                        Image(AppConstants.interviewTabSignIn)
                                             .resizable()
                                             .frame(width: 20, height: 20)
-                                        Text("模擬面接を始める")
+                                        Text("ログインする")
                                             .font(.custom(Font.appSemiBold, size: 16))
                                         Spacer()
                                         Image(systemName: AppConstants.chevronRight)
@@ -201,11 +207,59 @@ struct InterviewTabView: View {
                             .foregroundStyle(.white)
                             .padding(.top, 8)
                         }
-                        .padding()
-                        .background(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: AppConstants.sectionRadius))
                     }
+                    .onTapGesture {
+                        interviewVM.forTestMakeDummyData() // TODO: - 삭제하기
+                    }
+                    .padding()
+                    .background(.white)
+                    .clipShape(RoundedRectangle(cornerRadius: AppConstants.sectionRadius))
                     .padding(.top)
+                    
+                    Divider()
+                    
+                    // Interview
+                    VStack {
+                        categoryTitle(icon: AppConstants.interviewTabWebCamIcon, text: "面接")
+                        Text("簡単な情報を入力して模擬面接を行いましょう！")
+                            .appCaptionStyle()
+                        Button(
+                            action: {
+                                isSomeButtonTapped = true
+                                DispatchQueue.main.asyncAfter(deadline: buttonDelay) {
+                                    nc.pagePath.append(.interviewPrepareView)
+                                    isSomeButtonTapped = false
+                                }
+                            },
+                            label: {
+                                HStack {
+                                    Image(AppConstants.interviewTabFocus)
+                                        .resizable()
+                                        .frame(width: 20, height: 20)
+                                    Text("模擬面接を始める")
+                                        .font(.custom(Font.appSemiBold, size: 16))
+                                    Spacer()
+                                    Image(systemName: AppConstants.chevronRight)
+                                }
+                            }
+                        )
+                        .disabled(isSomeButtonTapped)
+                        .tapScaleEffect()
+                        .padding(12)
+                        .background {
+                            LinearGradient(
+                                colors: [Color.appPrimaryGradient01, Color.appPrimaryGradient02],
+                                startPoint: .top, endPoint: .bottom)
+                        }
+                        .clipShape(RoundedRectangle(cornerRadius: AppConstants.boxRadius))
+                        .foregroundStyle(.white)
+                        .padding(.top, 8)
+                    }
+                    .padding()
+                    .background(.white)
+                    .clipShape(RoundedRectangle(cornerRadius: AppConstants.sectionRadius))
+                    .padding(.top)
+                    
                 }
             }
             .padding(.horizontal, 16)
@@ -235,8 +289,8 @@ private extension InterviewTabView {
                 .resizable()
                 .frame(width: 24, height: 24)
             Text(text)
-                .font(.custom(Font.appMedium, size: 18))
-                .foregroundStyle(Color.appGrayFont)
+                .font(.custom(Font.appRegular, size: 16))
+                .foregroundStyle(Color.black)
             Spacer()
         }
     }
