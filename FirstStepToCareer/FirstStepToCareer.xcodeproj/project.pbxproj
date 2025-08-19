@@ -15,6 +15,25 @@
 		FB1BED772E537AB900041053 /* InterviewAnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BED762E537AB900041053 /* InterviewAnalysisView.swift */; };
 		FB1BED792E537AD000041053 /* InterviewHistoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BED782E537AD000041053 /* InterviewHistoryListView.swift */; };
 		FB1BED7B2E537AE000041053 /* InterviewPrepareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BED7A2E537AE000041053 /* InterviewPrepareView.swift */; };
+		FB1BED812E54AD2100041053 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB1BED802E54AD2100041053 /* GoogleService-Info.plist */; };
+		FB1BED842E54B21400041053 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FB1BED832E54B21400041053 /* FirebaseAuth */; };
+		FB1BED862E54B21400041053 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = FB1BED852E54B21400041053 /* FirebaseAuthCombine-Community */; };
+		FB1BED882E54B21400041053 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FB1BED872E54B21400041053 /* FirebaseFirestore */; };
+		FB1BED8A2E54B21400041053 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = FB1BED892E54B21400041053 /* FirebaseFirestoreCombine-Community */; };
+		FB1BEDA32E54B4B800041053 /* CareerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BED9E2E54B4B800041053 /* CareerType.swift */; };
+		FB1BEDA42E54B4B800041053 /* CompanyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BED9F2E54B4B800041053 /* CompanyType.swift */; };
+		FB1BEDA52E54B4B800041053 /* InterviewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BEDA02E54B4B800041053 /* InterviewInfo.swift */; };
+		FB1BEDA62E54B4B800041053 /* RecruitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BEDA12E54B4B800041053 /* RecruitType.swift */; };
+		FB1BEDAA2E54B4DD00041053 /* InterviewResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BEDA82E54B4DD00041053 /* InterviewResult.swift */; };
+		FB1BEDAC2E54B50700041053 /* InterviewTurn.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BEDAB2E54B4F500041053 /* InterviewTurn.swift */; };
+		FB1BEDAE2E54B55400041053 /* SpeechSpeedMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BEDAD2E54B54B00041053 /* SpeechSpeedMetric.swift */; };
+		FB1BEDB02E54B5E000041053 /* SlienceMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BEDAF2E54B5D600041053 /* SlienceMetric.swift */; };
+		FB1BEDBA2E54B66D00041053 /* HeadDirectionMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BEDB82E54B66D00041053 /* HeadDirectionMetric.swift */; };
+		FB1BEDBE2E54B68B00041053 /* GazeMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BEDBD2E54B68300041053 /* GazeMetric.swift */; };
+		FB1BEDC02E54B6C600041053 /* ExpressionMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BEDBF2E54B6C100041053 /* ExpressionMetric.swift */; };
+		FB1BEDC22E54B6ED00041053 /* ExpressionSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BEDC12E54B6E100041053 /* ExpressionSample.swift */; };
+		FB1BEDC62E54B75700041053 /* OverallMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BEDC52E54B75500041053 /* OverallMetrics.swift */; };
+		FB1BEDCA2E54B8F000041053 /* InterviewMockDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BEDC92E54B8F000041053 /* InterviewMockDataGenerator.swift */; };
 		FB2724B42E50CFB90092408E /* FirstStepToCareerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724A52E50CFB90092408E /* FirstStepToCareerApp.swift */; };
 		FB2724B52E50CFB90092408E /* Color+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724A72E50CFB90092408E /* Color+AppColors.swift */; };
 		FB2724B62E50CFB90092408E /* AppPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724A92E50CFB90092408E /* AppPage.swift */; };
@@ -43,12 +62,6 @@
 		FB2725022E511B9F0092408E /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2725002E511B9F0092408E /* NavigationController.swift */; };
 		FB2725052E511B9F0092408E /* AppTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2725032E511B9F0092408E /* AppTab.swift */; };
 		FB2725072E5124110092408E /* InterviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2725062E5124110092408E /* InterviewViewModel.swift */; };
-		FB27250B2E51257E0092408E /* RecruitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27250A2E51256C0092408E /* RecruitType.swift */; };
-		FB27250D2E51266F0092408E /* CompanyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27250C2E5126620092408E /* CompanyType.swift */; };
-		FB27250F2E51276A0092408E /* MockInterviewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27250E2E51275C0092408E /* MockInterviewInfo.swift */; };
-		FB2725112E512A910092408E /* CareerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2725102E512A8B0092408E /* CareerType.swift */; };
-		FB2725132E51CC970092408E /* MockInterviewResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2725122E51CC970092408E /* MockInterviewResult.swift */; };
-		FB2725152E51CD420092408E /* MockInterviewQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2725142E51CD420092408E /* MockInterviewQuestion.swift */; };
 		FB27251D2E5201F10092408E /* TabViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27251C2E5201F00092408E /* TabViewHeader.swift */; };
 		FB27251F2E52103C0092408E /* String+CustomFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27251E2E5210250092408E /* String+CustomFunctions.swift */; };
 		FB2725212E5213450092408E /* AppCaptionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2725202E5213390092408E /* AppCaptionStyle.swift */; };
@@ -65,6 +78,21 @@
 		FB1BED762E537AB900041053 /* InterviewAnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewAnalysisView.swift; sourceTree = "<group>"; };
 		FB1BED782E537AD000041053 /* InterviewHistoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewHistoryListView.swift; sourceTree = "<group>"; };
 		FB1BED7A2E537AE000041053 /* InterviewPrepareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewPrepareView.swift; sourceTree = "<group>"; };
+		FB1BED802E54AD2100041053 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FB1BED9E2E54B4B800041053 /* CareerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareerType.swift; sourceTree = "<group>"; };
+		FB1BED9F2E54B4B800041053 /* CompanyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyType.swift; sourceTree = "<group>"; };
+		FB1BEDA02E54B4B800041053 /* InterviewInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewInfo.swift; sourceTree = "<group>"; };
+		FB1BEDA12E54B4B800041053 /* RecruitType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitType.swift; sourceTree = "<group>"; };
+		FB1BEDA82E54B4DD00041053 /* InterviewResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewResult.swift; sourceTree = "<group>"; };
+		FB1BEDAB2E54B4F500041053 /* InterviewTurn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewTurn.swift; sourceTree = "<group>"; };
+		FB1BEDAD2E54B54B00041053 /* SpeechSpeedMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechSpeedMetric.swift; sourceTree = "<group>"; };
+		FB1BEDAF2E54B5D600041053 /* SlienceMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlienceMetric.swift; sourceTree = "<group>"; };
+		FB1BEDB82E54B66D00041053 /* HeadDirectionMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadDirectionMetric.swift; sourceTree = "<group>"; };
+		FB1BEDBD2E54B68300041053 /* GazeMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GazeMetric.swift; sourceTree = "<group>"; };
+		FB1BEDBF2E54B6C100041053 /* ExpressionMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressionMetric.swift; sourceTree = "<group>"; };
+		FB1BEDC12E54B6E100041053 /* ExpressionSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressionSample.swift; sourceTree = "<group>"; };
+		FB1BEDC52E54B75500041053 /* OverallMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallMetrics.swift; sourceTree = "<group>"; };
+		FB1BEDC92E54B8F000041053 /* InterviewMockDataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewMockDataGenerator.swift; sourceTree = "<group>"; };
 		FB2724502E50B3CF0092408E /* FirstStepToCareer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirstStepToCareer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB2724A52E50CFB90092408E /* FirstStepToCareerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStepToCareerApp.swift; sourceTree = "<group>"; };
 		FB2724A72E50CFB90092408E /* Color+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+AppColors.swift"; sourceTree = "<group>"; };
@@ -95,12 +123,6 @@
 		FB2725002E511B9F0092408E /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		FB2725032E511B9F0092408E /* AppTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTab.swift; sourceTree = "<group>"; };
 		FB2725062E5124110092408E /* InterviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewViewModel.swift; sourceTree = "<group>"; };
-		FB27250A2E51256C0092408E /* RecruitType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitType.swift; sourceTree = "<group>"; };
-		FB27250C2E5126620092408E /* CompanyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyType.swift; sourceTree = "<group>"; };
-		FB27250E2E51275C0092408E /* MockInterviewInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockInterviewInfo.swift; sourceTree = "<group>"; };
-		FB2725102E512A8B0092408E /* CareerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareerType.swift; sourceTree = "<group>"; };
-		FB2725122E51CC970092408E /* MockInterviewResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockInterviewResult.swift; sourceTree = "<group>"; };
-		FB2725142E51CD420092408E /* MockInterviewQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockInterviewQuestion.swift; sourceTree = "<group>"; };
 		FB27251C2E5201F00092408E /* TabViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewHeader.swift; sourceTree = "<group>"; };
 		FB27251E2E5210250092408E /* String+CustomFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CustomFunctions.swift"; sourceTree = "<group>"; };
 		FB2725202E5213390092408E /* AppCaptionStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCaptionStyle.swift; sourceTree = "<group>"; };
@@ -115,6 +137,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB1BED752E53743000041053 /* Shimmer in Frameworks */,
+				FB1BED882E54B21400041053 /* FirebaseFirestore in Frameworks */,
+				FB1BED862E54B21400041053 /* FirebaseAuthCombine-Community in Frameworks */,
+				FB1BED8A2E54B21400041053 /* FirebaseFirestoreCombine-Community in Frameworks */,
+				FB1BED842E54B21400041053 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +153,49 @@
 				FB1BED6D2E53416C00041053 /* ManagementTabView.swift */,
 			);
 			path = Manage;
+			sourceTree = "<group>";
+		};
+		FB1BEDA22E54B4B800041053 /* Preparation */ = {
+			isa = PBXGroup;
+			children = (
+				FB1BEDA02E54B4B800041053 /* InterviewInfo.swift */,
+				FB1BEDA12E54B4B800041053 /* RecruitType.swift */,
+				FB1BED9F2E54B4B800041053 /* CompanyType.swift */,
+				FB1BED9E2E54B4B800041053 /* CareerType.swift */,
+			);
+			path = Preparation;
+			sourceTree = "<group>";
+		};
+		FB1BEDA92E54B4DD00041053 /* InterviewResult */ = {
+			isa = PBXGroup;
+			children = (
+				FB1BEDA82E54B4DD00041053 /* InterviewResult.swift */,
+				FB1BEDAB2E54B4F500041053 /* InterviewTurn.swift */,
+				FB1BEDB92E54B66D00041053 /* Metric */,
+			);
+			path = InterviewResult;
+			sourceTree = "<group>";
+		};
+		FB1BEDB92E54B66D00041053 /* Metric */ = {
+			isa = PBXGroup;
+			children = (
+				FB1BEDAD2E54B54B00041053 /* SpeechSpeedMetric.swift */,
+				FB1BEDAF2E54B5D600041053 /* SlienceMetric.swift */,
+				FB1BEDB82E54B66D00041053 /* HeadDirectionMetric.swift */,
+				FB1BEDBD2E54B68300041053 /* GazeMetric.swift */,
+				FB1BEDBF2E54B6C100041053 /* ExpressionMetric.swift */,
+				FB1BEDC12E54B6E100041053 /* ExpressionSample.swift */,
+				FB1BEDC52E54B75500041053 /* OverallMetrics.swift */,
+			);
+			path = Metric;
+			sourceTree = "<group>";
+		};
+		FB1BEDC82E54B8C500041053 /* DummyDataGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				FB1BEDC92E54B8F000041053 /* InterviewMockDataGenerator.swift */,
+			);
+			path = DummyDataGenerator;
 			sourceTree = "<group>";
 		};
 		FB2724472E50B3CF0092408E = {
@@ -169,6 +238,7 @@
 		FB2724AC2E50CFB90092408E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FB1BEDC82E54B8C500041053 /* DummyDataGenerator */,
 				FB2724FB2E511B5C0092408E /* Global */,
 				FB2725092E51255E0092408E /* Interview */,
 			);
@@ -210,6 +280,7 @@
 				FB2724A82E50CFB90092408E /* Extension */,
 				FB2724AE2E50CFB90092408E /* Resource */,
 				FB2724F02E50F6720092408E /* SampleView.swift */,
+				FB1BED802E54AD2100041053 /* GoogleService-Info.plist */,
 			);
 			path = FirstStepToCareer;
 			sourceTree = "<group>";
@@ -309,12 +380,8 @@
 		FB2725092E51255E0092408E /* Interview */ = {
 			isa = PBXGroup;
 			children = (
-				FB27250E2E51275C0092408E /* MockInterviewInfo.swift */,
-				FB2725102E512A8B0092408E /* CareerType.swift */,
-				FB27250C2E5126620092408E /* CompanyType.swift */,
-				FB27250A2E51256C0092408E /* RecruitType.swift */,
-				FB2725122E51CC970092408E /* MockInterviewResult.swift */,
-				FB2725142E51CD420092408E /* MockInterviewQuestion.swift */,
+				FB1BEDA22E54B4B800041053 /* Preparation */,
+				FB1BEDA92E54B4DD00041053 /* InterviewResult */,
 			);
 			path = Interview;
 			sourceTree = "<group>";
@@ -347,6 +414,10 @@
 			name = FirstStepToCareer;
 			packageProductDependencies = (
 				FB1BED742E53743000041053 /* Shimmer */,
+				FB1BED832E54B21400041053 /* FirebaseAuth */,
+				FB1BED852E54B21400041053 /* FirebaseAuthCombine-Community */,
+				FB1BED872E54B21400041053 /* FirebaseFirestore */,
+				FB1BED892E54B21400041053 /* FirebaseFirestoreCombine-Community */,
 			);
 			productName = FirstStepToCareer;
 			productReference = FB2724502E50B3CF0092408E /* FirstStepToCareer.app */;
@@ -378,6 +449,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				FB1BED732E53743000041053 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
+				FB1BED822E54B21400041053 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FB2724512E50B3CF0092408E /* Products */;
@@ -402,6 +474,7 @@
 				FB2724E62E50E5200092408E /* NotoSansJP-SemiBold.ttf in Resources */,
 				FB2724E72E50E5200092408E /* NotoSansJP-Light.ttf in Resources */,
 				FB2724E82E50E5200092408E /* NotoSansJP-Medium.ttf in Resources */,
+				FB1BED812E54AD2100041053 /* GoogleService-Info.plist in Resources */,
 				FB2724E92E50E5200092408E /* NotoSansJP-Thin.ttf in Resources */,
 				FB2724EA2E50E5200092408E /* NotoSansJP-ExtraLight.ttf in Resources */,
 			);
@@ -437,26 +510,35 @@
 			files = (
 				FB1BED682E528AD900041053 /* TapScaleEffect.swift in Sources */,
 				FB2725232E52139A0092408E /* View+AppStyles.swift in Sources */,
+				FB1BEDBE2E54B68B00041053 /* GazeMetric.swift in Sources */,
 				FB2725072E5124110092408E /* InterviewViewModel.swift in Sources */,
 				FB2724B42E50CFB90092408E /* FirstStepToCareerApp.swift in Sources */,
 				FB1BED772E537AB900041053 /* InterviewAnalysisView.swift in Sources */,
+				FB1BEDBA2E54B66D00041053 /* HeadDirectionMetric.swift in Sources */,
 				FB1BED7B2E537AE000041053 /* InterviewPrepareView.swift in Sources */,
-				FB2725132E51CC970092408E /* MockInterviewResult.swift in Sources */,
-				FB2725152E51CD420092408E /* MockInterviewQuestion.swift in Sources */,
+				FB1BEDC62E54B75700041053 /* OverallMetrics.swift in Sources */,
 				FB2724B52E50CFB90092408E /* Color+AppColors.swift in Sources */,
-				FB27250F2E51276A0092408E /* MockInterviewInfo.swift in Sources */,
 				FB27252F2E5229380092408E /* InterviewInfoCareerTypeListView.swift in Sources */,
+				FB1BEDCA2E54B8F000041053 /* InterviewMockDataGenerator.swift in Sources */,
+				FB1BEDA32E54B4B800041053 /* CareerType.swift in Sources */,
+				FB1BEDC22E54B6ED00041053 /* ExpressionSample.swift in Sources */,
+				FB1BEDA42E54B4B800041053 /* CompanyType.swift in Sources */,
+				FB1BEDA52E54B4B800041053 /* InterviewInfo.swift in Sources */,
+				FB1BEDA62E54B4B800041053 /* RecruitType.swift in Sources */,
 				FB27251D2E5201F10092408E /* TabViewHeader.swift in Sources */,
 				FB1BED792E537AD000041053 /* InterviewHistoryListView.swift in Sources */,
 				FB2725212E5213450092408E /* AppCaptionStyle.swift in Sources */,
-				FB27250B2E51257E0092408E /* RecruitType.swift in Sources */,
+				FB1BEDB02E54B5E000041053 /* SlienceMetric.swift in Sources */,
 				FB27251F2E52103C0092408E /* String+CustomFunctions.swift in Sources */,
+				FB1BEDC02E54B6C600041053 /* ExpressionMetric.swift in Sources */,
 				FB2725052E511B9F0092408E /* AppTab.swift in Sources */,
+				FB1BEDAC2E54B50700041053 /* InterviewTurn.swift in Sources */,
 				FB1BED722E535A4D00041053 /* CustomTextField.swift in Sources */,
 				FB2724ED2E50E5DA0092408E /* Font+AppFonts.swift in Sources */,
 				FB2724EF2E50EE960092408E /* AppConstants.swift in Sources */,
+				FB1BEDAE2E54B55400041053 /* SpeechSpeedMetric.swift in Sources */,
+				FB1BEDAA2E54B4DD00041053 /* InterviewResult.swift in Sources */,
 				FB2724C42E50DAD40092408E /* ScheduleTabView.swift in Sources */,
-				FB27250D2E51266F0092408E /* CompanyType.swift in Sources */,
 				FB2724B62E50CFB90092408E /* AppPage.swift in Sources */,
 				FB1BED6E2E53416C00041053 /* ManagementTabView.swift in Sources */,
 				FB1BED6A2E528D9400041053 /* View+TapScaleEffect.swift in Sources */,
@@ -471,7 +553,6 @@
 				FB27252D2E52239F0092408E /* InterviewInfoCompanyTypeListView.swift in Sources */,
 				FB2724BA2E50CFB90092408E /* RootView.swift in Sources */,
 				FB2724BB2E50CFB90092408E /* SplashView.swift in Sources */,
-				FB2725112E512A910092408E /* CareerType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -705,6 +786,14 @@
 				minimumVersion = 1.5.1;
 			};
 		};
+		FB1BED822E54B21400041053 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -712,6 +801,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FB1BED732E53743000041053 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;
 			productName = Shimmer;
+		};
+		FB1BED832E54B21400041053 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB1BED822E54B21400041053 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		FB1BED852E54B21400041053 /* FirebaseAuthCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB1BED822E54B21400041053 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAuthCombine-Community";
+		};
+		FB1BED872E54B21400041053 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB1BED822E54B21400041053 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		FB1BED892E54B21400041053 /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB1BED822E54B21400041053 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

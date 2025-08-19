@@ -26,7 +26,7 @@ struct InterviewInfoCareerTypeListView: View {
                         if type != .none {
                             Button(
                                 action: {
-                                    interviewVM.mockInterviewInfo.careerType = type
+//                                    interviewVM.mockInterviewInfo.careerType = type
                                     nc.pagePath.removeAll()
                                 },
                                 label: {

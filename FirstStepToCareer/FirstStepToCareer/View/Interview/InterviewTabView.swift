@@ -172,7 +172,8 @@ struct InterviewTabView: View {
                                 action: {
                                     isSomeButtonTapped = true
                                     DispatchQueue.main.asyncAfter(deadline: buttonDelay) {
-                                        nc.pagePath.append(.interviewPrepareView)
+//                                        nc.pagePath.append(.interviewPrepareView)
+                                        interviewVM.forTestMakeDummyData() // TODO: - For Test
                                         isSomeButtonTapped = false
                                     }
                                 },

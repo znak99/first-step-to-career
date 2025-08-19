@@ -10,25 +10,19 @@ import SwiftUI
 
 class InterviewViewModel: ObservableObject {
     // MARK: - Variables
-    @Published var mockInterviewInfo: MockInterviewInfo = .init()
-    @Published var bestResult: MockInterviewResult?
+    @Published var interviewResults: [InterviewResult]?
     
     // MARK: - Functions
-    // Date객체를 문자열 yyyy/MM/dd포맷으로 변환하는 함수
-    // - Returns: 모의면접의 필요한 정보가 모두 입력됬는지 여부
-    func isValidMockInterviewInfo() -> Bool {
-        if mockInterviewInfo.companyName.isEmpty { // 회사이름 입력여부
-            return false
+    func forTestMakeDummyData() {
+        // MARK: - 실행 예시
+        interviewResults = InterviewMockDataGenerator.makeInterviewResults()
+        // 필요시 확인
+        print("Generated \(interviewResults!.count) InterviewResults")
+        if let first = interviewResults!.first {
+            print("First startedAt:", first.startedAt)
+            print("First createdAt:", first.createdAt?.dateValue() as Any)
+            print("First updatedAt:", first.updatedAt?.dateValue() as Any)
+            print("First turns:", first.turns.count)
         }
-        
-        if mockInterviewInfo.companyType == .none { // 회사분야 선택여부
-            return false
-        }
-        
-        if mockInterviewInfo.careerType == .none { // 희망직종 선택여부
-            return false
-        }
-        
-        return true
     }
 }
