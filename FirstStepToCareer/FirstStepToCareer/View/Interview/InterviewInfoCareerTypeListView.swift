@@ -40,7 +40,7 @@ struct InterviewInfoCareerTypeListView: View {
                                         Text(type.rawValue)
                                             .font(.custom(Font.appMedium, size: 16, relativeTo: .subheadline))
                                         Spacer()
-                                        Image(systemName: AppConstants.chevronRight)
+                                        Image(systemName: AppConstant.chevronRight)
                                     }
                                     .foregroundStyle(.black)
                                 }
@@ -61,7 +61,7 @@ struct InterviewInfoCareerTypeListView: View {
                         nc.pagePath.removeAll()
                     },
                     label: {
-                        Image(systemName: AppConstants.chevronLeft)
+                        Image(systemName: AppConstant.chevronLeft)
                             .font(.custom(Font.appSemiBold, size: 16, relativeTo: .subheadline))
                             .foregroundStyle(.black)
                     }

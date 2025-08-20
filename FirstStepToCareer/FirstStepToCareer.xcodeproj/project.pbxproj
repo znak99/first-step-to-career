@@ -54,7 +54,7 @@
 		FB2724E92E50E5200092408E /* NotoSansJP-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB2724E12E50E5200092408E /* NotoSansJP-Thin.ttf */; };
 		FB2724EA2E50E5200092408E /* NotoSansJP-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB2724DC2E50E5200092408E /* NotoSansJP-ExtraLight.ttf */; };
 		FB2724ED2E50E5DA0092408E /* Font+AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724EC2E50E5DA0092408E /* Font+AppFonts.swift */; };
-		FB2724EF2E50EE960092408E /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724EE2E50EE960092408E /* AppConstants.swift */; };
+		FB2724EF2E50EE960092408E /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724EE2E50EE960092408E /* AppConstant.swift */; };
 		FB2724F12E50F6720092408E /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724F02E50F6720092408E /* SampleView.swift */; };
 		FB2724F72E50F9050092408E /* ProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724F62E50F9050092408E /* ProgressRing.swift */; };
 		FB2724F92E51179D0092408E /* KeyboardPrewarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724F82E51179D0092408E /* KeyboardPrewarmView.swift */; };
@@ -115,7 +115,7 @@
 		FB2724E12E50E5200092408E /* NotoSansJP-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Thin.ttf"; sourceTree = "<group>"; };
 		FB2724EB2E50E5330092408E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB2724EC2E50E5DA0092408E /* Font+AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+AppFonts.swift"; sourceTree = "<group>"; };
-		FB2724EE2E50EE960092408E /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		FB2724EE2E50EE960092408E /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
 		FB2724F02E50F6720092408E /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
 		FB2724F62E50F9050092408E /* ProgressRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRing.swift; sourceTree = "<group>"; };
 		FB2724F82E51179D0092408E /* KeyboardPrewarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardPrewarmView.swift; sourceTree = "<group>"; };
@@ -218,7 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				FB2724A52E50CFB90092408E /* FirstStepToCareerApp.swift */,
-				FB2724EE2E50EE960092408E /* AppConstants.swift */,
+				FB2724EE2E50EE960092408E /* AppConstant.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -535,7 +535,7 @@
 				FB1BEDAC2E54B50700041053 /* InterviewTurn.swift in Sources */,
 				FB1BED722E535A4D00041053 /* CustomTextField.swift in Sources */,
 				FB2724ED2E50E5DA0092408E /* Font+AppFonts.swift in Sources */,
-				FB2724EF2E50EE960092408E /* AppConstants.swift in Sources */,
+				FB2724EF2E50EE960092408E /* AppConstant.swift in Sources */,
 				FB1BEDAE2E54B55400041053 /* SpeechSpeedMetric.swift in Sources */,
 				FB1BEDAA2E54B4DD00041053 /* InterviewResult.swift in Sources */,
 				FB2724C42E50DAD40092408E /* ScheduleTabView.swift in Sources */,

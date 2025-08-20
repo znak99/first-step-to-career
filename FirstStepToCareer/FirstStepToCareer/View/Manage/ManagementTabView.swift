@@ -20,9 +20,11 @@ struct ManagementTabView: View {
             VStack {
                 // Header
                 TabViewHeader(
-                    icon: AppConstants.managementTabHeaderIcon,
+                    icon: AppConstant.Icon.ManagementTab.header,
                     title: "Management",
-                    caption: "進捗・締切・連絡履歴を一元化すれば、\n抜け漏れ防止＆次の一手が速く決められます！"
+                    trailingActionIcon: nil,
+                    trailingActionLabel: nil,
+                    action: nil
                 )
                 
                 Spacer()

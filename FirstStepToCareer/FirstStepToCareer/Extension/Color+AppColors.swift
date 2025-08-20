@@ -25,7 +25,7 @@ extension Color {
     
     // App
     static let appPrimaryGradient01 = Color(hex: "#1EA9FF")
-    static let appPrimaryGradient02 = Color(hex: "#1670A8")
+    static let appPrimaryGradient02 = Color(hex: "#0072B9")
     static let appBackground = Color(hex: "#F2F2F2")
     static let appAccentColor = Color(hex: "#1D9BE9")
     static let appGrayFont = Color(hex: "#959595")

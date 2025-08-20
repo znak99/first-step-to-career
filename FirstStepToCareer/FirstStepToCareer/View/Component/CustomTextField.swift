@@ -31,7 +31,7 @@ struct CustomTextField: View {
         .font(.custom(Font.appRegular, size: 16, relativeTo: .body))
         .padding(8)
         .background(
-            RoundedRectangle(cornerRadius: AppConstants.sectionRadius)
+            RoundedRectangle(cornerRadius: AppConstant.sectionRadius)
                 .fill(Color.appBackground)
         )
     }

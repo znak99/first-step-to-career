@@ -25,16 +25,19 @@ struct InterviewTabView: View {
             VStack {
                 // Header
                 TabViewHeader(
-                    icon: AppConstants.interviewTabHeaderIcon,
+                    icon: AppConstant.Icon.InterviewTab.header,
                     title: "Interview",
-                    caption: "模擬面接で本番を想定した練習をすれば\n落ち着いて話せて自分らしさをしっかり伝えられます！"
-                )
+                    trailingActionIcon: AppConstant.Icon.InterviewTab.resume,
+                    trailingActionLabel: "履歴書管理"
+                ) {
+                    print("Interview")
+                }
                 
                 ScrollView {
                     // Analysis
                     // TODO: - 분석할 데이터 없을때 보여줄 뷰 작성하기
                     VStack(spacing: 16) { // TODO: - 차트 디자인 및 내용 수정하기
-                        categoryTitle(icon: AppConstants.interviewTabAnalysisIcon, text: "分析")
+                        categoryTitle(icon: AppConstant.interviewTabAnalysisIcon, text: "分析")
                         if interviewVM.interviewResults != nil && !(interviewVM.interviewResults?.isEmpty ?? false) {
                             // TODO: - 그래프 그리기
                             HStack {
@@ -93,7 +96,7 @@ struct InterviewTabView: View {
                                         Text("分析結果の詳細を見る")
                                             .font(.custom(Font.appSemiBold, size: 14))
                                         Spacer()
-                                        Image(systemName: AppConstants.chevronRight)
+                                        Image(systemName: AppConstant.chevronRight)
                                     }
                                 }
                             )
@@ -102,7 +105,7 @@ struct InterviewTabView: View {
                             .foregroundStyle(Color.appGrayFont)
                         } else {
                             HStack {
-                                Image(AppConstants.interviewTabNoData)
+                                Image(AppConstant.interviewTabNoData)
                                     .resizable()
                                     .scaledToFit()
                                     .frame(
@@ -116,7 +119,7 @@ struct InterviewTabView: View {
                     }
                     .padding()
                     .background(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: AppConstants.sectionRadius))
+                    .clipShape(RoundedRectangle(cornerRadius: AppConstant.sectionRadius))
                     .padding(.top)
                     
                     
@@ -125,7 +128,7 @@ struct InterviewTabView: View {
                     // History
                     // TODO: - 로그인 안되어있을때 보여줄 뷰 작성하기
                     VStack {
-                        categoryTitle(icon: AppConstants.interviewTabHistoryIcon, text: "履歴")
+                        categoryTitle(icon: AppConstant.interviewTabHistoryIcon, text: "履歴")
                         if let results = interviewVM.interviewResults,
                            let highestResult = interviewVM.highestScoreResult {
                             if results.isEmpty {
@@ -137,7 +140,7 @@ struct InterviewTabView: View {
                                     Text(highestResult.companyName)
                                         .font(.custom(Font.appSemiBold, size: 20))
                                     Spacer()
-                                    Text(AppConstants.formatDate((highestResult.createdAt?.dateValue())!))
+                                    Text(AppConstant.formatDate((highestResult.createdAt?.dateValue())!))
                                         .font(.custom(Font.appSemiBold, size: 12))
                                         .foregroundStyle(Color.appGrayFont)
                                 }
@@ -155,7 +158,7 @@ struct InterviewTabView: View {
                                             Text("過去の面接履歴を見る")
                                                 .font(.custom(Font.appSemiBold, size: 14))
                                             Spacer()
-                                            Image(systemName: AppConstants.chevronRight)
+                                            Image(systemName: AppConstant.chevronRight)
                                         }
                                     }
                                 )
@@ -165,7 +168,7 @@ struct InterviewTabView: View {
                             }
                         } else {
                             HStack {
-                                Image(AppConstants.interviewTabUnauthorized)
+                                Image(AppConstant.interviewTabUnauthorized)
                                     .resizable()
                                     .scaledToFit()
                                     .frame(
@@ -185,13 +188,13 @@ struct InterviewTabView: View {
                                 },
                                 label: {
                                     HStack {
-                                        Image(AppConstants.interviewTabSignIn)
+                                        Image(AppConstant.interviewTabSignIn)
                                             .resizable()
                                             .frame(width: 20, height: 20)
                                         Text("ログインする")
                                             .font(.custom(Font.appSemiBold, size: 16))
                                         Spacer()
-                                        Image(systemName: AppConstants.chevronRight)
+                                        Image(systemName: AppConstant.chevronRight)
                                     }
                                 }
                             )
@@ -203,7 +206,7 @@ struct InterviewTabView: View {
                                     colors: [Color.appPrimaryGradient01, Color.appPrimaryGradient02],
                                     startPoint: .top, endPoint: .bottom)
                             }
-                            .clipShape(RoundedRectangle(cornerRadius: AppConstants.boxRadius))
+                            .clipShape(RoundedRectangle(cornerRadius: AppConstant.boxRadius))
                             .foregroundStyle(.white)
                             .padding(.top, 8)
                         }
@@ -213,14 +216,14 @@ struct InterviewTabView: View {
                     }
                     .padding()
                     .background(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: AppConstants.sectionRadius))
+                    .clipShape(RoundedRectangle(cornerRadius: AppConstant.sectionRadius))
                     .padding(.top)
                     
                     Divider()
                     
                     // Interview
                     VStack {
-                        categoryTitle(icon: AppConstants.interviewTabWebCamIcon, text: "面接")
+                        categoryTitle(icon: AppConstant.interviewTabWebCamIcon, text: "面接")
                         Text("簡単な情報を入力して模擬面接を行いましょう！")
                             .appCaptionStyle()
                         Button(
@@ -233,13 +236,13 @@ struct InterviewTabView: View {
                             },
                             label: {
                                 HStack {
-                                    Image(AppConstants.interviewTabFocus)
+                                    Image(AppConstant.interviewTabFocus)
                                         .resizable()
                                         .frame(width: 20, height: 20)
                                     Text("模擬面接を始める")
                                         .font(.custom(Font.appSemiBold, size: 16))
                                     Spacer()
-                                    Image(systemName: AppConstants.chevronRight)
+                                    Image(systemName: AppConstant.chevronRight)
                                 }
                             }
                         )
@@ -251,13 +254,13 @@ struct InterviewTabView: View {
                                 colors: [Color.appPrimaryGradient01, Color.appPrimaryGradient02],
                                 startPoint: .top, endPoint: .bottom)
                         }
-                        .clipShape(RoundedRectangle(cornerRadius: AppConstants.boxRadius))
+                        .clipShape(RoundedRectangle(cornerRadius: AppConstant.boxRadius))
                         .foregroundStyle(.white)
                         .padding(.top, 8)
                     }
                     .padding()
                     .background(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: AppConstants.sectionRadius))
+                    .clipShape(RoundedRectangle(cornerRadius: AppConstant.sectionRadius))
                     .padding(.top)
                     
                 }

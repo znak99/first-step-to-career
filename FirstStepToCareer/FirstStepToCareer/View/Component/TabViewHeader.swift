@@ -11,7 +11,9 @@ struct TabViewHeader: View {
     // MARK: - Variables
     let icon: String
     let title: String
-    let caption: String
+    let trailingActionIcon: String?
+    let trailingActionLabel: String?
+    let action: (() -> Void)?
     
     // MARK: - UI
     var body: some View {
@@ -21,28 +23,43 @@ struct TabViewHeader: View {
                     .resizable()
                     .scaledToFit()
                     .frame(
-                        minWidth: 75, idealWidth: 80, maxWidth: 85,
-                        minHeight: 75, idealHeight: 80, maxHeight: 85,
-                        alignment: .center)
-                ViewThatFits(in: .horizontal) {
-                    Text(title)
-                        .font(.custom(Font.appBlack, size: 32, relativeTo: .title2))
-                    Text(title)
-                        .font(.custom(Font.appBlack, size: 28, relativeTo: .title2))
-                }
+                        minWidth: 24, idealWidth: 28, maxWidth: 32,
+                        minHeight: 24, idealHeight: 28, maxHeight: 32
+                    )
+                Text(title)
+                    .font(.custom(Font.appSemiBold, size: 20, relativeTo: .title2))
+                    .foregroundStyle(Color.black)
                 Spacer()
+                
+                if let trailingActionIcon, let trailingActionLabel, let action {
+                    Button(action: action) {
+                        HStack {
+                            Image(trailingActionIcon)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(
+                                    minWidth: 20, idealWidth: 24, maxWidth: 28,
+                                    minHeight: 20, idealHeight: 24, maxHeight: 28
+                                )
+                            Text(trailingActionLabel)
+                                .font(.custom(Font.appMedium, size: 16, relativeTo: .subheadline))
+                                .foregroundStyle(Color.appGrayFont)
+                        }
+                        .padding(4)
+                    }
+                    .tapScaleEffect()
+                }
             }
-            .foregroundStyle(Color.appGrayFont)
-            Text(caption)
-                .appCaptionStyle()
         }
     }
 }
 
 #Preview {
     TabViewHeader(
-        icon: AppConstants.interviewTabHeaderIcon,
-        title: "Mock Interview",
-        caption: "模擬面接で本番を想定した練習をすれば\n落ち着いて話せて自分らしさをしっかり伝えられます！"
+        icon: AppConstant.Icon.InterviewTab.header,
+        title: "Interview",
+        trailingActionIcon: AppConstant.Icon.InterviewTab.resume,
+        trailingActionLabel: "履歴書管理",
+        action: {}
     )
 }

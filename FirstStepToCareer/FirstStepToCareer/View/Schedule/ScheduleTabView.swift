@@ -20,10 +20,12 @@ struct ScheduleTabView: View {
             VStack {
                 // Header
                 TabViewHeader(
-                    icon: AppConstants.scheduleTabHeaderIcon,
+                    icon: AppConstant.Icon.ScheduleTab.header,
                     title: "Schedule",
-                    caption: "就活はスケジュール管理が大事！\n締切守れば準備がはかどって、余裕もできます！"
-                )
+                    trailingActionIcon: nil,
+                    trailingActionLabel: nil,
+                    action: nil
+                )                
                 
                 Spacer()
             }
