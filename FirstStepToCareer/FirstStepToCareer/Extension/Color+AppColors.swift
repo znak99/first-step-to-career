@@ -24,15 +24,14 @@ extension Color {
     }
     
     // App
-    static let appPrimaryGradient01 = Color(hex: "#1EA9FF")
-    static let appPrimaryGradient02 = Color(hex: "#0072B9")
+    static let appMainGradientStart = Color(hex: "#6060E7")
+    static let appMainGradientEnd = Color(hex: "#2727CA")
     static let appBackground = Color(hex: "#F2F2F2")
-    static let appAccentColor = Color(hex: "#1D9BE9")
+    static let appPrimary = Color(hex: "#4646E5")
     static let appGrayFont = Color(hex: "#959595")
     
     // Tab bar
     static let appTabBarBackground = Color(hex: "#FEFEFE")
-    static let appTabBarAccent = Color(hex: "#1A8ED6")
     static let appTabBarGray = Color(hex: "#BFBFBF")
     
     // Interview

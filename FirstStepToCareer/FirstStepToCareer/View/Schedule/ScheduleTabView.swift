@@ -20,7 +20,7 @@ struct ScheduleTabView: View {
             VStack {
                 // Header
                 TabViewHeader(
-                    icon: AppConstant.Icon.ScheduleTab.header,
+                    icon: ScheduleTabIcon.header,
                     title: "Schedule",
                     trailingActionIcon: nil,
                     trailingActionLabel: nil,

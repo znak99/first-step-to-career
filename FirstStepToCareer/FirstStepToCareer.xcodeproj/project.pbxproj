@@ -68,6 +68,12 @@
 		FB2725232E52139A0092408E /* View+AppStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2725222E52138E0092408E /* View+AppStyles.swift */; };
 		FB27252D2E52239F0092408E /* InterviewInfoCompanyTypeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27252C2E52239F0092408E /* InterviewInfoCompanyTypeListView.swift */; };
 		FB27252F2E5229380092408E /* InterviewInfoCareerTypeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27252E2E5229380092408E /* InterviewInfoCareerTypeListView.swift */; };
+		FB2BD61C2E56108E00A790E6 /* InterviewTabIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BD61B2E56108300A790E6 /* InterviewTabIcon.swift */; };
+		FB2BD61E2E56135400A790E6 /* SFSymbolsIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BD61D2E56135400A790E6 /* SFSymbolsIcon.swift */; };
+		FB2BD6202E5615FF00A790E6 /* AnalyticsPreviewGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BD61F2E5615FF00A790E6 /* AnalyticsPreviewGraph.swift */; };
+		FB2BD6262E56248C00A790E6 /* ScheduleTabIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BD6252E56248C00A790E6 /* ScheduleTabIcon.swift */; };
+		FB2BD6282E5624A200A790E6 /* ManagementTabIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BD6272E5624A200A790E6 /* ManagementTabIcon.swift */; };
+		FB2BD62A2E562B1E00A790E6 /* GlobalIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BD6292E562B1700A790E6 /* GlobalIcon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +135,12 @@
 		FB2725222E52138E0092408E /* View+AppStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+AppStyles.swift"; sourceTree = "<group>"; };
 		FB27252C2E52239F0092408E /* InterviewInfoCompanyTypeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewInfoCompanyTypeListView.swift; sourceTree = "<group>"; };
 		FB27252E2E5229380092408E /* InterviewInfoCareerTypeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewInfoCareerTypeListView.swift; sourceTree = "<group>"; };
+		FB2BD61B2E56108300A790E6 /* InterviewTabIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewTabIcon.swift; sourceTree = "<group>"; };
+		FB2BD61D2E56135400A790E6 /* SFSymbolsIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbolsIcon.swift; sourceTree = "<group>"; };
+		FB2BD61F2E5615FF00A790E6 /* AnalyticsPreviewGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsPreviewGraph.swift; sourceTree = "<group>"; };
+		FB2BD6252E56248C00A790E6 /* ScheduleTabIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTabIcon.swift; sourceTree = "<group>"; };
+		FB2BD6272E5624A200A790E6 /* ManagementTabIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementTabIcon.swift; sourceTree = "<group>"; };
+		FB2BD6292E562B1700A790E6 /* GlobalIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalIcon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +231,7 @@
 			children = (
 				FB2724A52E50CFB90092408E /* FirstStepToCareerApp.swift */,
 				FB2724EE2E50EE960092408E /* AppConstant.swift */,
+				FB2BD61A2E56107500A790E6 /* Icons */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -238,9 +251,9 @@
 		FB2724AC2E50CFB90092408E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FB1BEDC82E54B8C500041053 /* DummyDataGenerator */,
 				FB2724FB2E511B5C0092408E /* Global */,
 				FB2725092E51255E0092408E /* Interview */,
+				FB1BEDC82E54B8C500041053 /* DummyDataGenerator */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -380,6 +393,7 @@
 		FB2725092E51255E0092408E /* Interview */ = {
 			isa = PBXGroup;
 			children = (
+				FB2BD6222E56161B00A790E6 /* Analytics */,
 				FB1BEDA22E54B4B800041053 /* Preparation */,
 				FB1BEDA92E54B4DD00041053 /* InterviewResult */,
 			);
@@ -393,6 +407,26 @@
 				FB2725202E5213390092408E /* AppCaptionStyle.swift */,
 			);
 			path = ViewModifier;
+			sourceTree = "<group>";
+		};
+		FB2BD61A2E56107500A790E6 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				FB2BD6292E562B1700A790E6 /* GlobalIcon.swift */,
+				FB2BD61D2E56135400A790E6 /* SFSymbolsIcon.swift */,
+				FB2BD61B2E56108300A790E6 /* InterviewTabIcon.swift */,
+				FB2BD6252E56248C00A790E6 /* ScheduleTabIcon.swift */,
+				FB2BD6272E5624A200A790E6 /* ManagementTabIcon.swift */,
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
+		FB2BD6222E56161B00A790E6 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				FB2BD61F2E5615FF00A790E6 /* AnalyticsPreviewGraph.swift */,
+			);
+			path = Analytics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -510,6 +544,7 @@
 			files = (
 				FB1BED682E528AD900041053 /* TapScaleEffect.swift in Sources */,
 				FB2725232E52139A0092408E /* View+AppStyles.swift in Sources */,
+				FB2BD6202E5615FF00A790E6 /* AnalyticsPreviewGraph.swift in Sources */,
 				FB1BEDBE2E54B68B00041053 /* GazeMetric.swift in Sources */,
 				FB2725072E5124110092408E /* InterviewViewModel.swift in Sources */,
 				FB2724B42E50CFB90092408E /* FirstStepToCareerApp.swift in Sources */,
@@ -518,14 +553,18 @@
 				FB1BED7B2E537AE000041053 /* InterviewPrepareView.swift in Sources */,
 				FB1BEDC62E54B75700041053 /* OverallMetrics.swift in Sources */,
 				FB2724B52E50CFB90092408E /* Color+AppColors.swift in Sources */,
+				FB2BD6282E5624A200A790E6 /* ManagementTabIcon.swift in Sources */,
 				FB27252F2E5229380092408E /* InterviewInfoCareerTypeListView.swift in Sources */,
 				FB1BEDCA2E54B8F000041053 /* InterviewMockDataGenerator.swift in Sources */,
+				FB2BD62A2E562B1E00A790E6 /* GlobalIcon.swift in Sources */,
 				FB1BEDA32E54B4B800041053 /* CareerType.swift in Sources */,
 				FB1BEDC22E54B6ED00041053 /* ExpressionSample.swift in Sources */,
 				FB1BEDA42E54B4B800041053 /* CompanyType.swift in Sources */,
 				FB1BEDA52E54B4B800041053 /* InterviewInfo.swift in Sources */,
 				FB1BEDA62E54B4B800041053 /* RecruitType.swift in Sources */,
 				FB27251D2E5201F10092408E /* TabViewHeader.swift in Sources */,
+				FB2BD6262E56248C00A790E6 /* ScheduleTabIcon.swift in Sources */,
+				FB2BD61C2E56108E00A790E6 /* InterviewTabIcon.swift in Sources */,
 				FB1BED792E537AD000041053 /* InterviewHistoryListView.swift in Sources */,
 				FB2725212E5213450092408E /* AppCaptionStyle.swift in Sources */,
 				FB1BEDB02E54B5E000041053 /* SlienceMetric.swift in Sources */,
@@ -538,6 +577,7 @@
 				FB2724EF2E50EE960092408E /* AppConstant.swift in Sources */,
 				FB1BEDAE2E54B55400041053 /* SpeechSpeedMetric.swift in Sources */,
 				FB1BEDAA2E54B4DD00041053 /* InterviewResult.swift in Sources */,
+				FB2BD61E2E56135400A790E6 /* SFSymbolsIcon.swift in Sources */,
 				FB2724C42E50DAD40092408E /* ScheduleTabView.swift in Sources */,
 				FB2724B62E50CFB90092408E /* AppPage.swift in Sources */,
 				FB1BED6E2E53416C00041053 /* ManagementTabView.swift in Sources */,

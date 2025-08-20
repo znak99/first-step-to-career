@@ -56,7 +56,7 @@ struct CustomTabBarView: View {
                         .font(.caption)
                 }
                 .padding(.horizontal)
-                .foregroundColor(currentTab == tab ? .appTabBarAccent : .appTabBarGray)
+                .foregroundColor(currentTab == tab ? .appPrimary : .appTabBarGray)
                 .frame(maxWidth: .infinity)
             }
         )

@@ -15,24 +15,10 @@ struct InterviewTabView: View {
     @EnvironmentObject private var nc: NavigationController
     @FocusState private var focus: FocusTarget?
     
-    let analysisGridColumns = [
+    let graphPreviewColumns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
         GridItem(.flexible())
-    ]
-    
-    let analysisLabel: [String] = [
-        "ペース", "沈黙", "動き",
-        "視線", "表情", "総合"
-    ]
-    
-    let analysisColor: [Color] = [
-        .appAnalysisRed, .appAnalysisGreen, .appAnalysisOrange,
-        .appAnalysisBlue, .appAnalysisPurple, .appAnalysisBlack
-    ]
-    let analysisColor1: [Color] = [
-        .appAnalysisRed1, .appAnalysisGreen1, .appAnalysisOrange1,
-        .appAnalysisBlue1, .appAnalysisPurple1, .appAnalysisBlack1
     ]
     
     // MARK: - UI
@@ -45,57 +31,23 @@ struct InterviewTabView: View {
             VStack {
                 // Header
                 TabViewHeader(
-                    icon: AppConstant.Icon.InterviewTab.header,
+                    icon: InterviewTabIcon.header,
                     title: "Interview",
-                    trailingActionIcon: AppConstant.Icon.InterviewTab.resume,
-                    trailingActionLabel: "履歴書管理"
+                    trailingActionIcon: InterviewTabIcon.resume,
+                    trailingActionLabel: "履歴書"
                 ) {
                     print("Interview")
                 }
                 
+                // Scroll View
                 ScrollView {
-                    // Analysis
-                    VStack(spacing: 16) { // TODO: - 차트 디자인 및 내용 수정하기
-                        categoryTitle(icon: AppConstant.interviewTabAnalysisIcon, text: "分析")
-                        if interviewVM.interviewResults != nil && !(interviewVM.interviewResults?.isEmpty ?? false) {
-                            LazyVGrid(columns: analysisGridColumns, spacing: 16) {
-                                ForEach(0..<6) { index in
-                                    VStack {
-                                        Text(analysisLabel[index])
-                                            .font(.custom(Font.appMedium, size: 12))
-                                        ProgressRing(
-                                            progress: interviewVM.analysisResultAvgs[index],
-                                            thickness: 8,
-                                            gradient: AngularGradient(
-                                                colors: [
-                                                    analysisColor[index],
-                                                    analysisColor1[index],
-                                                    analysisColor[index]
-                                                ],
-                                                center: .center)
-                                        )
-                                        .frame(
-                                            minWidth: 40, idealWidth: 48, maxWidth: 56,
-                                            minHeight: 40, idealHeight: 48, maxHeight: 56,
-                                            alignment: .center)
-                                    }
-                                    .frame(maxWidth: .infinity)
-                                    .padding(8)
-                                    .background {
-                                        LinearGradient(
-                                            colors: [
-                                                analysisColor[index].opacity(0.1),
-                                                analysisColor1[index].opacity(0.1)
-                                            ],
-                                            startPoint: .topLeading,
-                                            endPoint: .bottomTrailing)
-                                    }
-                                    .clipShape(RoundedRectangle(cornerRadius: AppConstant.boxRadius))
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: AppConstant.boxRadius)
-                                            .stroke(lineWidth: 1)
-                                            .foregroundStyle(analysisColor[index].opacity(0.1))
-                                    }
+                    // Analytics
+                    VStack {
+                        categoryTitle(icon: InterviewTabIcon.Analytics.header, text: "分析")
+                        if interviewVM.graphData.count > 0 {
+                            LazyVGrid(columns: graphPreviewColumns, spacing: 8) {
+                                ForEach(interviewVM.graphData) { graph in
+                                    analyticsGraph(graph: graph)
                                 }
                             }
                             Divider()
@@ -103,7 +55,7 @@ struct InterviewTabView: View {
                                 action: {
                                     isSomeButtonTapped = true
                                     DispatchQueue.main.asyncAfter(deadline: buttonDelay) {
-                                        nc.pagePath.append(.interviewAnalysisView)
+                                        nc.pagePath.append(.interviewAnalyticsView)
                                         isSomeButtonTapped = false
                                     }
                                 },
@@ -112,7 +64,7 @@ struct InterviewTabView: View {
                                         Text("分析結果の詳細を見る")
                                             .font(.custom(Font.appSemiBold, size: 14))
                                         Spacer()
-                                        Image(systemName: AppConstant.chevronRight)
+                                        Image(systemName: SFSymbolsIcon.chevronRight)
                                     }
                                 }
                             )
@@ -121,13 +73,13 @@ struct InterviewTabView: View {
                             .foregroundStyle(Color.appGrayFont)
                         } else {
                             HStack {
-                                Image(AppConstant.interviewTabNoData)
+                                Image(InterviewTabIcon.Analytics.noData)
                                     .resizable()
                                     .scaledToFit()
                                     .frame(
                                         minWidth: 28, idealWidth: 32, maxWidth: 36,
                                         minHeight: 28, idealHeight: 32, maxHeight: 36, alignment: .center)
-                                Text("分析できそうなデータが見つかりません")
+                                Text("分析できるデータが見つかりません")
                                     .appCaptionStyle()
                                 Spacer()
                             }
@@ -135,16 +87,26 @@ struct InterviewTabView: View {
                     }
                     .padding()
                     .background(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: AppConstant.sectionRadius))
+                    .clipShape(RoundedRectangle(cornerRadius: AppConstant.Radius.section))
                     .padding(.top)
                     
                     // History
                     VStack {
-                        categoryTitle(icon: AppConstant.interviewTabHistoryIcon, text: "履歴")
+                        categoryTitle(icon: InterviewTabIcon.History.header, text: "履歴")
                         if let results = interviewVM.interviewResults,
                            let highestResult = interviewVM.highestScoreResult {
                             if results.isEmpty {
-                                // TODO: - 과거 모의면접 데이터 없을때 보여줄 뷰 작성하기
+                                HStack {
+                                    Image(InterviewTabIcon.Analytics.noData)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(
+                                            minWidth: 28, idealWidth: 32, maxWidth: 36,
+                                            minHeight: 28, idealHeight: 32, maxHeight: 36, alignment: .center)
+                                    Text("分析できるデータが見つかりません")
+                                        .appCaptionStyle()
+                                    Spacer()
+                                }
                             } else {
                                 Text("この模擬面接すごく良かったです！")
                                     .appCaptionStyle()
@@ -170,7 +132,7 @@ struct InterviewTabView: View {
                                             Text("過去の面接履歴を見る")
                                                 .font(.custom(Font.appSemiBold, size: 14))
                                             Spacer()
-                                            Image(systemName: AppConstant.chevronRight)
+                                            Image(systemName: SFSymbolsIcon.chevronRight)
                                         }
                                     }
                                 )
@@ -180,7 +142,7 @@ struct InterviewTabView: View {
                             }
                         } else {
                             HStack {
-                                Image(AppConstant.interviewTabUnauthorized)
+                                Image(InterviewTabIcon.History.unauthenticated)
                                     .resizable()
                                     .scaledToFit()
                                     .frame(
@@ -200,13 +162,13 @@ struct InterviewTabView: View {
                                 },
                                 label: {
                                     HStack {
-                                        Image(AppConstant.interviewTabSignIn)
+                                        Image(InterviewTabIcon.History.signin)
                                             .resizable()
                                             .frame(width: 20, height: 20)
                                         Text("ログインする")
                                             .font(.custom(Font.appSemiBold, size: 16))
                                         Spacer()
-                                        Image(systemName: AppConstant.chevronRight)
+                                        Image(systemName: SFSymbolsIcon.chevronRight)
                                     }
                                 }
                             )
@@ -214,28 +176,24 @@ struct InterviewTabView: View {
                             .tapScaleEffect()
                             .padding(12)
                             .background {
-                                LinearGradient(
-                                    colors: [Color.appPrimaryGradient01, Color.appPrimaryGradient02],
-                                    startPoint: .top, endPoint: .bottom)
+                                LinearGradient(colors: [Color.appMainGradientStart, Color.appMainGradientEnd],
+                                               startPoint: .leading, endPoint: .trailing)
                             }
-                            .clipShape(RoundedRectangle(cornerRadius: AppConstant.boxRadius))
+                            .clipShape(RoundedRectangle(cornerRadius: AppConstant.Radius.box))
                             .foregroundStyle(.white)
                             .padding(.top, 8)
                         }
                     }
-                    .onTapGesture {
-                        interviewVM.forTestMakeDummyData() // TODO: - 삭제하기
-                    }
                     .padding()
                     .background(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: AppConstant.sectionRadius))
+                    .clipShape(RoundedRectangle(cornerRadius: AppConstant.Radius.section))
                     .padding(.top)
                     
                     Divider()
                     
                     // Interview
                     VStack {
-                        categoryTitle(icon: AppConstant.interviewTabWebCamIcon, text: "面接")
+                        categoryTitle(icon: InterviewTabIcon.Interview.header, text: "面接")
                         Text("簡単な情報を入力して模擬面接を行いましょう！")
                             .appCaptionStyle()
                         Button(
@@ -248,27 +206,30 @@ struct InterviewTabView: View {
                             },
                             label: {
                                 HStack {
-                                    Image(AppConstant.interviewTabFocus)
+                                    Image(InterviewTabIcon.Interview.focus)
                                         .resizable()
                                         .frame(width: 20, height: 20)
                                     Text("模擬面接を始める")
                                         .font(.custom(Font.appSemiBold, size: 16))
                                     Spacer()
-                                    Image(systemName: AppConstant.chevronRight)
+                                    Image(systemName: SFSymbolsIcon.chevronRight)
                                 }
                             }
                         )
                         .disabled(isSomeButtonTapped)
                         .tapScaleEffect()
                         .padding(12)
-                        .background(Color.appAnalysisBlack)
-                        .clipShape(RoundedRectangle(cornerRadius: AppConstant.boxRadius))
+                        .background{
+                            LinearGradient(colors: [Color.appMainGradientStart, Color.appMainGradientEnd],
+                                           startPoint: .leading, endPoint: .trailing)
+                        }
+                        .clipShape(RoundedRectangle(cornerRadius: AppConstant.Radius.box))
                         .foregroundStyle(.white)
                         .padding(.top, 8)
                     }
                     .padding()
                     .background(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: AppConstant.sectionRadius))
+                    .clipShape(RoundedRectangle(cornerRadius: AppConstant.Radius.section))
                     .padding(.top)
                     
                 }
@@ -279,7 +240,7 @@ struct InterviewTabView: View {
             .padding(.horizontal, 16)
             .navigationDestination(for: AppPage.self) { page in
                 switch page {
-                case .interviewAnalysisView:
+                case .interviewAnalyticsView:
                     InterviewAnalysisView()
                 case .interviewHistoryListView:
                     InterviewHistoryListView()
@@ -290,14 +251,13 @@ struct InterviewTabView: View {
                 }
             }
         }
-        
     }
 }
 
 // MARK: - Sub Views
 private extension InterviewTabView {
     @ViewBuilder
-    private func categoryTitle(icon: String, text: String) -> some View {
+    private func categoryTitle(icon: String, text: String) -> some View { // 함수명 수정
         HStack(spacing: 4) {
             Image(icon)
                 .resizable()
@@ -306,6 +266,47 @@ private extension InterviewTabView {
                 .font(.custom(Font.appRegular, size: 16))
                 .foregroundStyle(Color.black)
             Spacer()
+        }
+    }
+}
+
+private extension InterviewTabView {
+    @ViewBuilder
+    private func analyticsGraph(graph: AnalyticsPreviewGraph) -> some View {
+        VStack {
+            Text(graph.label)
+                .font(.custom(Font.appMedium, size: 12))
+            ProgressRing(
+                progress: graph.score,
+                thickness: 8,
+                gradient: AngularGradient(
+                    colors: [
+                        graph.gradientStart,
+                        graph.gradientEnd
+                    ],
+                    center: .center)
+            )
+            .frame(
+                minWidth: 40, idealWidth: 48, maxWidth: 56,
+                minHeight: 40, idealHeight: 48, maxHeight: 56,
+                alignment: .center)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(8)
+        .background {
+            LinearGradient(
+                colors: [
+                    graph.gradientStart.opacity(0.1),
+                    graph.gradientEnd.opacity(0.1)
+                ],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing)
+        }
+        .clipShape(RoundedRectangle(cornerRadius: AppConstant.Radius.box))
+        .overlay {
+            RoundedRectangle(cornerRadius: AppConstant.Radius.box)
+                .stroke(lineWidth: 1)
+                .foregroundStyle(graph.gradientStart.opacity(0.2))
         }
     }
 }

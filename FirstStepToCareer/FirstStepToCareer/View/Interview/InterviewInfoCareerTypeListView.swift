@@ -26,21 +26,21 @@ struct InterviewInfoCareerTypeListView: View {
                         if type != .none {
                             Button(
                                 action: {
-//                                    interviewVM.mockInterviewInfo.careerType = type
+                                    interviewVM.interviewInfo.careerType = type
                                     nc.pagePath.removeAll()
                                 },
                                 label: {
                                     HStack {
                                         GeometryReader { proxy in
                                             RoundedRectangle(cornerRadius: 4)
-                                                .fill(Color.appAccentColor)
+                                                .fill(Color.appPrimary)
                                                 .frame(width: proxy.size.width)
                                         }
                                         .frame(maxWidth: 12, maxHeight: 40)
                                         Text(type.rawValue)
                                             .font(.custom(Font.appMedium, size: 16, relativeTo: .subheadline))
                                         Spacer()
-                                        Image(systemName: AppConstant.chevronRight)
+                                        Image(systemName: SFSymbolsIcon.chevronRight)
                                     }
                                     .foregroundStyle(.black)
                                 }
@@ -61,7 +61,7 @@ struct InterviewInfoCareerTypeListView: View {
                         nc.pagePath.removeAll()
                     },
                     label: {
-                        Image(systemName: AppConstant.chevronLeft)
+                        Image(systemName: SFSymbolsIcon.chevronLeft)
                             .font(.custom(Font.appSemiBold, size: 16, relativeTo: .subheadline))
                             .foregroundStyle(.black)
                     }

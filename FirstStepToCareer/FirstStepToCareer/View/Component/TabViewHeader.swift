@@ -56,9 +56,9 @@ struct TabViewHeader: View {
 
 #Preview {
     TabViewHeader(
-        icon: AppConstant.Icon.InterviewTab.header,
+        icon: InterviewTabIcon.header,
         title: "Interview",
-        trailingActionIcon: AppConstant.Icon.InterviewTab.resume,
+        trailingActionIcon: InterviewTabIcon.resume,
         trailingActionLabel: "履歴書管理",
         action: {}
     )

@@ -14,12 +14,12 @@ struct SplashView: View {
     // MARK: - UI
     var body: some View {
         ZStack {
-            LinearGradient(colors: [.appPrimaryGradient01, .appPrimaryGradient02],
+            LinearGradient(colors: [.appMainGradientStart, .appMainGradientEnd],
                            startPoint: .topLeading, endPoint: .bottomTrailing)
             .ignoresSafeArea()
             
             VStack {
-                Image("LogoWhite")
+                Image(GlobalIcon.appLogoWhite)
                     .resizable()
                     .frame(width: logoSize, height: logoSize)
                 Text("就活一歩")

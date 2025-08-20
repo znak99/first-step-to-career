@@ -20,7 +20,7 @@ struct ManagementTabView: View {
             VStack {
                 // Header
                 TabViewHeader(
-                    icon: AppConstant.Icon.ManagementTab.header,
+                    icon: ManagementTabIcon.header,
                     title: "Management",
                     trailingActionIcon: nil,
                     trailingActionLabel: nil,
