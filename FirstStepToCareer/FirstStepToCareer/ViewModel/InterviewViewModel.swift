@@ -12,12 +12,7 @@ class InterviewViewModel: ObservableObject {
     // MARK: - Variables
     @Published var interviewResults: [InterviewResult]?
     @Published var highestScoreResult: InterviewResult?
-    @Published var a: Double = 0.0
-    @Published var b: Double = 0.0
-    @Published var c: Double = 0.0
-    @Published var d: Double = 0.0
-    @Published var e: Double = 0.0
-    @Published var f: Double = 0.0
+    @Published var analysisResultAvgs: [Double] = []
     
     // MARK: - Functions
     func forTestMakeDummyData() {
@@ -64,11 +59,11 @@ class InterviewViewModel: ObservableObject {
             avgF += result.overall.totalScore
         }
         
-        a = avgA / Double(results.count)
-        b = avgB / Double(results.count)
-        c = avgC / Double(results.count)
-        d = avgD / Double(results.count)
-        e = avgE / Double(results.count)
-        f = avgF / Double(results.count)
+        analysisResultAvgs.append(avgA / Double(results.count))
+        analysisResultAvgs.append(avgB / Double(results.count))
+        analysisResultAvgs.append(avgC / Double(results.count))
+        analysisResultAvgs.append(avgD / Double(results.count))
+        analysisResultAvgs.append(avgE / Double(results.count))
+        analysisResultAvgs.append(avgF / Double(results.count))
     }
 }

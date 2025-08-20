@@ -15,6 +15,26 @@ struct InterviewTabView: View {
     @EnvironmentObject private var nc: NavigationController
     @FocusState private var focus: FocusTarget?
     
+    let analysisGridColumns = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+    
+    let analysisLabel: [String] = [
+        "ペース", "沈黙", "動き",
+        "視線", "表情", "総合"
+    ]
+    
+    let analysisColor: [Color] = [
+        .appAnalysisRed, .appAnalysisGreen, .appAnalysisOrange,
+        .appAnalysisBlue, .appAnalysisPurple, .appAnalysisBlack
+    ]
+    let analysisColor1: [Color] = [
+        .appAnalysisRed1, .appAnalysisGreen1, .appAnalysisOrange1,
+        .appAnalysisBlue1, .appAnalysisPurple1, .appAnalysisBlack1
+    ]
+    
     // MARK: - UI
     var body: some View {
         ZStack {
@@ -35,52 +55,48 @@ struct InterviewTabView: View {
                 
                 ScrollView {
                     // Analysis
-                    // TODO: - 분석할 데이터 없을때 보여줄 뷰 작성하기
                     VStack(spacing: 16) { // TODO: - 차트 디자인 및 내용 수정하기
                         categoryTitle(icon: AppConstant.interviewTabAnalysisIcon, text: "分析")
                         if interviewVM.interviewResults != nil && !(interviewVM.interviewResults?.isEmpty ?? false) {
-                            // TODO: - 그래프 그리기
-                            HStack {
-                                Spacer()
-                                ProgressRing(progress: interviewVM.a, thickness: 8, gradient: .init(
-                                    gradient: Gradient(colors: [.yellow]),
-                                    center: .center
-                                ))
-                                .frame(width: 48, height: 48)
-                                Spacer()
-                                ProgressRing(progress: interviewVM.b, thickness: 8, gradient: .init(
-                                    gradient: Gradient(colors: [.red]),
-                                    center: .center
-                                ))
-                                .frame(width: 48, height: 48)
-                                Spacer()
-                                ProgressRing(progress: interviewVM.c, thickness: 8, gradient: .init(
-                                    gradient: Gradient(colors: [.green]),
-                                    center: .center
-                                ))
-                                .frame(width: 48, height: 48)
-                                Spacer()
-                            }
-                            HStack {
-                                Spacer()
-                                ProgressRing(progress: interviewVM.d, thickness: 8, gradient: .init(
-                                    gradient: Gradient(colors: [.orange]),
-                                    center: .center
-                                ))
-                                .frame(width: 48, height: 48)
-                                Spacer()
-                                ProgressRing(progress: interviewVM.e, thickness: 8, gradient: .init(
-                                    gradient: Gradient(colors: [.purple]),
-                                    center: .center
-                                ))
-                                .frame(width: 48, height: 48)
-                                Spacer()
-                                ProgressRing(progress: interviewVM.f, thickness: 8, gradient: .init(
-                                    gradient: Gradient(colors: [.cyan]),
-                                    center: .center
-                                ))
-                                .frame(width: 48, height: 48)
-                                Spacer()
+                            LazyVGrid(columns: analysisGridColumns, spacing: 16) {
+                                ForEach(0..<6) { index in
+                                    VStack {
+                                        Text(analysisLabel[index])
+                                            .font(.custom(Font.appMedium, size: 12))
+                                        ProgressRing(
+                                            progress: interviewVM.analysisResultAvgs[index],
+                                            thickness: 8,
+                                            gradient: AngularGradient(
+                                                colors: [
+                                                    analysisColor[index],
+                                                    analysisColor1[index],
+                                                    analysisColor[index]
+                                                ],
+                                                center: .center)
+                                        )
+                                        .frame(
+                                            minWidth: 40, idealWidth: 48, maxWidth: 56,
+                                            minHeight: 40, idealHeight: 48, maxHeight: 56,
+                                            alignment: .center)
+                                    }
+                                    .frame(maxWidth: .infinity)
+                                    .padding(8)
+                                    .background {
+                                        LinearGradient(
+                                            colors: [
+                                                analysisColor[index].opacity(0.1),
+                                                analysisColor1[index].opacity(0.1)
+                                            ],
+                                            startPoint: .topLeading,
+                                            endPoint: .bottomTrailing)
+                                    }
+                                    .clipShape(RoundedRectangle(cornerRadius: AppConstant.boxRadius))
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: AppConstant.boxRadius)
+                                            .stroke(lineWidth: 1)
+                                            .foregroundStyle(analysisColor[index].opacity(0.1))
+                                    }
+                                }
                             }
                             Divider()
                             Button(
@@ -122,11 +138,7 @@ struct InterviewTabView: View {
                     .clipShape(RoundedRectangle(cornerRadius: AppConstant.sectionRadius))
                     .padding(.top)
                     
-                    
-                    Divider()
-                    
                     // History
-                    // TODO: - 로그인 안되어있을때 보여줄 뷰 작성하기
                     VStack {
                         categoryTitle(icon: AppConstant.interviewTabHistoryIcon, text: "履歴")
                         if let results = interviewVM.interviewResults,
@@ -249,11 +261,7 @@ struct InterviewTabView: View {
                         .disabled(isSomeButtonTapped)
                         .tapScaleEffect()
                         .padding(12)
-                        .background {
-                            LinearGradient(
-                                colors: [Color.appPrimaryGradient01, Color.appPrimaryGradient02],
-                                startPoint: .top, endPoint: .bottom)
-                        }
+                        .background(Color.appAnalysisBlack)
                         .clipShape(RoundedRectangle(cornerRadius: AppConstant.boxRadius))
                         .foregroundStyle(.white)
                         .padding(.top, 8)
@@ -263,6 +271,9 @@ struct InterviewTabView: View {
                     .clipShape(RoundedRectangle(cornerRadius: AppConstant.sectionRadius))
                     .padding(.top)
                     
+                }
+                .refreshable {
+                    interviewVM.forTestMakeDummyData()
                 }
             }
             .padding(.horizontal, 16)

@@ -37,4 +37,16 @@ extension Color {
     
     // Interview
     static let appInterviewGradient = Color(hex: "#B8E4FF")
+    static let appAnalysisRed = Color(hex: "#E53935")
+    static let appAnalysisGreen = Color(hex: "#43A047")
+    static let appAnalysisOrange = Color(hex: "#FB8C00")
+    static let appAnalysisBlue = Color(hex: "#1E88E5")
+    static let appAnalysisPurple = Color(hex: "#8E24AA")
+    static let appAnalysisBlack = Color(hex: "#212121")
+    static let appAnalysisRed1 = Color(hex: "#EF5350")
+    static let appAnalysisGreen1 = Color(hex: "#4CAF50")
+    static let appAnalysisOrange1 = Color(hex: "#FF9800")
+    static let appAnalysisBlue1 = Color(hex: "#42A5F5")
+    static let appAnalysisPurple1 = Color(hex: "#AB47BC")
+    static let appAnalysisBlack1 = Color(hex: "#424242")
 }
