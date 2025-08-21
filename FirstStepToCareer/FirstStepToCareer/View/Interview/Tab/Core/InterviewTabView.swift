@@ -39,7 +39,7 @@ struct InterviewTabView: View {
                     // ===== Analytics =====
                     AppSection {
                         AppSectionHeader(icon: InterviewTabIcon.Analytics.header, text: "分析")
-                        if !interviewVM.isLoading {
+                        if interviewVM.state == .idle {
                             if let results = interviewVM.interviewResults, !results.isEmpty {
                                 ZStack {
                                     LazyVGrid(columns: grid3, spacing: 8) {
@@ -66,15 +66,18 @@ struct InterviewTabView: View {
                                     text: "分析データが見つかりません"
                                 )
                             }
+                        } else if interviewVM.state == .fetching {
+                            // TODO: - 인디케이터 바꾸기
+                            ProgressView()
                         }
                     }
                     .padding(.top)
-                    .shimmering(active: interviewVM.isLoading)
+                    .shimmering(active: interviewVM.state == .appearing)
 
                     // ===== History =====
                     AppSection {
                         AppSectionHeader(icon: InterviewTabIcon.History.header, text: "履歴")
-                        if !interviewVM.isLoading {
+                        if interviewVM.state == .idle {
                             if let results = interviewVM.interviewResults {
                                 if results.isEmpty {
                                     InterviewNoDataRow(
@@ -117,15 +120,18 @@ struct InterviewTabView: View {
                                 }
                                 .padding(.top, 8)
                             }
+                        } else if interviewVM.state == .fetching {
+                            // TODO: - 인디케이터 바꾸기
+                            ProgressView()
                         }
                     }
                     .padding(.top)
-                    .shimmering(active: interviewVM.isLoading)
+                    .shimmering(active: interviewVM.state == .appearing)
 
                     // ===== Interview =====
                     AppSection {
                         AppSectionHeader(icon: InterviewTabIcon.Interview.header, text: "面接")
-                        if !interviewVM.isLoading {
+                        if interviewVM.state != .appearing {
                             Text("簡単な情報を入力して模擬面接を行いましょう！")
                                 .appCaptionStyle()
                             GradientNavigationButton(
@@ -139,7 +145,7 @@ struct InterviewTabView: View {
                         }
                     }
                     .padding(.top)
-                    .shimmering(active: interviewVM.isLoading)
+                    .shimmering(active: interviewVM.state == .appearing)
                 }
                 .refreshable {
                     withAnimation {
@@ -164,11 +170,14 @@ struct InterviewTabView: View {
                     EmptyView()
                 }
             }
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                    withAnimation {
-                        interviewVM.isLoading = false
-                    }
+        }
+        .onAppear {
+            withAnimation {
+                interviewVM.state = .appearing
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                withAnimation {
+                    interviewVM.state = .idle
                 }
             }
         }

@@ -20,6 +20,7 @@ class InterviewViewModel: ObservableObject {
     
     // MARK: - View State
     @Published var isLoading = true
+    @Published var state: InterviewTabViewState = .appearing
 
     // MARK: - Data
     @Published var interviewInfo: InterviewInfo = .init()
@@ -29,11 +30,13 @@ class InterviewViewModel: ObservableObject {
     // MARK: - Logic
     func loadInterviewData() {
         // TODO: - 로그인 비동기처리 구현하면 Shimmer 처리 수정하기
-        isLoading = true
+        withAnimation {
+            state = .fetching
+        }
         let results = InterviewMockDataGenerator.makeInterviewResults()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             withAnimation {
-                self.isLoading = false
+                self.state = .idle
                 self.interviewResults = results
                 self.setHighestScoringResult()
                 self.setPreviewScores()

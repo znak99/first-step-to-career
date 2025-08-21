@@ -84,6 +84,7 @@
 		FB2BD6632E575C7E00A790E6 /* InterviewPreviewAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BD6622E575C7E00A790E6 /* InterviewPreviewAnalyzer.swift */; };
 		FB2BD6662E576B1800A790E6 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = FB2BD6652E576B1800A790E6 /* Lottie */; };
 		FB2BD6742E57710500A790E6 /* SigninView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BD6732E57710500A790E6 /* SigninView.swift */; };
+		FB2BD67C2E5775E600A790E6 /* InterviewTabViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BD67B2E5775E600A790E6 /* InterviewTabViewState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -160,6 +161,7 @@
 		FB2BD6602E57575300A790E6 /* InterviewMetricRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewMetricRing.swift; sourceTree = "<group>"; };
 		FB2BD6622E575C7E00A790E6 /* InterviewPreviewAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewPreviewAnalyzer.swift; sourceTree = "<group>"; };
 		FB2BD6732E57710500A790E6 /* SigninView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninView.swift; sourceTree = "<group>"; };
+		FB2BD67B2E5775E600A790E6 /* InterviewTabViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewTabViewState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -416,6 +418,7 @@
 		FB2725092E51255E0092408E /* Interview */ = {
 			isa = PBXGroup;
 			children = (
+				FB2BD67E2E5775F600A790E6 /* State */,
 				FB2BD65C2E57571E00A790E6 /* Analytics */,
 				FB1BEDA22E54B4B800041053 /* Preparation */,
 				FB1BEDA92E54B4DD00041053 /* InterviewResult */,
@@ -610,6 +613,14 @@
 			path = Signin;
 			sourceTree = "<group>";
 		};
+		FB2BD67E2E5775F600A790E6 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				FB2BD67B2E5775E600A790E6 /* InterviewTabViewState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -785,6 +796,7 @@
 				FB2724BA2E50CFB90092408E /* RootView.swift in Sources */,
 				FB2724BB2E50CFB90092408E /* SplashView.swift in Sources */,
 				FB2BD6572E57503F00A790E6 /* InterviewNoDataRow.swift in Sources */,
+				FB2BD67C2E5775E600A790E6 /* InterviewTabViewState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
