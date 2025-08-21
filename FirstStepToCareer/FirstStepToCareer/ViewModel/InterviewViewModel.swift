@@ -8,76 +8,58 @@
 import Foundation
 import SwiftUI
 
+@MainActor
 class InterviewViewModel: ObservableObject {
-    // MARK: - Variables
+    // MARK: - Preview Scores
+    @Published var analyticsPreviewSpeechSpeedScore: Double = 0
+    @Published var analyticsPreviewSilenceScore: Double = 0
+    @Published var analyticsPreviewHeadDirectionScore: Double = 0
+    @Published var analyticsPreviewGazeScore: Double = 0
+    @Published var analyticsPreviewExpressionScore: Double = 0
+    @Published var analyticsPreviewTotalScore: Double = 0
+    
+    // MARK: - Shimmer
+    @Published var isLoading = true
+    @Published var isAppearing = true
+
+    // MARK: - Data
     @Published var interviewInfo: InterviewInfo = .init()
     @Published var interviewResults: [InterviewResult]?
     @Published var highestScoreResult: InterviewResult?
-    @Published var graphData: [AnalyticsPreviewGraph] = []
-    
-    // MARK: - Functions
-    func highestScoringResult(in results: [InterviewResult]?) -> InterviewResult? {
-        guard let results, !results.isEmpty else { return nil }
 
-        return results.max { lhs, rhs in
-            (lhs.overall.totalScore) < (rhs.overall.totalScore)
+    // MARK: - Logic
+    func loadInterviewData() {
+        // TODO: - 로그인 비동기처리 구현하면 Shimmer 처리 수정하기
+        isLoading = true
+        let results = InterviewMockDataGenerator.makeInterviewResults()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            withAnimation {
+                self.isLoading = false
+                self.interviewResults = results
+                self.setHighestScoringResult()
+                self.setPreviewScores()
+            }
         }
+        
+        print("Generated \(results.count) InterviewResults")
     }
     
-    func mapGraphData(in results: [InterviewResult]?) {
-        guard let results, !results.isEmpty else { return }
-        var previewData: [AnalyticsPreviewGraph] = []
-        
-        let labels: [String] = ["速度", "沈黙", "動き", "視線", "表情", "総合"]
-        let gradientStartColors: [Color] = [
-            .appAnalysisRed, .appAnalysisGreen, .appAnalysisOrange,
-            .appAnalysisBlue, .appAnalysisPurple, .appAnalysisBlack
-        ]
-        let gradientEndColors: [Color] = [
-            .appAnalysisRed1, .appAnalysisGreen1, .appAnalysisOrange1,
-            .appAnalysisBlue1, .appAnalysisPurple1, .appAnalysisBlack1
-        ]
-        
-        var scores: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-        
-        for result in results {
-            scores[0] += result.overall.avgSpeechSpeedScore
-            scores[1] += result.overall.avgSilenceScore
-            scores[2] += result.overall.avgHeadDirectionScore
-            scores[3] += result.overall.avgGazeScore
-            scores[4] += result.overall.avgExpressionScore
-            scores[5] += result.overall.totalScore
-        }
-        
-        let avgs = scores.map { value in
-            value / Double(results.count)
-        }
-        
-        for i in 0..<6 {
-            let data = AnalyticsPreviewGraph(
-                label: labels[i],
-                gradientStart: gradientStartColors[i],
-                gradientEnd: gradientEndColors[i],
-                score: avgs[i]
-            )
-            
-            previewData.append(data)
-        }
-        
-        graphData = previewData
+    func setHighestScoringResult() {
+        highestScoreResult = InterviewPreviewAnalyzer.getHighestScoreResult(in: interviewResults)
     }
     
-    func forTestMakeDummyData() {
-        interviewResults = InterviewMockDataGenerator.makeInterviewResults()
-        print("Generated \(interviewResults!.count) InterviewResults")
-        if let first = interviewResults!.first {
-            print("First startedAt:", first.startedAt)
-            print("First createdAt:", first.createdAt?.dateValue() as Any)
-            print("First updatedAt:", first.updatedAt?.dateValue() as Any)
-            print("First turns:", first.turns.count)
-        }
-        
-        highestScoreResult = highestScoringResult(in: interviewResults)
-        mapGraphData(in: interviewResults)
+    func setPreviewScores() {
+        analyticsPreviewSpeechSpeedScore = InterviewPreviewAnalyzer
+            .getAnalyticsSpeechSpeedAvgScore(results: interviewResults)
+        analyticsPreviewSilenceScore = InterviewPreviewAnalyzer
+            .getAnalyticsSilenceAvgScore(results: interviewResults)
+        analyticsPreviewHeadDirectionScore = InterviewPreviewAnalyzer
+            .getAnalyticsHeadDirectionAvgScore(results: interviewResults)
+        analyticsPreviewGazeScore = InterviewPreviewAnalyzer
+            .getAnalyticsGazeAvgScore(results: interviewResults)
+        analyticsPreviewExpressionScore = InterviewPreviewAnalyzer
+            .getAnalyticsExpressionAvgScore(results: interviewResults)
+        analyticsPreviewTotalScore = InterviewPreviewAnalyzer
+            .getAnalyticsTotalAvgScore(results: interviewResults)
     }
 }

@@ -12,12 +12,14 @@ struct CustomTabBarView: View {
     @State private var currentTab: AppTab = .interview
     @State private var tabIconSize: CGFloat = 24
     
+    @StateObject var interviewVM = InterviewViewModel()
+    
     // MARK: - UI
     var body: some View {
         ZStack {
             switch currentTab {
             case .interview:
-                InterviewTabView()
+                InterviewTabView(interviewVM: interviewVM)
             case .schedule:
                 ScheduleTabView()
             case .management:

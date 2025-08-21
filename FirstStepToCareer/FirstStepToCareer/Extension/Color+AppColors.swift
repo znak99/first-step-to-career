@@ -24,28 +24,27 @@ extension Color {
     }
     
     // App
-    static let appMainGradientStart = Color(hex: "#6060E7")
-    static let appMainGradientEnd = Color(hex: "#2727CA")
     static let appBackground = Color(hex: "#F2F2F2")
-    static let appPrimary = Color(hex: "#4646E5")
+    static let appPrimary = Color(hex: "#4A6CF7")
+    static let appMainGradientStart = Color(hex: "#6E89FA")
+    static let appMainGradientEnd = Color(hex: "#2C4FDD")
     static let appGrayFont = Color(hex: "#959595")
     
     // Tab bar
     static let appTabBarBackground = Color(hex: "#FEFEFE")
     static let appTabBarGray = Color(hex: "#BFBFBF")
     
-    // Interview
-    static let appInterviewGradient = Color(hex: "#B8E4FF")
-    static let appAnalysisRed = Color(hex: "#E53935")
-    static let appAnalysisGreen = Color(hex: "#43A047")
-    static let appAnalysisOrange = Color(hex: "#FB8C00")
-    static let appAnalysisBlue = Color(hex: "#1E88E5")
-    static let appAnalysisPurple = Color(hex: "#8E24AA")
-    static let appAnalysisBlack = Color(hex: "#212121")
-    static let appAnalysisRed1 = Color(hex: "#EF5350")
-    static let appAnalysisGreen1 = Color(hex: "#4CAF50")
-    static let appAnalysisOrange1 = Color(hex: "#FF9800")
-    static let appAnalysisBlue1 = Color(hex: "#42A5F5")
-    static let appAnalysisPurple1 = Color(hex: "#AB47BC")
-    static let appAnalysisBlack1 = Color(hex: "#424242")
+    // Interview Analytics
+    static let appAnalyticsSpeechSpeedGradientStart = Color(hex: "#E53935")
+    static let appAnalyticsSpeechSpeedGradientEnd = Color(hex: "#EF5350")
+    static let appAnalyticsSilenceGradientStart = Color(hex: "#43A047")
+    static let appAnalyticsSilenceGradientEnd = Color(hex: "#4CAF50")
+    static let appAnalyticsHeadDirectionGradientStart = Color(hex: "#FB8C00")
+    static let appAnalyticsHeadDirectionGradientEnd = Color(hex: "#FF9800")
+    static let appAnalyticsGazeGradientStart = Color(hex: "#1E88E5")
+    static let appAnalyticsGazeGradientEnd = Color(hex: "#42A5F5")
+    static let appAnalyticsExpressionGradientStart = Color(hex: "#8E24AA")
+    static let appAnalyticsExpressionGradientEnd = Color(hex: "#AB47BC")
+    static let appAnalyticsTotalGradientStart = Color(hex: "#212121")
+    static let appAnalyticsTotalGradientEnd = Color(hex: "#424242")
 }

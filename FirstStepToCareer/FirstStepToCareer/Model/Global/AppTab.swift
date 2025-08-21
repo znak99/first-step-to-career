@@ -16,7 +16,7 @@ enum AppTab {
         case .interview:
             return "面接"
         case .schedule:
-            return "日程"
+            return "予定"
         case .management:
             return "選考"
         case .settings:

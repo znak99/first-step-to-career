@@ -6,5 +6,6 @@
 //
 
 enum GlobalIcon {
-    static let appLogoWhite = "Icon/LogoWhite"
+    static let appLogoWhite = "Icon/Logo/White"
+    static let appLogoAccent = "Icon/Logo/Accent"
 }

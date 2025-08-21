@@ -28,6 +28,6 @@ enum AppPage {
     // Settings
     
     // Auth
-    case loginView
+    case signinView
     case registrationView
 }

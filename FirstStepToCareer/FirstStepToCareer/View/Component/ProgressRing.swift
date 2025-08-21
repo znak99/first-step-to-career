@@ -39,8 +39,8 @@ struct ProgressRing: View {
         .contentShape(Circle())
         .animation(.spring(response: 0.5, dampingFraction: 0.3), value: progress)
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("진행률")
-        .accessibilityValue("\(Int(progress * 100)) 퍼센트")
+        .accessibilityLabel("Metric")
+        .accessibilityValue(String(format: "%.1f%点", progress))
     }
 }
 

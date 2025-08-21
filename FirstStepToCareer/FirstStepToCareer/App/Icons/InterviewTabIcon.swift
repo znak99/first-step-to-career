@@ -17,6 +17,7 @@ enum InterviewTabIcon {
     enum History {
         static let header = "Icon/InterviewTab/History/Header"
         static let signin = "Icon/InterviewTab/History/Signin"
+        static let noData = "Icon/InterviewTab/History/NoData"
         static let unauthenticated = "Icon/InterviewTab/History/Unauthenticated"
     }
     

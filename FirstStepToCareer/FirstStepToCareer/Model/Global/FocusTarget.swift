@@ -9,5 +9,10 @@ import Foundation
 
 // Textfield에서 Focus 제어용
 enum FocusTarget {
-    case companyName // InterviewTabView
+    // Interview
+    case companyName
+    
+    // Schedule
+    
+    // Management
 }
