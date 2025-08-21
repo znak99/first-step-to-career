@@ -24,23 +24,17 @@ struct InterviewPrepareView: View {
                         focus: $focus,
                         focusTarget: .companyName)
                     AppSectionHeader(icon: InterviewTabIcon.header, text: "選考区分")
-                    CustomTextField(
-                        placeholder: "株式会社就活一歩",
-                        text: $text,
-                        focus: $focus,
-                        focusTarget: .companyName)
+                    GradientNavigationButton(title: "この内容で進める", icon: InterviewTabIcon.Interview.focus) {
+                        nc.pagePath.append(.interviewView)
+                    }
                     AppSectionHeader(icon: InterviewTabIcon.header, text: "企業区分")
-                    CustomTextField(
-                        placeholder: "株式会社就活一歩",
-                        text: $text,
-                        focus: $focus,
-                        focusTarget: .companyName)
+                    GradientNavigationButton(title: "この内容で進める", icon: InterviewTabIcon.Interview.focus) {
+                        nc.pagePath.append(.interviewView)
+                    }
                     AppSectionHeader(icon: InterviewTabIcon.header, text: "希望職種")
-                    CustomTextField(
-                        placeholder: "株式会社就活一歩",
-                        text: $text,
-                        focus: $focus,
-                        focusTarget: .companyName)
+                    GradientNavigationButton(title: "この内容で進める", icon: InterviewTabIcon.Interview.focus) {
+                        nc.pagePath.append(.interviewView)
+                    }
                 }
                 AppSection {
                     GradientNavigationButton(title: "この内容で進める", icon: InterviewTabIcon.Interview.focus) {
@@ -56,16 +50,21 @@ struct InterviewPrepareView: View {
             ToolbarItem(placement: .topBarLeading) {
                 Button(
                     action: {
-                        
+                        nc.pagePath.removeLast()
                     },
                     label: {
-                        
+                        Image(systemName: SFSymbolsIcon.chevronLeft)
                     }
                 )
             }
+            ToolbarItem(placement: .navigation) {
+                Text("Interview")
+            }
         }
-        .onDisappear {
-            nc.pagePath.removeLast()
+        .onDisappear() {
+            if !nc.pagePath.isEmpty {
+                nc.pagePath.removeLast()
+            }
         }
     }
 }
