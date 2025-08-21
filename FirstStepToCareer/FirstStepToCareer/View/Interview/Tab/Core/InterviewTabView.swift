@@ -39,7 +39,7 @@ struct InterviewTabView: View {
                     // ===== Analytics =====
                     AppSection {
                         AppSectionHeader(icon: InterviewTabIcon.Analytics.header, text: "分析")
-                        if interviewVM.state == .idle || interviewVM.state == .isRefreshing {
+                        if !interviewVM.isLoading {
                             if let results = interviewVM.interviewResults, !results.isEmpty {
                                 ZStack {
                                     LazyVGrid(columns: grid3, spacing: 8) {
@@ -69,12 +69,12 @@ struct InterviewTabView: View {
                         }
                     }
                     .padding(.top)
-                    .shimmering(active: interviewVM.state == .isAppearing)
+                    .shimmering(active: interviewVM.isLoading)
 
                     // ===== History =====
                     AppSection {
                         AppSectionHeader(icon: InterviewTabIcon.History.header, text: "履歴")
-                        if interviewVM.state == .idle {
+                        if !interviewVM.isLoading {
                             if let results = interviewVM.interviewResults {
                                 if results.isEmpty {
                                     InterviewNoDataRow(
@@ -120,12 +120,12 @@ struct InterviewTabView: View {
                         }
                     }
                     .padding(.top)
-                    .shimmering(active: interviewVM.state == .isAppearing)
+                    .shimmering(active: interviewVM.isLoading)
 
                     // ===== Interview =====
                     AppSection {
                         AppSectionHeader(icon: InterviewTabIcon.Interview.header, text: "面接")
-                        if interviewVM.state != .isAppearing {
+                        if !interviewVM.isLoading {
                             Text("簡単な情報を入力して模擬面接を行いましょう！")
                                 .appCaptionStyle()
                             GradientNavigationButton(
@@ -139,7 +139,7 @@ struct InterviewTabView: View {
                         }
                     }
                     .padding(.top)
-                    .shimmering(active: interviewVM.state == .isAppearing)
+                    .shimmering(active: interviewVM.isLoading)
                 }
                 .refreshable {
                     withAnimation {
@@ -158,6 +158,8 @@ struct InterviewTabView: View {
                     InterviewHistoryListView()
                 case .interviewPrepareView:
                     InterviewPrepareView()
+                case .signinView:
+                    SigninView()
                 default:
                     EmptyView()
                 }
@@ -165,7 +167,7 @@ struct InterviewTabView: View {
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                     withAnimation {
-                        interviewVM.state = .idle
+                        interviewVM.isLoading = false
                     }
                 }
             }
