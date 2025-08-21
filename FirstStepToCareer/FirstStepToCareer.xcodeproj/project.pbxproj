@@ -82,6 +82,8 @@
 		FB2BD65D2E57571E00A790E6 /* AnalyticsPreviewMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BD65B2E57571E00A790E6 /* AnalyticsPreviewMetric.swift */; };
 		FB2BD6612E57575300A790E6 /* InterviewMetricRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BD6602E57575300A790E6 /* InterviewMetricRing.swift */; };
 		FB2BD6632E575C7E00A790E6 /* InterviewPreviewAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BD6622E575C7E00A790E6 /* InterviewPreviewAnalyzer.swift */; };
+		FB2BD6662E576B1800A790E6 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = FB2BD6652E576B1800A790E6 /* Lottie */; };
+		FB2BD66E2E576BAD00A790E6 /* InterviewTabViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BD66C2E576BAD00A790E6 /* InterviewTabViewState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -157,6 +159,7 @@
 		FB2BD65B2E57571E00A790E6 /* AnalyticsPreviewMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsPreviewMetric.swift; sourceTree = "<group>"; };
 		FB2BD6602E57575300A790E6 /* InterviewMetricRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewMetricRing.swift; sourceTree = "<group>"; };
 		FB2BD6622E575C7E00A790E6 /* InterviewPreviewAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewPreviewAnalyzer.swift; sourceTree = "<group>"; };
+		FB2BD66C2E576BAD00A790E6 /* InterviewTabViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewTabViewState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +172,7 @@
 				FB1BED862E54B21400041053 /* FirebaseAuthCombine-Community in Frameworks */,
 				FB1BED8A2E54B21400041053 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				FB1BED842E54B21400041053 /* FirebaseAuth in Frameworks */,
+				FB2BD6662E576B1800A790E6 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +296,7 @@
 				FB2724CF2E50DB970092408E /* Schedule */,
 				FB1BED6C2E5340F000041053 /* Manage */,
 				FB2724D02E50DB970092408E /* Settings */,
+				FB2BD6722E5770CE00A790E6 /* Auth */,
 				FB2724F32E50F8C90092408E /* Component */,
 			);
 			path = View;
@@ -411,6 +416,7 @@
 		FB2725092E51255E0092408E /* Interview */ = {
 			isa = PBXGroup;
 			children = (
+				FB2BD66D2E576BAD00A790E6 /* ViewState */,
 				FB2BD65C2E57571E00A790E6 /* Analytics */,
 				FB1BEDA22E54B4B800041053 /* Preparation */,
 				FB1BEDA92E54B4DD00041053 /* InterviewResult */,
@@ -573,6 +579,21 @@
 			path = Analytics;
 			sourceTree = "<group>";
 		};
+		FB2BD66D2E576BAD00A790E6 /* ViewState */ = {
+			isa = PBXGroup;
+			children = (
+				FB2BD66C2E576BAD00A790E6 /* InterviewTabViewState.swift */,
+			);
+			path = ViewState;
+			sourceTree = "<group>";
+		};
+		FB2BD6722E5770CE00A790E6 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -596,6 +617,7 @@
 				FB1BED852E54B21400041053 /* FirebaseAuthCombine-Community */,
 				FB1BED872E54B21400041053 /* FirebaseFirestore */,
 				FB1BED892E54B21400041053 /* FirebaseFirestoreCombine-Community */,
+				FB2BD6652E576B1800A790E6 /* Lottie */,
 			);
 			productName = FirstStepToCareer;
 			productReference = FB2724502E50B3CF0092408E /* FirstStepToCareer.app */;
@@ -628,6 +650,7 @@
 			packageReferences = (
 				FB1BED732E53743000041053 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
 				FB1BED822E54B21400041053 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				FB2BD6642E576B1800A790E6 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FB2724512E50B3CF0092408E /* Products */;
@@ -696,6 +719,7 @@
 				FB1BED772E537AB900041053 /* InterviewAnalyticsView.swift in Sources */,
 				FB1BEDBA2E54B66D00041053 /* HeadDirectionMetric.swift in Sources */,
 				FB1BED7B2E537AE000041053 /* InterviewPrepareView.swift in Sources */,
+				FB2BD66E2E576BAD00A790E6 /* InterviewTabViewState.swift in Sources */,
 				FB1BEDC62E54B75700041053 /* OverallMetrics.swift in Sources */,
 				FB2724B52E50CFB90092408E /* Color+AppColors.swift in Sources */,
 				FB2BD6282E5624A200A790E6 /* ManagementTabIcon.swift in Sources */,
@@ -986,6 +1010,14 @@
 				minimumVersion = 12.1.0;
 			};
 		};
+		FB2BD6642E576B1800A790E6 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1013,6 +1045,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FB1BED822E54B21400041053 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseFirestoreCombine-Community";
+		};
+		FB2BD6652E576B1800A790E6 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB2BD6642E576B1800A790E6 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

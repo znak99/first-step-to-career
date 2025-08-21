@@ -39,16 +39,18 @@ struct InterviewTabView: View {
                     // ===== Analytics =====
                     AppSection {
                         AppSectionHeader(icon: InterviewTabIcon.Analytics.header, text: "分析")
-                        if !interviewVM.isAppearing && !interviewVM.isLoading {
+                        if interviewVM.state == .idle || interviewVM.state == .isRefreshing {
                             if let results = interviewVM.interviewResults, !results.isEmpty {
-                                LazyVGrid(columns: grid3, spacing: 8) {
-                                    ForEach(analyticsMetrics, id: \.label) { metric in
-                                        MetricRing(
-                                            label: metric.label,
-                                            score: metric.score,
-                                            gradientStart: metric.start,
-                                            gradientEnd: metric.end
-                                        )
+                                ZStack {
+                                    LazyVGrid(columns: grid3, spacing: 8) {
+                                        ForEach(analyticsMetrics, id: \.label) { metric in
+                                            MetricRing(
+                                                label: metric.label,
+                                                score: metric.score,
+                                                gradientStart: metric.start,
+                                                gradientEnd: metric.end
+                                            )
+                                        }
                                     }
                                 }
                                 Divider()
@@ -67,12 +69,12 @@ struct InterviewTabView: View {
                         }
                     }
                     .padding(.top)
-                    .shimmering(active: interviewVM.isAppearing)
+                    .shimmering(active: interviewVM.state == .isAppearing)
 
                     // ===== History =====
                     AppSection {
                         AppSectionHeader(icon: InterviewTabIcon.History.header, text: "履歴")
-                        if !interviewVM.isAppearing && !interviewVM.isLoading {
+                        if interviewVM.state == .idle {
                             if let results = interviewVM.interviewResults {
                                 if results.isEmpty {
                                     InterviewNoDataRow(
@@ -118,12 +120,12 @@ struct InterviewTabView: View {
                         }
                     }
                     .padding(.top)
-                    .shimmering(active: interviewVM.isAppearing)
+                    .shimmering(active: interviewVM.state == .isAppearing)
 
                     // ===== Interview =====
                     AppSection {
                         AppSectionHeader(icon: InterviewTabIcon.Interview.header, text: "面接")
-                        if !interviewVM.isAppearing {
+                        if interviewVM.state != .isAppearing {
                             Text("簡単な情報を入力して模擬面接を行いましょう！")
                                 .appCaptionStyle()
                             GradientNavigationButton(
@@ -137,7 +139,7 @@ struct InterviewTabView: View {
                         }
                     }
                     .padding(.top)
-                    .shimmering(active: interviewVM.isAppearing)
+                    .shimmering(active: interviewVM.state == .isAppearing)
                 }
                 .refreshable {
                     withAnimation {
@@ -163,8 +165,7 @@ struct InterviewTabView: View {
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                     withAnimation {
-                        interviewVM.isAppearing = false
-                        interviewVM.isLoading = false
+                        interviewVM.state = .idle
                     }
                 }
             }
