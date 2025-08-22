@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-// 앱 화면 시작점 (스플래쉬 화면과 메인 화면 스위칭)
 struct RootView: View {
     // MARK: - Variables
     @State private var isAppReady = false
@@ -20,6 +19,24 @@ struct RootView: View {
             if isAppReady {
                 ZStack {
                     CustomTabBarView()
+                        .navigationDestination(for: Route.self) { page in
+                            switch page {
+                            case .interviewResumeView:
+                                InterviewResumeView()
+                            case .interviewAnalyticsView:
+                                InterviewAnalyticsView()
+                            case .interviewHistoryListView:
+                                InterviewHistoryListView()
+                            case .interviewPrepareView:
+                                InterviewPrepareView()
+                            case .signinView:
+                                SigninView()
+                            case .interviewView:
+                                EmptyView()
+                            default:
+                                EmptyView()
+                            }
+                        }
                     KeyboardPrewarmView()
                         .frame(width: 0, height: 0)
                 }

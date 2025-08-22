@@ -17,7 +17,7 @@ struct InterviewActionRow: View {
             HStack {
                 Text(title)
                     .font(.custom(Font.appSemiBold, size: 14))
-                    .foregroundStyle(Color.appGrayFont)
+                    .foregroundStyle(Color.appGray)
                 Spacer()
                 Image(systemName: icon)
             }

@@ -9,8 +9,9 @@ import SwiftUI
 
 struct InterviewInfoCompanyTypeListView: View {
     // MARK: - Variables
-    @ObservedObject var interviewVM: InterviewViewModel
+    @ObservedObject var vm: InterviewPrepareViewModel
     @EnvironmentObject private var nc: NavigationController
+    @Environment(\.dismiss) private var dismiss
     
     // MARK: - UI
     var body: some View {
@@ -26,8 +27,8 @@ struct InterviewInfoCompanyTypeListView: View {
                         if type != .none {
                             Button(
                                 action: {
-                                    interviewVM.interviewInfo.companyType = type
-                                    nc.pagePath.removeAll()
+                                    vm.interviewInfo.companyType = type
+                                    dismiss()
                                 },
                                 label: {
                                     HStack {
@@ -53,32 +54,25 @@ struct InterviewInfoCompanyTypeListView: View {
             }
             .padding(.horizontal, 16)
         }
-        .navigationBarBackButtonHidden(true) // FIXME: - 스와이프로 디스미스가 안됌
+        .navigationTitle("企業区分選択")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button(
                     action: {
-                        nc.pagePath.removeAll()
+                        dismiss()
                     },
                     label: {
                         Image(systemName: SFSymbolsIcon.chevronLeft)
-                            .font(.custom(Font.appSemiBold, size: 16, relativeTo: .subheadline))
                             .foregroundStyle(.black)
                     }
                 )
             }
-            
-            ToolbarItem(placement: .principal) {
-                Text("分野選択")
-                    .font(.custom(Font.appBold, size: 16, relativeTo: .subheadline))
-            }
-        }
-        .onDisappear {
-            nc.pagePath.removeAll()
         }
     }
 }
 
 #Preview {
-    InterviewInfoCompanyTypeListView(interviewVM: InterviewViewModel())
+    InterviewInfoCompanyTypeListView(vm: InterviewPrepareViewModel())
 }

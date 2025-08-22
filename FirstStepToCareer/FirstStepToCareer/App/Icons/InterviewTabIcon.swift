@@ -23,6 +23,6 @@ enum InterviewTabIcon {
     
     enum Interview {
         static let header = "Icon/InterviewTab/Interview/Header"
-        static let focus = "Icon/InterviewTab/Interview/Focus"
+        static let nav = "Icon/InterviewTab/Interview/Nav"
     }
 }

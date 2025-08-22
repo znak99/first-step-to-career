@@ -9,9 +9,9 @@ import SwiftUI
 
 struct InterviewInfoCareerTypeListView: View {
     // MARK: - Variables
-    @ObservedObject var interviewVM: InterviewViewModel
+    @ObservedObject var vm: InterviewPrepareViewModel
     @EnvironmentObject private var nc: NavigationController
-    
+    @Environment(\.dismiss) private var dismiss
     // MARK: - UI
     var body: some View {
         ZStack {
@@ -26,8 +26,8 @@ struct InterviewInfoCareerTypeListView: View {
                         if type != .none {
                             Button(
                                 action: {
-                                    interviewVM.interviewInfo.careerType = type
-                                    nc.pagePath.removeAll()
+                                    vm.interviewInfo.careerType = type
+                                    dismiss()
                                 },
                                 label: {
                                     HStack {
@@ -53,32 +53,25 @@ struct InterviewInfoCareerTypeListView: View {
             }
             .padding(.horizontal, 16)
         }
-        .navigationBarBackButtonHidden(true) // FIXME: - 스와이프로 디스미스가 안됌
+        .navigationTitle("希望職種選択")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button(
                     action: {
-                        nc.pagePath.removeAll()
+                        dismiss()
                     },
                     label: {
                         Image(systemName: SFSymbolsIcon.chevronLeft)
-                            .font(.custom(Font.appSemiBold, size: 16, relativeTo: .subheadline))
                             .foregroundStyle(.black)
                     }
                 )
             }
-            
-            ToolbarItem(placement: .principal) {
-                Text("職種選択")
-                    .font(.custom(Font.appBold, size: 16, relativeTo: .subheadline))
-            }
-        }
-        .onDisappear {
-            nc.pagePath.removeAll()
         }
     }
 }
 
 #Preview {
-    InterviewInfoCareerTypeListView(interviewVM: InterviewViewModel())
+    InterviewInfoCareerTypeListView(vm: InterviewPrepareViewModel())
 }

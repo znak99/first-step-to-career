@@ -12,4 +12,20 @@ struct InterviewInfo {
     var recruitType: RecruitType = .new
     var companyType: CompanyType = .none
     var careerType: CareerType = .none
+    
+    func isValidInterviewInfo() -> Bool {
+        if companyName.isEmpty {
+            return false
+        }
+        
+        if companyType == .none {
+            return false
+        }
+        
+        if careerType == .none {
+            return false
+        }
+        
+        return true
+    }
 }

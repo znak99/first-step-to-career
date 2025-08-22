@@ -43,7 +43,7 @@ struct TabViewHeader: View {
                                 )
                             Text(trailingActionLabel)
                                 .font(.custom(Font.appMedium, size: 16, relativeTo: .subheadline))
-                                .foregroundStyle(Color.appGrayFont)
+                                .foregroundStyle(Color.appGray)
                         }
                         .padding(4)
                     }

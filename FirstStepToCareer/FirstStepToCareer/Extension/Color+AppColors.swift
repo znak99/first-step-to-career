@@ -28,7 +28,7 @@ extension Color {
     static let appPrimary = Color(hex: "#4A6CF7")
     static let appMainGradientStart = Color(hex: "#6E89FA")
     static let appMainGradientEnd = Color(hex: "#2C4FDD")
-    static let appGrayFont = Color(hex: "#959595")
+    static let appGray = Color(hex: "#959595")
     
     // Tab bar
     static let appTabBarBackground = Color(hex: "#FEFEFE")

@@ -19,13 +19,4 @@ enum RecruitType {
             return "中途"
         }
     }
-    
-    var icon: String {
-        switch self {
-        case .new:
-            return "graduationcap.fill"
-        case .old:
-            return "suitcase.fill"
-        }
-    }
 }

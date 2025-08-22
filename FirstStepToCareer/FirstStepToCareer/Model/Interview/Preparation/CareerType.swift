@@ -30,5 +30,5 @@ enum CareerType: String, Identifiable, CaseIterable {
     case creator = "クリエイティブ・編集"
     case technical = "専門職・技術"
     case construction = "建設"
-    case none = "職種を選択してください"
+    case none = "希望職種を選択してください"
 }

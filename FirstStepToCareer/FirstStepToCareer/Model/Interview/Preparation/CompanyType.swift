@@ -22,5 +22,5 @@ enum CompanyType: String, Identifiable, CaseIterable {
     case software = "ソフトウェア・通信"
     case massmedia = "マスコミ"
     case government = "官公庁・公社・団体"
-    case none = "分野を選択してください"
+    case none = "企業区分を選択してください"
 }

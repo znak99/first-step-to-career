@@ -30,7 +30,7 @@ struct ManagementTabView: View {
                 Spacer()
             }
             .padding(.horizontal, 16)
-            .navigationDestination(for: AppPage.self) { page in
+            .navigationDestination(for: Route.self) { page in
                 switch page {
                 default:
                     EmptyView()

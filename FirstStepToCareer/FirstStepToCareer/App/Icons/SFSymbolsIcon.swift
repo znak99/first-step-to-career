@@ -10,4 +10,6 @@ import Foundation
 enum SFSymbolsIcon {
     static let chevronLeft = "chevron.left"
     static let chevronRight = "chevron.right"
+    static let graduationcapFill = "graduationcap.fill"
+    static let suitcaseFill = "suitcase.fill"
 }

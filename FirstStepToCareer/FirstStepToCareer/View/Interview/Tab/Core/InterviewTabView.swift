@@ -10,7 +10,7 @@ import Shimmer
 
 struct InterviewTabView: View {
     // MARK: - Dependencies
-    @ObservedObject var interviewVM: InterviewViewModel
+    @StateObject var vm = InterviewTabViewModel()
     @EnvironmentObject private var nc: NavigationController
 
     // MARK: - UI State
@@ -39,8 +39,8 @@ struct InterviewTabView: View {
                     // ===== Analytics =====
                     AppSection {
                         AppSectionHeader(icon: InterviewTabIcon.Analytics.header, text: "分析")
-                        if interviewVM.state == .idle {
-                            if let results = interviewVM.interviewResults, !results.isEmpty {
+                        if vm.state == .idle {
+                            if let results = vm.interviewResults, !results.isEmpty {
                                 ZStack {
                                     LazyVGrid(columns: grid3, spacing: 8) {
                                         ForEach(analyticsMetrics, id: \.label) { metric in
@@ -66,25 +66,25 @@ struct InterviewTabView: View {
                                     text: "分析データが見つかりません"
                                 )
                             }
-                        } else if interviewVM.state == .fetching {
+                        } else if vm.state == .fetching {
                             // TODO: - 인디케이터 바꾸기
                             ProgressView()
                         }
                     }
                     .padding(.top)
-                    .shimmering(active: interviewVM.state == .appearing)
+                    .shimmering(active: vm.state == .appearing)
 
                     // ===== History =====
                     AppSection {
                         AppSectionHeader(icon: InterviewTabIcon.History.header, text: "履歴")
-                        if interviewVM.state == .idle {
-                            if let results = interviewVM.interviewResults {
+                        if vm.state == .idle {
+                            if let results = vm.interviewResults {
                                 if results.isEmpty {
                                     InterviewNoDataRow(
                                         icon: InterviewTabIcon.History.noData,
                                         text: "模擬面接データが見つかりません"
                                     )
-                                } else if let best = interviewVM.highestScoreResult {
+                                } else if let best = vm.highestScoreResult {
                                     Text("この模擬面接すごく良かったです！")
                                         .appCaptionStyle()
                                     HStack(alignment: .firstTextBaseline) {
@@ -95,7 +95,7 @@ struct InterviewTabView: View {
                                             AppConstant.formatDate($0.dateValue())
                                         } ?? "yyyy/MM/dd")
                                             .font(.custom(Font.appSemiBold, size: 12))
-                                            .foregroundStyle(Color.appGrayFont)
+                                            .foregroundStyle(Color.appGray)
                                     }
                                     Divider()
                                     InterviewActionRow(
@@ -105,7 +105,7 @@ struct InterviewTabView: View {
                                         navigate(.interviewHistoryListView)
                                     }
                                     .disabled(isBusy)
-                                    .foregroundStyle(Color.appGrayFont)
+                                    .foregroundStyle(Color.appGray)
                                 }
                             } else {
                                 InterviewNoDataRow(
@@ -120,23 +120,23 @@ struct InterviewTabView: View {
                                 }
                                 .padding(.top, 8)
                             }
-                        } else if interviewVM.state == .fetching {
+                        } else if vm.state == .fetching {
                             // TODO: - 인디케이터 바꾸기
                             ProgressView()
                         }
                     }
                     .padding(.top)
-                    .shimmering(active: interviewVM.state == .appearing)
+                    .shimmering(active: vm.state == .appearing)
 
                     // ===== Interview =====
                     AppSection {
                         AppSectionHeader(icon: InterviewTabIcon.Interview.header, text: "面接")
-                        if interviewVM.state != .appearing {
+                        if vm.state != .appearing {
                             Text("簡単な情報を入力して模擬面接を行いましょう！")
                                 .appCaptionStyle()
                             GradientNavigationButton(
                                 title: "模擬面接を始める",
-                                icon: InterviewTabIcon.Interview.focus
+                                icon: InterviewTabIcon.Interview.nav
                             ) {
                                 navigate(.interviewPrepareView)
                             }
@@ -145,39 +145,23 @@ struct InterviewTabView: View {
                         }
                     }
                     .padding(.top)
-                    .shimmering(active: interviewVM.state == .appearing)
+                    .shimmering(active: vm.state == .appearing)
                 }
                 .refreshable {
                     withAnimation {
-                        interviewVM.loadInterviewData()
+                        vm.loadInterviewData()
                     }
                 }
             }
             .padding(.horizontal, 16)
-            .navigationDestination(for: AppPage.self) { page in
-                switch page {
-                case .interviewResumeView:
-                    InterviewResumeView()
-                case .interviewAnalyticsView:
-                    InterviewAnalyticsView()
-                case .interviewHistoryListView:
-                    InterviewHistoryListView()
-                case .interviewPrepareView:
-                    InterviewPrepareView()
-                case .signinView:
-                    SigninView()
-                default:
-                    EmptyView()
-                }
-            }
         }
         .onAppear {
             withAnimation {
-                interviewVM.state = .appearing
+                vm.state = .appearing
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 withAnimation {
-                    interviewVM.state = .idle
+                    vm.state = .idle
                 }
             }
         }
@@ -186,23 +170,23 @@ struct InterviewTabView: View {
     // MARK: - Computed Properties
     private var analyticsMetrics: [AnalyticsPreviewMetric] {
         [
-            .init("速度", interviewVM.analyticsPreviewSpeechSpeedScore,
+            .init("速度", vm.analyticsPreviewSpeechSpeedScore,
                   .appAnalyticsSpeechSpeedGradientStart, .appAnalyticsSpeechSpeedGradientEnd),
-            .init("沈黙", interviewVM.analyticsPreviewSilenceScore,
+            .init("沈黙", vm.analyticsPreviewSilenceScore,
                   .appAnalyticsSilenceGradientStart, .appAnalyticsSilenceGradientEnd),
-            .init("動き", interviewVM.analyticsPreviewHeadDirectionScore,
+            .init("動き", vm.analyticsPreviewHeadDirectionScore,
                   .appAnalyticsHeadDirectionGradientStart, .appAnalyticsHeadDirectionGradientEnd),
-            .init("視線", interviewVM.analyticsPreviewGazeScore,
+            .init("視線", vm.analyticsPreviewGazeScore,
                   .appAnalyticsGazeGradientStart, .appAnalyticsGazeGradientEnd),
-            .init("表情", interviewVM.analyticsPreviewExpressionScore,
+            .init("表情", vm.analyticsPreviewExpressionScore,
                   .appAnalyticsExpressionGradientStart, .appAnalyticsExpressionGradientEnd),
-            .init("総合", interviewVM.analyticsPreviewTotalScore,
+            .init("総合", vm.analyticsPreviewTotalScore,
                   .appAnalyticsTotalGradientStart, .appAnalyticsTotalGradientEnd)
         ]
     }
 
     // MARK: - Functions
-    private func navigate(_ page: AppPage) {
+    private func navigate(_ page: Route) {
         if !isBusy {
             isBusy = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -214,6 +198,6 @@ struct InterviewTabView: View {
 }
 
 #Preview {
-    InterviewTabView(interviewVM: InterviewViewModel())
+    InterviewTabView()
         .environmentObject(NavigationController())
 }
