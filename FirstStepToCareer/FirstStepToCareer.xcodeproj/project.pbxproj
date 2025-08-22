@@ -998,6 +998,8 @@
 				INFOPLIST_FILE = FirstStepToCareer/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "就活一歩";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_NSCameraUsageDescription = "模擬面接中に表情や視線、顔の向きを分析するためにカメラへのアクセスが必要です。\n";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "模擬面接の音声を分析するためにマイクへのアクセスが必要です。録音した音声は話す速さや沈黙の割合を評価する目的で使用されます。\n";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1035,6 +1037,8 @@
 				INFOPLIST_FILE = FirstStepToCareer/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "就活一歩";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_NSCameraUsageDescription = "模擬面接中に表情や視線、顔の向きを分析するためにカメラへのアクセスが必要です。\n";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "模擬面接の音声を分析するためにマイクへのアクセスが必要です。録音した音声は話す速さや沈黙の割合を評価する目的で使用されます。\n";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

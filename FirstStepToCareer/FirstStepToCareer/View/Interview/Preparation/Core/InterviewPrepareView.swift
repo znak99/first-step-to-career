@@ -146,6 +146,9 @@ struct InterviewPrepareView: View {
                 )
             }
         }
+        .onDisappear {
+            vm.sectionHeaderLottie = nil
+        }
     }
     
     private func navigate(_ page: Route) {

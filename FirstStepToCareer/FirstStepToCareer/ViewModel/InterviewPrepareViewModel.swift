@@ -10,5 +10,5 @@ import Foundation
 @MainActor
 final class InterviewPrepareViewModel: ObservableObject {
     @Published var interviewInfo: InterviewInfo = .init()
-    @Published var sectionHeaderLottie: String? = nil
+    @Published var sectionHeaderLottie: String?
 }
