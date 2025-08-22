@@ -89,9 +89,9 @@
 		FB2BD6882E58A49600A790E6 /* InterviewPrepareRecruitTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BD6872E58A49600A790E6 /* InterviewPrepareRecruitTypeButton.swift */; };
 		FB2BD68A2E58B37600A790E6 /* InterviewPrepareIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BD6892E58B36400A790E6 /* InterviewPrepareIcon.swift */; };
 		FB2BD68E2E58C3B700A790E6 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BD68C2E58C3B700A790E6 /* Route.swift */; };
-		FB2BD69A2E58D7B600A790E6 /* RottieCircleCheck.json in Resources */ = {isa = PBXBuildFile; fileRef = FB2BD6982E58D7B600A790E6 /* RottieCircleCheck.json */; };
 		FB2BD6A02E58DA8000A790E6 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BD69E2E58DA8000A790E6 /* LottieView.swift */; };
 		FB2BD6A22E58DABA00A790E6 /* LottieAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BD6A12E58DAA100A790E6 /* LottieAnimation.swift */; };
+		FB2BD6A42E58E10000A790E6 /* RottieCircleCheck.json in Resources */ = {isa = PBXBuildFile; fileRef = FB2BD6A32E58E10000A790E6 /* RottieCircleCheck.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -173,9 +173,9 @@
 		FB2BD6872E58A49600A790E6 /* InterviewPrepareRecruitTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewPrepareRecruitTypeButton.swift; sourceTree = "<group>"; };
 		FB2BD6892E58B36400A790E6 /* InterviewPrepareIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewPrepareIcon.swift; sourceTree = "<group>"; };
 		FB2BD68C2E58C3B700A790E6 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
-		FB2BD6982E58D7B600A790E6 /* RottieCircleCheck.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RottieCircleCheck.json; sourceTree = "<group>"; };
 		FB2BD69E2E58DA8000A790E6 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		FB2BD6A12E58DAA100A790E6 /* LottieAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimation.swift; sourceTree = "<group>"; };
+		FB2BD6A32E58E10000A790E6 /* RottieCircleCheck.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RottieCircleCheck.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -660,7 +660,7 @@
 		FB2BD6992E58D7B600A790E6 /* Rottie */ = {
 			isa = PBXGroup;
 			children = (
-				FB2BD6982E58D7B600A790E6 /* RottieCircleCheck.json */,
+				FB2BD6A32E58E10000A790E6 /* RottieCircleCheck.json */,
 			);
 			path = Rottie;
 			sourceTree = "<group>";
@@ -749,10 +749,10 @@
 			files = (
 				FB2724BC2E50CFB90092408E /* Assets.xcassets in Resources */,
 				FB2724E22E50E5200092408E /* NotoSansJP-Regular.ttf in Resources */,
+				FB2BD6A42E58E10000A790E6 /* RottieCircleCheck.json in Resources */,
 				FB2724E32E50E5200092408E /* NotoSansJP-Bold.ttf in Resources */,
 				FB2724E42E50E5200092408E /* NotoSansJP-ExtraBold.ttf in Resources */,
 				FB2724E52E50E5200092408E /* NotoSansJP-Black.ttf in Resources */,
-				FB2BD69A2E58D7B600A790E6 /* RottieCircleCheck.json in Resources */,
 				FB2724E62E50E5200092408E /* NotoSansJP-SemiBold.ttf in Resources */,
 				FB2724E72E50E5200092408E /* NotoSansJP-Light.ttf in Resources */,
 				FB2724E82E50E5200092408E /* NotoSansJP-Medium.ttf in Resources */,

@@ -24,7 +24,7 @@ struct InterviewPrepareView: View {
                             Image(InterviewPrepareIcon.headerCaption)
                                 .resizable()
                                 .frame(width: 20, height: 20)
-                            Text("模擬面接のための企業情報なので、\n本当の企業じゃなくても大丈夫です！")
+                            Text("模擬面接用の企業情報なので\n実在の会社じゃなくてもOKです！")
                                 .appCaptionStyle()
                         }
                         HStack(alignment: .top) {
