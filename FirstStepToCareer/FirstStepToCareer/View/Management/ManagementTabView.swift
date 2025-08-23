@@ -1,13 +1,13 @@
 //
-//  ScheduleTabView.swift
+//  ManagementTabView.swift
 //  FirstStepToCareer
 //
-//  Created by seungwoo on 2025/08/17.
+//  Created by seungwoo on 2025/08/18.
 //
 
 import SwiftUI
 
-struct ScheduleTabView: View {
+struct ManagementTabView: View {
     // MARK: - Variables
     
     // MARK: - UI
@@ -20,12 +20,12 @@ struct ScheduleTabView: View {
             VStack {
                 // Header
                 TabViewHeader(
-                    icon: ScheduleTabIcon.header,
-                    title: "Schedule",
+                    icon: ManagementTabIcon.header,
+                    title: "Management",
                     trailingActionIcon: nil,
                     trailingActionLabel: nil,
                     action: nil
-                )                
+                )
                 
                 Spacer()
             }
@@ -35,5 +35,5 @@ struct ScheduleTabView: View {
 }
 
 #Preview {
-    ScheduleTabView()
+    ManagementTabView()
 }

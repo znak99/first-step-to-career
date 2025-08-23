@@ -11,12 +11,14 @@ import SwiftUI
 struct FirstStepToCareerApp: App {
     // MARK: - Variables
     @StateObject var nc = NavigationController()
+    @StateObject var interviewManager = InterviewManager()
     
     // MARK: - UI
     var body: some Scene {
         WindowGroup {
             RootView()
                 .environmentObject(nc)
+                .environmentObject(interviewManager)
         }
     }
 }

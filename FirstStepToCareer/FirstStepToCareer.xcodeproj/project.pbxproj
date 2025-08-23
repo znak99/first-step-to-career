@@ -53,7 +53,6 @@
 		FB2724EA2E50E5200092408E /* NotoSansJP-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB2724DC2E50E5200092408E /* NotoSansJP-ExtraLight.ttf */; };
 		FB2724ED2E50E5DA0092408E /* Font+AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724EC2E50E5DA0092408E /* Font+AppFonts.swift */; };
 		FB2724EF2E50EE960092408E /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724EE2E50EE960092408E /* AppConstant.swift */; };
-		FB2724F12E50F6720092408E /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724F02E50F6720092408E /* SampleView.swift */; };
 		FB2724F72E50F9050092408E /* ProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724F62E50F9050092408E /* ProgressRing.swift */; };
 		FB2724F92E51179D0092408E /* KeyboardPrewarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724F82E51179D0092408E /* KeyboardPrewarmView.swift */; };
 		FB2724FD2E511B660092408E /* FocusTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724FC2E511B610092408E /* FocusTarget.swift */; };
@@ -92,6 +91,11 @@
 		FB2BD6A02E58DA8000A790E6 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BD69E2E58DA8000A790E6 /* LottieView.swift */; };
 		FB2BD6A22E58DABA00A790E6 /* LottieAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BD6A12E58DAA100A790E6 /* LottieAnimation.swift */; };
 		FB2BD6A42E58E10000A790E6 /* RottieCircleCheck.json in Resources */ = {isa = PBXBuildFile; fileRef = FB2BD6A32E58E10000A790E6 /* RottieCircleCheck.json */; };
+		FB7755C62E59901800A70F66 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7755C52E59901800A70F66 /* PermissionManager.swift */; };
+		FB7755E22E59B65B00A70F66 /* InterviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7755E12E59B65B00A70F66 /* InterviewView.swift */; };
+		FB7755E42E59B6BF00A70F66 /* InterviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7755E32E59B6BF00A70F66 /* InterviewViewModel.swift */; };
+		FB7755E62E59BC6100A70F66 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7755E52E59BC6100A70F66 /* CameraService.swift */; };
+		FB7755E82E59BCB700A70F66 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7755E72E59BCAE00A70F66 /* CameraPreview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,7 +142,6 @@
 		FB2724EB2E50E5330092408E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB2724EC2E50E5DA0092408E /* Font+AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+AppFonts.swift"; sourceTree = "<group>"; };
 		FB2724EE2E50EE960092408E /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
-		FB2724F02E50F6720092408E /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
 		FB2724F62E50F9050092408E /* ProgressRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRing.swift; sourceTree = "<group>"; };
 		FB2724F82E51179D0092408E /* KeyboardPrewarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardPrewarmView.swift; sourceTree = "<group>"; };
 		FB2724FC2E511B610092408E /* FocusTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusTarget.swift; sourceTree = "<group>"; };
@@ -176,6 +179,11 @@
 		FB2BD69E2E58DA8000A790E6 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		FB2BD6A12E58DAA100A790E6 /* LottieAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimation.swift; sourceTree = "<group>"; };
 		FB2BD6A32E58E10000A790E6 /* RottieCircleCheck.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RottieCircleCheck.json; sourceTree = "<group>"; };
+		FB7755C52E59901800A70F66 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
+		FB7755E12E59B65B00A70F66 /* InterviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewView.swift; sourceTree = "<group>"; };
+		FB7755E32E59B6BF00A70F66 /* InterviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewViewModel.swift; sourceTree = "<group>"; };
+		FB7755E52E59BC6100A70F66 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
+		FB7755E72E59BCAE00A70F66 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,12 +203,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FB1BED6C2E5340F000041053 /* Manage */ = {
+		FB1BED6C2E5340F000041053 /* Management */ = {
 			isa = PBXGroup;
 			children = (
 				FB1BED6D2E53416C00041053 /* ManagementTabView.swift */,
 			);
-			path = Manage;
+			path = Management;
 			sourceTree = "<group>";
 		};
 		FB1BEDA22E54B4B800041053 /* Preparation */ = {
@@ -311,7 +319,7 @@
 				FB2724D12E50DB970092408E /* TabBar */,
 				FB2724CD2E50DB970092408E /* Interview */,
 				FB2724CF2E50DB970092408E /* Schedule */,
-				FB1BED6C2E5340F000041053 /* Manage */,
+				FB1BED6C2E5340F000041053 /* Management */,
 				FB2724D02E50DB970092408E /* Settings */,
 				FB2BD6722E5770CE00A790E6 /* Auth */,
 				FB2724F32E50F8C90092408E /* Component */,
@@ -323,18 +331,19 @@
 			isa = PBXGroup;
 			children = (
 				FB2724EB2E50E5330092408E /* Info.plist */,
+				FB1BED802E54AD2100041053 /* GoogleService-Info.plist */,
 				FB2724A62E50CFB90092408E /* App */,
 				FB2724AC2E50CFB90092408E /* Model */,
 				FB2724B22E50CFB90092408E /* View */,
 				FB2724BE2E50CFCD0092408E /* ViewModel */,
+				FB7755D82E59B5CD00A70F66 /* Camera */,
 				FB27251B2E5201590092408E /* ViewModifier */,
+				FB7755C82E59A42500A70F66 /* Service */,
 				FB2BD6822E588DA400A790E6 /* Manager */,
 				FB2BD68D2E58C3B700A790E6 /* Router */,
 				FB2BD69F2E58DA8000A790E6 /* Lottie */,
 				FB2724A82E50CFB90092408E /* Extension */,
 				FB2724AE2E50CFB90092408E /* Resource */,
-				FB2724F02E50F6720092408E /* SampleView.swift */,
-				FB1BED802E54AD2100041053 /* GoogleService-Info.plist */,
 			);
 			path = FirstStepToCareer;
 			sourceTree = "<group>";
@@ -344,6 +353,7 @@
 			children = (
 				FB2725062E5124110092408E /* InterviewTabViewModel.swift */,
 				FB2BD6852E58903D00A790E6 /* InterviewPrepareViewModel.swift */,
+				FB7755E32E59B6BF00A70F66 /* InterviewViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -356,6 +366,7 @@
 				FB2BD6452E572D6500A790E6 /* Analytics */,
 				FB2BD6482E572D6500A790E6 /* History */,
 				FB2BD6422E572D6500A790E6 /* Preparation */,
+				FB7755DC2E59B63300A70F66 /* Interview */,
 			);
 			path = Interview;
 			sourceTree = "<group>";
@@ -456,8 +467,8 @@
 		FB2BD61A2E56107500A790E6 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				FB2BD6292E562B1700A790E6 /* GlobalIcon.swift */,
 				FB2BD61D2E56135400A790E6 /* SFSymbolsIcon.swift */,
+				FB2BD6292E562B1700A790E6 /* GlobalIcon.swift */,
 				FB2BD61B2E56108300A790E6 /* InterviewTabIcon.swift */,
 				FB2BD6892E58B36400A790E6 /* InterviewPrepareIcon.swift */,
 				FB2BD6252E56248C00A790E6 /* ScheduleTabIcon.swift */,
@@ -645,6 +656,7 @@
 			isa = PBXGroup;
 			children = (
 				FB2BD6832E588DB900A790E6 /* InterviewManager.swift */,
+				FB7755C52E59901800A70F66 /* PermissionManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -672,6 +684,46 @@
 				FB2BD69E2E58DA8000A790E6 /* LottieView.swift */,
 			);
 			path = Lottie;
+			sourceTree = "<group>";
+		};
+		FB7755C82E59A42500A70F66 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				FB7755E52E59BC6100A70F66 /* CameraService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		FB7755D82E59B5CD00A70F66 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				FB7755E72E59BCAE00A70F66 /* CameraPreview.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		FB7755DC2E59B63300A70F66 /* Interview */ = {
+			isa = PBXGroup;
+			children = (
+				FB7755DF2E59B64600A70F66 /* Core */,
+				FB7755E02E59B64600A70F66 /* Sub */,
+			);
+			path = Interview;
+			sourceTree = "<group>";
+		};
+		FB7755DF2E59B64600A70F66 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				FB7755E12E59B65B00A70F66 /* InterviewView.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		FB7755E02E59B64600A70F66 /* Sub */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sub;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -795,6 +847,7 @@
 				FB1BEDBE2E54B68B00041053 /* GazeMetric.swift in Sources */,
 				FB2725072E5124110092408E /* InterviewTabViewModel.swift in Sources */,
 				FB2BD65D2E57571E00A790E6 /* AnalyticsPreviewMetric.swift in Sources */,
+				FB7755E62E59BC6100A70F66 /* CameraService.swift in Sources */,
 				FB2724B42E50CFB90092408E /* FirstStepToCareerApp.swift in Sources */,
 				FB2BD6532E574F7E00A790E6 /* InterviewActionRow.swift in Sources */,
 				FB1BED772E537AB900041053 /* InterviewAnalyticsView.swift in Sources */,
@@ -804,6 +857,7 @@
 				FB1BEDC62E54B75700041053 /* OverallMetrics.swift in Sources */,
 				FB2724B52E50CFB90092408E /* Color+AppColors.swift in Sources */,
 				FB2BD6282E5624A200A790E6 /* ManagementTabIcon.swift in Sources */,
+				FB7755E82E59BCB700A70F66 /* CameraPreview.swift in Sources */,
 				FB27252F2E5229380092408E /* InterviewInfoCareerTypeListView.swift in Sources */,
 				FB2BD6512E574CF400A790E6 /* AppSectionHeader.swift in Sources */,
 				FB1BEDCA2E54B8F000041053 /* InterviewMockDataGenerator.swift in Sources */,
@@ -817,6 +871,7 @@
 				FB27251D2E5201F10092408E /* TabViewHeader.swift in Sources */,
 				FB2BD6552E574FF300A790E6 /* GradientNavigationButton.swift in Sources */,
 				FB2BD6262E56248C00A790E6 /* ScheduleTabIcon.swift in Sources */,
+				FB7755E42E59B6BF00A70F66 /* InterviewViewModel.swift in Sources */,
 				FB2BD61C2E56108E00A790E6 /* InterviewTabIcon.swift in Sources */,
 				FB2BD6612E57575300A790E6 /* InterviewMetricRing.swift in Sources */,
 				FB1BED792E537AD000041053 /* InterviewHistoryListView.swift in Sources */,
@@ -824,6 +879,8 @@
 				FB2BD64D2E573D5500A790E6 /* InterviewResumeView.swift in Sources */,
 				FB1BEDB02E54B5E000041053 /* SlienceMetric.swift in Sources */,
 				FB2BD6742E57710500A790E6 /* SigninView.swift in Sources */,
+				FB7755C62E59901800A70F66 /* PermissionManager.swift in Sources */,
+				FB7755E22E59B65B00A70F66 /* InterviewView.swift in Sources */,
 				FB27251F2E52103C0092408E /* String+CustomFunctions.swift in Sources */,
 				FB2BD6632E575C7E00A790E6 /* InterviewPreviewAnalyzer.swift in Sources */,
 				FB1BEDC02E54B6C600041053 /* ExpressionMetric.swift in Sources */,
@@ -843,7 +900,6 @@
 				FB1BED6E2E53416C00041053 /* ManagementTabView.swift in Sources */,
 				FB1BED6A2E528D9400041053 /* View+TapScaleEffect.swift in Sources */,
 				FB2724F92E51179D0092408E /* KeyboardPrewarmView.swift in Sources */,
-				FB2724F12E50F6720092408E /* SampleView.swift in Sources */,
 				FB2BD6A02E58DA8000A790E6 /* LottieView.swift in Sources */,
 				FB2BD6322E572C3600A790E6 /* InterviewTabView.swift in Sources */,
 				FB2724F72E50F9050092408E /* ProgressRing.swift in Sources */,

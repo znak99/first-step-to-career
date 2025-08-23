@@ -17,7 +17,6 @@ enum AppConstant {
     }
     
     // MARK: - Util Fuctions
-    // Date객체를 문자열 yyyy/MM/dd포맷으로 변환하는 함수
     static func formatDate(_ date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd"

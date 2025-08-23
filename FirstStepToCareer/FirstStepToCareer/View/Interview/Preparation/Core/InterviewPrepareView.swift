@@ -6,12 +6,12 @@
 //
 
 import SwiftUI
-import Shimmer
 
 struct InterviewPrepareView: View {
     @StateObject private var vm = InterviewPrepareViewModel()
     @FocusState private var focus: FocusTarget?
     @EnvironmentObject private var nc: NavigationController
+    @EnvironmentObject private var interviewManager: InterviewManager
     @Environment(\.dismiss) private var dismiss
     var body: some View {
         ZStack {
@@ -152,7 +152,9 @@ struct InterviewPrepareView: View {
     }
     
     private func navigate(_ page: Route) {
-        if vm.interviewInfo.isValidInterviewInfo() {
+        vm.checkPermissions()
+        
+        if vm.isPermissionsReady && vm.interviewInfo.isValidInterviewInfo() {
             vm.sectionHeaderLottie = LottieAnimation.circleCheck
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 nc.pagePath.append(page)

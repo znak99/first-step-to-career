@@ -32,7 +32,7 @@ struct RootView: View {
                             case .signinView:
                                 SigninView()
                             case .interviewView:
-                                EmptyView()
+                                InterviewView()
                             default:
                                 EmptyView()
                             }

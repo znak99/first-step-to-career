@@ -6,7 +6,14 @@
 //
 
 import Foundation
+import SwiftUI
 
-actor InterviewManager {
+actor InterviewManager: ObservableObject {
+    private var interviewInfo: InterviewInfo?
     
+    // 마이크와 카메라 권한 확인하기
+    func prepare(info: InterviewInfo) {
+        interviewInfo = info
+        
+    }
 }

@@ -9,7 +9,7 @@ import Foundation
 import FirebaseFirestore
 
 // 앱의 전역에서 여러번 재사용되는 상수들 정의
-enum AppConstants {
+enum AppConstant {
     // MARK: - Designs
     static let sectionRadius: CGFloat = 16
     static let fieldRadius: CGFloat = 8
@@ -20,6 +20,9 @@ enum AppConstants {
     static let chevronRight = "chevron.right"
     
     // MARK: - App Icons
+    enum Icon {
+        
+    }
     static let interviewTabHeaderIcon = "InterviewTabHeaderIcon"
     static let interviewTabAnalysisIcon = "InterviewTabChart"
     static let interviewTabHistoryIcon = "InterviewTabHistory"
