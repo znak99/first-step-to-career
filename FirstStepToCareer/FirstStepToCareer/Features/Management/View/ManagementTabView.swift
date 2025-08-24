@@ -9,23 +9,20 @@ import SwiftUI
 
 struct ManagementTabView: View {
     // MARK: - Variables
+    @ObservedObject var vm: ManagementTabViewModel
     
     // MARK: - UI
     var body: some View {
         ZStack {
             // Background
-            Color.appBackground.ignoresSafeArea()
+            ACColor.Brand.backgroundPrimary
             
             // Main Contents
             VStack {
                 // Header
                 TabViewHeader(
-                    icon: ManagementTabIcon.header,
-                    title: "Management",
-                    trailingActionIcon: nil,
-                    trailingActionLabel: nil,
-                    action: nil
-                )
+                    icon: ACIcon.Vector.blackboardBlack,
+                    title: "Management")
                 
                 Spacer()
             }
@@ -35,5 +32,5 @@ struct ManagementTabView: View {
 }
 
 #Preview {
-    ManagementTabView()
+    ManagementTabView(vm: ManagementTabViewModel())
 }

@@ -9,31 +9,29 @@ import SwiftUI
 
 struct ScheduleTabView: View {
     // MARK: - Variables
+    @ObservedObject var vm: ScheduleTabViewModel
     
     // MARK: - UI
     var body: some View {
         ZStack {
             // Background
-            Color.appBackground.ignoresSafeArea()
+            ACColor.Brand.backgroundPrimary
             
             // Main Contents
             VStack {
                 // Header
                 TabViewHeader(
-                    icon: ScheduleTabIcon.header,
-                    title: "Schedule",
-                    trailingActionIcon: nil,
-                    trailingActionLabel: nil,
-                    action: nil
+                    icon: ACIcon.Vector.calendarBlack,
+                    title: "Schedule"
                 )                
                 
                 Spacer()
             }
-            .padding(.horizontal, 16)
+            .padding(.horizontal, ACLayout.Padding.safeArea)
         }
     }
 }
 
 #Preview {
-    ScheduleTabView()
+    ScheduleTabView(vm: ScheduleTabViewModel())
 }

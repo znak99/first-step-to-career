@@ -10,19 +10,23 @@ import SwiftUI
 struct AppTabBarView: View {
     // MARK: - Properties
     @StateObject private var vm: AppTabBarViewModel = .init()
+    @StateObject private var interviewTabVM: InterviewTabViewModel = .init()
+    @StateObject private var scheduleTabVM: ScheduleTabViewModel = .init()
+    @StateObject private var managementTabVM: ManagementTabViewModel = .init()
+    @StateObject private var settingsTabVM: SettingsTabViewModel = .init()
     
     // MARK: - Body
     var body: some View {
         ZStack {
             switch vm.currentTab {
             case .interview:
-                InterviewTabView()
+                InterviewTabView(vm: interviewTabVM)
             case .schedule:
-                ScheduleTabView()
+                ScheduleTabView(vm: scheduleTabVM)
             case .management:
-                ManagementTabView()
+                ManagementTabView(vm: managementTabVM)
             case .settings:
-                SettingsTabView()
+                SettingsTabView(vm: settingsTabVM)
             }
             
             VStack(spacing: 0) {

@@ -9,14 +9,16 @@ import Foundation
 import SwiftUI
 
 struct ProgressRing: View {
+    // MARK: - Properties
     var progress: Double
     var thickness: CGFloat = 16
     var gradient: AngularGradient = .init(
         gradient: Gradient(colors: [.blue, .purple]),
         center: .center
     )
-    var fontsize: CGFloat = 12
+    var fontsize: CGFloat = ACFont.Size.extraSmall
 
+    // MARK: - Body
     var body: some View {
         ZStack {
             Circle()
@@ -31,9 +33,9 @@ struct ProgressRing: View {
 
             HStack(spacing: 0) {
                 Text(String(format: "%.1f%", progress))
-                    .font(.custom(Font.appSemiBold, size: fontsize))
+                    .font(.custom(ACFont.Weight.semiBold, size: fontsize, relativeTo: .caption2))
                 Text("点")
-                    .font(.custom(Font.appRegular, size: fontsize - 2))
+                    .font(.custom(ACFont.Weight.regular, size: fontsize - 2, relativeTo: .caption2))
             }
         }
         .contentShape(Circle())

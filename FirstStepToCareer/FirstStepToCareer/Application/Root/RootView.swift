@@ -20,13 +20,13 @@ struct RootView: View {
                     AppTabBarView()
                         .navigationDestination(for: Route.self) { page in
                             switch page {
-                            case .interviewResumeView:
+                            case .resumeView:
                                 ResumeView()
-                            case .interviewAnalyticsView:
+                            case .analyticsView:
                                 AnalyticsView()
-                            case .interviewHistoryListView:
+                            case .historyListView:
                                 HistoryListView()
-                            case .interviewPrepareView:
+                            case .interviewInfoFormView:
                                 InterviewInfoFormView()
                             case .signinView:
                                 SigninView()

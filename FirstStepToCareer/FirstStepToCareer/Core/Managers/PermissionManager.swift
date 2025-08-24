@@ -6,44 +6,88 @@
 //
 
 import AVFoundation
+import AVFAudio
 import Photos
-import CoreLocation
-import UserNotifications
 
-final class PermissionManager: NSObject, ObservableObject {
-    private let locationManager = CLLocationManager()
-
+struct PermissionManager {
     // MARK: - Camera
-    func requestCamera(completion: @escaping (Bool) -> Void) {
+    func cameraStatus() -> AppPermissionStatus {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .authorized:
-            completion(true)
+            return .authorized
+        case .denied:
+            return .denied
+        case .restricted:
+            return .restricted
         case .notDetermined:
-            AVCaptureDevice.requestAccess(for: .video) { granted in
-                DispatchQueue.main.async { completion(granted) }
+            return .notDetermined
+        @unknown default:
+            return .denied
+        }
+    }
+
+    func requestCamera() async -> Bool {
+        switch cameraStatus() {
+        case .authorized:
+            return true
+        case .denied, .restricted:
+            return false
+        case .notDetermined:
+            return await withCheckedContinuation { cont in
+                AVCaptureDevice.requestAccess(for: .video) { granted in
+                    cont.resume(returning: granted)
+                }
             }
-        default:
-            completion(false)
         }
     }
 
     // MARK: - Microphone
-    func requestMicrophone(completion: @escaping (Bool) -> Void) {
-        let permission = AVAudioApplication.shared.recordPermission
-        switch permission {
-        case .granted:
-            completion(true)
-        case .denied:
-            completion(false)
-        case .undetermined:
-            AVAudioApplication.requestRecordPermission { granted in
-                DispatchQueue.main.async {
-                    completion(granted)
+    func microphoneStatus() -> AppPermissionStatus {
+        if #available(iOS 17.0, *) {
+            switch AVAudioApplication.shared.recordPermission {
+            case .granted:
+                return .authorized
+            case .denied:
+                return .denied
+            case .undetermined:
+                return .notDetermined
+            @unknown default:
+                return .denied
+            }
+        } else {
+            switch AVAudioSession.sharedInstance().recordPermission {
+            case .granted:
+                return .authorized
+            case .denied:
+                return .denied
+            case .undetermined:
+                return .notDetermined
+            @unknown default:
+                return .denied
+            }
+        }
+    }
+
+    func requestMicrophone() async -> Bool {
+        switch microphoneStatus() {
+        case .authorized:
+            return true
+        case .denied, .restricted:
+            return false
+        case .notDetermined:
+            if #available(iOS 17.0, *) {
+                return await withCheckedContinuation { cont in
+                    AVAudioApplication.requestRecordPermission { granted in
+                        cont.resume(returning: granted)
+                    }
+                }
+            } else {
+                return await withCheckedContinuation { cont in
+                    AVAudioSession.sharedInstance().requestRecordPermission { granted in
+                        cont.resume(returning: granted)
+                    }
                 }
             }
-        @unknown default:
-            completion(false)
         }
     }
 }
-

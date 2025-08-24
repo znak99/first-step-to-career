@@ -10,14 +10,8 @@ import SwiftUI
 
 struct GradientRowButton: View {
     let title: String
-    let icon: String?
+    var icon: String?
     let action: () -> Void
-
-    init(title: String, icon: String? = nil, action: @escaping () -> Void) {
-        self.title = title
-        self.icon = icon
-        self.action = action
-    }
 
     var body: some View {
         Button(action: action) {
@@ -25,23 +19,33 @@ struct GradientRowButton: View {
                 if let icon {
                     Image(icon)
                         .resizable()
-                        .frame(width: 20, height: 20)
+                        .extraSmallFrame(alignment: .center)
                 }
                 Text(title)
-                    .font(.custom(Font.appSemiBold, size: 16))
+                    .font(.custom(ACFont.Weight.semiBold,
+                                  size: ACFont.Size.small,
+                                  relativeTo: .subheadline))
+                    .foregroundStyle(ACColor.Font.white)
                 Spacer()
-                Image(systemName: SFSymbolsIcon.chevronRight)
+                Image(ACIcon.Vector.angleRightWhite)
+                    .resizable()
+                    .scaledToFit()
+                    .extraSmallFrame(alignment: .center)
             }
-            .padding(8)
-            .foregroundStyle(.white)
+            .padding(ACLayout.Padding.small)
             .background(
                 LinearGradient(
-                    colors: [Color.appMainGradientStart, Color.appMainGradientEnd],
-                    startPoint: .top, endPoint: .bottom
+                    colors: [
+                        ACColor.Brand.GradientStart,
+                        ACColor.Brand.GradientEnd
+                    ],
+                    startPoint: .top,
+                    endPoint: .bottom
                 )
             )
-            .clipShape(RoundedRectangle(cornerRadius: AppConstant.Radius.box))
+            .clipShape(RoundedRectangle(cornerRadius: ACLayout.Radius.medium))
         }
         .tapScaleEffect()
+        .padding(.top, ACLayout.Padding.small)
     }
 }

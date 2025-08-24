@@ -29,13 +29,13 @@ enum ACLayout {
     
     // MARK: - Frame
     enum Frame {
-        static let extraLargeMin: CGFloat = 80
-        static let extraLargeIdeal: CGFloat = 92
-        static let extraLargeMax: CGFloat = 104
+        static let extraLargeMin: CGFloat = 68
+        static let extraLargeIdeal: CGFloat = 80
+        static let extraLargeMax: CGFloat = 92
         
-        static let largeMin: CGFloat = 56
-        static let largeIdeal: CGFloat = 64
-        static let largeMax: CGFloat = 72
+        static let largeMin: CGFloat = 40
+        static let largeIdeal: CGFloat = 48
+        static let largeMax: CGFloat = 56
         
         static let mediumMin: CGFloat = 28
         static let mediumIdeal: CGFloat = 32
@@ -52,6 +52,7 @@ enum ACLayout {
     
     // MARK: - Spacing
     enum Spacing {
+        static let section: CGFloat = 16
         static let large: CGFloat = 12
         static let medium: CGFloat = 8
         static let small: CGFloat = 4

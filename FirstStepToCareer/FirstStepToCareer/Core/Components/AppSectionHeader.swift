@@ -12,6 +12,7 @@ struct AppSectionHeader: View {
     let icon: String
     let text: String
     var lottie: String?
+    var isShowProgress: Bool?
     var body: some View {
         HStack(spacing: ACLayout.Spacing.small) {
             if let lottie {
@@ -27,6 +28,10 @@ struct AppSectionHeader: View {
                 .font(.custom(ACFont.Weight.regular, size: ACFont.Size.small, relativeTo: .subheadline))
                 .foregroundStyle(ACColor.Font.black)
             Spacer()
+            if let isShowProgress, isShowProgress {
+                ProgressView()
+                    .extraSmallFrame(alignment: .center)
+            }
         }
     }
 }

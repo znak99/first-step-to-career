@@ -13,7 +13,7 @@ struct AppSection<Content: View>: View {
     var body: some View {
         VStack { content }
             .padding(ACLayout.Padding.medium)
-            .background(.white)
-            .clipShape(RoundedRectangle(cornerRadius: AppConstant.Radius.section))
+            .background(ACColor.Font.white)
+            .clipShape(RoundedRectangle(cornerRadius: ACLayout.Radius.large))
     }
 }

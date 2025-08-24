@@ -22,7 +22,7 @@ enum AppConstant {
     }
     
     // MARK: - Util Functions
-    @available(*, deprecated, message: "Use DateFormatter extension or DateUtility instead.")
+//    @available(*, deprecated, message: "Use DateFormatter extension or DateUtility instead.")
     static func formatDate(_ date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd"

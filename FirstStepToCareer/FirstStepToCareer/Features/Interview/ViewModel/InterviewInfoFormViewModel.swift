@@ -38,7 +38,7 @@ final class InterviewInfoFormViewModel: ObservableObject {
         isCareerTypeListDismiss = false
     }
     
-    func submitButtonTapped(action: @escaping () -> Void) {
+    func submitButtonTapped(completion: @escaping () -> Void) {
         if isSubmitButtonDisable {
            return
         }
@@ -57,7 +57,7 @@ final class InterviewInfoFormViewModel: ObservableObject {
         sectionHeaderLottie = ACLottie.checkCircle
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.isSubmitButtonDisable = false
-            action()
+            completion()
         }
     }
     

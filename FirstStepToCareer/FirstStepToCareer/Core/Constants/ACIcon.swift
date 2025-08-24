@@ -16,7 +16,7 @@ enum ACIcon {
     
     // MARK: - SVG
     enum Vector {
-        static let personSquareFillBlack = "Icon/PersonSquareBlack"
+        static let personSquareBlack = "Icon/PersonSquareBlack"
         static let calendarBlack = "Icon/CalendarBlack"
         static let blackboardBlack = "Icon/BlackboardBlack"
         static let bulletListBlack = "Icon/BulletListBlack"

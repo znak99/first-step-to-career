@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingsTabView: View {
     // MARK: - Variables
+    @ObservedObject var vm: SettingsTabViewModel
     
     // MARK: - UI
     var body: some View {
@@ -17,5 +18,5 @@ struct SettingsTabView: View {
 }
 
 #Preview {
-    SettingsTabView()
+    SettingsTabView(vm: SettingsTabViewModel())
 }
