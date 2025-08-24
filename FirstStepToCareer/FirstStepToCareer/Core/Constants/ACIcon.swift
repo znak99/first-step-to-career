@@ -38,7 +38,9 @@ enum ACIcon {
         static let graduationCapBlack = "Icon/GraduationCapBlack"
         static let suitcaseWhite = "Icon/SuitcaseWhite"
         static let suitcaseBlack = "Icon/SuitcaseBlack"
-        static let xWhite = "Icon/XWhite"
+        static let checkSquareGreen = "Icon/CheckSquareGreen"
+        static let xBlack = "Icon/XBlack"
+        static let speechBlack = "Icon/SpeechBlack"
     }
     
     // MARK: - Image
