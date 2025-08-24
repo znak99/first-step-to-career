@@ -10,7 +10,7 @@ import SwiftUI
 struct InterviewView: View {
     @StateObject private var vm: InterviewViewModel = .init()
     @StateObject private var cameraVM: CameraViewModel = .init()
-    @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject private var nc: NavigationController
 
     var body: some View {
         ZStack {
@@ -19,8 +19,37 @@ struct InterviewView: View {
             
             // === Camera
             CameraView(vm: cameraVM)
+            
+            // === Content
+            VStack {
+                HStack {
+                    Spacer()
+                    Button(
+                        action: {
+                            vm.exitButtonTapped {
+                                EntryKitPresenter.shared.showConfirmExit(
+                                    onConfirm: {
+                                        nc.path.removeAll()
+                                    },
+                                    onCancel: {
+                                        
+                                    }
+                                )
+                            }
+                        },
+                        label: {
+                            Image(ACIcon.Vector.xWhite)
+                                .resizable()
+                                .scaledToFit()
+                                .mediumFrame(alignment: .center)
+                        }
+                    )
+                }
+                
+                Spacer()
+            }
+            .padding(.horizontal, ACLayout.Padding.safeArea)
         }
-        .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
     }
 }

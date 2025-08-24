@@ -12,5 +12,11 @@ import CoreMedia
 
 @MainActor
 final class InterviewViewModel: ObservableObject {
+    // MARK: - Properties
+    @Published var isShowDismissModal: Bool = false
     
+    // MARK: - Actions
+    func exitButtonTapped(completion: @escaping () -> Void) {
+        completion()
+    }
 }

@@ -35,8 +35,6 @@
 		FB2724E82E50E5200092408E /* NotoSansJP-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB2724DE2E50E5200092408E /* NotoSansJP-Medium.ttf */; };
 		FB2724E92E50E5200092408E /* NotoSansJP-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB2724E12E50E5200092408E /* NotoSansJP-Thin.ttf */; };
 		FB2724EA2E50E5200092408E /* NotoSansJP-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB2724DC2E50E5200092408E /* NotoSansJP-ExtraLight.ttf */; };
-		FB2724ED2E50E5DA0092408E /* Font+AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724EC2E50E5DA0092408E /* Font+AppFonts.swift */; };
-		FB2724EF2E50EE960092408E /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724EE2E50EE960092408E /* AppConstant.swift */; };
 		FB2724F72E50F9050092408E /* ProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724F62E50F9050092408E /* ProgressRing.swift */; };
 		FB2724F92E51179D0092408E /* KeyboardPrewarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724F82E51179D0092408E /* KeyboardPrewarmView.swift */; };
 		FB2724FD2E511B660092408E /* FocusTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2724FC2E511B610092408E /* FocusTarget.swift */; };
@@ -109,6 +107,9 @@
 		FB7756942E5AED9100A70F66 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756932E5AED9100A70F66 /* CameraViewModel.swift */; };
 		FB7756962E5AEDC600A70F66 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756952E5AEDC600A70F66 /* CameraView.swift */; };
 		FB7756982E5AF8F300A70F66 /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756972E5AF8F300A70F66 /* CameraPreviewView.swift */; };
+		FB77569B2E5B05E100A70F66 /* SwiftEntryKit in Frameworks */ = {isa = PBXBuildFile; productRef = FB77569A2E5B05E100A70F66 /* SwiftEntryKit */; };
+		FB7756A62E5B1FEE00A70F66 /* EntryKitPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756A32E5B1FEE00A70F66 /* EntryKitPresenter.swift */; };
+		FB7756A72E5B1FEE00A70F66 /* ShowFinishInterviewPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756A42E5B1FEE00A70F66 /* ShowFinishInterviewPopUp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -139,8 +140,6 @@
 		FB2724E02E50E5200092408E /* NotoSansJP-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-SemiBold.ttf"; sourceTree = "<group>"; };
 		FB2724E12E50E5200092408E /* NotoSansJP-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Thin.ttf"; sourceTree = "<group>"; };
 		FB2724EB2E50E5330092408E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FB2724EC2E50E5DA0092408E /* Font+AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+AppFonts.swift"; sourceTree = "<group>"; };
-		FB2724EE2E50EE960092408E /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
 		FB2724F62E50F9050092408E /* ProgressRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRing.swift; sourceTree = "<group>"; };
 		FB2724F82E51179D0092408E /* KeyboardPrewarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardPrewarmView.swift; sourceTree = "<group>"; };
 		FB2724FC2E511B610092408E /* FocusTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusTarget.swift; sourceTree = "<group>"; };
@@ -211,6 +210,8 @@
 		FB7756932E5AED9100A70F66 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		FB7756952E5AEDC600A70F66 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		FB7756972E5AF8F300A70F66 /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
+		FB7756A32E5B1FEE00A70F66 /* EntryKitPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryKitPresenter.swift; sourceTree = "<group>"; };
+		FB7756A42E5B1FEE00A70F66 /* ShowFinishInterviewPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowFinishInterviewPopUp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +221,7 @@
 			files = (
 				FB1BED752E53743000041053 /* Shimmer in Frameworks */,
 				FB7756822E5A470700A70F66 /* AlertToast in Frameworks */,
+				FB77569B2E5B05E100A70F66 /* SwiftEntryKit in Frameworks */,
 				FB1BED882E54B21400041053 /* FirebaseFirestore in Frameworks */,
 				FB1BED842E54B21400041053 /* FirebaseAuth in Frameworks */,
 				FB2BD6662E576B1800A790E6 /* Lottie in Frameworks */,
@@ -288,8 +290,6 @@
 				FB7755FB2E5A02BF00A70F66 /* Core */,
 				FB2724AE2E50CFB90092408E /* Resource */,
 				FB77566A2E5A0BFC00A70F66 /* TestDataGenerator */,
-				FB2724EE2E50EE960092408E /* AppConstant.swift */,
-				FB2724EC2E50E5DA0092408E /* Font+AppFonts.swift */,
 			);
 			path = FirstStepToCareer;
 			sourceTree = "<group>";
@@ -384,6 +384,7 @@
 		FB7755FB2E5A02BF00A70F66 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				FB7756A52E5B1FEE00A70F66 /* EntryKit */,
 				FB7756862E5ABD1D00A70F66 /* Utils */,
 				FB7756362E5A0A0400A70F66 /* Errors */,
 				FB77560F2E5A058800A70F66 /* Managers */,
@@ -774,6 +775,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		FB7756A52E5B1FEE00A70F66 /* EntryKit */ = {
+			isa = PBXGroup;
+			children = (
+				FB7756A32E5B1FEE00A70F66 /* EntryKitPresenter.swift */,
+				FB7756A42E5B1FEE00A70F66 /* ShowFinishInterviewPopUp.swift */,
+			);
+			path = EntryKit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -797,6 +807,7 @@
 				FB1BED872E54B21400041053 /* FirebaseFirestore */,
 				FB2BD6652E576B1800A790E6 /* Lottie */,
 				FB7756812E5A470700A70F66 /* AlertToast */,
+				FB77569A2E5B05E100A70F66 /* SwiftEntryKit */,
 			);
 			productName = FirstStepToCareer;
 			productReference = FB2724502E50B3CF0092408E /* FirstStepToCareer.app */;
@@ -831,6 +842,7 @@
 				FB1BED822E54B21400041053 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				FB2BD6642E576B1800A790E6 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				FB7756802E5A470700A70F66 /* XCRemoteSwiftPackageReference "AlertToast" */,
+				FB7756992E5B05E100A70F66 /* XCRemoteSwiftPackageReference "SwiftEntryKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FB2724512E50B3CF0092408E /* Products */;
@@ -939,7 +951,8 @@
 				FB2725052E511B9F0092408E /* AppTab.swift in Sources */,
 				FB1BED722E535A4D00041053 /* AppTextField.swift in Sources */,
 				FB2BD6862E58903D00A790E6 /* InterviewInfoFormViewModel.swift in Sources */,
-				FB2724ED2E50E5DA0092408E /* Font+AppFonts.swift in Sources */,
+				FB7756A62E5B1FEE00A70F66 /* EntryKitPresenter.swift in Sources */,
+				FB7756A72E5B1FEE00A70F66 /* ShowFinishInterviewPopUp.swift in Sources */,
 				FB77565F2E5A0B4000A70F66 /* ExpressionMetric.swift in Sources */,
 				FB7756602E5A0B4000A70F66 /* ExpressionSample.swift in Sources */,
 				FB7756612E5A0B4000A70F66 /* GazeMetric.swift in Sources */,
@@ -950,7 +963,6 @@
 				FB7756652E5A0B4000A70F66 /* SpeechSpeedMetric.swift in Sources */,
 				FB7756662E5A0B4000A70F66 /* InterviewResult.swift in Sources */,
 				FB7756672E5A0B4000A70F66 /* InterviewTurn.swift in Sources */,
-				FB2724EF2E50EE960092408E /* AppConstant.swift in Sources */,
 				FB2BD68E2E58C3B700A790E6 /* Route.swift in Sources */,
 				FB7755F22E59EED300A70F66 /* ACColor.swift in Sources */,
 				FB2724C42E50DAD40092408E /* ScheduleTabView.swift in Sources */,
@@ -1236,6 +1248,14 @@
 				minimumVersion = 1.3.9;
 			};
 		};
+		FB7756992E5B05E100A70F66 /* XCRemoteSwiftPackageReference "SwiftEntryKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/huri000/SwiftEntryKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1263,6 +1283,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FB7756802E5A470700A70F66 /* XCRemoteSwiftPackageReference "AlertToast" */;
 			productName = AlertToast;
+		};
+		FB77569A2E5B05E100A70F66 /* SwiftEntryKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB7756992E5B05E100A70F66 /* XCRemoteSwiftPackageReference "SwiftEntryKit" */;
+			productName = SwiftEntryKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

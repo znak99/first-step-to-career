@@ -38,6 +38,7 @@ enum ACIcon {
         static let graduationCapBlack = "Icon/GraduationCapBlack"
         static let suitcaseWhite = "Icon/SuitcaseWhite"
         static let suitcaseBlack = "Icon/SuitcaseBlack"
+        static let xWhite = "Icon/XWhite"
     }
     
     // MARK: - Image
@@ -46,5 +47,6 @@ enum ACIcon {
         static let unauthenticatedYellow3D = "Image/UnauthenticatedYellow3D"
         static let checkSquareBlack3D = "Image/CheckSquareBlack3D"
         static let warningTriangleYellow3D = "Image/WarningTriangleYellow3D"
+        static let warningCircleYellow3D = "Image/WarningCircleYellow3D"
     }
 }
