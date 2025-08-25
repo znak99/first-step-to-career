@@ -27,6 +27,11 @@ struct AppTextField: View {
                 .textInputAutocapitalization(.never)
                 .keyboardType(.default)
                 .focused(focus, equals: focusTarget)
+                .onChange(of: text) { _, newValue in
+                    if newValue.first == " " {
+                        text = String(newValue.drop(while: { $0 == " " }))
+                    }
+                }
         }
         .font(.custom(ACFont.Weight.regular, size: ACFont.Size.small, relativeTo: .body))
         .padding(ACLayout.Padding.small)
