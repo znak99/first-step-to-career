@@ -114,6 +114,7 @@
 		FB7756BE2E5C9F1D00A70F66 /* STTServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756BB2E5C9F1D00A70F66 /* STTServicing.swift */; };
 		FB7756C02E5CA71200A70F66 /* LottieCircleCheckWhite.json in Resources */ = {isa = PBXBuildFile; fileRef = FB7756BF2E5CA71200A70F66 /* LottieCircleCheckWhite.json */; };
 		FB7756C42E5CAD6B00A70F66 /* InterviewViewPreparingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756C32E5CAD6B00A70F66 /* InterviewViewPreparingHeader.swift */; };
+		FB7756C62E5CB82100A70F66 /* InterviewCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756C52E5CB82100A70F66 /* InterviewCamera.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -220,6 +221,7 @@
 		FB7756BB2E5C9F1D00A70F66 /* STTServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTServicing.swift; sourceTree = "<group>"; };
 		FB7756BF2E5CA71200A70F66 /* LottieCircleCheckWhite.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LottieCircleCheckWhite.json; sourceTree = "<group>"; };
 		FB7756C32E5CAD6B00A70F66 /* InterviewViewPreparingHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewViewPreparingHeader.swift; sourceTree = "<group>"; };
+		FB7756C52E5CB82100A70F66 /* InterviewCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewCamera.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -527,6 +529,7 @@
 				FB7756872E5AC6F200A70F66 /* InterviewHistoryRow.swift */,
 				FB7756A82E5B2CFA00A70F66 /* InterviewViewTopBarExitButton.swift */,
 				FB7756C32E5CAD6B00A70F66 /* InterviewViewPreparingHeader.swift */,
+				FB7756C52E5CB82100A70F66 /* InterviewCamera.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -990,6 +993,7 @@
 				FB2724F72E50F9050092408E /* ProgressRing.swift in Sources */,
 				FB2725022E511B9F0092408E /* NavigationController.swift in Sources */,
 				FB7756882E5AC6F200A70F66 /* InterviewHistoryRow.swift in Sources */,
+				FB7756C62E5CB82100A70F66 /* InterviewCamera.swift in Sources */,
 				FB2724FD2E511B660092408E /* FocusTarget.swift in Sources */,
 				FB7756792E5A35B700A70F66 /* RecruitTypeButton.swift in Sources */,
 				FB2724D62E50DC190092408E /* SettingsTabView.swift in Sources */,

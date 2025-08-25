@@ -20,24 +20,39 @@ struct InterviewView: View {
             ACColor.Brand.backgroundPrimary.ignoresSafeArea()
             
             // === Camera
-            CameraPreview(session: interviewEngine.cameraSession)
-                            .ignoresSafeArea()
+            GeometryReader { proxy in
+                VStack {
+                    if vm.isRunning {
+                        InterviewViewTopBarExitButton(action: {})
+                            .opacity(0.1)
+                    }
+                    InterviewCamera(
+                        session: interviewEngine.cameraSession,
+                        width: proxy.size.width,
+                        height: proxy.size.height,
+                        isRunning: $vm.isRunning)
+                }
+            }
+            .ignoresSafeArea(vm.isRunning ? .keyboard : .all)
             
             // === Content
             VStack {
                 InterviewViewTopBarExitButton {
                     vm.exitButtonTapped {
+                        // TODO: - Pause 만들기
+                        interviewEngine.stop()
                         EntryKitPresenter.shared.showConfirmExit(
                             onConfirm: {
+                                interviewEngine.teardown()
                                 nc.path.removeAll()
                             },
                             onCancel: {
-                                
+                                interviewEngine.start()
                             }
                         )
                     }
                 }
-                if vm.isInterviewStarted {
+                if vm.isRunning {
                     VStack {
                         
                     }
@@ -66,8 +81,10 @@ struct InterviewView: View {
                     Text("問題なければ面接を始めましょう！")
                         .appCaptionStyle()
                     GradientRowButton(title: "模擬面接開始", icon: ACIcon.Vector.selfieWhite) {
-                        vm.startButtonTapped {
-                            
+                        withAnimation(.easeIn) {
+                            vm.startButtonTapped {
+                                
+                            }
                         }
                     }
                 }

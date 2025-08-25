@@ -14,7 +14,7 @@ import CoreMedia
 final class InterviewViewModel: ObservableObject {
     // MARK: - Properties
     @Published var isShowDismissModal: Bool = false
-    @Published var isInterviewStarted: Bool = false
+    @Published var isRunning: Bool = false
     
     // MARK: - Actions
     func exitButtonTapped(completion: @escaping () -> Void) {
@@ -22,6 +22,7 @@ final class InterviewViewModel: ObservableObject {
     }
     
     func startButtonTapped(completion: @escaping () -> Void) {
+        isRunning = true
         completion()
     }
 }
