@@ -20,4 +20,8 @@ final class InterviewViewModel: ObservableObject {
     func exitButtonTapped(completion: @escaping () -> Void) {
         completion()
     }
+    
+    func startButtonTapped(completion: @escaping () -> Void) {
+        completion()
+    }
 }

@@ -12,6 +12,7 @@ final class InterviewInfoFormViewModel: ObservableObject {
     // MARK: - Properties
     @Published var interviewInfo: InterviewInfo = .init()
     @Published var sectionHeaderLottie: String?
+    @Published var gradientRowButtonLottie: String?
     @Published var navigationBarTitle: String = "模擬面接情報"
     @Published var isShowFieldInvalidToast: Bool = false
     @Published var isCompanyTypeListDismiss: Bool = false
@@ -55,6 +56,8 @@ final class InterviewInfoFormViewModel: ObservableObject {
         }
         
         sectionHeaderLottie = ACLottie.checkCircleGreen
+        gradientRowButtonLottie = ACLottie.checkCircleWhite
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.isSubmitButtonDisable = false
             completion()
@@ -63,5 +66,6 @@ final class InterviewInfoFormViewModel: ObservableObject {
     
     func interviewInfoFormDisappear() {
         sectionHeaderLottie = nil
+        gradientRowButtonLottie = nil
     }
 }

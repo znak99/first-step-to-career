@@ -113,6 +113,7 @@
 		FB7756BD2E5C9F1D00A70F66 /* STTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756BA2E5C9F1D00A70F66 /* STTService.swift */; };
 		FB7756BE2E5C9F1D00A70F66 /* STTServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756BB2E5C9F1D00A70F66 /* STTServicing.swift */; };
 		FB7756C02E5CA71200A70F66 /* LottieCircleCheckWhite.json in Resources */ = {isa = PBXBuildFile; fileRef = FB7756BF2E5CA71200A70F66 /* LottieCircleCheckWhite.json */; };
+		FB7756C42E5CAD6B00A70F66 /* InterviewViewPreparingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756C32E5CAD6B00A70F66 /* InterviewViewPreparingHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -218,6 +219,7 @@
 		FB7756BA2E5C9F1D00A70F66 /* STTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTService.swift; sourceTree = "<group>"; };
 		FB7756BB2E5C9F1D00A70F66 /* STTServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTServicing.swift; sourceTree = "<group>"; };
 		FB7756BF2E5CA71200A70F66 /* LottieCircleCheckWhite.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LottieCircleCheckWhite.json; sourceTree = "<group>"; };
+		FB7756C32E5CAD6B00A70F66 /* InterviewViewPreparingHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewViewPreparingHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -524,6 +526,7 @@
 				FB77567C2E5A3D0E00A70F66 /* InterviewInfoFormHeaderCaption.swift */,
 				FB7756872E5AC6F200A70F66 /* InterviewHistoryRow.swift */,
 				FB7756A82E5B2CFA00A70F66 /* InterviewViewTopBarExitButton.swift */,
+				FB7756C32E5CAD6B00A70F66 /* InterviewViewPreparingHeader.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -929,6 +932,7 @@
 				FB7755E62E59BC6100A70F66 /* CameraService.swift in Sources */,
 				FB7756A92E5B2CFA00A70F66 /* InterviewViewTopBarExitButton.swift in Sources */,
 				FB7755F02E59ED3F00A70F66 /* ACFont.swift in Sources */,
+				FB7756C42E5CAD6B00A70F66 /* InterviewViewPreparingHeader.swift in Sources */,
 				FB2724B42E50CFB90092408E /* FirstStepToCareerApp.swift in Sources */,
 				FB77568E2E5ADBE800A70F66 /* SettingsTabViewModel.swift in Sources */,
 				FB2BD6532E574F7E00A790E6 /* InterviewActionRow.swift in Sources */,

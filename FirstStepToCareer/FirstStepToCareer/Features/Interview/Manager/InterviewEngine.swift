@@ -17,7 +17,7 @@ final class InterviewEngine: ObservableObject {
 
     @Published private(set) var isReady: Bool = false
     @Published private(set) var isRunning: Bool = false
-    @Published private(set) var lastError: String?
+    @Published private(set) var errorMessage: String?
     @Published private(set) var transcript: String = ""
 
     var cameraSession: AVCaptureSession { camera.session }
@@ -34,7 +34,7 @@ final class InterviewEngine: ObservableObject {
             Task { @MainActor in self?.transcript = text }
         }
         self.stt.onError = { [weak self] error in
-            Task { @MainActor in self?.lastError = error.localizedDescription }
+            Task { @MainActor in self?.errorMessage = error.localizedDescription }
         }
         self.stt.onFinished = { [weak self] in
             Task { @MainActor in self?.isRunning = false }
@@ -43,22 +43,22 @@ final class InterviewEngine: ObservableObject {
 
     func prepare(info: InterviewInfo, config: CameraConfig = .default) async {
         interviewInfo = info
-        lastError = nil
+        errorMessage = nil
         isReady = false
         transcript = ""
 
         let permissions = await permission.requestCameraMicSpeech()
 
         guard permissions.camera else {
-            lastError = "カメラの権限がありません。"
+            errorMessage = "カメラの権限がありません。"
             return
         }
         guard permissions.mic else {
-            lastError = "マイクの権限がありません。"
+            errorMessage = "マイクの権限がありません。"
             return
         }
         guard permissions.speech else {
-            lastError = "音声認識の権限がありません。"
+            errorMessage = "音声認識の権限がありません。"
             return
         }
 
@@ -68,9 +68,10 @@ final class InterviewEngine: ObservableObject {
 
     func start() {
         guard isReady else {
-            lastError = "面接準備がまだです。"
+            errorMessage = "面接準備がまだです。"
             return
         }
+        
         camera.startRunning()
         stt.start()
         isRunning = true
@@ -87,6 +88,6 @@ final class InterviewEngine: ObservableObject {
         interviewInfo = nil
         isReady = false
         transcript = ""
-        lastError = nil
+        errorMessage = nil
     }
 }

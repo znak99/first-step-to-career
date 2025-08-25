@@ -22,4 +22,11 @@ extension String {
         formatter.dateFormat = "yyyy/MM/dd"
         return formatter.string(from: date)
     }
+    
+    func lastCharacters(_ length: Int) -> String {
+        guard self.count > length else { return self }
+        
+        let startIndex = self.index(self.endIndex, offsetBy: -length)
+        return "...\(String(self[startIndex...]))"
+    }
 }

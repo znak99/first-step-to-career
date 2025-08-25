@@ -11,12 +11,16 @@ import SwiftUI
 struct GradientRowButton: View {
     let title: String
     var icon: String?
+    var lottie: String?
     let action: () -> Void
 
     var body: some View {
         Button(action: action) {
             HStack {
-                if let icon {
+                if let lottie {
+                    LottieView(name: lottie, loopMode: .playOnce)
+                        .extraSmallFrame(alignment: .center)
+                } else if let icon {
                     Image(icon)
                         .resizable()
                         .extraSmallFrame(alignment: .center)

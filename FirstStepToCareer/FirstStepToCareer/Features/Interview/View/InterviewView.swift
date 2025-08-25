@@ -43,25 +43,7 @@ struct InterviewView: View {
                     }
                 } else {
                     VStack {
-                        HStack {
-                            Image(ACIcon.Vector.checkSquareGreen)
-                                .resizable()
-                                .scaledToFit()
-                                .extraSmallFrame(alignment: .center)
-                            Text("カメラ及びマイクを確認します！")
-                                .appCaptionStyle()
-                        }
-                        HStack(alignment: .center) {
-                            Image(ACIcon.Vector.speechBlack)
-                                .resizable()
-                                .scaledToFit()
-                                .smallFrame(alignment: .center)
-                                .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
-                            Text(interviewEngine.transcript.isEmpty ? "何でも喋ってください！" : interviewEngine.transcript)
-                                .font(.custom(ACFont.Weight.regular, size: ACFont.Size.small))
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .lineLimit(2)
-                        }
+                        InterviewViewPreparingHeader(transcript: interviewEngine.transcript)
                     }
                     .padding(ACLayout.Padding.medium)
                     .background {
@@ -75,14 +57,18 @@ struct InterviewView: View {
                 }
                 Spacer()
                 AppSection {
-                    Text("ここはエラーです。")
-                        .appCaptionStyle()
-                        .foregroundStyle(ACColor.Status.error)
-                        .padding(.vertical, ACLayout.Padding.extraSmall)
+                    if let errorMessage = interviewEngine.errorMessage {
+                        Text(errorMessage)
+                            .appCaptionStyle()
+                            .foregroundStyle(ACColor.Status.error)
+                            .padding(.vertical, ACLayout.Padding.extraSmall)
+                    }
                     Text("問題なければ面接を始めましょう！")
                         .appCaptionStyle()
                     GradientRowButton(title: "模擬面接開始", icon: ACIcon.Vector.selfieWhite) {
-                        
+                        vm.startButtonTapped {
+                            
+                        }
                     }
                 }
                 .padding(.bottom, ACLayout.Padding.medium)
