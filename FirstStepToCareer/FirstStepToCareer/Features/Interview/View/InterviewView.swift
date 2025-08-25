@@ -8,17 +8,20 @@
 import SwiftUI
 
 struct InterviewView: View {
+    // MARK: - Properties
     @StateObject private var vm: InterviewViewModel = .init()
-    @StateObject private var cameraVM: CameraViewModel = .init()
     @EnvironmentObject private var nc: NavigationController
-
+    @EnvironmentObject private var interviewEngine: InterviewEngine
+    
+    // MARK: - Body
     var body: some View {
         ZStack {
             // === Background
             ACColor.Brand.backgroundPrimary.ignoresSafeArea()
             
             // === Camera
-            CameraView(vm: cameraVM)
+            CameraPreview(session: interviewEngine.cameraSession)
+                            .ignoresSafeArea()
             
             // === Content
             VStack {
@@ -54,7 +57,7 @@ struct InterviewView: View {
                                 .scaledToFit()
                                 .smallFrame(alignment: .center)
                                 .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
-                            Text("何でも喋ってください！")
+                            Text(interviewEngine.transcript.isEmpty ? "何でも喋ってください！" : interviewEngine.transcript)
                                 .font(.custom(ACFont.Weight.regular, size: ACFont.Size.small))
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .lineLimit(2)
@@ -72,6 +75,10 @@ struct InterviewView: View {
                 }
                 Spacer()
                 AppSection {
+                    Text("ここはエラーです。")
+                        .appCaptionStyle()
+                        .foregroundStyle(ACColor.Status.error)
+                        .padding(.vertical, ACLayout.Padding.extraSmall)
                     Text("問題なければ面接を始めましょう！")
                         .appCaptionStyle()
                     GradientRowButton(title: "模擬面接開始", icon: ACIcon.Vector.selfieWhite) {
@@ -83,6 +90,9 @@ struct InterviewView: View {
             .padding(.horizontal, ACLayout.Padding.safeArea)
         }
         .navigationBarBackButtonHidden(true)
+        .onAppear {
+            interviewEngine.start()
+        }
     }
 }
 

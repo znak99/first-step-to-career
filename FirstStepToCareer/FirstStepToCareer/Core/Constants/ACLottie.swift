@@ -8,5 +8,6 @@
 import SwiftUI
 
 enum ACLottie {
-    static let checkCircle = "LottieCircleCheck"
+    static let checkCircleGreen = "LottieCircleCheckGreen"
+    static let checkCircleWhite = "LottieCircleCheckWhite"
 }

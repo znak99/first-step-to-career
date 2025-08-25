@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+import FirebaseFirestore
 
 @main
 struct FirstStepToCareerApp: App {
     // MARK: - Properties
     @StateObject var nc: NavigationController = .init()
     @StateObject var interviewEngine: InterviewEngine = .init()
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     // MARK: - Body
     var body: some Scene {
@@ -19,6 +22,11 @@ struct FirstStepToCareerApp: App {
             RootView()
                 .environmentObject(nc)
                 .environmentObject(interviewEngine)
+                .onAppear {
+                    let settings = FirestoreSettings()
+                    settings.cacheSettings = PersistentCacheSettings()
+                    Firestore.firestore().settings = settings
+                }
         }
     }
 }

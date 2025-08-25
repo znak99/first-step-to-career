@@ -54,7 +54,7 @@ final class InterviewInfoFormViewModel: ObservableObject {
             return
         }
         
-        sectionHeaderLottie = ACLottie.checkCircle
+        sectionHeaderLottie = ACLottie.checkCircleGreen
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.isSubmitButtonDisable = false
             completion()

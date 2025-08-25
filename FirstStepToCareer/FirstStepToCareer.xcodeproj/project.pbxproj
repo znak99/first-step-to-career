@@ -61,8 +61,7 @@
 		FB2BD6742E57710500A790E6 /* SigninView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BD6732E57710500A790E6 /* SigninView.swift */; };
 		FB2BD6862E58903D00A790E6 /* InterviewInfoFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BD6852E58903D00A790E6 /* InterviewInfoFormViewModel.swift */; };
 		FB2BD68E2E58C3B700A790E6 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BD68C2E58C3B700A790E6 /* Route.swift */; };
-		FB2BD6A42E58E10000A790E6 /* LottieCircleCheck.json in Resources */ = {isa = PBXBuildFile; fileRef = FB2BD6A32E58E10000A790E6 /* LottieCircleCheck.json */; };
-		FB7755C62E59901800A70F66 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7755C52E59901800A70F66 /* PermissionManager.swift */; };
+		FB2BD6A42E58E10000A790E6 /* LottieCircleCheckGreen.json in Resources */ = {isa = PBXBuildFile; fileRef = FB2BD6A32E58E10000A790E6 /* LottieCircleCheckGreen.json */; };
 		FB7755E22E59B65B00A70F66 /* InterviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7755E12E59B65B00A70F66 /* InterviewView.swift */; };
 		FB7755E42E59B6BF00A70F66 /* InterviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7755E32E59B6BF00A70F66 /* InterviewViewModel.swift */; };
 		FB7755E62E59BC6100A70F66 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7755E52E59BC6100A70F66 /* CameraService.swift */; };
@@ -97,20 +96,23 @@
 		FB77567D2E5A3D0E00A70F66 /* InterviewInfoFormHeaderCaption.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77567C2E5A3D0E00A70F66 /* InterviewInfoFormHeaderCaption.swift */; };
 		FB77567F2E5A42CB00A70F66 /* InterviewEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77567E2E5A42CB00A70F66 /* InterviewEngine.swift */; };
 		FB7756822E5A470700A70F66 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = FB7756812E5A470700A70F66 /* AlertToast */; };
-		FB7756842E5A5EE600A70F66 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756832E5A5EE600A70F66 /* AuthManager.swift */; };
 		FB7756882E5AC6F200A70F66 /* InterviewHistoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756872E5AC6F200A70F66 /* InterviewHistoryRow.swift */; };
 		FB77568A2E5ADB8A00A70F66 /* ScheduleTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756892E5ADB8A00A70F66 /* ScheduleTabViewModel.swift */; };
 		FB77568C2E5ADBC400A70F66 /* ManagementTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77568B2E5ADBC400A70F66 /* ManagementTabViewModel.swift */; };
 		FB77568E2E5ADBE800A70F66 /* SettingsTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77568D2E5ADBE800A70F66 /* SettingsTabViewModel.swift */; };
 		FB7756902E5AE0AD00A70F66 /* CameraConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77568F2E5AE0AD00A70F66 /* CameraConfig.swift */; };
-		FB7756922E5AE5DB00A70F66 /* AppPermissionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756912E5AE5DB00A70F66 /* AppPermissionStatus.swift */; };
-		FB7756942E5AED9100A70F66 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756932E5AED9100A70F66 /* CameraViewModel.swift */; };
-		FB7756962E5AEDC600A70F66 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756952E5AEDC600A70F66 /* CameraView.swift */; };
 		FB7756982E5AF8F300A70F66 /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756972E5AF8F300A70F66 /* CameraPreviewView.swift */; };
 		FB77569B2E5B05E100A70F66 /* SwiftEntryKit in Frameworks */ = {isa = PBXBuildFile; productRef = FB77569A2E5B05E100A70F66 /* SwiftEntryKit */; };
 		FB7756A62E5B1FEE00A70F66 /* EntryKitPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756A32E5B1FEE00A70F66 /* EntryKitPresenter.swift */; };
 		FB7756A72E5B1FEE00A70F66 /* ShowFinishInterviewPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756A42E5B1FEE00A70F66 /* ShowFinishInterviewPopUp.swift */; };
 		FB7756A92E5B2CFA00A70F66 /* InterviewViewTopBarExitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756A82E5B2CFA00A70F66 /* InterviewViewTopBarExitButton.swift */; };
+		FB7756AB2E5B447D00A70F66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756AA2E5B447500A70F66 /* AppDelegate.swift */; };
+		FB7756B02E5C962700A70F66 /* AppPermissionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756AD2E5C962700A70F66 /* AppPermissionStatus.swift */; };
+		FB7756B12E5C962700A70F66 /* PermissionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756AE2E5C962700A70F66 /* PermissionService.swift */; };
+		FB7756B32E5C995600A70F66 /* CameraServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756B22E5C995600A70F66 /* CameraServicing.swift */; };
+		FB7756BD2E5C9F1D00A70F66 /* STTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756BA2E5C9F1D00A70F66 /* STTService.swift */; };
+		FB7756BE2E5C9F1D00A70F66 /* STTServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756BB2E5C9F1D00A70F66 /* STTServicing.swift */; };
+		FB7756C02E5CA71200A70F66 /* LottieCircleCheckWhite.json in Resources */ = {isa = PBXBuildFile; fileRef = FB7756BF2E5CA71200A70F66 /* LottieCircleCheckWhite.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -166,8 +168,7 @@
 		FB2BD6732E57710500A790E6 /* SigninView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninView.swift; sourceTree = "<group>"; };
 		FB2BD6852E58903D00A790E6 /* InterviewInfoFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewInfoFormViewModel.swift; sourceTree = "<group>"; };
 		FB2BD68C2E58C3B700A790E6 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
-		FB2BD6A32E58E10000A790E6 /* LottieCircleCheck.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LottieCircleCheck.json; sourceTree = "<group>"; };
-		FB7755C52E59901800A70F66 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
+		FB2BD6A32E58E10000A790E6 /* LottieCircleCheckGreen.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LottieCircleCheckGreen.json; sourceTree = "<group>"; };
 		FB7755E12E59B65B00A70F66 /* InterviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewView.swift; sourceTree = "<group>"; };
 		FB7755E32E59B6BF00A70F66 /* InterviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewViewModel.swift; sourceTree = "<group>"; };
 		FB7755E52E59BC6100A70F66 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
@@ -201,19 +202,22 @@
 		FB77567A2E5A3A2C00A70F66 /* InterviewInfoTypeNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewInfoTypeNavigationLink.swift; sourceTree = "<group>"; };
 		FB77567C2E5A3D0E00A70F66 /* InterviewInfoFormHeaderCaption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewInfoFormHeaderCaption.swift; sourceTree = "<group>"; };
 		FB77567E2E5A42CB00A70F66 /* InterviewEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewEngine.swift; sourceTree = "<group>"; };
-		FB7756832E5A5EE600A70F66 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		FB7756872E5AC6F200A70F66 /* InterviewHistoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewHistoryRow.swift; sourceTree = "<group>"; };
 		FB7756892E5ADB8A00A70F66 /* ScheduleTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTabViewModel.swift; sourceTree = "<group>"; };
 		FB77568B2E5ADBC400A70F66 /* ManagementTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementTabViewModel.swift; sourceTree = "<group>"; };
 		FB77568D2E5ADBE800A70F66 /* SettingsTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabViewModel.swift; sourceTree = "<group>"; };
 		FB77568F2E5AE0AD00A70F66 /* CameraConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraConfig.swift; sourceTree = "<group>"; };
-		FB7756912E5AE5DB00A70F66 /* AppPermissionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPermissionStatus.swift; sourceTree = "<group>"; };
-		FB7756932E5AED9100A70F66 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
-		FB7756952E5AEDC600A70F66 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		FB7756972E5AF8F300A70F66 /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
 		FB7756A32E5B1FEE00A70F66 /* EntryKitPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryKitPresenter.swift; sourceTree = "<group>"; };
 		FB7756A42E5B1FEE00A70F66 /* ShowFinishInterviewPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowFinishInterviewPopUp.swift; sourceTree = "<group>"; };
 		FB7756A82E5B2CFA00A70F66 /* InterviewViewTopBarExitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewViewTopBarExitButton.swift; sourceTree = "<group>"; };
+		FB7756AA2E5B447500A70F66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FB7756AD2E5C962700A70F66 /* AppPermissionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPermissionStatus.swift; sourceTree = "<group>"; };
+		FB7756AE2E5C962700A70F66 /* PermissionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionService.swift; sourceTree = "<group>"; };
+		FB7756B22E5C995600A70F66 /* CameraServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraServicing.swift; sourceTree = "<group>"; };
+		FB7756BA2E5C9F1D00A70F66 /* STTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTService.swift; sourceTree = "<group>"; };
+		FB7756BB2E5C9F1D00A70F66 /* STTServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTServicing.swift; sourceTree = "<group>"; };
+		FB7756BF2E5CA71200A70F66 /* LottieCircleCheckWhite.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LottieCircleCheckWhite.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				FB2724A52E50CFB90092408E /* FirstStepToCareerApp.swift */,
+				FB7756AA2E5B447500A70F66 /* AppDelegate.swift */,
 				FB7756072E5A041E00A70F66 /* Root */,
 				FB7756342E5A081800A70F66 /* Main */,
 				FB7756092E5A050B00A70F66 /* Navigation */,
@@ -339,7 +344,8 @@
 		FB2BD6992E58D7B600A790E6 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
-				FB2BD6A32E58E10000A790E6 /* LottieCircleCheck.json */,
+				FB2BD6A32E58E10000A790E6 /* LottieCircleCheckGreen.json */,
+				FB7756BF2E5CA71200A70F66 /* LottieCircleCheckWhite.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -347,12 +353,11 @@
 		FB7755D82E59B5CD00A70F66 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				FB7756952E5AEDC600A70F66 /* CameraView.swift */,
-				FB7756932E5AED9100A70F66 /* CameraViewModel.swift */,
 				FB7755E52E59BC6100A70F66 /* CameraService.swift */,
 				FB7755E72E59BCAE00A70F66 /* CameraPreview.swift */,
 				FB7756972E5AF8F300A70F66 /* CameraPreviewView.swift */,
 				FB77568F2E5AE0AD00A70F66 /* CameraConfig.swift */,
+				FB7756B22E5C995600A70F66 /* CameraServicing.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -365,8 +370,6 @@
 				FB7755EF2E59ED3F00A70F66 /* ACFont.swift */,
 				FB7755F12E59EED300A70F66 /* ACColor.swift */,
 				FB7755F32E59F12100A70F66 /* ACIcon.swift */,
-				FB2724FC2E511B610092408E /* FocusTarget.swift */,
-				FB7756912E5AE5DB00A70F66 /* AppPermissionStatus.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -386,10 +389,10 @@
 		FB7755FB2E5A02BF00A70F66 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				FB7756BC2E5C9F1D00A70F66 /* STT */,
+				FB7756AF2E5C962700A70F66 /* Permission */,
 				FB7756A52E5B1FEE00A70F66 /* EntryKit */,
 				FB7756862E5ABD1D00A70F66 /* Utils */,
-				FB7756362E5A0A0400A70F66 /* Errors */,
-				FB77560F2E5A058800A70F66 /* Managers */,
 				FB2724A82E50CFB90092408E /* Extensions */,
 				FB7755F62E5A003500A70F66 /* Constants */,
 				FB2724F32E50F8C90092408E /* Components */,
@@ -417,7 +420,7 @@
 				FB7756102E5A058C00A70F66 /* View */,
 				FB7756112E5A058C00A70F66 /* ViewModel */,
 				FB7756122E5A058C00A70F66 /* Model */,
-				FB7756162E5A05E300A70F66 /* Service */,
+				FB7756162E5A05E300A70F66 /* Manager */,
 			);
 			path = Interview;
 			sourceTree = "<group>";
@@ -474,26 +477,17 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
-		FB77560F2E5A058800A70F66 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				FB7755C52E59901800A70F66 /* PermissionManager.swift */,
-				FB7756832E5A5EE600A70F66 /* AuthManager.swift */,
-			);
-			path = Managers;
-			sourceTree = "<group>";
-		};
 		FB7756102E5A058C00A70F66 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FB2BD64C2E573D5500A790E6 /* ResumeView.swift */,
+				FB2BD6302E572C3600A790E6 /* InterviewTabView.swift */,
+				FB1BED7A2E537AE000041053 /* InterviewInfoFormView.swift */,
+				FB7755E12E59B65B00A70F66 /* InterviewView.swift */,
 				FB1BED782E537AD000041053 /* HistoryListView.swift */,
+				FB2BD64C2E573D5500A790E6 /* ResumeView.swift */,
 				FB1BED762E537AB900041053 /* AnalyticsView.swift */,
 				FB27252C2E52239F0092408E /* CompanyTypeListView.swift */,
 				FB27252E2E5229380092408E /* CareerTypeListView.swift */,
-				FB1BED7A2E537AE000041053 /* InterviewInfoFormView.swift */,
-				FB2BD6302E572C3600A790E6 /* InterviewTabView.swift */,
-				FB7755E12E59B65B00A70F66 /* InterviewView.swift */,
 				FB7756142E5A05C400A70F66 /* Components */,
 			);
 			path = View;
@@ -534,12 +528,12 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		FB7756162E5A05E300A70F66 /* Service */ = {
+		FB7756162E5A05E300A70F66 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
 				FB77567E2E5A42CB00A70F66 /* InterviewEngine.swift */,
 			);
-			path = Service;
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		FB7756172E5A05EB00A70F66 /* Components */ = {
@@ -712,13 +706,6 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		FB7756362E5A0A0400A70F66 /* Errors */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Errors;
-			sourceTree = "<group>";
-		};
 		FB77563D2E5A0AE200A70F66 /* Info */ = {
 			isa = PBXGroup;
 			children = (
@@ -774,6 +761,7 @@
 		FB7756862E5ABD1D00A70F66 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				FB2724FC2E511B610092408E /* FocusTarget.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -785,6 +773,24 @@
 				FB7756A42E5B1FEE00A70F66 /* ShowFinishInterviewPopUp.swift */,
 			);
 			path = EntryKit;
+			sourceTree = "<group>";
+		};
+		FB7756AF2E5C962700A70F66 /* Permission */ = {
+			isa = PBXGroup;
+			children = (
+				FB7756AD2E5C962700A70F66 /* AppPermissionStatus.swift */,
+				FB7756AE2E5C962700A70F66 /* PermissionService.swift */,
+			);
+			path = Permission;
+			sourceTree = "<group>";
+		};
+		FB7756BC2E5C9F1D00A70F66 /* STT */ = {
+			isa = PBXGroup;
+			children = (
+				FB7756BA2E5C9F1D00A70F66 /* STTService.swift */,
+				FB7756BB2E5C9F1D00A70F66 /* STTServicing.swift */,
+			);
+			path = STT;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -864,7 +870,7 @@
 			files = (
 				FB2724BC2E50CFB90092408E /* Assets.xcassets in Resources */,
 				FB2724E22E50E5200092408E /* NotoSansJP-Regular.ttf in Resources */,
-				FB2BD6A42E58E10000A790E6 /* LottieCircleCheck.json in Resources */,
+				FB2BD6A42E58E10000A790E6 /* LottieCircleCheckGreen.json in Resources */,
 				FB2724E32E50E5200092408E /* NotoSansJP-Bold.ttf in Resources */,
 				FB2724E42E50E5200092408E /* NotoSansJP-ExtraBold.ttf in Resources */,
 				FB2724E52E50E5200092408E /* NotoSansJP-Black.ttf in Resources */,
@@ -872,6 +878,7 @@
 				FB2724E72E50E5200092408E /* NotoSansJP-Light.ttf in Resources */,
 				FB2724E82E50E5200092408E /* NotoSansJP-Medium.ttf in Resources */,
 				FB1BED812E54AD2100041053 /* GoogleService-Info.plist in Resources */,
+				FB7756C02E5CA71200A70F66 /* LottieCircleCheckWhite.json in Resources */,
 				FB2724E92E50E5200092408E /* NotoSansJP-Thin.ttf in Resources */,
 				FB2724EA2E50E5200092408E /* NotoSansJP-ExtraLight.ttf in Resources */,
 			);
@@ -905,24 +912,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB7756922E5AE5DB00A70F66 /* AppPermissionStatus.swift in Sources */,
 				FB77566F2E5A13B100A70F66 /* AppTabBarViewModel.swift in Sources */,
 				FB1BED682E528AD900041053 /* TapScaleEffect.swift in Sources */,
 				FB2725232E52139A0092408E /* View+AppStyles.swift in Sources */,
 				FB2725072E5124110092408E /* InterviewTabViewModel.swift in Sources */,
-				FB7756942E5AED9100A70F66 /* CameraViewModel.swift in Sources */,
 				FB77562D2E5A072800A70F66 /* ACLottie.swift in Sources */,
 				FB7756982E5AF8F300A70F66 /* CameraPreviewView.swift in Sources */,
 				FB77563E2E5A0AE200A70F66 /* CareerType.swift in Sources */,
 				FB77563F2E5A0AE200A70F66 /* CompanyType.swift in Sources */,
+				FB7756B02E5C962700A70F66 /* AppPermissionStatus.swift in Sources */,
+				FB7756B12E5C962700A70F66 /* PermissionService.swift in Sources */,
 				FB77567B2E5A3A2C00A70F66 /* InterviewInfoTypeNavigationLink.swift in Sources */,
-				FB7756842E5A5EE600A70F66 /* AuthManager.swift in Sources */,
 				FB7756402E5A0AE200A70F66 /* InterviewInfo.swift in Sources */,
 				FB7756412E5A0AE200A70F66 /* RecruitType.swift in Sources */,
 				FB2BD65D2E57571E00A790E6 /* AnalyticsPreviewMetric.swift in Sources */,
 				FB7755E62E59BC6100A70F66 /* CameraService.swift in Sources */,
 				FB7756A92E5B2CFA00A70F66 /* InterviewViewTopBarExitButton.swift in Sources */,
-				FB7756962E5AEDC600A70F66 /* CameraView.swift in Sources */,
 				FB7755F02E59ED3F00A70F66 /* ACFont.swift in Sources */,
 				FB2724B42E50CFB90092408E /* FirstStepToCareerApp.swift in Sources */,
 				FB77568E2E5ADBE800A70F66 /* SettingsTabViewModel.swift in Sources */,
@@ -938,15 +943,17 @@
 				FB27251D2E5201F10092408E /* TabViewHeader.swift in Sources */,
 				FB2BD6552E574FF300A790E6 /* GradientRowButton.swift in Sources */,
 				FB7755E42E59B6BF00A70F66 /* InterviewViewModel.swift in Sources */,
+				FB7756AB2E5B447D00A70F66 /* AppDelegate.swift in Sources */,
 				FB77566D2E5A0D0400A70F66 /* RootViewModel.swift in Sources */,
 				FB2BD6612E57575300A790E6 /* InterviewMetricRing.swift in Sources */,
 				FB1BED792E537AD000041053 /* HistoryListView.swift in Sources */,
+				FB7756BD2E5C9F1D00A70F66 /* STTService.swift in Sources */,
+				FB7756BE2E5C9F1D00A70F66 /* STTServicing.swift in Sources */,
 				FB2725212E5213450092408E /* AppCaptionStyle.swift in Sources */,
 				FB7756772E5A2AD500A70F66 /* View+Frames.swift in Sources */,
 				FB2BD64D2E573D5500A790E6 /* ResumeView.swift in Sources */,
 				FB7755EE2E59EA9E00A70F66 /* ACLayout.swift in Sources */,
 				FB2BD6742E57710500A790E6 /* SigninView.swift in Sources */,
-				FB7755C62E59901800A70F66 /* PermissionManager.swift in Sources */,
 				FB7756902E5AE0AD00A70F66 /* CameraConfig.swift in Sources */,
 				FB7755E22E59B65B00A70F66 /* InterviewView.swift in Sources */,
 				FB77568A2E5ADB8A00A70F66 /* ScheduleTabViewModel.swift in Sources */,
@@ -959,6 +966,7 @@
 				FB7756A72E5B1FEE00A70F66 /* ShowFinishInterviewPopUp.swift in Sources */,
 				FB77565F2E5A0B4000A70F66 /* ExpressionMetric.swift in Sources */,
 				FB7756602E5A0B4000A70F66 /* ExpressionSample.swift in Sources */,
+				FB7756B32E5C995600A70F66 /* CameraServicing.swift in Sources */,
 				FB7756612E5A0B4000A70F66 /* GazeMetric.swift in Sources */,
 				FB7756622E5A0B4000A70F66 /* HeadDirectionMetric.swift in Sources */,
 				FB77567F2E5A42CB00A70F66 /* InterviewEngine.swift in Sources */,
@@ -1134,6 +1142,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSCameraUsageDescription = "模擬面接中に表情や視線、顔の向きを分析するためにカメラへのアクセスが必要です。\n";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "模擬面接の音声を分析するためにマイクへのアクセスが必要です。録音した音声は話す速さや沈黙の割合を評価する目的で使用されます。\n";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "模擬面接の音声をテキストに変換するために音声認識を使用します。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1173,6 +1182,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSCameraUsageDescription = "模擬面接中に表情や視線、顔の向きを分析するためにカメラへのアクセスが必要です。\n";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "模擬面接の音声を分析するためにマイクへのアクセスが必要です。録音した音声は話す速さや沈黙の割合を評価する目的で使用されます。\n";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "模擬面接の音声をテキストに変換するために音声認識を使用します。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
