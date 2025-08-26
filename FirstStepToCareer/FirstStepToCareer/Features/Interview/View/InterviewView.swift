@@ -57,17 +57,10 @@ struct InterviewView: View {
                         
                     }
                 } else {
-                    VStack {
-                        InterviewViewPreparingHeader(transcript: interviewEngine.transcript)
-                    }
-                    .padding(ACLayout.Padding.medium)
-                    .background {
-                        ACColor.Font.white.opacity(0.7)
-                    }
-                    .clipShape(RoundedRectangle(cornerRadius: ACLayout.Radius.medium))
-                    .overlay {
-                        RoundedRectangle(cornerRadius: ACLayout.Radius.medium)
-                            .stroke(ACColor.Font.white, lineWidth: 1)
+                    InterviewViewPreparingHeader(transcript: interviewEngine.transcript) {
+                        vm.speakButtonTapped {
+                            interviewEngine.speakQuestion("カメラ及びマイクを確認します！")
+                        }
                     }
                 }
                 Spacer()

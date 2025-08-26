@@ -111,10 +111,13 @@
 		FB7756B12E5C962700A70F66 /* PermissionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756AE2E5C962700A70F66 /* PermissionService.swift */; };
 		FB7756B32E5C995600A70F66 /* CameraServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756B22E5C995600A70F66 /* CameraServicing.swift */; };
 		FB7756BD2E5C9F1D00A70F66 /* STTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756BA2E5C9F1D00A70F66 /* STTService.swift */; };
-		FB7756BE2E5C9F1D00A70F66 /* STTServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756BB2E5C9F1D00A70F66 /* STTServicing.swift */; };
+		FB7756BE2E5C9F1D00A70F66 /* STTStreaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756BB2E5C9F1D00A70F66 /* STTStreaming.swift */; };
 		FB7756C02E5CA71200A70F66 /* LottieCircleCheckWhite.json in Resources */ = {isa = PBXBuildFile; fileRef = FB7756BF2E5CA71200A70F66 /* LottieCircleCheckWhite.json */; };
 		FB7756C42E5CAD6B00A70F66 /* InterviewViewPreparingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756C32E5CAD6B00A70F66 /* InterviewViewPreparingHeader.swift */; };
 		FB7756C62E5CB82100A70F66 /* InterviewCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756C52E5CB82100A70F66 /* InterviewCamera.swift */; };
+		FB7756D32E5DDE2300A70F66 /* TSSServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756D02E5DDE2300A70F66 /* TSSServicing.swift */; };
+		FB7756D42E5DDE2300A70F66 /* TTSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756D12E5DDE2300A70F66 /* TTSService.swift */; };
+		FB7756DC2E5DEEB500A70F66 /* AudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756DA2E5DEEB500A70F66 /* AudioService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -218,10 +221,13 @@
 		FB7756AE2E5C962700A70F66 /* PermissionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionService.swift; sourceTree = "<group>"; };
 		FB7756B22E5C995600A70F66 /* CameraServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraServicing.swift; sourceTree = "<group>"; };
 		FB7756BA2E5C9F1D00A70F66 /* STTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTService.swift; sourceTree = "<group>"; };
-		FB7756BB2E5C9F1D00A70F66 /* STTServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTServicing.swift; sourceTree = "<group>"; };
+		FB7756BB2E5C9F1D00A70F66 /* STTStreaming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTStreaming.swift; sourceTree = "<group>"; };
 		FB7756BF2E5CA71200A70F66 /* LottieCircleCheckWhite.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LottieCircleCheckWhite.json; sourceTree = "<group>"; };
 		FB7756C32E5CAD6B00A70F66 /* InterviewViewPreparingHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewViewPreparingHeader.swift; sourceTree = "<group>"; };
 		FB7756C52E5CB82100A70F66 /* InterviewCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewCamera.swift; sourceTree = "<group>"; };
+		FB7756D02E5DDE2300A70F66 /* TSSServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSSServicing.swift; sourceTree = "<group>"; };
+		FB7756D12E5DDE2300A70F66 /* TTSService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSService.swift; sourceTree = "<group>"; };
+		FB7756DA2E5DEEB500A70F66 /* AudioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -393,6 +399,8 @@
 		FB7755FB2E5A02BF00A70F66 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				FB7756DB2E5DEEB500A70F66 /* Audio */,
+				FB7756D22E5DDE2300A70F66 /* TTS */,
 				FB7756BC2E5C9F1D00A70F66 /* STT */,
 				FB7756AF2E5C962700A70F66 /* Permission */,
 				FB7756A52E5B1FEE00A70F66 /* EntryKit */,
@@ -794,9 +802,26 @@
 			isa = PBXGroup;
 			children = (
 				FB7756BA2E5C9F1D00A70F66 /* STTService.swift */,
-				FB7756BB2E5C9F1D00A70F66 /* STTServicing.swift */,
+				FB7756BB2E5C9F1D00A70F66 /* STTStreaming.swift */,
 			);
 			path = STT;
+			sourceTree = "<group>";
+		};
+		FB7756D22E5DDE2300A70F66 /* TTS */ = {
+			isa = PBXGroup;
+			children = (
+				FB7756D02E5DDE2300A70F66 /* TSSServicing.swift */,
+				FB7756D12E5DDE2300A70F66 /* TTSService.swift */,
+			);
+			path = TTS;
+			sourceTree = "<group>";
+		};
+		FB7756DB2E5DEEB500A70F66 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				FB7756DA2E5DEEB500A70F66 /* AudioService.swift */,
+			);
+			path = Audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -955,7 +980,7 @@
 				FB2BD6612E57575300A790E6 /* InterviewMetricRing.swift in Sources */,
 				FB1BED792E537AD000041053 /* HistoryListView.swift in Sources */,
 				FB7756BD2E5C9F1D00A70F66 /* STTService.swift in Sources */,
-				FB7756BE2E5C9F1D00A70F66 /* STTServicing.swift in Sources */,
+				FB7756BE2E5C9F1D00A70F66 /* STTStreaming.swift in Sources */,
 				FB2725212E5213450092408E /* AppCaptionStyle.swift in Sources */,
 				FB7756772E5A2AD500A70F66 /* View+Frames.swift in Sources */,
 				FB2BD64D2E573D5500A790E6 /* ResumeView.swift in Sources */,
@@ -976,6 +1001,8 @@
 				FB7756B32E5C995600A70F66 /* CameraServicing.swift in Sources */,
 				FB7756612E5A0B4000A70F66 /* GazeMetric.swift in Sources */,
 				FB7756622E5A0B4000A70F66 /* HeadDirectionMetric.swift in Sources */,
+				FB7756D32E5DDE2300A70F66 /* TSSServicing.swift in Sources */,
+				FB7756D42E5DDE2300A70F66 /* TTSService.swift in Sources */,
 				FB77567F2E5A42CB00A70F66 /* InterviewEngine.swift in Sources */,
 				FB7756632E5A0B4000A70F66 /* OverallMetrics.swift in Sources */,
 				FB7756642E5A0B4000A70F66 /* SlienceMetric.swift in Sources */,
@@ -988,6 +1015,7 @@
 				FB1BED6E2E53416C00041053 /* ManagementTabView.swift in Sources */,
 				FB1BED6A2E528D9400041053 /* View+TapScaleEffect.swift in Sources */,
 				FB77566B2E5A0BFC00A70F66 /* InterviewMockDataGenerator.swift in Sources */,
+				FB7756DC2E5DEEB500A70F66 /* AudioService.swift in Sources */,
 				FB2724F92E51179D0092408E /* KeyboardPrewarmView.swift in Sources */,
 				FB2BD6322E572C3600A790E6 /* InterviewTabView.swift in Sources */,
 				FB2724F72E50F9050092408E /* ProgressRing.swift in Sources */,

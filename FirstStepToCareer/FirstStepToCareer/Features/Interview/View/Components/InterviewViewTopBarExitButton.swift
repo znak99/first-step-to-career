@@ -9,14 +9,14 @@ import SwiftUI
 
 struct InterviewViewTopBarExitButton: View {
     // MARK: - Properties
-    let action: () -> Void
+    var action: (() -> Void)?
     
     // MARK: - Body
     var body: some View {
         HStack {
             Spacer()
             Button(
-                action: action,
+                action: action ?? {},
                 label: {
                     Image(ACIcon.Vector.xBlack)
                         .resizable()

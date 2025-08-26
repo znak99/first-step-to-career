@@ -41,6 +41,7 @@ enum ACIcon {
         static let checkSquareGreen = "Icon/CheckSquareGreen"
         static let xBlack = "Icon/XBlack"
         static let speechBlack = "Icon/SpeechBlack"
+        static let megaPhoneWhite = "Icon/MegaPhoneWhite"
     }
     
     // MARK: - Image

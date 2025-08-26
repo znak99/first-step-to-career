@@ -25,4 +25,8 @@ final class InterviewViewModel: ObservableObject {
         isRunning = true
         completion()
     }
+    
+    func speakButtonTapped(completion: @escaping () -> Void) {
+        completion()
+    }
 }
