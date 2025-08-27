@@ -67,6 +67,33 @@
 		FB5585A22E5F4A1500B458F3 /* ACLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB55859E2E5F4A1500B458F3 /* ACLayout.swift */; };
 		FB5585A52E5F4A1500B458F3 /* ACIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5585A32E5F4A1500B458F3 /* ACIcon.swift */; };
 		FB5585A82E5F4A1500B458F3 /* ACLottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5585A62E5F4A1500B458F3 /* ACLottie.swift */; };
+		FB5585DE2E5F52FE00B458F3 /* AppPermissionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5585D02E5F52FE00B458F3 /* AppPermissionStatus.swift */; };
+		FB5585DF2E5F52FE00B458F3 /* AudioTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5585D12E5F52FE00B458F3 /* AudioTypes.swift */; };
+		FB5585E02E5F52FE00B458F3 /* EmotionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5585D22E5F52FE00B458F3 /* EmotionResult.swift */; };
+		FB5585E12E5F52FE00B458F3 /* GazeVector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5585D32E5F52FE00B458F3 /* GazeVector.swift */; };
+		FB5585E22E5F52FE00B458F3 /* InterviewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5585D42E5F52FE00B458F3 /* InterviewContext.swift */; };
+		FB5585E32E5F52FE00B458F3 /* InterviewFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5585D52E5F52FE00B458F3 /* InterviewFeedback.swift */; };
+		FB5585E42E5F52FE00B458F3 /* InterviewScores.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5585D62E5F52FE00B458F3 /* InterviewScores.swift */; };
+		FB5585E52E5F52FE00B458F3 /* InterviewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5585D72E5F52FE00B458F3 /* InterviewState.swift */; };
+		FB5585E62E5F52FE00B458F3 /* LandmarkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5585D82E5F52FE00B458F3 /* LandmarkResult.swift */; };
+		FB5585E72E5F52FE00B458F3 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5585D92E5F52FE00B458F3 /* Question.swift */; };
+		FB5585E82E5F52FE00B458F3 /* SessionMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5585DA2E5F52FE00B458F3 /* SessionMetrics.swift */; };
+		FB5585E92E5F52FE00B458F3 /* TranscriptEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5585DB2E5F52FE00B458F3 /* TranscriptEvent.swift */; };
+		FB5585EA2E5F52FE00B458F3 /* TTSEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5585DC2E5F52FE00B458F3 /* TTSEvent.swift */; };
+		FB55860C2E5F546E00B458F3 /* AudioManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5586022E5F546E00B458F3 /* AudioManaging.swift */; };
+		FB55860D2E5F546E00B458F3 /* CameraServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5586032E5F546E00B458F3 /* CameraServicing.swift */; };
+		FB55860E2E5F546E00B458F3 /* EmotionEstimating.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5586042E5F546E00B458F3 /* EmotionEstimating.swift */; };
+		FB55860F2E5F546E00B458F3 /* FaceLandmarkDetecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5586052E5F546E00B458F3 /* FaceLandmarkDetecting.swift */; };
+		FB5586102E5F546E00B458F3 /* FeedbackGenerating.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5586062E5F546E00B458F3 /* FeedbackGenerating.swift */; };
+		FB5586112E5F546E00B458F3 /* GazeTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5586072E5F546E00B458F3 /* GazeTracking.swift */; };
+		FB5586122E5F546E00B458F3 /* MetricEvaluating.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5586082E5F546E00B458F3 /* MetricEvaluating.swift */; };
+		FB5586132E5F546E00B458F3 /* PermissionManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5586092E5F546E00B458F3 /* PermissionManaging.swift */; };
+		FB5586142E5F546E00B458F3 /* QuestionGenerating.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB55860A2E5F546E00B458F3 /* QuestionGenerating.swift */; };
+		FB5586162E5F54B000B458F3 /* InterviewControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5586152E5F54B000B458F3 /* InterviewControlling.swift */; };
+		FB5586182E5F559600B458F3 /* STTStreaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5586172E5F559600B458F3 /* STTStreaming.swift */; };
+		FB55861A2E5F55A200B458F3 /* TTSSpeaking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5586192E5F55A200B458F3 /* TTSSpeaking.swift */; };
+		FB55861C2E5F579600B458F3 /* OverlayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB55861B2E5F579600B458F3 /* OverlayState.swift */; };
+		FB55861E2E5F583400B458F3 /* InterviewUIEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB55861D2E5F583400B458F3 /* InterviewUIEvent.swift */; };
 		FB7755E22E59B65B00A70F66 /* InterviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7755E12E59B65B00A70F66 /* InterviewView.swift */; };
 		FB7755E42E59B6BF00A70F66 /* InterviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7755E32E59B6BF00A70F66 /* InterviewViewModel.swift */; };
 		FB7755E62E59BC6100A70F66 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7755E52E59BC6100A70F66 /* CameraService.swift */; };
@@ -107,7 +134,6 @@
 		FB7756A72E5B1FEE00A70F66 /* ShowFinishInterviewPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756A42E5B1FEE00A70F66 /* ShowFinishInterviewPopUp.swift */; };
 		FB7756A92E5B2CFA00A70F66 /* InterviewViewTopBarExitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756A82E5B2CFA00A70F66 /* InterviewViewTopBarExitButton.swift */; };
 		FB7756AB2E5B447D00A70F66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756AA2E5B447500A70F66 /* AppDelegate.swift */; };
-		FB7756B02E5C962700A70F66 /* AppPermissionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756AD2E5C962700A70F66 /* AppPermissionStatus.swift */; };
 		FB7756B12E5C962700A70F66 /* PermissionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756AE2E5C962700A70F66 /* PermissionService.swift */; };
 		FB7756B32E5C995600A70F66 /* CameraServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756B22E5C995600A70F66 /* CameraServicing.swift */; };
 		FB7756BD2E5C9F1D00A70F66 /* STTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7756BA2E5C9F1D00A70F66 /* STTService.swift */; };
@@ -179,6 +205,33 @@
 		FB55859E2E5F4A1500B458F3 /* ACLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACLayout.swift; sourceTree = "<group>"; };
 		FB5585A32E5F4A1500B458F3 /* ACIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACIcon.swift; sourceTree = "<group>"; };
 		FB5585A62E5F4A1500B458F3 /* ACLottie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACLottie.swift; sourceTree = "<group>"; };
+		FB5585D02E5F52FE00B458F3 /* AppPermissionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPermissionStatus.swift; sourceTree = "<group>"; };
+		FB5585D12E5F52FE00B458F3 /* AudioTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTypes.swift; sourceTree = "<group>"; };
+		FB5585D22E5F52FE00B458F3 /* EmotionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionResult.swift; sourceTree = "<group>"; };
+		FB5585D32E5F52FE00B458F3 /* GazeVector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GazeVector.swift; sourceTree = "<group>"; };
+		FB5585D42E5F52FE00B458F3 /* InterviewContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewContext.swift; sourceTree = "<group>"; };
+		FB5585D52E5F52FE00B458F3 /* InterviewFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewFeedback.swift; sourceTree = "<group>"; };
+		FB5585D62E5F52FE00B458F3 /* InterviewScores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewScores.swift; sourceTree = "<group>"; };
+		FB5585D72E5F52FE00B458F3 /* InterviewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewState.swift; sourceTree = "<group>"; };
+		FB5585D82E5F52FE00B458F3 /* LandmarkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkResult.swift; sourceTree = "<group>"; };
+		FB5585D92E5F52FE00B458F3 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		FB5585DA2E5F52FE00B458F3 /* SessionMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionMetrics.swift; sourceTree = "<group>"; };
+		FB5585DB2E5F52FE00B458F3 /* TranscriptEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptEvent.swift; sourceTree = "<group>"; };
+		FB5585DC2E5F52FE00B458F3 /* TTSEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSEvent.swift; sourceTree = "<group>"; };
+		FB5586022E5F546E00B458F3 /* AudioManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManaging.swift; sourceTree = "<group>"; };
+		FB5586032E5F546E00B458F3 /* CameraServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraServicing.swift; sourceTree = "<group>"; };
+		FB5586042E5F546E00B458F3 /* EmotionEstimating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionEstimating.swift; sourceTree = "<group>"; };
+		FB5586052E5F546E00B458F3 /* FaceLandmarkDetecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceLandmarkDetecting.swift; sourceTree = "<group>"; };
+		FB5586062E5F546E00B458F3 /* FeedbackGenerating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackGenerating.swift; sourceTree = "<group>"; };
+		FB5586072E5F546E00B458F3 /* GazeTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GazeTracking.swift; sourceTree = "<group>"; };
+		FB5586082E5F546E00B458F3 /* MetricEvaluating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricEvaluating.swift; sourceTree = "<group>"; };
+		FB5586092E5F546E00B458F3 /* PermissionManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManaging.swift; sourceTree = "<group>"; };
+		FB55860A2E5F546E00B458F3 /* QuestionGenerating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionGenerating.swift; sourceTree = "<group>"; };
+		FB5586152E5F54B000B458F3 /* InterviewControlling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewControlling.swift; sourceTree = "<group>"; };
+		FB5586172E5F559600B458F3 /* STTStreaming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTStreaming.swift; sourceTree = "<group>"; };
+		FB5586192E5F55A200B458F3 /* TTSSpeaking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSSpeaking.swift; sourceTree = "<group>"; };
+		FB55861B2E5F579600B458F3 /* OverlayState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayState.swift; sourceTree = "<group>"; };
+		FB55861D2E5F583400B458F3 /* InterviewUIEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewUIEvent.swift; sourceTree = "<group>"; };
 		FB7755E12E59B65B00A70F66 /* InterviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewView.swift; sourceTree = "<group>"; };
 		FB7755E32E59B6BF00A70F66 /* InterviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewViewModel.swift; sourceTree = "<group>"; };
 		FB7755E52E59BC6100A70F66 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
@@ -217,7 +270,6 @@
 		FB7756A42E5B1FEE00A70F66 /* ShowFinishInterviewPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowFinishInterviewPopUp.swift; sourceTree = "<group>"; };
 		FB7756A82E5B2CFA00A70F66 /* InterviewViewTopBarExitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewViewTopBarExitButton.swift; sourceTree = "<group>"; };
 		FB7756AA2E5B447500A70F66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FB7756AD2E5C962700A70F66 /* AppPermissionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPermissionStatus.swift; sourceTree = "<group>"; };
 		FB7756AE2E5C962700A70F66 /* PermissionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionService.swift; sourceTree = "<group>"; };
 		FB7756B22E5C995600A70F66 /* CameraServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraServicing.swift; sourceTree = "<group>"; };
 		FB7756BA2E5C9F1D00A70F66 /* STTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTService.swift; sourceTree = "<group>"; };
@@ -302,7 +354,6 @@
 				FB2724A62E50CFB90092408E /* App */,
 				FB7755FB2E5A02BF00A70F66 /* Core */,
 				FB5585902E5F47A700B458F3 /* Domain */,
-				FB5585AE2E5F4C1500B458F3 /* Manager */,
 				FB55858F2E5F47A700B458F3 /* Service */,
 				FB7755F82E5A029C00A70F66 /* Features */,
 				FB5585922E5F47A700B458F3 /* Storage */,
@@ -377,6 +428,8 @@
 		FB5585902E5F47A700B458F3 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				FB55860B2E5F546E00B458F3 /* Protocols */,
+				FB5585DD2E5F52FE00B458F3 /* ValueObject */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -455,20 +508,53 @@
 			path = Lottie;
 			sourceTree = "<group>";
 		};
-		FB5585AD2E5F4C1500B458F3 /* Interview */ = {
-			isa = PBXGroup;
-			children = (
-				FB77567E2E5A42CB00A70F66 /* InterviewOrchestrator.swift */,
-			);
-			path = Interview;
-			sourceTree = "<group>";
-		};
 		FB5585AE2E5F4C1500B458F3 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				FB5585AD2E5F4C1500B458F3 /* Interview */,
+				FB77567E2E5A42CB00A70F66 /* InterviewOrchestrator.swift */,
+				FB5586152E5F54B000B458F3 /* InterviewControlling.swift */,
+				FB55861D2E5F583400B458F3 /* InterviewUIEvent.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		FB5585DD2E5F52FE00B458F3 /* ValueObject */ = {
+			isa = PBXGroup;
+			children = (
+				FB5585D02E5F52FE00B458F3 /* AppPermissionStatus.swift */,
+				FB5585D12E5F52FE00B458F3 /* AudioTypes.swift */,
+				FB5585D22E5F52FE00B458F3 /* EmotionResult.swift */,
+				FB5585D32E5F52FE00B458F3 /* GazeVector.swift */,
+				FB5585D42E5F52FE00B458F3 /* InterviewContext.swift */,
+				FB5585D52E5F52FE00B458F3 /* InterviewFeedback.swift */,
+				FB5585D62E5F52FE00B458F3 /* InterviewScores.swift */,
+				FB5585D72E5F52FE00B458F3 /* InterviewState.swift */,
+				FB5585D82E5F52FE00B458F3 /* LandmarkResult.swift */,
+				FB5585D92E5F52FE00B458F3 /* Question.swift */,
+				FB5585DA2E5F52FE00B458F3 /* SessionMetrics.swift */,
+				FB5585DB2E5F52FE00B458F3 /* TranscriptEvent.swift */,
+				FB5585DC2E5F52FE00B458F3 /* TTSEvent.swift */,
+				FB55861B2E5F579600B458F3 /* OverlayState.swift */,
+			);
+			path = ValueObject;
+			sourceTree = "<group>";
+		};
+		FB55860B2E5F546E00B458F3 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				FB5586022E5F546E00B458F3 /* AudioManaging.swift */,
+				FB5586032E5F546E00B458F3 /* CameraServicing.swift */,
+				FB5586042E5F546E00B458F3 /* EmotionEstimating.swift */,
+				FB5586052E5F546E00B458F3 /* FaceLandmarkDetecting.swift */,
+				FB5586062E5F546E00B458F3 /* FeedbackGenerating.swift */,
+				FB5586072E5F546E00B458F3 /* GazeTracking.swift */,
+				FB5586082E5F546E00B458F3 /* MetricEvaluating.swift */,
+				FB5586092E5F546E00B458F3 /* PermissionManaging.swift */,
+				FB55860A2E5F546E00B458F3 /* QuestionGenerating.swift */,
+				FB5586172E5F559600B458F3 /* STTStreaming.swift */,
+				FB5586192E5F55A200B458F3 /* TTSSpeaking.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		FB7755D82E59B5CD00A70F66 /* Camera */ = {
@@ -522,6 +608,7 @@
 				FB7756122E5A058C00A70F66 /* Model */,
 				FB7756102E5A058C00A70F66 /* View */,
 				FB7756112E5A058C00A70F66 /* ViewModel */,
+				FB5585AE2E5F4C1500B458F3 /* Manager */,
 			);
 			path = Interview;
 			sourceTree = "<group>";
@@ -824,7 +911,6 @@
 		FB7756AF2E5C962700A70F66 /* Permission */ = {
 			isa = PBXGroup;
 			children = (
-				FB7756AD2E5C962700A70F66 /* AppPermissionStatus.swift */,
 				FB7756AE2E5C962700A70F66 /* PermissionService.swift */,
 			);
 			path = Permission;
@@ -981,8 +1067,20 @@
 				FB2725072E5124110092408E /* InterviewTabViewModel.swift in Sources */,
 				FB7756982E5AF8F300A70F66 /* CameraPreviewView.swift in Sources */,
 				FB77563E2E5A0AE200A70F66 /* CareerType.swift in Sources */,
+				FB5585DE2E5F52FE00B458F3 /* AppPermissionStatus.swift in Sources */,
+				FB5585DF2E5F52FE00B458F3 /* AudioTypes.swift in Sources */,
+				FB5585E02E5F52FE00B458F3 /* EmotionResult.swift in Sources */,
+				FB5585E12E5F52FE00B458F3 /* GazeVector.swift in Sources */,
+				FB5585E22E5F52FE00B458F3 /* InterviewContext.swift in Sources */,
+				FB5585E32E5F52FE00B458F3 /* InterviewFeedback.swift in Sources */,
+				FB5585E42E5F52FE00B458F3 /* InterviewScores.swift in Sources */,
+				FB5585E52E5F52FE00B458F3 /* InterviewState.swift in Sources */,
+				FB5585E62E5F52FE00B458F3 /* LandmarkResult.swift in Sources */,
+				FB5585E72E5F52FE00B458F3 /* Question.swift in Sources */,
+				FB5585E82E5F52FE00B458F3 /* SessionMetrics.swift in Sources */,
+				FB5585E92E5F52FE00B458F3 /* TranscriptEvent.swift in Sources */,
+				FB5585EA2E5F52FE00B458F3 /* TTSEvent.swift in Sources */,
 				FB77563F2E5A0AE200A70F66 /* CompanyType.swift in Sources */,
-				FB7756B02E5C962700A70F66 /* AppPermissionStatus.swift in Sources */,
 				FB7756B12E5C962700A70F66 /* PermissionService.swift in Sources */,
 				FB77567B2E5A3A2C00A70F66 /* InterviewInfoTypeNavigationLink.swift in Sources */,
 				FB7756402E5A0AE200A70F66 /* InterviewInfo.swift in Sources */,
@@ -1003,6 +1101,15 @@
 				FB2BD6512E574CF400A790E6 /* AppSectionHeader.swift in Sources */,
 				FB2BD64F2E574C6E00A790E6 /* AppSection.swift in Sources */,
 				FB27251D2E5201F10092408E /* TabViewHeader.swift in Sources */,
+				FB55860C2E5F546E00B458F3 /* AudioManaging.swift in Sources */,
+				FB55860D2E5F546E00B458F3 /* CameraServicing.swift in Sources */,
+				FB55860E2E5F546E00B458F3 /* EmotionEstimating.swift in Sources */,
+				FB55860F2E5F546E00B458F3 /* FaceLandmarkDetecting.swift in Sources */,
+				FB5586102E5F546E00B458F3 /* FeedbackGenerating.swift in Sources */,
+				FB5586112E5F546E00B458F3 /* GazeTracking.swift in Sources */,
+				FB5586122E5F546E00B458F3 /* MetricEvaluating.swift in Sources */,
+				FB5586132E5F546E00B458F3 /* PermissionManaging.swift in Sources */,
+				FB5586142E5F546E00B458F3 /* QuestionGenerating.swift in Sources */,
 				FB2BD6552E574FF300A790E6 /* GradientRowButton.swift in Sources */,
 				FB7755E42E59B6BF00A70F66 /* InterviewViewModel.swift in Sources */,
 				FB7756AB2E5B447D00A70F66 /* AppDelegate.swift in Sources */,
@@ -1012,6 +1119,7 @@
 				FB1BED792E537AD000041053 /* HistoryListView.swift in Sources */,
 				FB7756BD2E5C9F1D00A70F66 /* STTService.swift in Sources */,
 				FB7756BE2E5C9F1D00A70F66 /* STTStreaming.swift in Sources */,
+				FB55861C2E5F579600B458F3 /* OverlayState.swift in Sources */,
 				FB2725212E5213450092408E /* AppCaptionStyle.swift in Sources */,
 				FB7756772E5A2AD500A70F66 /* View+Frames.swift in Sources */,
 				FB2BD64D2E573D5500A790E6 /* ResumeView.swift in Sources */,
@@ -1025,12 +1133,15 @@
 				FB2725052E511B9F0092408E /* AppTab.swift in Sources */,
 				FB1BED722E535A4D00041053 /* AppTextField.swift in Sources */,
 				FB2BD6862E58903D00A790E6 /* InterviewInfoFormViewModel.swift in Sources */,
+				FB55861E2E5F583400B458F3 /* InterviewUIEvent.swift in Sources */,
 				FB7756A62E5B1FEE00A70F66 /* EntryKitPresenter.swift in Sources */,
 				FB7756A72E5B1FEE00A70F66 /* ShowFinishInterviewPopUp.swift in Sources */,
 				FB77565F2E5A0B4000A70F66 /* ExpressionMetric.swift in Sources */,
 				FB5585A02E5F4A1500B458F3 /* ACColor.swift in Sources */,
 				FB5585A12E5F4A1500B458F3 /* ACFont.swift in Sources */,
 				FB5585A22E5F4A1500B458F3 /* ACLayout.swift in Sources */,
+				FB55861A2E5F55A200B458F3 /* TTSSpeaking.swift in Sources */,
+				FB5586182E5F559600B458F3 /* STTStreaming.swift in Sources */,
 				FB7756602E5A0B4000A70F66 /* ExpressionSample.swift in Sources */,
 				FB7756B32E5C995600A70F66 /* CameraServicing.swift in Sources */,
 				FB7756612E5A0B4000A70F66 /* GazeMetric.swift in Sources */,
@@ -1057,6 +1168,7 @@
 				FB7756C62E5CB82100A70F66 /* InterviewCamera.swift in Sources */,
 				FB2724FD2E511B660092408E /* FocusTarget.swift in Sources */,
 				FB7756792E5A35B700A70F66 /* RecruitTypeButton.swift in Sources */,
+				FB5586162E5F54B000B458F3 /* InterviewControlling.swift in Sources */,
 				FB2724D62E50DC190092408E /* SettingsTabView.swift in Sources */,
 				FB2724B92E50CFB90092408E /* AppTabBarView.swift in Sources */,
 				FB27252D2E52239F0092408E /* CompanyTypeListView.swift in Sources */,

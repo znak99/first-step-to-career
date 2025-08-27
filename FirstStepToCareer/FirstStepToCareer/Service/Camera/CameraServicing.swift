@@ -7,9 +7,9 @@
 
 import AVFoundation
 
-protocol CameraServicing: Sendable {
-    var session: AVCaptureSession { get }
-    func configure(_ config: CameraConfig)
-    func startRunning()
-    func stopRunning()
-}
+//protocol CameraServicing: Sendable {
+//    var session: AVCaptureSession { get }
+//    func configure(_ config: CameraConfig)
+//    func startRunning()
+//    func stopRunning()
+//}
