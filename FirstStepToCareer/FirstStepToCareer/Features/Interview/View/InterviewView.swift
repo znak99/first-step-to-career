@@ -11,7 +11,7 @@ struct InterviewView: View {
     // MARK: - Properties
     @StateObject private var vm: InterviewViewModel = .init()
     @EnvironmentObject private var nc: NavigationController
-    @EnvironmentObject private var interviewEngine: InterviewEngine
+    @EnvironmentObject private var interviewOrchestrator: InterviewOrchestrator
     
     // MARK: - Body
     var body: some View {
@@ -24,10 +24,10 @@ struct InterviewView: View {
                 VStack {
                     if vm.isRunning {
                         InterviewViewTopBarExitButton(action: {})
-                            .opacity(0.1)
+                            .hidden()
                     }
                     InterviewCamera(
-                        session: interviewEngine.cameraSession,
+                        session: interviewOrchestrator.cameraSession,
                         width: proxy.size.width,
                         height: proxy.size.height,
                         isRunning: $vm.isRunning)
@@ -40,14 +40,14 @@ struct InterviewView: View {
                 InterviewViewTopBarExitButton {
                     vm.exitButtonTapped {
                         // TODO: - Pause 만들기
-                        interviewEngine.stop()
+                        interviewOrchestrator.stop()
                         EntryKitPresenter.shared.showConfirmExit(
                             onConfirm: {
-                                interviewEngine.teardown()
+                                interviewOrchestrator.teardown()
                                 nc.path.removeAll()
                             },
                             onCancel: {
-                                interviewEngine.start()
+                                interviewOrchestrator.start()
                             }
                         )
                     }
@@ -57,15 +57,15 @@ struct InterviewView: View {
                         
                     }
                 } else {
-                    InterviewViewPreparingHeader(transcript: interviewEngine.transcript) {
+                    InterviewViewPreparingHeader(transcript: interviewOrchestrator.transcript) {
                         vm.speakButtonTapped {
-                            interviewEngine.speakQuestion("カメラ及びマイクを確認します！")
+                            interviewOrchestrator.speakQuestion("カメラ及びマイクを確認します！")
                         }
                     }
                 }
                 Spacer()
                 AppSection {
-                    if let errorMessage = interviewEngine.errorMessage {
+                    if let errorMessage = interviewOrchestrator.errorMessage {
                         Text(errorMessage)
                             .appCaptionStyle()
                             .foregroundStyle(ACColor.Status.error)
@@ -87,7 +87,7 @@ struct InterviewView: View {
         }
         .navigationBarBackButtonHidden(true)
         .onAppear {
-            interviewEngine.start()
+            interviewOrchestrator.start()
         }
     }
 }
