@@ -143,6 +143,9 @@
 		FB93A41D2E6205C8009934BB /* FaceDirectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93A41C2E6205B3009934BB /* FaceDirectionService.swift */; };
 		FB93A41F2E620C81009934BB /* VisionTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93A41E2E620C81009934BB /* VisionTestView.swift */; };
 		FB93A4212E620D09009934BB /* ARKitTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93A4202E620D09009934BB /* ARKitTestView.swift */; };
+		FB93A4232E6211C8009934BB /* SmileResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93A4222E6211BE009934BB /* SmileResult.swift */; };
+		FB93A4252E6211FB009934BB /* SmileDetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93A4242E6211F2009934BB /* SmileDetectionService.swift */; };
+		FB93A42A2E6213C8009934BB /* Vision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB93A4292E6213C8009934BB /* Vision.framework */; };
 		FBFCB97D2E60848900682931 /* CGRect+Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFCB97C2E60848900682931 /* CGRect+Area.swift */; };
 		FBFCB9A32E60933800682931 /* EvaluationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFCB9A22E60932900682931 /* EvaluationPolicy.swift */; };
 		FBFCB9C52E609C1800682931 /* PermissionManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFCB9C32E609C1800682931 /* PermissionManaging.swift */; };
@@ -294,6 +297,9 @@
 		FB93A41C2E6205B3009934BB /* FaceDirectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDirectionService.swift; sourceTree = "<group>"; };
 		FB93A41E2E620C81009934BB /* VisionTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionTestView.swift; sourceTree = "<group>"; };
 		FB93A4202E620D09009934BB /* ARKitTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKitTestView.swift; sourceTree = "<group>"; };
+		FB93A4222E6211BE009934BB /* SmileResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmileResult.swift; sourceTree = "<group>"; };
+		FB93A4242E6211F2009934BB /* SmileDetectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmileDetectionService.swift; sourceTree = "<group>"; };
+		FB93A4292E6213C8009934BB /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
 		FBFCB97C2E60848900682931 /* CGRect+Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Area.swift"; sourceTree = "<group>"; };
 		FBFCB9A22E60932900682931 /* EvaluationPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationPolicy.swift; sourceTree = "<group>"; };
 		FBFCB9C32E609C1800682931 /* PermissionManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManaging.swift; sourceTree = "<group>"; };
@@ -317,6 +323,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB93A42A2E6213C8009934BB /* Vision.framework in Frameworks */,
 				FB1BED752E53743000041053 /* Shimmer in Frameworks */,
 				FB7756822E5A470700A70F66 /* AlertToast in Frameworks */,
 				FB77569B2E5B05E100A70F66 /* SwiftEntryKit in Frameworks */,
@@ -333,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				FB2724B32E50CFB90092408E /* FirstStepToCareer */,
+				FB93A4282E6213C8009934BB /* Frameworks */,
 				FB2724512E50B3CF0092408E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -447,11 +455,11 @@
 		FB55858F2E5F47A700B458F3 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				FB93A41C2E6205B3009934BB /* FaceDirectionService.swift */,
 				FB93A3EA2E61E1CC009934BB /* Interview */,
 				FB7756AF2E5C962700A70F66 /* Permission */,
 				FB93A3D92E61E1CC009934BB /* Camera */,
 				FB93A4072E61FAE7009934BB /* FaceDetectionService.swift */,
+				FB93A41C2E6205B3009934BB /* FaceDirectionService.swift */,
 				FB93A3D82E61E1CC009934BB /* CameraService.swift */,
 			);
 			path = Service;
@@ -1049,6 +1057,7 @@
 				FB93A4182E620534009934BB /* HeadDirection.swift */,
 				FB93A4162E6202B8009934BB /* PixelBufferBox.swift */,
 				FB93A40E2E61FBD4009934BB /* FaceCount.swift */,
+				FB93A4222E6211BE009934BB /* SmileResult.swift */,
 			);
 			path = ValueObject;
 			sourceTree = "<group>";
@@ -1059,8 +1068,17 @@
 				FB93A41A2E62055B009934BB /* FaceDirectionDetecting.swift */,
 				FB93A4112E61FBD4009934BB /* CameraServicing.swift */,
 				FB93A4122E61FBD4009934BB /* FaceDetecting.swift */,
+				FB93A4242E6211F2009934BB /* SmileDetectionService.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		FB93A4282E6213C8009934BB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB93A4292E6213C8009934BB /* Vision.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		FBFCB9C42E609C1800682931 /* Permission */ = {
@@ -1470,6 +1488,7 @@
 				FB7756672E5A0B4000A70F66 /* InterviewTurn.swift in Sources */,
 				FB2BD68E2E58C3B700A790E6 /* Route.swift in Sources */,
 				FB2724C42E50DAD40092408E /* ScheduleTabView.swift in Sources */,
+				FB93A4252E6211FB009934BB /* SmileDetectionService.swift in Sources */,
 				FB1BED6E2E53416C00041053 /* ProcessTabView.swift in Sources */,
 				FB1BED6A2E528D9400041053 /* View+TapScaleEffect.swift in Sources */,
 				FB93A41D2E6205C8009934BB /* FaceDirectionService.swift in Sources */,
@@ -1493,6 +1512,7 @@
 				FB2724BB2E50CFB90092408E /* SplashView.swift in Sources */,
 				FB7756302E5A076200A70F66 /* LottieView.swift in Sources */,
 				FB7756732E5A1BEC00A70F66 /* NavigationBarDismiss.swift in Sources */,
+				FB93A4232E6211C8009934BB /* SmileResult.swift in Sources */,
 				FB77567D2E5A3D0E00A70F66 /* InterviewInfoFormHeaderCaption.swift in Sources */,
 				FB2BD6572E57503F00A790E6 /* InterviewNoDataRow.swift in Sources */,
 			);
@@ -1658,7 +1678,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1698,7 +1718,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
