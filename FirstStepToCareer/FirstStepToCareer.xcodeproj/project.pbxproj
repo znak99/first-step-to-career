@@ -138,6 +138,11 @@
 		FB93A4142E61FBD4009934BB /* CameraServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93A4112E61FBD4009934BB /* CameraServicing.swift */; };
 		FB93A4152E61FBD4009934BB /* FaceDetecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93A4122E61FBD4009934BB /* FaceDetecting.swift */; };
 		FB93A4172E6202BE009934BB /* PixelBufferBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93A4162E6202B8009934BB /* PixelBufferBox.swift */; };
+		FB93A4192E620539009934BB /* HeadDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93A4182E620534009934BB /* HeadDirection.swift */; };
+		FB93A41B2E62056C009934BB /* FaceDirectionDetecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93A41A2E62055B009934BB /* FaceDirectionDetecting.swift */; };
+		FB93A41D2E6205C8009934BB /* FaceDirectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93A41C2E6205B3009934BB /* FaceDirectionService.swift */; };
+		FB93A41F2E620C81009934BB /* VisionTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93A41E2E620C81009934BB /* VisionTestView.swift */; };
+		FB93A4212E620D09009934BB /* ARKitTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93A4202E620D09009934BB /* ARKitTestView.swift */; };
 		FBFCB97D2E60848900682931 /* CGRect+Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFCB97C2E60848900682931 /* CGRect+Area.swift */; };
 		FBFCB9A32E60933800682931 /* EvaluationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFCB9A22E60932900682931 /* EvaluationPolicy.swift */; };
 		FBFCB9C52E609C1800682931 /* PermissionManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFCB9C32E609C1800682931 /* PermissionManaging.swift */; };
@@ -284,6 +289,11 @@
 		FB93A4112E61FBD4009934BB /* CameraServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraServicing.swift; sourceTree = "<group>"; };
 		FB93A4122E61FBD4009934BB /* FaceDetecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetecting.swift; sourceTree = "<group>"; };
 		FB93A4162E6202B8009934BB /* PixelBufferBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelBufferBox.swift; sourceTree = "<group>"; };
+		FB93A4182E620534009934BB /* HeadDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadDirection.swift; sourceTree = "<group>"; };
+		FB93A41A2E62055B009934BB /* FaceDirectionDetecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDirectionDetecting.swift; sourceTree = "<group>"; };
+		FB93A41C2E6205B3009934BB /* FaceDirectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDirectionService.swift; sourceTree = "<group>"; };
+		FB93A41E2E620C81009934BB /* VisionTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionTestView.swift; sourceTree = "<group>"; };
+		FB93A4202E620D09009934BB /* ARKitTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKitTestView.swift; sourceTree = "<group>"; };
 		FBFCB97C2E60848900682931 /* CGRect+Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Area.swift"; sourceTree = "<group>"; };
 		FBFCB9A22E60932900682931 /* EvaluationPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationPolicy.swift; sourceTree = "<group>"; };
 		FBFCB9C32E609C1800682931 /* PermissionManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManaging.swift; sourceTree = "<group>"; };
@@ -437,6 +447,7 @@
 		FB55858F2E5F47A700B458F3 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				FB93A41C2E6205B3009934BB /* FaceDirectionService.swift */,
 				FB93A3EA2E61E1CC009934BB /* Interview */,
 				FB7756AF2E5C962700A70F66 /* Permission */,
 				FB93A3D92E61E1CC009934BB /* Camera */,
@@ -929,6 +940,8 @@
 			isa = PBXGroup;
 			children = (
 				FB93A4022E61F2C7009934BB /* ServiceTestView.swift */,
+				FB93A41E2E620C81009934BB /* VisionTestView.swift */,
+				FB93A4202E620D09009934BB /* ARKitTestView.swift */,
 			);
 			path = ServiceTest;
 			sourceTree = "<group>";
@@ -1033,6 +1046,7 @@
 		FB93A40F2E61FBD4009934BB /* ValueObject */ = {
 			isa = PBXGroup;
 			children = (
+				FB93A4182E620534009934BB /* HeadDirection.swift */,
 				FB93A4162E6202B8009934BB /* PixelBufferBox.swift */,
 				FB93A40E2E61FBD4009934BB /* FaceCount.swift */,
 			);
@@ -1042,6 +1056,7 @@
 		FB93A4132E61FBD4009934BB /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				FB93A41A2E62055B009934BB /* FaceDirectionDetecting.swift */,
 				FB93A4112E61FBD4009934BB /* CameraServicing.swift */,
 				FB93A4122E61FBD4009934BB /* FaceDetecting.swift */,
 			);
@@ -1354,6 +1369,7 @@
 				FB2725072E5124110092408E /* InterviewTabViewModel.swift in Sources */,
 				FBFCB9DC2E609C1800682931 /* AudioManaging.swift in Sources */,
 				FB77563E2E5A0AE200A70F66 /* CareerType.swift in Sources */,
+				FB93A4212E620D09009934BB /* ARKitTestView.swift in Sources */,
 				FB5585DE2E5F52FE00B458F3 /* AppPermissionStatus.swift in Sources */,
 				FBFCB97D2E60848900682931 /* CGRect+Area.swift in Sources */,
 				FB5585DF2E5F52FE00B458F3 /* AudioTypes.swift in Sources */,
@@ -1379,6 +1395,7 @@
 				FB7756A92E5B2CFA00A70F66 /* InterviewViewTopBarExitButton.swift in Sources */,
 				FB7756C42E5CAD6B00A70F66 /* InterviewViewPreparingHeader.swift in Sources */,
 				FB93A4142E61FBD4009934BB /* CameraServicing.swift in Sources */,
+				FB93A4192E620539009934BB /* HeadDirection.swift in Sources */,
 				FB93A4152E61FBD4009934BB /* FaceDetecting.swift in Sources */,
 				FB2724B42E50CFB90092408E /* FirstStepToCareerApp.swift in Sources */,
 				FB77568E2E5ADBE800A70F66 /* SettingsTabViewModel.swift in Sources */,
@@ -1444,6 +1461,7 @@
 				FBFCB9E22E609C1800682931 /* EmotionEstimating.swift in Sources */,
 				FB7756632E5A0B4000A70F66 /* OverallMetrics.swift in Sources */,
 				FB93A3A12E61CCAC009934BB /* InterviewMockDataGenerator.swift in Sources */,
+				FB93A41B2E62056C009934BB /* FaceDirectionDetecting.swift in Sources */,
 				FB7756642E5A0B4000A70F66 /* SlienceMetric.swift in Sources */,
 				FB7756652E5A0B4000A70F66 /* SpeechSpeedMetric.swift in Sources */,
 				FBFCB9CF2E609C1800682931 /* FeedbackGenerating.swift in Sources */,
@@ -1454,6 +1472,7 @@
 				FB2724C42E50DAD40092408E /* ScheduleTabView.swift in Sources */,
 				FB1BED6E2E53416C00041053 /* ProcessTabView.swift in Sources */,
 				FB1BED6A2E528D9400041053 /* View+TapScaleEffect.swift in Sources */,
+				FB93A41D2E6205C8009934BB /* FaceDirectionService.swift in Sources */,
 				FB2724F92E51179D0092408E /* KeyboardPrewarmView.swift in Sources */,
 				FB2BD6322E572C3600A790E6 /* InterviewTabView.swift in Sources */,
 				FB2724F72E50F9050092408E /* ProgressRing.swift in Sources */,
@@ -1466,6 +1485,7 @@
 				FB93A4172E6202BE009934BB /* PixelBufferBox.swift in Sources */,
 				FB5586162E5F54B000B458F3 /* InterviewControlling.swift in Sources */,
 				FB2724D62E50DC190092408E /* SettingsTabView.swift in Sources */,
+				FB93A41F2E620C81009934BB /* VisionTestView.swift in Sources */,
 				FB2724B92E50CFB90092408E /* AppTabBarView.swift in Sources */,
 				FB27252D2E52239F0092408E /* CompanyTypeListView.swift in Sources */,
 				FB77568C2E5ADBC400A70F66 /* ProcessTabViewModel.swift in Sources */,

@@ -83,7 +83,7 @@ public final class CameraService: NSObject, CameraServicing, @unchecked Sendable
                 kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA
             ]
             self.output.alwaysDiscardsLateVideoFrames = true
-            let outputQueue = DispatchQueue(label: "camera.frame.output.queue")
+            let outputQueue = DispatchQueue(label: "camera.frame.output.queue", qos: .userInitiated)
             self.output.setSampleBufferDelegate(self, queue: outputQueue)
 
             if self.session.canAddOutput(self.output) {
@@ -136,6 +136,8 @@ public final class CameraService: NSObject, CameraServicing, @unchecked Sendable
             if self.session.outputs.contains(self.output) {
                 self.session.removeOutput(self.output)
             }
+            
+            framesContinuation?.finish()
         }
     }
 
