@@ -23,8 +23,8 @@ final class GazeService: GazeTracking {
         guard landmarks.points.count > 10 else { return }
 
         // 여기서는 x, y 평균값으로 간략화
-        let avgX = landmarks.points.map { $0.x }.reduce(0,+) / CGFloat(landmarks.points.count)
-        let avgY = landmarks.points.map { $0.y }.reduce(0,+) / CGFloat(landmarks.points.count)
+        let avgX = landmarks.points.map { $0.x }.reduce(0, +) / CGFloat(landmarks.points.count)
+        let avgY = landmarks.points.map { $0.y }.reduce(0, +) / CGFloat(landmarks.points.count)
 
         // 정면 비율 계산(중심 근처일수록 높음) → 0~1 클램핑
         let center = CGPoint(x: 0.5, y: 0.5)

@@ -133,11 +133,15 @@
 		FB93A4002E61F292009934BB /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93A3FD2E61F292009934BB /* CameraPreview.swift */; };
 		FB93A4012E61F292009934BB /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93A3FE2E61F292009934BB /* CameraPreviewView.swift */; };
 		FB93A4032E61F2C7009934BB /* ServiceTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93A4022E61F2C7009934BB /* ServiceTestView.swift */; };
+		FB93A4082E61FAE7009934BB /* FaceDetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93A4072E61FAE7009934BB /* FaceDetectionService.swift */; };
+		FB93A4102E61FBD4009934BB /* FaceCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93A40E2E61FBD4009934BB /* FaceCount.swift */; };
+		FB93A4142E61FBD4009934BB /* CameraServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93A4112E61FBD4009934BB /* CameraServicing.swift */; };
+		FB93A4152E61FBD4009934BB /* FaceDetecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93A4122E61FBD4009934BB /* FaceDetecting.swift */; };
+		FB93A4172E6202BE009934BB /* PixelBufferBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB93A4162E6202B8009934BB /* PixelBufferBox.swift */; };
 		FBFCB97D2E60848900682931 /* CGRect+Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFCB97C2E60848900682931 /* CGRect+Area.swift */; };
 		FBFCB9A32E60933800682931 /* EvaluationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFCB9A22E60932900682931 /* EvaluationPolicy.swift */; };
 		FBFCB9C52E609C1800682931 /* PermissionManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFCB9C32E609C1800682931 /* PermissionManaging.swift */; };
 		FBFCB9C82E609C1800682931 /* MetricEvaluating.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFCB9C62E609C1800682931 /* MetricEvaluating.swift */; };
-		FBFCB9CB2E609C1800682931 /* CameraServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFCB9C92E609C1800682931 /* CameraServicing.swift */; };
 		FBFCB9CF2E609C1800682931 /* FeedbackGenerating.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFCB9CC2E609C1800682931 /* FeedbackGenerating.swift */; };
 		FBFCB9D02E609C1800682931 /* QuestionGenerating.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFCB9CD2E609C1800682931 /* QuestionGenerating.swift */; };
 		FBFCB9D32E609C1800682931 /* STTStreaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFCB9D12E609C1800682931 /* STTStreaming.swift */; };
@@ -275,11 +279,15 @@
 		FB93A3FD2E61F292009934BB /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		FB93A3FE2E61F292009934BB /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
 		FB93A4022E61F2C7009934BB /* ServiceTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTestView.swift; sourceTree = "<group>"; };
+		FB93A4072E61FAE7009934BB /* FaceDetectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetectionService.swift; sourceTree = "<group>"; };
+		FB93A40E2E61FBD4009934BB /* FaceCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCount.swift; sourceTree = "<group>"; };
+		FB93A4112E61FBD4009934BB /* CameraServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraServicing.swift; sourceTree = "<group>"; };
+		FB93A4122E61FBD4009934BB /* FaceDetecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetecting.swift; sourceTree = "<group>"; };
+		FB93A4162E6202B8009934BB /* PixelBufferBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelBufferBox.swift; sourceTree = "<group>"; };
 		FBFCB97C2E60848900682931 /* CGRect+Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Area.swift"; sourceTree = "<group>"; };
 		FBFCB9A22E60932900682931 /* EvaluationPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationPolicy.swift; sourceTree = "<group>"; };
 		FBFCB9C32E609C1800682931 /* PermissionManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManaging.swift; sourceTree = "<group>"; };
 		FBFCB9C62E609C1800682931 /* MetricEvaluating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricEvaluating.swift; sourceTree = "<group>"; };
-		FBFCB9C92E609C1800682931 /* CameraServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraServicing.swift; sourceTree = "<group>"; };
 		FBFCB9CC2E609C1800682931 /* FeedbackGenerating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackGenerating.swift; sourceTree = "<group>"; };
 		FBFCB9CD2E609C1800682931 /* QuestionGenerating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionGenerating.swift; sourceTree = "<group>"; };
 		FBFCB9D12E609C1800682931 /* STTStreaming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTStreaming.swift; sourceTree = "<group>"; };
@@ -431,6 +439,9 @@
 			children = (
 				FB93A3EA2E61E1CC009934BB /* Interview */,
 				FB7756AF2E5C962700A70F66 /* Permission */,
+				FB93A3D92E61E1CC009934BB /* Camera */,
+				FB93A4072E61FAE7009934BB /* FaceDetectionService.swift */,
+				FB93A3D82E61E1CC009934BB /* CameraService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -438,10 +449,11 @@
 		FB5585902E5F47A700B458F3 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				FB93A4132E61FBD4009934BB /* Protocol */,
+				FB93A40F2E61FBD4009934BB /* ValueObject */,
 				FBFCBA162E60A61600682931 /* Policy */,
-				FB55860B2E5F546E00B458F3 /* Protocol */,
-				FB5585DD2E5F52FE00B458F3 /* ValueObject */,
-				FBFCB9C92E609C1800682931 /* CameraServicing.swift */,
+				FB55860B2E5F546E00B458F3 /* Protocol_ */,
+				FB5585DD2E5F52FE00B458F3 /* ValueObject_ */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -531,16 +543,16 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		FB5585DD2E5F52FE00B458F3 /* ValueObject */ = {
+		FB5585DD2E5F52FE00B458F3 /* ValueObject_ */ = {
 			isa = PBXGroup;
 			children = (
 				FBFCB9F82E60A00900682931 /* Interview */,
 				FBFCB9E62E609C6E00682931 /* Permission */,
 			);
-			path = ValueObject;
+			path = ValueObject_;
 			sourceTree = "<group>";
 		};
-		FB55860B2E5F546E00B458F3 /* Protocol */ = {
+		FB55860B2E5F546E00B458F3 /* Protocol_ */ = {
 			isa = PBXGroup;
 			children = (
 				FBFCB9DB2E609C1800682931 /* Audio */,
@@ -554,7 +566,7 @@
 				FBFCB9C72E609C1800682931 /* Evaluation */,
 				FBFCB9C42E609C1800682931 /* Permission */,
 			);
-			path = Protocol;
+			path = Protocol_;
 			sourceTree = "<group>";
 		};
 		FB7755F82E5A029C00A70F66 /* Features */ = {
@@ -932,7 +944,6 @@
 		FB93A3D92E61E1CC009934BB /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				FB93A3D82E61E1CC009934BB /* CameraService.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -999,7 +1010,6 @@
 			isa = PBXGroup;
 			children = (
 				FB93A3D52E61E1CC009934BB /* Audio */,
-				FB93A3D92E61E1CC009934BB /* Camera */,
 				FB93A3DB2E61E1CC009934BB /* Emotion */,
 				FB93A3DD2E61E1CC009934BB /* Evaluation */,
 				FB93A3DF2E61E1CC009934BB /* FaceLandmark */,
@@ -1018,6 +1028,24 @@
 				FB93A3FE2E61F292009934BB /* CameraPreviewView.swift */,
 			);
 			path = Camera;
+			sourceTree = "<group>";
+		};
+		FB93A40F2E61FBD4009934BB /* ValueObject */ = {
+			isa = PBXGroup;
+			children = (
+				FB93A4162E6202B8009934BB /* PixelBufferBox.swift */,
+				FB93A40E2E61FBD4009934BB /* FaceCount.swift */,
+			);
+			path = ValueObject;
+			sourceTree = "<group>";
+		};
+		FB93A4132E61FBD4009934BB /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				FB93A4112E61FBD4009934BB /* CameraServicing.swift */,
+				FB93A4122E61FBD4009934BB /* FaceDetecting.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		FBFCB9C42E609C1800682931 /* Permission */ = {
@@ -1350,6 +1378,8 @@
 				FBFCB9C52E609C1800682931 /* PermissionManaging.swift in Sources */,
 				FB7756A92E5B2CFA00A70F66 /* InterviewViewTopBarExitButton.swift in Sources */,
 				FB7756C42E5CAD6B00A70F66 /* InterviewViewPreparingHeader.swift in Sources */,
+				FB93A4142E61FBD4009934BB /* CameraServicing.swift in Sources */,
+				FB93A4152E61FBD4009934BB /* FaceDetecting.swift in Sources */,
 				FB2724B42E50CFB90092408E /* FirstStepToCareerApp.swift in Sources */,
 				FB77568E2E5ADBE800A70F66 /* SettingsTabViewModel.swift in Sources */,
 				FB2BD6532E574F7E00A790E6 /* InterviewActionRow.swift in Sources */,
@@ -1385,6 +1415,7 @@
 				FB93A3F22E61E1CC009934BB /* GazeService.swift in Sources */,
 				FB93A3F32E61E1CC009934BB /* LocalFeedbackService.swift in Sources */,
 				FB93A3F42E61E1CC009934BB /* LocalQuestionService.swift in Sources */,
+				FB93A4082E61FAE7009934BB /* FaceDetectionService.swift in Sources */,
 				FB93A4002E61F292009934BB /* CameraPreview.swift in Sources */,
 				FB93A4012E61F292009934BB /* CameraPreviewView.swift in Sources */,
 				FB93A3F52E61E1CC009934BB /* STTService.swift in Sources */,
@@ -1399,6 +1430,7 @@
 				FBFCB9DF2E609C1800682931 /* GazeTracking.swift in Sources */,
 				FB2BD6862E58903D00A790E6 /* InterviewInfoFormViewModel.swift in Sources */,
 				FB55861E2E5F583400B458F3 /* InterviewUIEvent.swift in Sources */,
+				FB93A4102E61FBD4009934BB /* FaceCount.swift in Sources */,
 				FB7756A62E5B1FEE00A70F66 /* EntryKitPresenter.swift in Sources */,
 				FB7756A72E5B1FEE00A70F66 /* ShowFinishInterviewPopUp.swift in Sources */,
 				FB77565F2E5A0B4000A70F66 /* ExpressionMetric.swift in Sources */,
@@ -1412,7 +1444,6 @@
 				FBFCB9E22E609C1800682931 /* EmotionEstimating.swift in Sources */,
 				FB7756632E5A0B4000A70F66 /* OverallMetrics.swift in Sources */,
 				FB93A3A12E61CCAC009934BB /* InterviewMockDataGenerator.swift in Sources */,
-				FBFCB9CB2E609C1800682931 /* CameraServicing.swift in Sources */,
 				FB7756642E5A0B4000A70F66 /* SlienceMetric.swift in Sources */,
 				FB7756652E5A0B4000A70F66 /* SpeechSpeedMetric.swift in Sources */,
 				FBFCB9CF2E609C1800682931 /* FeedbackGenerating.swift in Sources */,
@@ -1432,6 +1463,7 @@
 				FB2724FD2E511B660092408E /* FocusTarget.swift in Sources */,
 				FB7756792E5A35B700A70F66 /* RecruitTypeButton.swift in Sources */,
 				FBFCB9D32E609C1800682931 /* STTStreaming.swift in Sources */,
+				FB93A4172E6202BE009934BB /* PixelBufferBox.swift in Sources */,
 				FB5586162E5F54B000B458F3 /* InterviewControlling.swift in Sources */,
 				FB2724D62E50DC190092408E /* SettingsTabView.swift in Sources */,
 				FB2724B92E50CFB90092408E /* AppTabBarView.swift in Sources */,
