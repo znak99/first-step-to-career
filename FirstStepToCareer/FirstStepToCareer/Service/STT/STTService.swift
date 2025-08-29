@@ -5,120 +5,99 @@
 //  Created by seungwoo on 2025/08/25.
 //
 
+// Path: Services/STT/STTService.swift
 import Foundation
 import Speech
 import AVFoundation
-import Combine
 
 @MainActor
-final class STTService: STTStreaming {
-    // MARK: Combine subjects
-    private let transcriptSubject = PassthroughSubject<String, Never>()
-    private let isRunningSubject = CurrentValueSubject<Bool, Never>(false)
-    private let errorSubject = PassthroughSubject<Error, Never>()
+final class STTService: NSObject, STTStreaming {
 
-    var transcriptPublisher: AnyPublisher<String, Never> { transcriptSubject.eraseToAnyPublisher() }
-    var isRunningPublisher: AnyPublisher<Bool, Never> { isRunningSubject.eraseToAnyPublisher() }
-    var errorPublisher: AnyPublisher<Error, Never> { errorSubject.eraseToAnyPublisher() }
-
-    // MARK: Internals
+    // MARK: - State
+    private var recognizer: SFSpeechRecognizer?
+    private var recognitionTask: SFSpeechRecognitionTask?
+    private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private let audioEngine = AVAudioEngine()
-    private let recognizer: SFSpeechRecognizer
-    private var request: SFSpeechAudioBufferRecognitionRequest?
-    private var task: SFSpeechRecognitionTask?
 
-    init(locale: Locale = .init(identifier: "ja-JP")) {
-        guard let r = SFSpeechRecognizer(locale: locale) else {
-            fatalError("SFSpeechRecognizer init failed for locale: \(locale)")
-        }
-        self.recognizer = r
-        self.recognizer.defaultTaskHint = .dictation // [ADDED] 안정성 힌트(선택)
-    }
+    private var continuation: AsyncStream<TranscriptEvent>.Continuation?
 
-    func start() {
-        guard !isRunningSubject.value else { return }
-        isRunningSubject.send(true)
+    // MARK: - Start (AsyncStream)
+    func start(locale: Locale) -> AsyncStream<TranscriptEvent> {
+        recognizer = SFSpeechRecognizer(locale: locale)
 
-        do {
-            let s = AVAudioSession.sharedInstance()
-            // try s.setCategory(.record, mode: .measurement, options: .duckOthers)
-            // [UPDATED] 카테고리는 상위(AudioService)에서 .playAndRecord로 관리.
-            // 여기서는 활성화만 하여 카테고리 충돌/인터럽션을 줄임.
-            try s.setActive(true, options: .notifyOthersOnDeactivation)
+        // 기존 세션 정리(재시작 대비)
+        stop()
 
-            // 요청
-            let req = SFSpeechAudioBufferRecognitionRequest()
-            req.shouldReportPartialResults = true
-            self.request = req
+        return AsyncStream { [weak self] cont in
+            guard let self else { return }
+            self.continuation = cont
 
-            // 오디오 탭
-            let input = audioEngine.inputNode
-            let format = input.outputFormat(forBus: 0)
-            input.removeTap(onBus: 0)
-            input.installTap(onBus: 0, bufferSize: 1024, format: format) { [weak self] buf, _ in
-                self?.request?.append(buf)
+            // 권한 확인(사전 요청은 PermissionService에서)
+            guard SFSpeechRecognizer.authorizationStatus() == .authorized else {
+                cont.finish(); return
             }
 
-            audioEngine.prepare()
-            try audioEngine.start()
+            // 요청 준비
+            let request = SFSpeechAudioBufferRecognitionRequest()
+            request.shouldReportPartialResults = true
+            self.recognitionRequest = request
+
+            // 오디오 엔진 탭 설치 (세션 카테고리는 AudioSessionService가 담당)
+            let input = self.audioEngine.inputNode
+            let format = input.outputFormat(forBus: 0)
+            input.installTap(onBus: 0, bufferSize: 1024, format: format) { buffer, _ in
+                request.append(buffer)
+            }
+
+            self.audioEngine.prepare()
+            do { try self.audioEngine.start() } catch {
+                cont.finish(); return
+            }
 
             // 인식 태스크
-            task = recognizer.recognitionTask(with: req) { [weak self] result, error in
-                guard let self else { return }
+            self.recognitionTask = self.recognizer?.recognitionTask(with: request) { [weak self] result, error in
+                guard let self, let cont = self.continuation else { return }
                 if let result {
-                    self.transcriptSubject.send(result.bestTranscription.formattedString)
+                    let text = result.bestTranscription.formattedString
                     if result.isFinal {
-                        // self.stop()  // ← 취소 로그를 유발할 수 있음
-                        self.finishAndTearDown() // [UPDATED] 정상 종료 경로로 통일
+                        cont.yield(.final(text))
+                    } else {
+                        cont.yield(.partial(text))
                     }
-                } else if let error {
-                    self.errorSubject.send(error)
-                    // [UPDATED] 에러 시에도 정상 정리
-                    self.finishAndTearDown()
+                }
+                if error != nil {
+                    cont.finish()
                 }
             }
-
-        } catch {
-            errorSubject.send(error)
-            finishAndTearDown() // [UPDATED] 실패 시 정리
         }
     }
 
+    // MARK: - Stop / Pause / Resume
     func stop() {
-        guard isRunningSubject.value else { return }
-        isRunningSubject.send(false)
-        // task?.cancel()
-        // [UPDATED] 취소 대신 정상 종료 시퀀스로 통일
-        finishAndTearDown()
+        // 순서 중요: tap 제거 → 엔진 정지 → 요청/태스크 종료
+        if audioEngine.inputNode.numberOfInputs > 0 {
+            audioEngine.inputNode.removeTap(onBus: 0)
+        }
+        if audioEngine.isRunning { audioEngine.stop() }
+
+        recognitionRequest?.endAudio()
+        recognitionTask?.cancel()
+
+        recognitionTask = nil
+        recognitionRequest = nil
+        recognizer = nil
+
+        continuation?.finish()
+        continuation = nil
     }
 
-    // MARK: - Normal finish teardown
-    private func finishAndTearDown() {
-        // [ADDED] 정상 종료 순서: endAudio → finish → tap 제거/엔진 stop → (조금 뒤) setActive(false)
-        request?.endAudio()
-        task?.finish()
+    func pause() {
+        // 인식 세션은 유지하고 입력만 중단
+        if audioEngine.isRunning { audioEngine.pause() }
+    }
 
-        audioEngine.inputNode.removeTap(onBus: 0)
-        if audioEngine.isRunning {
-            audioEngine.stop()
-        }
-
-        // [ADDED] 참조 해제는 너무 빨리 하지 말고, 여기서 일괄
-        let _ = task
-        let _ = request
-        task = nil
-        request = nil
-
-        // [ADDED] 세션 비활성화는 약간 지연 → cancel 로그/레이스 감소
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-            do {
-                try AVAudioSession.sharedInstance().setActive(false,
-                                                             options: [.notifyOthersOnDeactivation])
-            } catch {
-                self.errorSubject.send(error)
-            }
-            // [UPDATED] Publisher 상태 최종 반영
-            self.isRunningSubject.send(false)
-        }
+    func resume() {
+        // 엔진 재가동(실패해도 앱 크래시 없이 무시)
+        try? audioEngine.start()
     }
 }

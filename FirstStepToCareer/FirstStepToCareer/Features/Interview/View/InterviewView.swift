@@ -23,14 +23,14 @@ struct InterviewView: View {
             GeometryReader { proxy in
                 VStack {
                     if vm.isRunning {
-                        InterviewViewTopBarExitButton(action: {})
+                        InterviewViewTopBarExitButton {}
                             .hidden()
                     }
-                    InterviewCamera(
-                        session: interviewOrchestrator.cameraSession,
-                        width: proxy.size.width,
-                        height: proxy.size.height,
-                        isRunning: $vm.isRunning)
+//                    InterviewCamera(
+//                        session: interviewOrchestrator.cameraSession,
+//                        width: proxy.size.width,
+//                        height: proxy.size.height,
+//                        isRunning: $vm.isRunning)
                 }
             }
             .ignoresSafeArea(vm.isRunning ? .keyboard : .all)
@@ -39,15 +39,11 @@ struct InterviewView: View {
             VStack {
                 InterviewViewTopBarExitButton {
                     vm.exitButtonTapped {
-                        // TODO: - Pause 만들기
-                        interviewOrchestrator.stop()
                         EntryKitPresenter.shared.showConfirmExit(
                             onConfirm: {
-                                interviewOrchestrator.teardown()
                                 nc.path.removeAll()
                             },
                             onCancel: {
-                                interviewOrchestrator.start()
                             }
                         )
                     }
@@ -57,20 +53,22 @@ struct InterviewView: View {
                         
                     }
                 } else {
-                    InterviewViewPreparingHeader(transcript: interviewOrchestrator.transcript) {
+                    InterviewViewPreparingHeader(transcript: "interviewOrchestrator.transcript") {
                         vm.speakButtonTapped {
-                            interviewOrchestrator.speakQuestion("カメラ及びマイクを確認します！")
+                            Task {
+                                await interviewOrchestrator.testSpeak("カメラ及びマイクを確認します！")
+                            }
                         }
                     }
                 }
                 Spacer()
                 AppSection {
-                    if let errorMessage = interviewOrchestrator.errorMessage {
-                        Text(errorMessage)
-                            .appCaptionStyle()
-                            .foregroundStyle(ACColor.Status.error)
-                            .padding(.vertical, ACLayout.Padding.extraSmall)
-                    }
+//                    if let errorMessage = interviewOrchestrator.errorMessage {
+//                        Text(errorMessage)
+//                            .appCaptionStyle()
+//                            .foregroundStyle(ACColor.Status.error)
+//                            .padding(.vertical, ACLayout.Padding.extraSmall)
+//                    }
                     Text("問題なければ面接を始めましょう！")
                         .appCaptionStyle()
                     GradientRowButton(title: "模擬面接開始", icon: ACIcon.Vector.selfieWhite) {
@@ -87,7 +85,7 @@ struct InterviewView: View {
         }
         .navigationBarBackButtonHidden(true)
         .onAppear {
-            interviewOrchestrator.start()
+            
         }
     }
 }
