@@ -14,14 +14,6 @@ final class InterviewOrchestrator: ObservableObject {
         
     }
     
-    func beginPrecheck() async {
-        
-    }
-    
-    func testSpeak(_ text: String) async {
-        
-    }
-    
     func start() async {
         
     }
@@ -39,6 +31,10 @@ final class InterviewOrchestrator: ObservableObject {
     }
     
     func cancel() async {
+        
+    }
+    
+    func speak(_ text: String) async {
         
     }
 }

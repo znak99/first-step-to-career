@@ -33,7 +33,4 @@ public protocol CameraServicing: Sendable {
 
     /// 완전 중지 (세션 정지 + 입력/출력 제거로 메모리 해제)
     func shutdown()
-
-    /// 전면 TrueDepth 카메라를 쓸 수 있는지 알려줍니다.
-    func isTrueDepthAvailable() -> Bool
 }

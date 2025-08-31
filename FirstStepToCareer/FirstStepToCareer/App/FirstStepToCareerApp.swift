@@ -19,15 +19,14 @@ struct FirstStepToCareerApp: App {
     // MARK: - Body
     var body: some Scene {
         WindowGroup {
-            ServiceTestView()
-//            RootView()
-//                .environmentObject(nc)
-//                .environmentObject(interviewOrchestrator)
-//                .onAppear {
-//                    let settings = FirestoreSettings()
-//                    settings.cacheSettings = PersistentCacheSettings()
-//                    Firestore.firestore().settings = settings
-//                }
+            RootView()
+                .environmentObject(nc)
+                .environmentObject(interviewOrchestrator)
+                .onAppear {
+                    let settings = FirestoreSettings()
+                    settings.cacheSettings = PersistentCacheSettings()
+                    Firestore.firestore().settings = settings
+                }
         }
     }
 }

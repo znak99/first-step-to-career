@@ -56,7 +56,7 @@ struct InterviewView: View {
                     InterviewViewPreparingHeader(transcript: "interviewOrchestrator.transcript") {
                         vm.speakButtonTapped {
                             Task {
-                                await interviewOrchestrator.testSpeak("カメラ及びマイクを確認します！")
+                                await interviewOrchestrator.speak("カメラ及びマイクを確認します！")
                             }
                         }
                     }

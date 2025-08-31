@@ -7,16 +7,13 @@
 
 import Foundation
 
-// MARK: - 값 객체
-/// 얼굴 방향(라디안 단위). pitch는 TrueDepth가 없으면 nil 입니다.
-public struct HeadDirection: Sendable, Equatable {
-    public let yaw: Float      // 좌우 회전(+면 오른쪽으로 고개)
-    public let roll: Float     // 기울기(+면 시계방향 기울임)
-    public let pitch: Float?   // 위/아래(TrueDepth 가능 시만 존재)
-
-    public init(yaw: Float, roll: Float, pitch: Float?) {
+/// 화면을 기준으로 고개가 어느 정도 돌아갔는지 간단히 담는 값입니다.
+/// yaw, roll은 도(degree) 단위입니다. (양수/음수 방향은 Vision의 기본 기준을 따릅니다)
+public struct FaceDirection: Sendable, Equatable {
+    public let yaw: Double
+    public let roll: Double
+    public init(yaw: Double, roll: Double) {
         self.yaw = yaw
         self.roll = roll
-        self.pitch = pitch
     }
 }
