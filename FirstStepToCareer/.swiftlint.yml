@@ -1,0 +1,12 @@
+disabled_rules:
+  - trailing_whitespace
+  - identifier_name
+
+function_body_length:
+  warning: 80
+  error: 120
+
+nesting:
+  type_level:
+    warning: 3
+    error: 4
