@@ -11,6 +11,17 @@
 |---|---|---|---|
 | local | 개발 | http://localhost:{{PORT}} | |
 
+### 1.1 사용자가 보유한 테스트 기기 (2026-11-05)
+| 기기 | 칩 | TrueDepth 카메라 | Apple Intelligence | 실제 설치된 iOS |
+|---|---|---|---|---|
+| [iPhone 14 Plus](https://support.apple.com/en-sg/111854) | A15 Bionic | 탑재 | 미지원 | 미확인 |
+| [iPhone XR](https://support.apple.com/en-la/111868) | A12 Bionic | 탑재 | 미지원 | 미확인 |
+
+- 두 기기를 테스트에 사용할 수 있다는 사용자 확인을 기록했다. 이는 앱의 최소 지원 기기나 출시 지원 범위를 확정한 것이 아니다.
+- 칩·카메라 탑재 여부는 Apple 공식 사양, Apple Intelligence 지원 여부는 [공식 지원 조건](https://support.apple.com/en-gb/121115)으로 확인했다. 실제 카메라 동작·권한 상태·추적 품질은 아직 시험하지 않았다.
+- XR은 [iOS 26 호환 기기 목록](https://support.apple.com/en-ie/guide/iphone/-iphe3fa5df43/ios)에 포함되지 않는다. XR을 지원하려면 앱과 모델 실행 도구가 해당 기기의 OS에서 동작하는지 확인해야 한다.
+- 모델 다운로드·설치 및 실제 기기에서의 LLM·음성·시선/머리 움직임 시험은 아직 수행하지 않았다.
+
 ## 2. 환경 변수
 <!-- 값은 적지 않는다. 실제 값은 .env(커밋 금지), 예시는 .env.example(커밋)에 둔다. -->
 | 이름 | 설명 | 필수 | local 기본값 |
