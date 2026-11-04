@@ -9,11 +9,17 @@
 - Release market: Japan only.
 - Server: undecided; prefer avoiding a server where feasible.
 - Technology stack, minimum iOS version, and data storage: undecided, pending user approval.
-- Only the documentation has been initialized. The iOS application project has not been created yet.
+- Project documentation includes the user-confirmed mock interview requirements. The iOS application project has not been created yet.
 
 ## Features
-<!-- TODO: 3–6 bullets. What it does, not how. -->
--
+- AI-led mock interviews configured by company name, industry, job role, and interview type (HR or job-specific).
+- A question count adjustable from 3 to 7 through settings or a similar menu; the default is undecided.
+- A preparation screen checks the distance needed to observe gaze and head movement. If the front camera does not work or the device lacks TrueDepth support, both movement categories are excluded from scoring and the overall score.
+- Questions are read aloud through text-to-speech (TTS). During the user's turn, speech-to-text (STT) displays the answer, and a period of silence ends the turn automatically; the silence duration is undecided.
+- Scoring covers answer structure, logical coherence, realism, gaze movement, and head movement. The result shows the overall and category scores alongside the question-and-answer transcript; the scoring formula and weights are undecided.
+- Past interview records contain only question-and-answer transcripts stored on the phone and can be reviewed later.
+
+HR interviews assess personality, values, collaboration, and motivation for applying. Job-specific interviews assess practical knowledge, problem-solving ability, and expertise relevant to the selected role. Gaze and head movement are observed during the interview; answer structure, logical coherence, and realism are evaluated after it ends.
 
 ## Tech Stack
 <!-- TODO: language, framework, database, hosting. One line each. -->
