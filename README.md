@@ -25,6 +25,7 @@
 ## Features
 - AI-led mock interviews configured by company name, industry, job role, and interview type (HR or job-specific).
 - A question count that defaults to 5 on first use and is adjustable from 3 to 7 through settings or a similar menu.
+- A next question interrupted by continue-speaking does not count toward the configured total. The reconsidered question uses the same question number.
 - A preparation screen checks the distance needed to observe gaze and head movement. If the front camera does not work or the device lacks TrueDepth support, both movement categories are excluded from scoring and the overall score.
 - Questions are read aloud through text-to-speech (TTS). During the user's turn, speech-to-text (STT) displays the answer.
 - After question playback or a continue-speaking request, wait without automatic completion until STT detects at least one word from the new speech. This is the definition of starting to speak, including when resuming an answer.

@@ -78,7 +78,7 @@ Updating TASK.md and FEEDBACK.md as part of this workflow does not require appro
 ## Project-Specific Rules
 - Obtain explicit user approval before making project decisions or changing the approved scope. Do not turn preferences or undecided items into final decisions.
 - Develop an iOS-only app with Japanese UI for release only in Japan.
-- Approved question count: default to 5 on first use and allow adjustment from 3 to 7 through settings or a similar menu.
+- Approved question count: default to 5 on first use and allow adjustment from 3 to 7 through settings or a similar menu. A next question interrupted by continue-speaking does not count; present its replacement under the same question number.
 - Approved answer start: after question playback or a continue-speaking request, wait without automatic completion until STT detects at least one word from the new speech. Previously stored answer text does not satisfy the resumed-answer start condition.
 - Approved answer completion: use 3 seconds of silence after the answer starts and show an animated countdown. After this interval, keep the continue-speaking button available while the LLM prepares or TTS reads the next question. Pressing it stops that preparation/playback, resumes the previous answer, and triggers question reconsideration using the full answer after completion. Remaining timing and edge cases require user approval.
 - Aim to support iPhone 13 and later where feasible, with iOS 26 or later required. Hardware support remains subject to validation.
