@@ -6,6 +6,7 @@
 - Scale: small; work directly on `main`.
 - Platform: iOS only.
 - Target devices: iPhone 13 and later if feasible; final support depends on device and performance validation.
+- First validation LLM: LFM2.5-1.2B-JP-202606, approved for evaluation; production adoption remains undecided.
 - UI language: Japanese (`ja`).
 - Release market: Japan only.
 - Server: undecided; prefer avoiding a server where feasible.
