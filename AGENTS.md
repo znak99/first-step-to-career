@@ -9,6 +9,7 @@ Keep it short. Detailed rules live in the documents linked below.
 - Platform: iOS only
 - Target devices: iPhone 13 and later if feasible; support remains subject to device and performance validation.
 - First validation LLM: LFM2.5-1.2B-JP-202606 (approved; production adoption pending validation).
+- Validation runtime: MLX Swift LM (approved; package version and integration settings pending).
 - Server: undecided
 - Service language: ja
 - Release market: Japan only

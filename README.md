@@ -7,10 +7,11 @@
 - Platform: iOS only.
 - Target devices: iPhone 13 and later if feasible; final support depends on device and performance validation.
 - First validation LLM: LFM2.5-1.2B-JP-202606, approved for evaluation; production adoption remains undecided.
+- Validation runtime: MLX Swift LM, approved; package version and integration settings remain undecided.
 - UI language: Japanese (`ja`).
 - Release market: Japan only.
 - Server: undecided; prefer avoiding a server where feasible.
-- Technology stack, minimum iOS version, and data storage: undecided, pending user approval.
+- Remaining application stack, minimum iOS version, and data storage: undecided, pending user approval.
 - Project documentation includes the user-confirmed mock interview requirements. The iOS application project has not been created yet.
 
 ## Features
@@ -25,7 +26,8 @@ HR interviews assess personality, values, collaboration, and motivation for appl
 
 ## Tech Stack
 <!-- TODO: language, framework, database, hosting. One line each. -->
-- Pending user approval.
+- LLM validation runtime: MLX Swift LM (approved).
+- Remaining application stack: pending user approval.
 
 ## Getting Started
 
