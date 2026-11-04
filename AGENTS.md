@@ -4,14 +4,16 @@ This file is the entry point for every AI agent working in this repository.
 Keep it short. Detailed rules live in the documents linked below.
 
 ## Profile
-- Scale: {{SCALE}}                        <!-- small | medium | large -->
-- Type: {{TYPE}}                          <!-- Web | Mobile | Web + Mobile | Tool (utility app with a UI, web or desktop) | Script (no UI) -->
-- Server: {{HAS_SERVER}}                  <!-- yes | no -->
-- Service language: {{SERVICE_LANGUAGE}}  <!-- ko | en | ja | ... — applies to UI text only -->
-- Template version: {{TEMPLATE_VERSION}}
+- Scale: small
+- Type: Mobile
+- Platform: iOS only
+- Server: undecided
+- Service language: ja
+- Release market: Japan only
+- Template version: 1.0.0
 
 ## Project Overview
-{{PROJECT_ONE_LINER}}
+혼자서 면접을 연습하고 취업활동을 관리하기 위한 앱
 
 See [README.md](README.md) for details.
 
@@ -23,13 +25,11 @@ See [README.md](README.md) for details.
 | Conversation and reports to the user | Korean |
 | Commit messages, PR titles and bodies, code comments | Korean |
 | Code identifiers (variables, functions, file names) | English |
-| Text the end user sees in the product (UI labels, messages, i18n resources) | Service language ({{SERVICE_LANGUAGE}}) |
+| Text the end user sees in the product (UI labels, messages, i18n resources) | Service language (ja) |
 
 The service language applies only to text the end user sees in the product. Even when the product is in English or Japanese, every other row stays as listed: documents, conversation, commits, PRs, and code comments remain in Korean.
 
 ## Documentation Map
-<!-- Remove the rows for documents this project does not have (see Profile).
-     Web + Mobile: replace the SITE_MAP.md row with one row each for docs/ui-design/SITE_MAP.web.md and SITE_MAP.mobile.md. -->
 | Document | Purpose | Read when | Update when |
 |---|---|---|---|
 | [docs/common/FEEDBACK.md](docs/common/FEEDBACK.md) | Corrections the user has given to agents | Every session, before any work | Immediately when the user corrects you — append one line |
@@ -65,7 +65,12 @@ Updating TASK.md and FEEDBACK.md as part of this workflow does not require appro
 - Never report a task as done without verifying it works.
 
 ## Project-Specific Rules
-<!-- TODO: Fill in at project start — stack conventions, test/lint/format commands, anything unique to this project. -->
+- Obtain explicit user approval before making project decisions or changing the approved scope. Do not turn preferences or undecided items into final decisions.
+- Develop an iOS-only app with Japanese UI for release only in Japan.
+- Server usage is undecided; prefer avoiding a server where feasible. The technology stack, minimum iOS version, and data storage method also require user approval.
+- Commit approved changes in appropriate task units, including the task status and all affected documentation, and push immediately after every commit. Keep GitHub synchronized with the latest documentation and source code.
+- The user has authorized these commits and pushes for approved work; do not ask for separate permission each time. Do not report a task as delivered until its push succeeds. Report any push failure.
+- These project-specific approval and synchronization rules take precedence over conflicting template guidance.
 
 ## Hard Rules
 - Never force-push to main (or develop).

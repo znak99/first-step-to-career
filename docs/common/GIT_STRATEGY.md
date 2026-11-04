@@ -25,7 +25,8 @@ Branch and commit rules for this repository. Scale: small.
 
 ## Integration
 - No pull requests. Commit to main and push.
-- Push after every commit, or at least when a task is done.
+- Push immediately after every commit. Keep GitHub synchronized with the latest documentation and source code.
+- The user's standing instruction authorizes commits and pushes for approved work. A task is not delivered until its push succeeds; report any push failure.
 
 ## Versioning
 - None. Tag a milestone `v0.1.0` only when the user asks; the user creates the tag.
