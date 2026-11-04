@@ -15,10 +15,11 @@
 - Speech-to-text: Apple SpeechAnalyzer + SpeechTranscriber, approved for on-device recognition; device and Japanese-language support require validation.
 - Text-to-speech: Apple AVSpeechSynthesizer, approved; voice, speaking rate, and playback validation remain pending.
 - Gaze and head movement: Apple ARKit, approved; calibration, distance criteria, tracking accuracy, and scoring thresholds require validation and approval.
+- Local persistence: SwiftData with CloudKit automatic sync disabled, approved; schema, history metadata, deletion, and backup policies remain undecided.
 - UI language: Japanese (`ja`).
 - Release market: Japan only.
 - Server: undecided; prefer avoiding a server where feasible.
-- Remaining application stack and data storage: undecided, pending user approval.
+- Remaining application stack and data model: undecided, pending user approval.
 - Project documentation includes the user-confirmed mock interview requirements. The iOS application project has not been created yet.
 
 ## Features
@@ -39,6 +40,7 @@ HR interviews assess personality, values, collaboration, and motivation for appl
 - Speech-to-text: Apple SpeechAnalyzer + SpeechTranscriber (approved).
 - Text-to-speech: Apple AVSpeechSynthesizer (approved).
 - Face tracking: Apple ARKit (approved).
+- Local persistence: SwiftData with CloudKit automatic sync disabled (approved).
 - Tests: Swift Testing (unit/integration), XCTest + XCUIAutomation (UI), XCTest (performance), approved.
 - Minimum iOS version: 26.0 (approved).
 - Remaining application stack: pending user approval.

@@ -17,6 +17,7 @@ Keep it short. Detailed rules live in the documents linked below.
 - STT: Apple SpeechAnalyzer + SpeechTranscriber (approved, on-device; device and Japanese-language support pending validation).
 - TTS: Apple AVSpeechSynthesizer (approved; voice, rate, and playback validation pending).
 - Face tracking: Apple ARKit (approved; gaze calibration, distance criteria, and scoring thresholds pending).
+- Local persistence: SwiftData with CloudKit automatic sync disabled (approved; schema, history metadata, deletion, and backup policies pending).
 - Server: undecided
 - Service language: ja
 - Release market: Japan only
@@ -78,7 +79,7 @@ Updating TASK.md and FEEDBACK.md as part of this workflow does not require appro
 - Obtain explicit user approval before making project decisions or changing the approved scope. Do not turn preferences or undecided items into final decisions.
 - Develop an iOS-only app with Japanese UI for release only in Japan.
 - Aim to support iPhone 13 and later where feasible, with iOS 26 or later required. Hardware support remains subject to validation.
-- Server usage is undecided; prefer avoiding a server where feasible. The remaining application stack and data storage method require user approval.
+- Server usage is undecided; prefer avoiding a server where feasible. Local persistence uses SwiftData with CloudKit automatic sync disabled. The remaining application stack, stored data fields, and storage policies require user approval.
 - Commit approved changes in appropriate task units, including the task status and all affected documentation, and push immediately after every commit. Keep GitHub synchronized with the latest documentation and source code.
 - The user has authorized these commits and pushes for approved work; do not ask for separate permission each time. Do not report a task as delivered until its push succeeds. Report any push failure.
 - These project-specific approval and synchronization rules take precedence over conflicting template guidance.
