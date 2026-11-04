@@ -11,6 +11,7 @@
 - Validation runtime: MLX Swift LM, approved; package version and integration settings remain undecided.
 - Speech-to-text: Apple SpeechAnalyzer + SpeechTranscriber, approved for on-device recognition; device and Japanese-language support require validation.
 - Text-to-speech: Apple AVSpeechSynthesizer, approved; voice, speaking rate, and playback validation remain pending.
+- Gaze and head movement: Apple ARKit, approved; calibration, distance criteria, tracking accuracy, and scoring thresholds require validation and approval.
 - UI language: Japanese (`ja`).
 - Release market: Japan only.
 - Server: undecided; prefer avoiding a server where feasible.
@@ -32,6 +33,7 @@ HR interviews assess personality, values, collaboration, and motivation for appl
 - LLM validation runtime: MLX Swift LM (approved).
 - Speech-to-text: Apple SpeechAnalyzer + SpeechTranscriber (approved).
 - Text-to-speech: Apple AVSpeechSynthesizer (approved).
+- Face tracking: Apple ARKit (approved).
 - Minimum iOS version: 26.0 (approved).
 - Remaining application stack: pending user approval.
 

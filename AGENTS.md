@@ -13,6 +13,7 @@ Keep it short. Detailed rules live in the documents linked below.
 - Validation runtime: MLX Swift LM (approved; package version and integration settings pending).
 - STT: Apple SpeechAnalyzer + SpeechTranscriber (approved, on-device; device and Japanese-language support pending validation).
 - TTS: Apple AVSpeechSynthesizer (approved; voice, rate, and playback validation pending).
+- Face tracking: Apple ARKit (approved; gaze calibration, distance criteria, and scoring thresholds pending).
 - Server: undecided
 - Service language: ja
 - Release market: Japan only
