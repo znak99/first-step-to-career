@@ -18,6 +18,18 @@
 - STT는 SpeechAnalyzer + SpeechTranscriber를 사용하는 기기 내부 처리 방식으로 승인받았다. 필요한 언어 모델의 다운로드·설치 상태와 일본어 지원은 실제 기기에서 확인해야 한다.
 - 제품 최종 AI 처리 방식과 외부 전송 허용 여부는 미정이다. 외부 STT 서비스로 음성을 전송하는 구성은 승인받지 않았다. 휴대폰 내부 스크립트 보관 범위는 그대로 유지한다.
 
+### 1.2 로컬 저장 도구 비교 (제안, 미승인)
+저장 도구로 SwiftData를 제안한다. 아래 비교와 적합성 판단은 검토 의견이며 최종 선택은 사용자 승인이 필요하다.
+
+| 후보 | 방식 | 현재 요구사항에 대한 검토 |
+|---|---|---|
+| [SwiftData](https://developer.apple.com/documentation/swiftdata/) | Apple의 기기 내부 데이터 저장·조회 도구 | SwiftUI와 연동해 과거 스크립트를 목록·상세 화면에 표시하기에 적합하다고 판단 |
+| JSON 파일 + Codable | [JSONEncoder](https://developer.apple.com/documentation/foundation/jsonencoder) 등으로 스크립트를 JSON 데이터로 변환해 파일에 저장 | 단순한 스크립트 보관 대안. 파일 읽기·쓰기와 목록 관리·화면 갱신을 직접 구성해야 함 |
+
+- SwiftData는 [앱 재실행 후에도 모델을 보관하고 SwiftUI에서 조회하는 기능](https://developer.apple.com/documentation/swiftdata/preserving-your-apps-model-data-across-launches)을 제공한다. 이 저장 기능을 위해 자체 서버를 운영할 필요는 없다.
+- 제안 구성은 기기 내부 저장이며, `ModelConfiguration(cloudKitDatabase: .none)`으로 SwiftData의 CloudKit 자동 동기화를 비활성화한다. [Apple의 설정 문서](https://developer.apple.com/documentation/swiftdata/modelconfiguration/cloudkitdatabase-swift.struct/none)는 해당 옵션이 관리형 CloudKit 동기화를 끈다고 설명한다.
+- 저장 도구, 스키마, 기록 구분에 필요한 정보, 삭제·백업 정책은 미정이다. 도구 선정으로 질문·답변 스크립트뿐인 저장 범위를 확대하지 않는다. 저장 기능 구현이나 데이터 파일 생성은 수행하지 않았다.
+
 ## 2. 엔티티 목록
 | 엔티티 | 설명 | 저장소 |
 |---|---|---|

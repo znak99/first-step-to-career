@@ -7,6 +7,7 @@
 - Platform: iOS only.
 - Implementation language: Swift (approved).
 - User interface: SwiftUI (approved).
+- Testing: Swift Testing for unit/integration tests, XCTest + XCUIAutomation for UI automation, and XCTest for performance measurement (approved); test structure and acceptance criteria remain undecided.
 - Minimum iOS version: 26.0 (approved).
 - Target devices: iPhone 13 and later if feasible; final support depends on device and performance validation.
 - First validation LLM: LFM2.5-1.2B-JP-202606, approved for evaluation; production adoption remains undecided.
@@ -38,6 +39,7 @@ HR interviews assess personality, values, collaboration, and motivation for appl
 - Speech-to-text: Apple SpeechAnalyzer + SpeechTranscriber (approved).
 - Text-to-speech: Apple AVSpeechSynthesizer (approved).
 - Face tracking: Apple ARKit (approved).
+- Tests: Swift Testing (unit/integration), XCTest + XCUIAutomation (UI), XCTest (performance), approved.
 - Minimum iOS version: 26.0 (approved).
 - Remaining application stack: pending user approval.
 
