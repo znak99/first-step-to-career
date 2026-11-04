@@ -24,7 +24,7 @@
 
 ## Features
 - AI-led mock interviews configured by company name, industry, job role, and interview type (HR or job-specific).
-- A question count adjustable from 3 to 7 through settings or a similar menu; the default is undecided.
+- A question count that defaults to 5 on first use and is adjustable from 3 to 7 through settings or a similar menu.
 - A preparation screen checks the distance needed to observe gaze and head movement. If the front camera does not work or the device lacks TrueDepth support, both movement categories are excluded from scoring and the overall score.
 - Questions are read aloud through text-to-speech (TTS). During the user's turn, speech-to-text (STT) displays the answer, and a period of silence ends the turn automatically; the silence duration is undecided.
 - Scoring covers answer structure, logical coherence, realism, gaze movement, and head movement. The result shows the overall and category scores alongside the question-and-answer transcript; the scoring formula and weights are undecided.

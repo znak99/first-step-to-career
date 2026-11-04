@@ -78,6 +78,7 @@ Updating TASK.md and FEEDBACK.md as part of this workflow does not require appro
 ## Project-Specific Rules
 - Obtain explicit user approval before making project decisions or changing the approved scope. Do not turn preferences or undecided items into final decisions.
 - Develop an iOS-only app with Japanese UI for release only in Japan.
+- Approved question count: default to 5 on first use and allow adjustment from 3 to 7 through settings or a similar menu.
 - Aim to support iPhone 13 and later where feasible, with iOS 26 or later required. Hardware support remains subject to validation.
 - Server usage is undecided; prefer avoiding a server where feasible. Local persistence uses SwiftData with CloudKit automatic sync disabled. The remaining application stack, stored data fields, and storage policies require user approval.
 - Approved interview history content: question-and-answer transcripts, interview start date/time, company name, industry, job role, and interview type (HR/job-specific), stored on the phone. Display history newest first by interview start date/time.
