@@ -40,6 +40,7 @@
 | 첫 검증 LLM | LFM2.5-1.2B-JP-202606 | 2026-11-05 사용자 승인. 제품 최종 채택은 검증 후 별도 결정 |
 | 검증용 모델 실행 도구 | MLX Swift LM | 2026-11-05 사용자 승인. 패키지 버전·연동 설정은 미정 |
 | 음성 인식(STT) | SpeechAnalyzer + SpeechTranscriber | 2026-11-05 사용자 승인. 기기 내부 처리, 일본어·기기 지원은 실기기 검증 필요 |
+| 질문 음성 출력(TTS) | AVSpeechSynthesizer | 2026-11-05 사용자 승인. 목소리·읽기 속도와 재생 검증은 미정 |
 | 언어 | | |
 | 프레임워크 | | |
 | 데이터 저장 | | |
@@ -105,7 +106,7 @@ src/
 - LLM에 근거와 평가 항목을 추출하게 하고, 확정된 계산식의 합산은 앱 코드에서 처리하는 방식을 검토한다. 이 경우에도 LLM의 항목별 판단이 일관적인지는 따로 검증해야 한다.
 - 상세 직무 지식을 모델 자체의 기억에만 의존하지 않도록, 직무별 기준 답안·채점 기준을 함께 제공하는 방식을 검토한다.
 - 실제 iPhone에서 일본어 답변의 품질과 채점 일관성, 대기 시간, 메모리, 발열을 확인한다. 3문·7문과 카메라 관찰·음성 처리까지 포함한 전체 흐름 검증이 필요하다.
-- STT는 이후 SpeechAnalyzer + SpeechTranscriber의 기기 내부 처리로 승인받았다. TTS 도구와 초기 모델 배포/다운로드 방식은 미정이다. 완전한 오프라인 동작과 서버 미사용은 아직 확정하지 않는다.
+- STT는 이후 SpeechAnalyzer + SpeechTranscriber의 기기 내부 처리, TTS는 AVSpeechSynthesizer로 승인받았다. 초기 모델 배포/다운로드 방식은 미정이다. 완전한 오프라인 동작과 서버 미사용은 아직 확정하지 않는다.
 
 ### 6.5 보유 테스트 기기에 따른 검토 조건 (2026-11-05)
 - 사용자는 iPhone 14 Plus와 iPhone XR을 테스트에 사용할 수 있다. 사양과 설치된 OS 확인 상태는 [OPERATIONS.md](OPERATIONS.md)의 테스트 기기 표를 따른다. 이후 사용자가 정한 출시 지원 목표는 가능하다면 iPhone 13 이상이며, 보유 기기 목록과 출시 지원 범위를 구분한다.
@@ -153,17 +154,26 @@ Swift 패키지로 LFM 계열 구현을 활용할 수 있는 점을 근거로 �
 - [AssetInventory](https://developer.apple.com/documentation/speech/assetinventory)를 통해 필요한 언어 모델을 Apple 서버에서 다운로드·설치한 뒤 기기 내부에서 처리한다. 다운로드 시점과 안내 방식은 아직 결정하지 않았다.
 - 지원되지 않을 때의 대체 방식, 인식 오류 처리와 무음 판정 시간은 미정이다. 외부 음성 인식 서비스의 추가 도입·음성 전송은 승인받지 않았다. 음성 인식 기능 구현·언어 모델 설치·실제 기기 시험은 아직 수행하지 않았다.
 
-### 6.11 질문 음성 출력 도구 검토 (제안, 미승인)
-- 현재 제안은 Apple의 [AVSpeechSynthesizer](https://developer.apple.com/documentation/avfaudio/avspeechsynthesizer)를 TTS(문자를 음성으로 읽는 기능) 도구로 선택해 AI 질문을 재생하는 것이다.
+### 6.11 질문 음성 출력 도구 선정 승인 (2026-11-05)
+- 사용자가 Apple의 [AVSpeechSynthesizer](https://developer.apple.com/documentation/avfaudio/avspeechsynthesizer)를 TTS(문자를 음성으로 읽는 기능) 도구로 승인했다. AI 질문을 읽는 데 사용한다.
 - [AVSpeechSynthesisVoice](https://developer.apple.com/documentation/avfaudio/avspeechsynthesisvoice)로 기기에서 사용할 수 있는 음성과 언어·품질을 확인하고, 일본어 음성을 선택하는 방식을 검토한다. 목소리 이름·품질·읽기 속도·음높이는 아직 결정하지 않았다.
 - [질문 재생 완료 통지](https://developer.apple.com/documentation/avfaudio/avspeechsynthesizerdelegate/speechsynthesizer%28_%3Adidfinish%3A%29)를 이용해 사용자 답변 차례로 전환하는 기존 요구사항을 구현할 수 있다. 구체적인 오디오 제어와 중단·오류 처리는 미정이다.
 - OS가 제공하는 음성을 활용하는 안이며, 기기 내 일본어 음성의 설치 상태·실제 발음·오프라인 재생 여부를 실기기에서 검증해야 한다. 회사명과 직무 용어의 읽기도 확인한다.
-- TTS 도구 선정과 음성 다운로드 안내 방식은 사용자 승인 전까지 미정이다. 외부 TTS 서비스나 별도 음성 모델 도입은 승인받지 않았다.
+- 음성 다운로드 안내 방식은 미정이다. 외부 TTS 서비스나 별도 음성 모델 도입은 승인받지 않았다. 음성 출력 기능 구현·음성 설치·실제 기기 재생 시험은 수행하지 않았다.
+
+### 6.12 시선·머리 움직임 관찰 기술 검토 (제안, 미승인)
+- 현재 제안은 Apple ARKit의 [ARFaceTrackingConfiguration](https://developer.apple.com/documentation/arkit/arfacetrackingconfiguration)을 사용해 면접 중 얼굴 움직임을 관찰하는 것이다.
+- 얼굴의 위치·방향 정보로 머리 움직임을 관찰하고, [lookAtPoint](https://developer.apple.com/documentation/arkit/arfaceanchor/lookatpoint)와 양쪽 눈의 위치·방향 정보로 시선 변화를 추정하는 방식을 검토한다.
+- 시선 정보는 추정값이다. 카메라 응시 여부를 판단할 기준, 보정 방법과 측정 정확도는 정하지 않았으며 실기기 검증이 필요하다. 준비 화면의 적정 거리 기준도 미정이다.
+- ARKit은 iOS 14 이후 일부 TrueDepth 미탑재 기기에서도 얼굴 추적을 지원한다. 따라서 ARKit의 지원 확인만으로 TrueDepth 조건을 충족했다고 간주하지 않는다. 제품 요구대로 TrueDepth 지원과 전면 카메라 정상 동작을 확인하고, 미지원·카메라 오류 시 시선·머리 움직임을 모두 채점 및 종합점수에서 제외한다.
+- 관찰 기술 선정, 관찰 도중 추적 실패 시 처리, 움직임 지표·허용 범위·채점 계산식은 미정이다. 원본 영상·움직임 데이터를 과거 면접 이력으로 저장하는 기능은 추가하지 않는다.
+- ARKit 연동·거리 보정·실제 추적 시험은 아직 수행하지 않았다.
 
 ## 7. 설계 결정 기록
 <!-- 되돌리기 어렵거나 나중에 "왜 이렇게 했지?"가 나올 결정만. 최신이 위. 결정을 뒤집을 때는 지우지 말고 새 행을 추가한다. -->
 | 날짜 | 결정 | 이유 | 버린 대안 |
 |---|---|---|---|
+| 2026-11-05 | 질문 음성 출력 도구로 AVSpeechSynthesizer 선정 | 사용자가 제안을 명시적으로 승인 | 외부 TTS 서비스 도입은 결정하지 않음 |
 | 2026-11-05 | 기기 내부 STT 도구로 SpeechAnalyzer + SpeechTranscriber 선정 | 사용자가 제안을 명시적으로 승인 | 대체 도구 도입은 결정하지 않음 |
 | 2026-11-05 | 최소 iOS 버전을 26.0으로 확정 | 사용자가 iOS 26 이상을 명시적으로 승인 | iOS 26 미만을 설치 하한으로 삼는 안 |
 | 2026-11-05 | 검증용 모델 실행 도구로 MLX Swift LM 선정. 버전·연동 설정은 미정 | 사용자가 제안을 승인 | llama.cpp의 최종 제외는 결정하지 않음 |
