@@ -80,7 +80,7 @@ Updating TASK.md and FEEDBACK.md as part of this workflow does not require appro
 - Develop an iOS-only app with Japanese UI for release only in Japan.
 - Aim to support iPhone 13 and later where feasible, with iOS 26 or later required. Hardware support remains subject to validation.
 - Server usage is undecided; prefer avoiding a server where feasible. Local persistence uses SwiftData with CloudKit automatic sync disabled. The remaining application stack, stored data fields, and storage policies require user approval.
-- Approved interview history content: question-and-answer transcripts, interview start date/time, company name, industry, job role, and interview type (HR/job-specific), stored on the phone.
+- Approved interview history content: question-and-answer transcripts, interview start date/time, company name, industry, job role, and interview type (HR/job-specific), stored on the phone. Display history newest first by interview start date/time.
 - Approved history deletion: let the user select one record, show a confirmation dialog, and delete its transcript and basic information together only on confirmation; cancellation preserves the record.
 - Commit approved changes in appropriate task units, including the task status and all affected documentation, and push immediately after every commit. Keep GitHub synchronized with the latest documentation and source code.
 - The user has authorized these commits and pushes for approved work; do not ask for separate permission each time. Do not report a task as delivered until its push succeeds. Report any push failure.
