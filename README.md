@@ -15,7 +15,7 @@
 - Speech-to-text: Apple SpeechAnalyzer + SpeechTranscriber, approved for on-device recognition; device and Japanese-language support require validation.
 - Text-to-speech: Apple AVSpeechSynthesizer, approved; voice, speaking rate, and playback validation remain pending.
 - Gaze and head movement: Apple ARKit, approved; calibration, distance criteria, tracking accuracy, and scoring thresholds require validation and approval.
-- Local persistence: SwiftData with CloudKit automatic sync disabled, approved; schema, deletion, and backup policies remain undecided.
+- Local persistence: SwiftData with CloudKit automatic sync disabled, approved; schema and remaining storage policies remain undecided.
 - UI language: Japanese (`ja`).
 - Release market: Japan only.
 - Server: undecided; prefer avoiding a server where feasible.
@@ -28,7 +28,8 @@
 - A preparation screen checks the distance needed to observe gaze and head movement. If the front camera does not work or the device lacks TrueDepth support, both movement categories are excluded from scoring and the overall score.
 - Questions are read aloud through text-to-speech (TTS). During the user's turn, speech-to-text (STT) displays the answer, and a period of silence ends the turn automatically; the silence duration is undecided.
 - Scoring covers answer structure, logical coherence, realism, gaze movement, and head movement. The result shows the overall and category scores alongside the question-and-answer transcript; the scoring formula and weights are undecided.
-- Past interview records store question-and-answer transcripts on the phone along with the interview start date/time, company name, industry, job role, and interview type (HR/job-specific). Users can review past transcripts; the list layout and deletion behavior remain undecided.
+- Past interview records store question-and-answer transcripts on the phone along with the interview start date/time, company name, industry, job role, and interview type (HR/job-specific). Users can review past transcripts; list layout and display order remain undecided.
+- Users can delete one past record after a confirmation dialog. Confirmation deletes its transcript and basic information together; cancellation preserves the record.
 
 HR interviews assess personality, values, collaboration, and motivation for applying. Job-specific interviews assess practical knowledge, problem-solving ability, and expertise relevant to the selected role. Gaze and head movement are observed during the interview; answer structure, logical coherence, and realism are evaluated after it ends.
 
