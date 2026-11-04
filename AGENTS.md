@@ -7,6 +7,8 @@ Keep it short. Detailed rules live in the documents linked below.
 - Scale: small
 - Type: Mobile
 - Platform: iOS only
+- Implementation language: Swift (approved).
+- UI framework: SwiftUI (approved).
 - Minimum iOS version: 26.0 (approved).
 - Target devices: iPhone 13 and later if feasible; support remains subject to device and performance validation.
 - First validation LLM: LFM2.5-1.2B-JP-202606 (approved; production adoption pending validation).
