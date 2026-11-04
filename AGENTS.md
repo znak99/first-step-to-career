@@ -7,6 +7,7 @@ Keep it short. Detailed rules live in the documents linked below.
 - Scale: small
 - Type: Mobile
 - Platform: iOS only
+- Minimum iOS version: 26.0 (approved).
 - Target devices: iPhone 13 and later if feasible; support remains subject to device and performance validation.
 - First validation LLM: LFM2.5-1.2B-JP-202606 (approved; production adoption pending validation).
 - Validation runtime: MLX Swift LM (approved; package version and integration settings pending).
@@ -70,8 +71,8 @@ Updating TASK.md and FEEDBACK.md as part of this workflow does not require appro
 ## Project-Specific Rules
 - Obtain explicit user approval before making project decisions or changing the approved scope. Do not turn preferences or undecided items into final decisions.
 - Develop an iOS-only app with Japanese UI for release only in Japan.
-- Aim to support iPhone 13 and later where feasible. This is a conditional hardware target, not a confirmed minimum iOS version or a claim of verified performance.
-- Server usage is undecided; prefer avoiding a server where feasible. The technology stack, minimum iOS version, and data storage method also require user approval.
+- Aim to support iPhone 13 and later where feasible, with iOS 26 or later required. Hardware support remains subject to validation.
+- Server usage is undecided; prefer avoiding a server where feasible. The remaining application stack and data storage method require user approval.
 - Commit approved changes in appropriate task units, including the task status and all affected documentation, and push immediately after every commit. Keep GitHub synchronized with the latest documentation and source code.
 - The user has authorized these commits and pushes for approved work; do not ask for separate permission each time. Do not report a task as delivered until its push succeeds. Report any push failure.
 - These project-specific approval and synchronization rules take precedence over conflicting template guidance.
