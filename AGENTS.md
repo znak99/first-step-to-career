@@ -7,6 +7,7 @@ Keep it short. Detailed rules live in the documents linked below.
 - Scale: small
 - Type: Mobile
 - Platform: iOS only
+- Target devices: iPhone 13 and later if feasible; support remains subject to device and performance validation.
 - Server: undecided
 - Service language: ja
 - Release market: Japan only
@@ -67,6 +68,7 @@ Updating TASK.md and FEEDBACK.md as part of this workflow does not require appro
 ## Project-Specific Rules
 - Obtain explicit user approval before making project decisions or changing the approved scope. Do not turn preferences or undecided items into final decisions.
 - Develop an iOS-only app with Japanese UI for release only in Japan.
+- Aim to support iPhone 13 and later where feasible. This is a conditional hardware target, not a confirmed minimum iOS version or a claim of verified performance.
 - Server usage is undecided; prefer avoiding a server where feasible. The technology stack, minimum iOS version, and data storage method also require user approval.
 - Commit approved changes in appropriate task units, including the task status and all affected documentation, and push immediately after every commit. Keep GitHub synchronized with the latest documentation and source code.
 - The user has authorized these commits and pushes for approved work; do not ask for separate permission each time. Do not report a task as delivered until its push succeeds. Report any push failure.

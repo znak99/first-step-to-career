@@ -5,6 +5,7 @@
 ## Project Status
 - Scale: small; work directly on `main`.
 - Platform: iOS only.
+- Target devices: iPhone 13 and later if feasible; final support depends on device and performance validation.
 - UI language: Japanese (`ja`).
 - Release market: Japan only.
 - Server: undecided; prefer avoiding a server where feasible.
