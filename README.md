@@ -9,6 +9,7 @@
 - Target devices: iPhone 13 and later if feasible; final support depends on device and performance validation.
 - First validation LLM: LFM2.5-1.2B-JP-202606, approved for evaluation; production adoption remains undecided.
 - Validation runtime: MLX Swift LM, approved; package version and integration settings remain undecided.
+- Speech-to-text: Apple SpeechAnalyzer + SpeechTranscriber, approved for on-device recognition; device and Japanese-language support require validation.
 - UI language: Japanese (`ja`).
 - Release market: Japan only.
 - Server: undecided; prefer avoiding a server where feasible.
@@ -28,6 +29,7 @@ HR interviews assess personality, values, collaboration, and motivation for appl
 ## Tech Stack
 <!-- TODO: language, framework, database, hosting. One line each. -->
 - LLM validation runtime: MLX Swift LM (approved).
+- Speech-to-text: Apple SpeechAnalyzer + SpeechTranscriber (approved).
 - Minimum iOS version: 26.0 (approved).
 - Remaining application stack: pending user approval.
 
