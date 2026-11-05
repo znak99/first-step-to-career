@@ -289,6 +289,9 @@ MLX 버전·형식 조사는 [MLX_RESEARCH.md](MLX_RESEARCH.md)를 따른다. �
 
 ## 3. 실행·빌드·테스트
 <!-- 에이전트가 그대로 복사해 실행할 수 있는 명령으로 적는다. -->
+
+사용자 생성 Xcode 프로젝트는 `ios/`에 있다. Core는 `ios/FirstStepToCareer/Core/`, 단위 시험은 `ios/FirstStepToCareerTests/Core/`, 검증 도구는 `ios/Scripts/`에 둔다. 앱과 시험 대상을 분리하고, 작업 범위에 포함되지 않은 앱 시작점·화면·서명 설정은 보존한다. 이전한 `ios_temp/`는 삭제된 상태이며 다시 작업 경로로 사용하지 않는다. 연결 시 지킬 조건은 [INTEGRATION.md](../../ios/INTEGRATION.md)를 따른다.
+
 | 작업 | 명령 |
 |---|---|
 | 의존성 설치 | 외부 패키지 없음 |
