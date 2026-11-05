@@ -58,7 +58,6 @@ User-confirmed early exit and automatic nonresponse termination both end without
 HR interviews assess personality, values, collaboration, and motivation for applying. Job-specific interviews assess practical knowledge, problem-solving ability, and expertise relevant to the selected role. Gaze and head movement are observed during the interview; answer structure, logical coherence, and realism are evaluated after normal completion.
 
 ## Tech Stack
-<!-- TODO: language, framework, database, hosting. One line each. -->
 - Language: Swift (approved).
 - User interface: SwiftUI (approved).
 - LLM validation runtime: MLX Swift LM (approved).
@@ -99,9 +98,6 @@ This checks the sources for iOS 26 with both default isolation configurations an
 | [docs/system-design/OPERATIONS.md](docs/system-design/OPERATIONS.md) | Running, building, deploying |
 | [docs/system-design/MLX_RESEARCH.md](docs/system-design/MLX_RESEARCH.md) | Runtime versions and model-format proposal; adoption pending approval |
 | [docs/ui-design/SITE_MAP.md](docs/ui-design/SITE_MAP.md) | Screens and flows |
-
-## License
-<!-- TODO: fill in, or delete this section -->
 
 Exit-confirmation pause/cancel core handling preserves active time and rotates work/observation identifiers on resumption. The exit-confirmation UI and actual device/model suspension are not implemented.
 
