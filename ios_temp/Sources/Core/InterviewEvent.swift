@@ -2,6 +2,17 @@ nonisolated struct InterviewOperationID: Hashable, Sendable {
     let rawValue: Int
 }
 
+nonisolated struct ExitConfirmationID: Hashable, Sendable {
+    let rawValue: Int
+}
+
+nonisolated struct ExitConfirmationPause: Equatable, Sendable {
+    let confirmation: ExitConfirmationID
+    let phase: InterviewPhase
+    let wallTime: Duration
+    let interviewTime: Duration
+}
+
 nonisolated struct InterviewTurn: Equatable, Sendable {
     let questionNumber: Int
     let question: String
@@ -27,6 +38,7 @@ nonisolated enum InterviewApprovalBoundary: Equatable, Sendable {
     case continuationInPhase(InterviewPhase)
     case movementWithoutObservations
     case continuationAfterNonresponse
+    case exitConfirmationAtResponseDeadline
 }
 
 nonisolated enum InterviewSessionError: Error, Equatable {
@@ -51,8 +63,10 @@ nonisolated enum InterviewEvent: Sendable {
     case continueSpeaking
     case evaluationFinished(operation: InterviewOperationID, questions: [QuestionScores])
     case resultsWillDisplay
-    case movementCheck(gaze: ScreenPosition?, head: ScreenPosition?)
-    case trackingAvailability(gaze: Bool, head: Bool)
+    case exitConfirmationPresented
+    case exitConfirmationCancelled(confirmation: ExitConfirmationID)
+    case movementCheck(operation: InterviewOperationID, gaze: ScreenPosition?, head: ScreenPosition?)
+    case trackingAvailability(operation: InterviewOperationID, gaze: Bool, head: Bool)
 }
 
 nonisolated enum InterviewCommand: Equatable, Sendable {
@@ -69,4 +83,6 @@ nonisolated enum InterviewCommand: Equatable, Sendable {
     case resultsAvailable
     case presentResults(InterviewScores)
     case notifyMovementExcluded(Set<MovementExclusionReason>)
+    case suspendInterviewWork(confirmation: ExitConfirmationID, phase: InterviewPhase, operation: InterviewOperationID?, observation: InterviewOperationID)
+    case resumeInterviewWork(confirmation: ExitConfirmationID, phase: InterviewPhase, previousOperation: InterviewOperationID?, operation: InterviewOperationID?, observation: InterviewOperationID)
 }

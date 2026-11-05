@@ -6,6 +6,8 @@ nonisolated struct InterviewSession: Sendable {
     private(set) var movement: MovementScoring
     private(set) var termination: InterviewTerminationReason?
     private(set) var result: InterviewScores?
+    private(set) var exitConfirmationPause: ExitConfirmationPause?
+    private(set) var observationOperation = InterviewOperationID(rawValue: 0)
 
     private var nextOperationValue = 0
     private var nextQuestionNumber = 1
@@ -16,6 +18,7 @@ nonisolated struct InterviewSession: Sendable {
     private var silenceSince: Duration?
     private var lastTime: Duration = .zero
     private var evaluatedQuestions: [QuestionScores]?
+    private var totalPausedTime: Duration = .zero
 
     init(configuration: InterviewConfiguration, movementExclusions: Set<MovementExclusionReason>) {
         self.configuration = configuration
@@ -26,12 +29,13 @@ nonisolated struct InterviewSession: Sendable {
     var completedQuestionCount: Int { completedTurns.count }
 
     var isMovementScoringInterval: Bool {
-        phase != .ready && phase != .resultsDisplayed
+        phase != .ready && phase != .resultsDisplayed && exitConfirmationPause == nil
     }
 
     func silenceCountdownRemaining(at time: Duration) -> Duration? {
-        guard phase == .answering, let silenceSince, time >= silenceSince else { return nil }
-        return max(.zero, .seconds(3) - (time - silenceSince))
+        let current = interviewTime(at: time)
+        guard phase == .answering, let silenceSince, current >= silenceSince else { return nil }
+        return max(.zero, .seconds(3) - (current - silenceSince))
     }
 
     // 실제 장치·타이머 대신 호출자가 시간순 사건을 제공한다. 동시 사건의 우선순위는 정하지 않는다.
@@ -46,13 +50,38 @@ nonisolated struct InterviewSession: Sendable {
     private mutating func process(_ event: InterviewEvent, at time: Duration) throws -> [InterviewCommand] {
         guard time >= .zero, time >= lastTime else { throw InterviewSessionError.invalidTime }
         lastTime = time
+        if let pause = exitConfirmationPause {
+            if case .exitConfirmationCancelled(let confirmation) = event,
+               confirmation == pause.confirmation {
+                return try resumeAfterExitCancellation(at: time, pause: pause)
+            }
+            return []
+        }
+        let current = interviewTime(at: time)
         let wasExcluded = !movement.exclusions.isEmpty
-        if isMovementScoringInterval { try movement.advanceTime(to: time) }
+        if isMovementScoringInterval { try movement.advanceTime(to: current) }
         var commands: [InterviewCommand] = []
         if !wasExcluded, !movement.exclusions.isEmpty {
             commands.append(.notifyMovementExcluded(movement.exclusions))
         }
-        commands += try transition(event, at: time)
+        if case .exitConfirmationPresented = event {
+            guard phase != .ready, phase != .resultsDisplayed else {
+                throw InterviewSessionError.invalidTransition
+            }
+            if let remaining = responseTimerRemaining(at: current), remaining <= .zero {
+                throw InterviewSessionError.approvalRequired(.exitConfirmationAtResponseDeadline)
+            }
+            let confirmation = ExitConfirmationID(rawValue: try allocateOperationValue())
+            exitConfirmationPause = ExitConfirmationPause(
+                confirmation: confirmation, phase: phase, wallTime: time, interviewTime: current
+            )
+            commands.append(.suspendInterviewWork(
+                confirmation: confirmation, phase: phase, operation: activeOperation,
+                observation: observationOperation
+            ))
+            return commands
+        }
+        commands += try transition(event, at: current)
         return commands
     }
 
@@ -60,6 +89,7 @@ nonisolated struct InterviewSession: Sendable {
         switch event {
         case .start:
             guard phase == .ready else { throw InterviewSessionError.invalidTransition }
+            observationOperation = InterviewOperationID(rawValue: try allocateOperationValue())
             return [try prepareQuestion(number: 1)]
 
         case .questionPrepared(let operation, let text):
@@ -152,21 +182,58 @@ nonisolated struct InterviewSession: Sendable {
             phase = .resultsDisplayed
             return [.presentResults(scores)]
 
-        case .movementCheck(let gaze, let head):
-            if isMovementScoringInterval { movement.recordCheck(gaze: gaze, head: head) }
+        case .movementCheck(let operation, let gaze, let head):
+            if operation == observationOperation, isMovementScoringInterval {
+                movement.recordCheck(gaze: gaze, head: head)
+            }
             return []
 
-        case .trackingAvailability(let gaze, let head):
-            if isMovementScoringInterval { try movement.updateAvailability(gaze: gaze, head: head, at: time) }
+        case .trackingAvailability(let operation, let gaze, let head):
+            if operation == observationOperation, isMovementScoringInterval {
+                try movement.updateAvailability(gaze: gaze, head: head, at: time)
+            }
+            return []
+
+        case .exitConfirmationPresented, .exitConfirmationCancelled:
             return []
         }
     }
 
-    private mutating func newOperation() throws -> InterviewOperationID {
+    private func interviewTime(at wallTime: Duration) -> Duration {
+        exitConfirmationPause?.interviewTime ?? wallTime - totalPausedTime
+    }
+
+    private mutating func resumeAfterExitCancellation(at time: Duration, pause: ExitConfirmationPause) throws -> [InterviewCommand] {
+        if let remaining = responseTimerRemaining(at: pause.interviewTime), remaining < .seconds(1) {
+            if phase == .waitingForSpeech, let waitingSince { self.waitingSince = waitingSince + .seconds(1) }
+            if phase == .answering, let silenceSince { self.silenceSince = silenceSince + .seconds(1) }
+        }
+        totalPausedTime += time - pause.wallTime
+        exitConfirmationPause = nil
+        let previousOperation = activeOperation
+        if previousOperation != nil { _ = try newOperation() }
+        observationOperation = InterviewOperationID(rawValue: try allocateOperationValue())
+        return [.resumeInterviewWork(
+            confirmation: pause.confirmation, phase: phase, previousOperation: previousOperation,
+            operation: activeOperation, observation: observationOperation
+        )]
+    }
+
+    private func responseTimerRemaining(at time: Duration) -> Duration? {
+        if phase == .waitingForSpeech, let waitingSince { return .seconds(7) - (time - waitingSince) }
+        if phase == .answering, let silenceSince { return .seconds(3) - (time - silenceSince) }
+        return nil
+    }
+
+    private mutating func allocateOperationValue() throws -> Int {
         let next = nextOperationValue.addingReportingOverflow(1)
         guard !next.overflow else { throw InterviewSessionError.operationLimit }
         nextOperationValue = next.partialValue
-        let operation = InterviewOperationID(rawValue: nextOperationValue)
+        return nextOperationValue
+    }
+
+    private mutating func newOperation() throws -> InterviewOperationID {
+        let operation = InterviewOperationID(rawValue: try allocateOperationValue())
         activeOperation = operation
         return operation
     }

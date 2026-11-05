@@ -167,48 +167,48 @@ struct InterviewSessionTests {
         var session = try makeSession(exclusions: [])
         let outside = try ScreenPosition(x: -1, y: 0.5)
         let center = try ScreenPosition(x: 0.5, y: 0.5)
-        try session.handle(.movementCheck(gaze: outside, head: center), at: .zero)
+        try session.handle(.movementCheck(operation: session.observationOperation, gaze: outside, head: center), at: .zero)
         #expect(try session.movement.assessment == .awaitingObservations)
         try session.handle(.start, at: .zero)
         var checks = 0
         var time = Duration.zero
         for _ in 1...3 {
-            try session.handle(.movementCheck(gaze: outside, head: center), at: time)
+            try session.handle(.movementCheck(operation: session.observationOperation, gaze: outside, head: center), at: time)
             checks += 1
             try session.handle(.questionPrepared(operation: operation(session), text: "質問"), at: time)
-            try session.handle(.movementCheck(gaze: outside, head: center), at: time)
+            try session.handle(.movementCheck(operation: session.observationOperation, gaze: outside, head: center), at: time)
             checks += 1
             try session.handle(.playbackFinished(operation: operation(session)), at: time)
             try session.handle(.recognitionStarted(operation: operation(session)), at: time)
-            try session.handle(.movementCheck(gaze: outside, head: center), at: time)
+            try session.handle(.movementCheck(operation: session.observationOperation, gaze: outside, head: center), at: time)
             checks += 1
             let recognition = try operation(session)
             try session.handle(.newSpeechSegment(operation: recognition, text: "回答"), at: time)
-            try session.handle(.movementCheck(gaze: outside, head: center), at: time)
+            try session.handle(.movementCheck(operation: session.observationOperation, gaze: outside, head: center), at: time)
             checks += 1
             try session.handle(.silenceBegan(operation: recognition), at: time)
-            try session.handle(.movementCheck(gaze: outside, head: center), at: time + .seconds(1))
+            try session.handle(.movementCheck(operation: session.observationOperation, gaze: outside, head: center), at: time + .seconds(1))
             checks += 1
             time += .seconds(3)
             try session.handle(.timeAdvanced, at: time)
         }
-        try session.handle(.movementCheck(gaze: outside, head: center), at: time)
+        try session.handle(.movementCheck(operation: session.observationOperation, gaze: outside, head: center), at: time)
         checks += 1
         try session.handle(.evaluationFinished(operation: operation(session), questions: scores(session, value: 80)), at: time)
-        try session.handle(.movementCheck(gaze: outside, head: center), at: time)
+        try session.handle(.movementCheck(operation: session.observationOperation, gaze: outside, head: center), at: time)
         checks += 1
         try session.handle(.resultsWillDisplay, at: time)
         let expectedGaze = try Score(numerator: 1000 - checks * 4, denominator: 10)
         #expect(session.result?.movement?.gaze == expectedGaze)
-        try session.handle(.movementCheck(gaze: outside, head: outside), at: time + .seconds(1))
+        try session.handle(.movementCheck(operation: session.observationOperation, gaze: outside, head: outside), at: time + .seconds(1))
         #expect(session.result?.movement?.gaze == expectedGaze)
     }
 
     @Test func trackingFailureNotifiesOnceAndInterviewContinues() throws {
         var session = try makeSession(exclusions: [])
         try session.handle(.start, at: .zero)
-        try session.handle(.movementCheck(gaze: ScreenPosition(x: -1, y: 0.5), head: ScreenPosition(x: -1, y: 0.5)), at: .zero)
-        try session.handle(.trackingAvailability(gaze: false, head: true), at: .zero)
+        try session.handle(.movementCheck(operation: session.observationOperation, gaze: ScreenPosition(x: -1, y: 0.5), head: ScreenPosition(x: -1, y: 0.5)), at: .zero)
+        try session.handle(.trackingAvailability(operation: session.observationOperation, gaze: false, head: true), at: .zero)
         let commands = try session.handle(.timeAdvanced, at: .seconds(3))
         #expect(commands == [.notifyMovementExcluded([.interviewTrackingUnavailable])])
         #expect(session.phase == .preparingQuestion)
