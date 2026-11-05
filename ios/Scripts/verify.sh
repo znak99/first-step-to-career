@@ -1,13 +1,13 @@
 #!/bin/bash
 set -euo pipefail
 
-staging_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+ios_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 verification_root="$(mktemp -d "${TMPDIR:-/tmp}/first-step-core.XXXXXX")"
 printf '검증용 임시 경로: %s\n' "$verification_root"
 
 mkdir -p "$verification_root/Sources/FirstStepToCareer" "$verification_root/Tests/FirstStepToCareerTests" "$verification_root/cache"
-cp -R "$staging_root/Sources/Core/." "$verification_root/Sources/FirstStepToCareer/"
-cp -R "$staging_root/Tests/Core/." "$verification_root/Tests/FirstStepToCareerTests/"
+cp -R "$ios_root/FirstStepToCareer/Core/." "$verification_root/Sources/FirstStepToCareer/"
+cp -R "$ios_root/FirstStepToCareerTests/Core/." "$verification_root/Tests/FirstStepToCareerTests/"
 
 cat > "$verification_root/Package.swift" <<'SWIFT'
 // swift-tools-version: 6.0
@@ -28,7 +28,7 @@ xcrun swiftc -swift-version 6 -parse-as-library -typecheck \
     -module-name FirstStepToCareer \
     -sdk "$(xcrun --sdk iphoneos --show-sdk-path)" \
     -target arm64-apple-ios26.0 -module-cache-path "$verification_root/cache" \
-    "$staging_root"/Sources/Core/*.swift
+    "$ios_root"/FirstStepToCareer/Core/*.swift
 
 cat > "$verification_root/cache/IsolationProbe.swift" <<'SWIFT'
 nonisolated func verifyCoreIsolation() throws {
@@ -46,7 +46,7 @@ xcrun swiftc -swift-version 6 -default-isolation MainActor -parse-as-library -ty
     -module-name FirstStepToCareer \
     -sdk "$(xcrun --sdk iphoneos --show-sdk-path)" \
     -target arm64-apple-ios26.0 -module-cache-path "$verification_root/cache" \
-    "$staging_root"/Sources/Core/*.swift "$verification_root/cache/IsolationProbe.swift"
+    "$ios_root"/FirstStepToCareer/Core/*.swift "$verification_root/cache/IsolationProbe.swift"
 
 CLANG_MODULE_CACHE_PATH="$verification_root/cache" \
     xcrun swift test --package-path "$verification_root" \

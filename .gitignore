@@ -1,1 +1,7 @@
 /llm/LFM2.5-1.2B-JP-202606/
+
+.DS_Store
+**/xcuserdata/
+*.xcuserstate
+/ios/build/
+/ios/DerivedData/
