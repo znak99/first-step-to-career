@@ -65,6 +65,7 @@ nonisolated enum InterviewEvent: Sendable {
     case resultsWillDisplay
     case exitConfirmationPresented
     case exitConfirmationCancelled(confirmation: ExitConfirmationID)
+    case exitConfirmationConfirmed(confirmation: ExitConfirmationID)
     case movementCheck(operation: InterviewOperationID, gaze: ScreenPosition?, head: ScreenPosition?)
     case trackingAvailability(operation: InterviewOperationID, gaze: Bool, head: Bool)
 }

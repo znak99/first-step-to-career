@@ -58,6 +58,10 @@ nonisolated struct InterviewSession: Sendable {
         lastTime = time
         if phase == .endedWithoutScore { return [] }
         if let pause = exitConfirmationPause {
+            if case .exitConfirmationConfirmed(let confirmation) = event,
+               confirmation == pause.confirmation {
+                return [endWithoutScore(reason: .userConfirmedExit)]
+            }
             if case .exitConfirmationCancelled(let confirmation) = event,
                confirmation == pause.confirmation {
                 return try resumeAfterExitCancellation(at: time, pause: pause)
@@ -202,7 +206,7 @@ nonisolated struct InterviewSession: Sendable {
             }
             return []
 
-        case .exitConfirmationPresented, .exitConfirmationCancelled:
+        case .exitConfirmationPresented, .exitConfirmationCancelled, .exitConfirmationConfirmed:
             return []
         }
     }

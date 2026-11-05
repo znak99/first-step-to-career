@@ -35,7 +35,7 @@ Mac에서의 핵심 규칙 검증은 실제 iOS 앱·기기 검증과 구분한�
 
 [SITE_MAP.md](../docs/ui-design/SITE_MAP.md)의 4.30을 반영해 두 번째 무응답은 평가 요청 없이 `.endedWithoutScore`로 끝난다. `.endWithoutScore` 지시는 연결부에서 남은 작업과 관찰을 중단할 때 사용한다. `outcome`은 진행 중의 `nil`, 정상 완료의 `.completed(scores)`, 점수 없는 종료의 `.endedWithoutScore(reason)`를 구분한다. `result`는 무평가 종료 시 `nil`이며 0점을 대신 넣지 않는다. 종료 후 도착한 사건은 무시한다.
 
-`OverallScoring.calculate`는 조기 종료에 답변 평균·점수 계산 없이 `nil`을 반환하며 정상 완료에만 계산한다. `isEligibleForHistory`는 정상 결과가 확정된 경우만 참이다. 실제 SwiftData 저장·임시 자료 정리·화면 이동은 구현하지 않았다. 확인 창의 종료 확정 사건 연결은 다음 작업이며 취소 재개는 기존대로 동작한다. 현재 iOS 26 소스 검사와 시험 함수 46개·매개변수 사례가 통과했다.
+`OverallScoring.calculate`는 조기 종료에 답변 평균·점수 계산 없이 `nil`을 반환하며 정상 완료에만 계산한다. `isEligibleForHistory`는 정상 결과가 확정된 경우만 참이다. 실제 SwiftData 저장·임시 자료 정리·화면 이동은 구현하지 않았다. 사용자 종료를 확인하면 현재 창 번호로 `.exitConfirmationConfirmed`를 전달한다. 번호가 일치할 때만 같은 무평가 종료로 끝나며 이전/잘못된 번호와 이미 닫힌 창의 확정은 무시한다. 취소 재개는 기존대로 동작한다. 현재 iOS 26 소스 검사와 시험 함수 48개·매개변수 사례가 통과했다.
 
 ## 연결할 때 지킬 입력 조건
 
@@ -43,7 +43,7 @@ Mac에서의 핵심 규칙 검증은 실제 iOS 앱·기기 검증과 구분한�
 
 확인 창이 실제로 표시된 시각에 `.exitConfirmationPresented`를 전달한다. Core는 이전 `phase`를 유지한 채 `exitConfirmationPause`에 확인 창 번호와 정지 시각을 보관하고 `.suspendInterviewWork`를 반환한다. 표시 중의 사건은 상태·답변·점수·타이머·관찰에 반영하지 않는다. 취소 후 창이 닫힌 시각에 그 번호로 `.exitConfirmationCancelled`를 전달하면 `.resumeInterviewWork`를 반환하며 표시 시간을 뺀 면접 시간으로 계속한다.
 
-이 지시는 실제 AI·TTS·STT·카메라를 중단하거나 재생 위치를 복원하는 구현이 아니다. 실제 연결부가 모든 작업을 정지·재개하도록 구현해야 한다. 정지·보류·재실행 방법과 재생 위치·동시 사건 우선순위는 미정이다. 무평가 종료 변경은 추가 승인을 받았으며 사용자 종료 확정 연결은 다음 작업이다.
+이 지시는 실제 AI·TTS·STT·카메라를 중단하거나 재생 위치를 복원하는 구현이 아니다. 실제 연결부가 모든 작업을 정지·재개하도록 구현해야 한다. 정지·보류·재실행 방법과 재생 위치·동시 사건 우선순위는 미정이다. 무평가 종료 변경도 추가 승인을 받아 사용자 확인 종료와 자동 무응답 종료 모두 Core에 반영했다.
 
 재개할 때 `activeOperation`과 `observationOperation` 번호가 바뀐다. 음성·AI 결과에는 작업 시작 때 받은 번호를, `.movementCheck(operation:gaze:head:)`와 `.trackingAvailability(operation:gaze:head:)`에는 관찰 수집을 시작할 때 받은 번호를 넣는다. 결과를 전달하는 순간 현재 번호로 바꿔 붙이면 이전 자료를 구분할 수 없으므로 그렇게 사용하지 않는다. 이전 번호로 늦게 전달된 자료는 무시한다. 새 번호는 재개 지시에 들어 있다.
 

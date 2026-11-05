@@ -73,8 +73,83 @@ struct ExitConfirmationIntegrationTests {
         case .resultsReady:
             try session.handle(.resultsWillDisplay, at: time)
             #expect(session.phase == .resultsDisplayed)
+            #expect(session.isEligibleForHistory)
+            #expect(session.outcome == .completed(try #require(session.result)))
         default: Issue.record("시험 대상 단계가 일치하지 않습니다")
         }
+    }
+
+    @Test(arguments: [
+        InterviewPhase.preparingQuestion, .playingQuestion, .startingRecognition,
+        .waitingForSpeech, .answering, .preparingRepeatPrompt, .playingRepeatPrompt,
+        .evaluating, .resultsReady
+    ])
+    func confirmedExitEndsEveryActivePhaseWithoutScoresOrHistory(target: InterviewPhase) throws {
+        var (session, time) = try fixture(in: target, exclusions: [])
+        let oldWork = session.activeOperation
+        let observation = session.observationOperation
+        let outside = try ScreenPosition(x: -1, y: -1)
+        try session.handle(.movementCheck(operation: observation, gaze: outside, head: outside), at: time)
+        try session.handle(.trackingAvailability(operation: observation, gaze: false, head: true), at: time)
+        let assessment = try session.movement.assessment
+        time += .milliseconds(500)
+        try session.handle(.exitConfirmationPresented, at: time)
+        let confirmation = try #require(session.exitConfirmationPause?.confirmation)
+        #expect(session.outcome == nil)
+        #expect(!session.isEligibleForHistory)
+        let commands = try session.handle(.exitConfirmationConfirmed(confirmation: confirmation), at: time + .seconds(10))
+        #expect(commands == [.endWithoutScore(reason: .userConfirmedExit, operation: oldWork, observation: observation)])
+        #expect(session.phase == .endedWithoutScore)
+        #expect(session.termination == .userConfirmedExit)
+        #expect(session.outcome == .endedWithoutScore(.userConfirmedExit))
+        #expect(session.result == nil)
+        #expect(session.activeOperation == nil)
+        #expect(session.exitConfirmationPause == nil)
+        #expect(!session.isMovementScoringInterval)
+        #expect(!session.isEligibleForHistory)
+        #expect(try session.movement.assessment == assessment)
+        let old = oldWork ?? InterviewOperationID(rawValue: 0)
+        let lateEvents: [InterviewEvent] = [
+            .exitConfirmationCancelled(confirmation: confirmation),
+            .exitConfirmationConfirmed(confirmation: confirmation), .exitConfirmationPresented,
+            .questionPrepared(operation: old, text: "遅れた質問"),
+            .repeatPromptPrepared(operation: old, text: "遅れた再質問"),
+            .playbackFinished(operation: old), .recognitionStarted(operation: old),
+            .newSpeechSegment(operation: old, text: "遅れた発話"),
+            .speechActivity(operation: old), .silenceBegan(operation: old),
+            .evaluationFinished(operation: old, questions: try grades(session)),
+            .resultsWillDisplay, .continueSpeaking, .timeAdvanced,
+            .movementCheck(operation: observation, gaze: outside, head: outside),
+            .trackingAvailability(operation: observation, gaze: false, head: false)
+        ]
+        for event in lateEvents { #expect(try session.handle(event, at: time + .seconds(20)).isEmpty) }
+        #expect(session.result == nil)
+        #expect(session.outcome == .endedWithoutScore(.userConfirmedExit))
+        #expect(try session.movement.assessment == assessment)
+        #expect(!session.isEligibleForHistory)
+    }
+
+    @Test func confirmationRequiresTheCurrentlyDisplayedDialog() throws {
+        var (session, time) = try fixture(in: .waitingForSpeech)
+        let unknown = ExitConfirmationID(rawValue: -1)
+        #expect(try session.handle(.exitConfirmationConfirmed(confirmation: unknown), at: time).isEmpty)
+        #expect(session.phase == .waitingForSpeech)
+        try session.handle(.exitConfirmationPresented, at: time)
+        let first = try #require(session.exitConfirmationPause?.confirmation)
+        time += .seconds(10)
+        #expect(try session.handle(.exitConfirmationConfirmed(confirmation: unknown), at: time).isEmpty)
+        #expect(session.exitConfirmationPause?.confirmation == first)
+        try session.handle(.exitConfirmationCancelled(confirmation: first), at: time)
+        #expect(try session.handle(.exitConfirmationConfirmed(confirmation: first), at: time).isEmpty)
+        #expect(session.phase == .waitingForSpeech)
+        try session.handle(.exitConfirmationPresented, at: time)
+        let second = try #require(session.exitConfirmationPause?.confirmation)
+        #expect(second != first)
+        #expect(try session.handle(.exitConfirmationConfirmed(confirmation: first), at: time).isEmpty)
+        #expect(session.exitConfirmationPause?.confirmation == second)
+        #expect(session.outcome == nil)
+        try session.handle(.exitConfirmationConfirmed(confirmation: second), at: time)
+        #expect(session.outcome == .endedWithoutScore(.userConfirmedExit))
     }
 
     @Test func aPausedRecognitionStartDoesNotBeginTheSevenSecondWait() throws {
