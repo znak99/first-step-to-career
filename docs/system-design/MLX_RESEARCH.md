@@ -97,6 +97,6 @@ Safetensors는 모델이 학습한 숫자인 가중치를 담는 파일 형식�
 ## 개발용 연결 승인과 작업 상태 (2026-11-05)
 
 - 승인: 면접 화면의 Debug 전용 버튼·LLM 시험 화면, 위 실행/토크나이저 패키지와 기존 `llm/LFM2.5-1.2B-JP-202606/` 원본 사용. 컴퓨터 전역 설치는 하지 않는다.
-- 패키지 체크아웃·캐시·빌드 결과는 Git에서 제외한 `ios/.build/` 아래에서 관리한다. 앱의 직접 의존성과 독립 검증용 `ios/Packages/LocalLLMRuntime/Package.swift`는 같은 버전을 사용한다. 실제 간접 의존성은 독립 검증 패키지의 `Package.resolved`에 기록하고 앱 체크아웃과 동일함을 대조했다. 현재 Xcode는 앱의 별도 `Package.resolved`를 유지하지 않아 이를 고정 기록으로 보고하지 않는다.
+- 패키지 체크아웃·캐시·빌드 결과는 Git에서 제외한 `ios/.build/` 아래에서 관리한다. 앱의 직접 의존성과 독립 검증용 `ios/Packages/LocalLLMRuntime/Package.swift`는 같은 버전을 사용한다. 실제 간접 의존성은 Xcode가 생성한 앱의 `Package.resolved`와 독립 검증 패키지의 `Package.resolved`에 기록했다. 두 파일의 12개 간접/직접 의존성 버전·커밋이 동일함을 대조했다.
 - 원본 모델과 공식 `chat_template.jinja`를 읽는 연결을 작성했다. 추가 모델 다운로드·정밀도 변환은 하지 않는다. 시험용 생성 상한 256토큰·temperature 0.1·topK 50·반복 보정 1.05는 면접 채점 정책과 구분한다.
 - 프로젝트 내부 `ios/.build/Metal.xctoolchain`을 외부 도구 경로로 지정해 빌드했다. 전역 설치·등록은 하지 않았으며 Apple 내보내기 명령의 시스템 다운로드 캐시는 남아 있다. Mac에서 실제 일본어 생성·생성 도중 취소·취소 후 재생성을 확인했고 오류/취소 단위 시험 3개도 통과했다. iPhone 실행·성능·품질은 미검증이다.

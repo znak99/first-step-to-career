@@ -2,6 +2,28 @@ import XCTest
 
 @MainActor
 final class AppNavigationUITests: XCTestCase {
+    func testDevelopmentLLMScreenReportsSimulatorLimitation() {
+        continueAfterFailure = false
+        let app = XCUIApplication()
+        app.launch()
+        let start = app.buttons["onboarding.start"]
+        XCTAssertTrue(start.waitForExistence(timeout: 10))
+        start.tap()
+        app.buttons["setup.prepare"].tap()
+        app.buttons["preparation.openInterview"].tap()
+        app.buttons["interview.openLLMTest"].tap()
+        XCTAssertTrue(app.navigationBars["LLMテスト"].exists)
+        XCTAssertTrue(app.textViews["llm.prompt"].exists)
+        app.buttons["llm.generate"].tap()
+        let error = app.staticTexts["llm.error"]
+        XCTAssertTrue(error.waitForExistence(timeout: 5))
+        XCTAssertTrue(error.label.contains("シミュレーター"))
+        XCTAssertTrue(app.buttons["llm.generate"].isEnabled)
+        capture(app, name: "LLMTest")
+        app.navigationBars.buttons.element(boundBy: 0).tap()
+        XCTAssertTrue(app.navigationBars["面接"].exists)
+    }
+
     func testOnboardingTabsAndEveryChildScreen() {
         continueAfterFailure = false
         let app = XCUIApplication()

@@ -11,8 +11,8 @@
 - Minimum iOS version: 26.0 (approved).
 - Target devices: iPhone 13 and later if feasible; final support depends on device and performance validation.
 - First validation LLM: LFM2.5-1.2B-JP-202606, approved for evaluation; production adoption remains undecided.
-- Local model download: the [original model files](llm/README.md) (10 files, about 2.35 GB) have been downloaded and verified under `llm/`. Model files are excluded from Git; the production precision and app distribution method remain undecided. The model has not been executed.
-- Validation runtime: MLX Swift LM, approved; package version and integration settings remain undecided.
+- Local model download: the [original model files](llm/README.md) (10 files, about 2.35 GB) have been downloaded and verified under `llm/`. Model files are excluded from Git; the production precision and app distribution method remain undecided. Japanese generation, mid-generation cancellation, and reuse after cancellation have been verified on Mac; iPhone performance remains unverified.
+- Validation runtime: MLX Swift LM 3.32.3, mlx-swift 0.32.3, and swift-transformers 1.4.0, approved for the development test.
 - Speech-to-text: Apple SpeechAnalyzer + SpeechTranscriber, approved for on-device recognition; device and Japanese-language support require validation.
 - Text-to-speech: Apple AVSpeechSynthesizer, approved; voice, speaking rate, and playback validation remain pending.
 - Gaze and head movement: Apple ARKit, approved; screen-region ratios approved. Calibration, distance criteria, tracking-quality criteria, actual screen-coordinate mapping, and device accuracy remain pending.
@@ -22,7 +22,7 @@
 - Server: undecided; prefer avoiding a server where feasible.
 - Remaining application stack and data model: undecided, pending user approval.
 - The user-created Xcode project is under `ios/`. Question configuration, scoring, movement, tracking-gap, and interview-session sources are included in its app target, with a separate Swift Testing target. All staged files were migrated and `ios_temp/` was removed.
-- The Japanese UI shell includes splash, onboarding, four tabs, and child-screen navigation. Results, history, schedules, and analysis have empty states. AI, speech, camera, interview execution, and persistence remain unconnected.
+- The Japanese UI shell includes splash, onboarding, four tabs, and child-screen navigation. Results, history, schedules, and analysis have empty states. The separate Debug LLM test uses the local model; interview AI, speech, camera, interview execution, and persistence remain unconnected.
 - Run `bash ios/Scripts/verify.sh` for iOS 26 source type checking and Mac unit tests. The shared Xcode scheme also includes a separate UI navigation test target. See [source integration instructions](ios/INTEGRATION.md).
 
 ## Features
@@ -104,3 +104,9 @@ This checks the sources for iOS 26 with both default isolation configurations an
 <!-- TODO: fill in, or delete this section -->
 
 Exit-confirmation pause/cancel core handling preserves active time and rotates work/observation identifiers on resumption. The exit-confirmation UI and actual device/model suspension are not implemented.
+
+## Local LLM development test
+
+Debug iPhone builds include the existing BF16 model. Open the interview screen, then select `開発用：LLMテスト`. The screen accepts a prompt, streams generated text, and supports stopping generation. Each request starts a fresh conversation; prompts and outputs are not saved. Simulator builds show an execution limitation; Release builds omit the development entry and model.
+
+Dependencies and build outputs use `ios/.build/`. No packages or toolchains are installed globally. This Mac uses a project-local Metal toolchain; Apple’s export command also retained a system download-cache copy. See [build and test commands](docs/system-design/OPERATIONS.md#개발용-llm-빌드실행-2026-11-05) before opening Xcode or building. iPhone installation, memory, speed, and output-quality validation remain pending.

@@ -320,7 +320,7 @@ Xcode 27.2·iOS 27.0 iPhone 17 시뮬레이터에서 앱 빌드·Core48개·UI2�
 
 ## 개발용 LLM 빌드·실행 (2026-11-05)
 
-개발용 의존성은 MLX Swift LM 3.32.3·mlx-swift 0.32.3·swift-transformers 1.4.0으로 고정했다. Mac 검증 패키지의 `Package.resolved`에 실제 간접 의존성도 기록하고 앱의 체크아웃 버전·커밋과 동일함을 확인했다. Xcode는 앱의 별도 `Package.resolved`를 유지하지 않았으므로 앱 간접 의존성의 영구 고정을 검증했다고 보고하지 않는다. Python 패키지·시스템 라이브러리·전역 Swift 패키지를 설치하지 않는다. 아래 명령은 저장소 루트에서 실행하며 체크아웃·빌드 결과를 `ios/.build/`에 둔다. Xcode/운영체제가 관리하는 진단·다운로드 캐시는 패키지의 전역 설치와 구분한다.
+개발용 의존성은 MLX Swift LM 3.32.3·mlx-swift 0.32.3·swift-transformers 1.4.0으로 고정했다. Xcode가 생성한 앱의 `Package.resolved`와 Mac 검증 패키지의 `Package.resolved`에 실제 의존성 12개의 버전·커밋도 기록하고 두 파일이 동일함을 확인했다. Python 패키지·시스템 라이브러리·전역 Swift 패키지를 설치하지 않는다. 아래 명령은 저장소 루트에서 실행하며 체크아웃·빌드 결과를 `ios/.build/`에 둔다. Xcode/운영체제가 관리하는 진단·다운로드 캐시는 패키지의 전역 설치와 구분한다.
 
 이 Mac에는 Metal 컴파일 도구가 없었다. Apple의 `xcodebuild -downloadComponent MetalToolchain -exportPath ios/.build/MetalToolchainDownload`로 내보낸 디스크 이미지에서 `Metal.xctoolchain`을 `ios/.build/`로 복사하고 이미지 연결을 해제했다. **전역 설치·등록·`-importComponent`는 하지 않았다.** 다만 Apple 명령이 `/System/Library/AssetsV2/com_apple_MobileAsset_MetalToolchain/`에도 다운로드 캐시를 만든 점은 프로젝트 안에서만 내려받겠다는 초기 설명과 다르다. 이 명령은 자동 실행 스크립트에 넣지 않는다. 시스템 캐시를 임의 삭제하지 않는다.
 
@@ -368,3 +368,5 @@ bash ios/Scripts/project-env.sh xcrun swift run \
 Mac에서 실제 `こんにちは。` 생성, 출력 도중 취소, 같은 서비스에서 `ありがとう。` 재생성을 확인했다. 빈 입력·파일 누락 후 재시도·이미 취소된 요청 단위 시험 3개도 통과했다. 시뮬레이터에서 Core48개·UI3개(개발 화면 이동·제한 오류·복귀 포함)가 통과했다. 독립 Core iOS26 기본/MainActor 검사·Mac48개도 통과했다. Mac 생성 성공은 iPhone 메모리·속도·발열·AI 면접 품질 검증을 대신하지 않는다.
 
 실기기용 Debug 앱 빌드(서명 없음)가 통과했고, 앱에 복사된 9개 파일 2,345,555,504바이트의 SHA-256이 보관 원본과 일치했다. 초기 rsync 임시 파일 쓰기 차단은 파일별 입출력 선언과 직접 복사로 수정했다. 실제 iPhone에 설치하거나 실행한 결과는 아니다.
+
+Release 실기기용 빌드(서명 없음)도 통과했다. 실행 파일에 개발용 버튼 문자열이 없고 `LocalLLM`은 Xcode가 만든 빈 폴더만 존재하며 모델 파일은 없다. 최종 LLM 화면의 이동·오류·복귀 시험도 다시 통과했고 첨부 스크린샷을 확인했다. 시험 결과는 `ios/.build/Xcode/Logs/Test/Test-FirstStepToCareer-2026.11.05_22-29-49-+0900.xcresult`(전체 Core/UI)와 `Test-FirstStepToCareer-2026.11.05_22-37-20-+0900.xcresult`(LLM 화면)다.
