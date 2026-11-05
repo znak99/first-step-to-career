@@ -1,8 +1,8 @@
-enum InterviewConfigurationError: Error, Equatable {
+nonisolated enum InterviewConfigurationError: Error, Equatable {
     case questionCountOutOfRange(Int)
 }
 
-struct InterviewConfiguration: Equatable, Sendable {
+nonisolated struct InterviewConfiguration: Equatable, Sendable {
     static let defaultQuestionCount = 5
     static let allowedQuestionCounts = 3...7
 

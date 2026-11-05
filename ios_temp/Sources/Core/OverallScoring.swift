@@ -1,26 +1,26 @@
-enum InterviewTerminationReason: Equatable, Sendable {
+nonisolated enum InterviewTerminationReason: Equatable, Sendable {
     case completed
     case newQuestionNonresponse
     case failedContinuation
 }
 
-struct MovementCategoryScores: Equatable, Sendable {
+nonisolated struct MovementCategoryScores: Equatable, Sendable {
     let gaze: Score
     let head: Score
 }
 
-struct InterviewScores: Equatable, Sendable {
+nonisolated struct InterviewScores: Equatable, Sendable {
     let answers: AnswerCategoryScores?
     let movement: MovementCategoryScores?
     let quality: Score?
     let overall: Score
 }
 
-enum OverallScoringError: Error, Equatable {
+nonisolated enum OverallScoringError: Error, Equatable {
     case inconsistentCompletion
 }
 
-enum OverallScoring {
+nonisolated enum OverallScoring {
     static func calculate(
         configuration: InterviewConfiguration,
         completedQuestions: [QuestionScores],

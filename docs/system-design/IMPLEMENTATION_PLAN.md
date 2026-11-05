@@ -18,7 +18,7 @@
 |---|---|---|---|
 | 1 | 임시 소스 구조, 질문 기본값 5·허용 범위 3~7, 검증 도구·이전 안내 | `InterviewConfiguration.swift`, 대응 시험, `Scripts/verify.sh`, `INTEGRATION.md` | 작성·질문 설정 시험 완료 |
 | 2 | 세부 기준 0/1/2점 환산·완료 문항 평균, 비중 25/30/25/10/10과 제외 환산, 완료 비율·추가 5점 감점, 표시 한 자리 반올림 | `Score.swift`, `AnswerScoring.swift`, `OverallScoring.swift`, 대응 시험 | 구현·시험 완료 |
-| 3 | 중앙 50/70/90% 사각 구간·안쪽 경계 포함, 단계별 감점·하한 0, 짧은 누락 건너뛰기·연속 3초 누락 시 두 항목 전체 제외 | `MovementScoring.swift`, 대응 시험 | 진행 예정 |
+| 3 | 중앙 50/70/90% 사각 구간·안쪽 경계 포함, 단계별 감점·하한 0, 짧은 누락 건너뛰기·연속 3초 누락 시 두 항목 전체 제외 | `MovementScoring.swift`, 대응 시험 | 구현·시험 완료 |
 | 4 | 새 단어 시작·3초 무음 완료·7초 무응답 재질문/종료, 질문/평가 중 이어 말하기와 취소, 문항 번호·완료 수·답변 보존, 전 구간 움직임 적용 | `InterviewSession.swift`, 대응 시험 | 진행 예정 |
 
 Swift 소스 파일은 모두 `ios_temp/Sources/Core/`, 대응 시험은 `ios_temp/Tests/Core/`에 둔다. 선행 추적 불가 3초 승인 기록을 보존한다.

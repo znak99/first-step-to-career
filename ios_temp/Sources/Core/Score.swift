@@ -1,10 +1,10 @@
-enum ScoreError: Error, Equatable {
+nonisolated enum ScoreError: Error, Equatable {
     case invalidFraction
     case outOfRange
     case arithmeticOverflow
 }
 
-struct Score: Equatable, Sendable {
+nonisolated struct Score: Equatable, Sendable {
     fileprivate let value: ScoreFraction
 
     static let zero = Score(validated: .zero)
@@ -59,7 +59,7 @@ struct Score: Equatable, Sendable {
 }
 
 // 승인된 평균·가중치 계산에서 중간 반올림 없이 분자와 분모를 유지한다.
-struct ScoreFraction: Equatable, Sendable {
+nonisolated struct ScoreFraction: Equatable, Sendable {
     let numerator: Int
     let denominator: Int
 

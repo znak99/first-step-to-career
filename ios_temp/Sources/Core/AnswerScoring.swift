@@ -1,10 +1,10 @@
-enum AnswerScoringError: Error, Equatable {
+nonisolated enum AnswerScoringError: Error, Equatable {
     case invalidRubricRatings
     case invalidQuestionNumber
     case duplicateQuestionNumber
 }
 
-struct RubricRatings: Equatable, Sendable {
+nonisolated struct RubricRatings: Equatable, Sendable {
     let criteria: [Int]
 
     init(_ criteria: [Int]) throws {
@@ -19,7 +19,7 @@ struct RubricRatings: Equatable, Sendable {
     }
 }
 
-struct QuestionScores: Equatable, Sendable {
+nonisolated struct QuestionScores: Equatable, Sendable {
     let questionNumber: Int
     let structure: Score
     let logic: Score
@@ -38,13 +38,13 @@ struct QuestionScores: Equatable, Sendable {
     }
 }
 
-struct AnswerCategoryScores: Equatable, Sendable {
+nonisolated struct AnswerCategoryScores: Equatable, Sendable {
     let structure: Score
     let logic: Score
     let realism: Score
 }
 
-enum AnswerScoring {
+nonisolated enum AnswerScoring {
     static func average(completedQuestions: [QuestionScores]) throws -> AnswerCategoryScores? {
         guard !completedQuestions.isEmpty else { return nil }
         guard Set(completedQuestions.map(\.questionNumber)).count == completedQuestions.count else {
