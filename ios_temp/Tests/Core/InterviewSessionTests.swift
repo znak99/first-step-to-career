@@ -21,6 +21,8 @@ struct InterviewSessionTests {
         try session.handle(.resultsWillDisplay, at: time + .seconds(1))
         #expect(session.phase == .resultsDisplayed)
         #expect(session.result?.overall.formatted == "75.0")
+        #expect(session.isEligibleForHistory)
+        #expect(session.outcome == .completed(try #require(session.result)))
         #expect(session.turns.map(\.questionNumber) == Array(1...count))
         #expect(session.turns.last?.answerSegments == ["回答\(count)"])
     }
@@ -79,13 +81,20 @@ struct InterviewSessionTests {
         try beginRepeat(&session, at: .seconds(30))
         try session.handle(.timeAdvanced, at: .milliseconds(36999))
         #expect(session.phase == .waitingForSpeech)
-        try session.handle(.timeAdvanced, at: .seconds(37))
+        let recognition = try operation(session)
+        let ended = try session.handle(.timeAdvanced, at: .seconds(37))
         #expect(session.termination == .newQuestionNonresponse)
         #expect(session.completedQuestionCount == 0)
-        try session.handle(.evaluationFinished(operation: operation(session), questions: []), at: .seconds(37))
-        try session.handle(.resultsWillDisplay, at: .seconds(37))
-        #expect(session.result?.overall == .zero)
-        #expect(session.result?.answers == nil)
+        #expect(session.phase == .endedWithoutScore)
+        #expect(ended == [.stopRecognition(operation: recognition), .endWithoutScore(
+            reason: .newQuestionNonresponse, operation: recognition, observation: session.observationOperation
+        )])
+        #expect(session.outcome == .endedWithoutScore(.newQuestionNonresponse))
+        #expect(session.result == nil)
+        #expect(!session.isEligibleForHistory)
+        #expect(try session.handle(.evaluationFinished(operation: recognition, questions: []), at: .seconds(37)).isEmpty)
+        #expect(try session.handle(.resultsWillDisplay, at: .seconds(37)).isEmpty)
+        #expect(session.result == nil)
     }
 
     @Test(arguments: [false, true])
@@ -135,9 +144,11 @@ struct InterviewSessionTests {
         #expect(session.termination == .failedContinuation)
         #expect(session.completedQuestionCount == 1)
         #expect(session.turns[0].answerSegments == ["既存の回答"])
-        try session.handle(.evaluationFinished(operation: operation(session), questions: scores(session, value: 80)), at: time + .seconds(15))
-        try session.handle(.resultsWillDisplay, at: time + .seconds(15))
-        #expect(session.result?.overall.formatted == "11.0")
+        #expect(session.phase == .endedWithoutScore)
+        #expect(session.outcome == .endedWithoutScore(.failedContinuation))
+        #expect(session.result == nil)
+        #expect(session.activeOperation == nil)
+        #expect(!session.isEligibleForHistory)
     }
 
     @Test func finalEvaluationCanBeCanceledAndRerunWithTheFullAnswer() throws {
@@ -251,7 +262,7 @@ struct InterviewSessionTests {
         #expect(session.turns[0].answerSegments == [text])
     }
 
-    @Test func earlyTerminationKeepsCompletedAnswersAndRejectsUnapprovedResume() throws {
+    @Test func earlyTerminationIsUnscoredEvenWithCompletedAnswers() throws {
         var session = try makeSession(count: 5)
         try session.handle(.start, at: .zero)
         var time = Duration.zero
@@ -267,16 +278,58 @@ struct InterviewSessionTests {
         try session.handle(.timeAdvanced, at: time)
         #expect(session.termination == .newQuestionNonresponse)
         #expect(session.completedQuestionCount == 3)
-        #expect(throws: InterviewSessionError.approvalRequired(.continuationAfterNonresponse)) {
-            try session.handle(.continueSpeaking, at: time)
-        }
+        #expect(session.phase == .endedWithoutScore)
+        #expect(session.outcome == .endedWithoutScore(.newQuestionNonresponse))
+        #expect(!session.isEligibleForHistory)
         let evaluated = try scores(session, value: 80)
-        try session.handle(.evaluationFinished(operation: operation(session), questions: evaluated), at: time)
-        try session.handle(.resultsWillDisplay, at: time)
-        #expect(session.result?.overall.formatted == "48.0")
-        #expect(throws: InterviewSessionError.approvalRequired(.continuationInPhase(.resultsDisplayed))) {
-            try session.handle(.continueSpeaking, at: time)
+        #expect(try session.handle(.continueSpeaking, at: time).isEmpty)
+        #expect(try session.handle(.evaluationFinished(operation: InterviewOperationID(rawValue: 1), questions: evaluated), at: time).isEmpty)
+        #expect(try session.handle(.resultsWillDisplay, at: time).isEmpty)
+        #expect(session.result == nil)
+    }
+
+    @Test(arguments: [false, true])
+    func finalAnswerContinuationFailureDiscardsOldEvaluationAndStopsObservation(trackMovement: Bool) throws {
+        var session = try makeSession(exclusions: trackMovement ? [] : [.settingDisabled])
+        try session.handle(.start, at: .zero)
+        #expect(session.outcome == nil)
+        #expect(!session.isEligibleForHistory)
+        var time = Duration.zero
+        for _ in 1...3 {
+            try beginQuestion(&session, at: time)
+            time = try finishAnswer(&session, at: time, text: "回答")
         }
+        let oldEvaluation = try operation(session)
+        let oldGrades = try scores(session, value: 100)
+        try session.handle(.continueSpeaking, at: time)
+        try session.handle(.recognitionStarted(operation: operation(session)), at: time)
+        time += .seconds(7)
+        try session.handle(.timeAdvanced, at: time)
+        try beginRepeat(&session, at: time)
+        let recognition = try operation(session)
+        time += .seconds(7)
+        let commands = try session.handle(.timeAdvanced, at: time)
+        #expect(commands == [.stopRecognition(operation: recognition), .endWithoutScore(
+            reason: .failedContinuation, operation: recognition, observation: session.observationOperation
+        )])
+        #expect(session.completedQuestionCount == 3)
+        #expect(session.outcome == .endedWithoutScore(.failedContinuation))
+        #expect(!session.isEligibleForHistory)
+        #expect(!session.isMovementScoringInterval)
+        let movement = try session.movement.assessment
+        let outside = try ScreenPosition(x: -1, y: -1)
+        let lateEvents: [InterviewEvent] = [
+            .evaluationFinished(operation: oldEvaluation, questions: oldGrades), .resultsWillDisplay,
+            .newSpeechSegment(operation: recognition, text: "遅れた回答"), .continueSpeaking,
+            .movementCheck(operation: session.observationOperation, gaze: outside, head: outside),
+            .trackingAvailability(operation: session.observationOperation, gaze: false, head: false),
+            .timeAdvanced, .start
+        ]
+        for event in lateEvents { #expect(try session.handle(event, at: time + .seconds(10)).isEmpty) }
+        #expect(try session.movement.assessment == movement)
+        #expect(session.result == nil)
+        #expect(session.turns.last?.answerSegments == ["回答"])
+        #expect(session.phase == .endedWithoutScore)
     }
 
     @Test func absentMovementObservationsRemainAnApprovalBoundary() throws {

@@ -32,12 +32,12 @@ nonisolated enum InterviewPhase: Equatable, Sendable {
     case evaluating
     case resultsReady
     case resultsDisplayed
+    case endedWithoutScore
 }
 
 nonisolated enum InterviewApprovalBoundary: Equatable, Sendable {
     case continuationInPhase(InterviewPhase)
     case movementWithoutObservations
-    case continuationAfterNonresponse
     case exitConfirmationAtResponseDeadline
 }
 
@@ -83,6 +83,7 @@ nonisolated enum InterviewCommand: Equatable, Sendable {
     case resultsAvailable
     case presentResults(InterviewScores)
     case notifyMovementExcluded(Set<MovementExclusionReason>)
+    case endWithoutScore(reason: InterviewTerminationReason, operation: InterviewOperationID?, observation: InterviewOperationID)
     case suspendInterviewWork(confirmation: ExitConfirmationID, phase: InterviewPhase, operation: InterviewOperationID?, observation: InterviewOperationID)
     case resumeInterviewWork(confirmation: ExitConfirmationID, phase: InterviewPhase, previousOperation: InterviewOperationID?, operation: InterviewOperationID?, observation: InterviewOperationID)
 }

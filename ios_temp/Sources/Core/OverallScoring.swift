@@ -2,6 +2,7 @@ nonisolated enum InterviewTerminationReason: Equatable, Sendable {
     case completed
     case newQuestionNonresponse
     case failedContinuation
+    case userConfirmedExit
 }
 
 nonisolated struct MovementCategoryScores: Equatable, Sendable {
@@ -16,6 +17,11 @@ nonisolated struct InterviewScores: Equatable, Sendable {
     let overall: Score
 }
 
+nonisolated enum InterviewOutcome: Equatable, Sendable {
+    case completed(InterviewScores)
+    case endedWithoutScore(InterviewTerminationReason)
+}
+
 nonisolated enum OverallScoringError: Error, Equatable {
     case inconsistentCompletion
 }
@@ -26,30 +32,22 @@ nonisolated enum OverallScoring {
         completedQuestions: [QuestionScores],
         movement: MovementCategoryScores?,
         termination: InterviewTerminationReason
-    ) throws -> InterviewScores {
+    ) throws -> InterviewScores? {
+        guard termination == .completed else { return nil }
         let count = completedQuestions.count
         guard count <= configuration.questionCount,
               completedQuestions.allSatisfy({ $0.questionNumber <= configuration.questionCount }) else {
             throw OverallScoringError.inconsistentCompletion
         }
-        switch termination {
-        case .completed:
-            guard count == configuration.questionCount else { throw OverallScoringError.inconsistentCompletion }
-        case .newQuestionNonresponse:
-            guard count < configuration.questionCount else { throw OverallScoringError.inconsistentCompletion }
-        case .failedContinuation:
-            guard count > 0 else { throw OverallScoringError.inconsistentCompletion }
-        }
+        guard count == configuration.questionCount else { throw OverallScoringError.inconsistentCompletion }
         guard let answers = try AnswerScoring.average(completedQuestions: completedQuestions) else {
-            return InterviewScores(answers: nil, movement: movement, quality: nil, overall: .zero)
+            throw OverallScoringError.inconsistentCompletion
         }
         var entries: [(Score, Int)] = [(answers.structure, 25), (answers.logic, 30), (answers.realism, 25)]
         if let movement {
             entries += [(movement.gaze, 10), (movement.head, 10)]
         }
         let quality = try Score.weightedMean(entries)
-        let adjusted = try quality.scaled(by: count, over: configuration.questionCount)
-        let overall = try termination == .failedContinuation ? adjusted.subtractingWithFloor(5) : adjusted
-        return InterviewScores(answers: answers, movement: movement, quality: quality, overall: overall)
+        return InterviewScores(answers: answers, movement: movement, quality: quality, overall: quality)
     }
 }

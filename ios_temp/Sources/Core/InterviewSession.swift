@@ -6,6 +6,7 @@ nonisolated struct InterviewSession: Sendable {
     private(set) var movement: MovementScoring
     private(set) var termination: InterviewTerminationReason?
     private(set) var result: InterviewScores?
+    private(set) var outcome: InterviewOutcome?
     private(set) var exitConfirmationPause: ExitConfirmationPause?
     private(set) var observationOperation = InterviewOperationID(rawValue: 0)
 
@@ -28,8 +29,13 @@ nonisolated struct InterviewSession: Sendable {
     var completedTurns: [InterviewTurn] { turns.filter(\.isCompleted) }
     var completedQuestionCount: Int { completedTurns.count }
 
+    var isEligibleForHistory: Bool {
+        if case .completed = outcome { return true }
+        return false
+    }
+
     var isMovementScoringInterval: Bool {
-        phase != .ready && phase != .resultsDisplayed && exitConfirmationPause == nil
+        phase != .ready && phase != .resultsDisplayed && phase != .endedWithoutScore && exitConfirmationPause == nil
     }
 
     func silenceCountdownRemaining(at time: Duration) -> Duration? {
@@ -50,6 +56,7 @@ nonisolated struct InterviewSession: Sendable {
     private mutating func process(_ event: InterviewEvent, at time: Duration) throws -> [InterviewCommand] {
         guard time >= .zero, time >= lastTime else { throw InterviewSessionError.invalidTime }
         lastTime = time
+        if phase == .endedWithoutScore { return [] }
         if let pause = exitConfirmationPause {
             if case .exitConfirmationCancelled(let confirmation) = event,
                confirmation == pause.confirmation {
@@ -65,7 +72,7 @@ nonisolated struct InterviewSession: Sendable {
             commands.append(.notifyMovementExcluded(movement.exclusions))
         }
         if case .exitConfirmationPresented = event {
-            guard phase != .ready, phase != .resultsDisplayed else {
+            guard phase != .ready, phase != .resultsDisplayed, phase != .endedWithoutScore else {
                 throw InterviewSessionError.invalidTransition
             }
             if let remaining = responseTimerRemaining(at: current), remaining <= .zero {
@@ -174,11 +181,12 @@ nonisolated struct InterviewSession: Sendable {
             catch MovementScoringError.observationsRequired {
                 throw InterviewSessionError.approvalRequired(.movementWithoutObservations)
             }
-            let scores = try OverallScoring.calculate(
+            guard let scores = try OverallScoring.calculate(
                 configuration: configuration, completedQuestions: evaluatedQuestions,
                 movement: movementScores, termination: termination
-            )
+            ) else { throw InterviewSessionError.invalidEvaluation }
             result = scores
+            outcome = .completed(scores)
             phase = .resultsDisplayed
             return [.presentResults(scores)]
 
@@ -278,15 +286,13 @@ nonisolated struct InterviewSession: Sendable {
             return [stop, .prepareRepeatPrompt(operation: repeatOperation, number: turn.questionNumber, originalQuestion: turn.question)]
         }
         termination = recognitionIsContinuation ? .failedContinuation : .newQuestionNonresponse
-        return [stop, try beginEvaluation()]
+        guard let termination else { throw InterviewSessionError.invalidTransition }
+        return [stop, endWithoutScore(reason: termination)]
     }
 
     private mutating func continueAnswer() throws -> [InterviewCommand] {
         guard [.preparingQuestion, .playingQuestion, .evaluating].contains(phase) else {
             throw InterviewSessionError.approvalRequired(.continuationInPhase(phase))
-        }
-        if phase == .evaluating, termination != .completed {
-            throw InterviewSessionError.approvalRequired(.continuationAfterNonresponse)
         }
         guard let operation = activeOperation, turns.last?.isCompleted == true else {
             throw InterviewSessionError.invalidTransition
@@ -311,5 +317,21 @@ nonisolated struct InterviewSession: Sendable {
         let operation = try newOperation()
         phase = .evaluating
         return .evaluateAnswers(operation: operation, completedAnswers: completedTurns, reason: termination)
+    }
+
+    private mutating func endWithoutScore(reason: InterviewTerminationReason) -> InterviewCommand {
+        let command = InterviewCommand.endWithoutScore(
+            reason: reason, operation: activeOperation, observation: observationOperation
+        )
+        termination = reason
+        outcome = .endedWithoutScore(reason)
+        result = nil
+        evaluatedQuestions = nil
+        activeOperation = nil
+        waitingSince = nil
+        silenceSince = nil
+        exitConfirmationPause = nil
+        phase = .endedWithoutScore
+        return command
     }
 }

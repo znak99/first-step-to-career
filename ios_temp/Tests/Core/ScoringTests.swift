@@ -33,36 +33,39 @@ struct ScoringTests {
         let questions = try (1...3).map {
             try QuestionScores(questionNumber: $0, structure: Score(numerator: 80), logic: Score(numerator: 90), realism: Score(numerator: 70))
         }
-        let full = try OverallScoring.calculate(
+        let full = try #require(try OverallScoring.calculate(
             configuration: InterviewConfiguration(questionCount: 3), completedQuestions: questions,
             movement: MovementCategoryScores(gaze: Score(numerator: 60), head: Score(numerator: 80)), termination: .completed
-        )
+        ))
         #expect(try full.overall == Score(numerator: 785, denominator: 10))
-        let excluded = try OverallScoring.calculate(
+        let excluded = try #require(try OverallScoring.calculate(
             configuration: InterviewConfiguration(questionCount: 3), completedQuestions: questions,
             movement: nil, termination: .completed
-        )
+        ))
         #expect(try excluded.overall == Score(numerator: 645, denominator: 8))
         #expect(excluded.overall.formatted == "80.6")
         #expect(excluded.movement == nil)
     }
 
-    @Test func approvedNonresponsePenaltiesAreAppliedOnce() throws {
-        let questions = try (1...3).map { try question($0, 80) }
-        let configuration = try InterviewConfiguration()
-        let ordinary = try OverallScoring.calculate(configuration: configuration, completedQuestions: questions, movement: nil, termination: .newQuestionNonresponse)
-        let continued = try OverallScoring.calculate(configuration: configuration, completedQuestions: questions, movement: nil, termination: .failedContinuation)
-        #expect(ordinary.overall.formatted == "48.0")
-        #expect(continued.overall.formatted == "43.0")
-        #expect(continued.answers?.structure.formatted == "80.0")
-        let all = try OverallScoring.calculate(configuration: configuration, completedQuestions: (1...5).map { try question($0, 80) }, movement: nil, termination: .failedContinuation)
-        #expect(all.overall.formatted == "75.0")
-        let floor = try OverallScoring.calculate(configuration: configuration, completedQuestions: [question(1, 1)], movement: nil, termination: .failedContinuation)
-        #expect(floor.overall == .zero)
-        let zero = try OverallScoring.calculate(configuration: configuration, completedQuestions: [], movement: nil, termination: .newQuestionNonresponse)
-        #expect(zero.overall == .zero)
-        #expect(zero.answers == nil)
-        #expect(zero.quality == nil)
+    @Test(arguments: [
+        InterviewTerminationReason.newQuestionNonresponse, .failedContinuation, .userConfirmedExit
+    ])
+    func earlyTerminationNeverProducesScores(reason: InterviewTerminationReason) throws {
+        for count in [0, 1, 3, 5] {
+            let questions = try (0..<count).map { try question($0 + 1, 80) }
+            for movement in [nil, try MovementCategoryScores(gaze: Score(numerator: 100), head: Score(numerator: 100))] {
+                let result = try OverallScoring.calculate(
+                    configuration: InterviewConfiguration(), completedQuestions: questions,
+                    movement: movement, termination: reason
+                )
+                #expect(result == nil)
+            }
+        }
+        // 조기 종료는 답변 평균 계산 자체를 실행하지 않는다.
+        #expect(try OverallScoring.calculate(
+            configuration: InterviewConfiguration(), completedQuestions: [question(1, 50), question(1, 75)],
+            movement: nil, termination: reason
+        ) == nil)
     }
 
     @Test(arguments: [(8234, 100, "82.3"), (8235, 100, "82.4"), (9996, 100, "100.0"), (80, 1, "80.0"), (0, 1, "0.0"), (1, 20, "0.1"), (Int.max - 1, Int.max, "1.0")])
@@ -77,9 +80,6 @@ struct ScoringTests {
         #expect(throws: AnswerScoringError.invalidQuestionNumber) { try question(0, 50) }
         #expect(throws: OverallScoringError.inconsistentCompletion) {
             try OverallScoring.calculate(configuration: InterviewConfiguration(), completedQuestions: [], movement: nil, termination: .completed)
-        }
-        #expect(throws: OverallScoringError.inconsistentCompletion) {
-            try OverallScoring.calculate(configuration: InterviewConfiguration(), completedQuestions: [], movement: nil, termination: .failedContinuation)
         }
     }
 
