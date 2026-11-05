@@ -14,3 +14,5 @@ The user requested a local copy of the approved first validation model, `LiquidA
 Downloading the original files does not select a production precision or approve a quantized variant, install MLX Swift LM, load the model, or validate iPhone compatibility or grading quality. Those decisions remain separate. The original source license is retained without modification.
 
 Download status and verification results: [manifest](LFM2.5-1.2B-JP-202606.manifest.json). Operational details are recorded in [OPERATIONS.md](../docs/system-design/OPERATIONS.md).
+
+Version and format research is recorded in [MLX_RESEARCH.md](../docs/system-design/MLX_RESEARCH.md). The proposed combination is MLX Swift LM 3.32.3, swift-transformers 1.4.0, and the official MLX 4-bit variant (696,868,510 bytes across 10 files). This is pending approval. Only the candidate's metadata and small configuration documents were inspected; its weights were not downloaded, and no runtime packages were installed or models executed. Keep the original and any future approved variant in separate directories.

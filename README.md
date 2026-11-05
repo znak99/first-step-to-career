@@ -96,6 +96,7 @@ This checks the sources for iOS 26 with both default isolation configurations an
 | [docs/system-design/ARCHITECTURE.md](docs/system-design/ARCHITECTURE.md) | Architecture and design decisions |
 | [docs/system-design/DATA.md](docs/system-design/DATA.md) | Data model |
 | [docs/system-design/OPERATIONS.md](docs/system-design/OPERATIONS.md) | Running, building, deploying |
+| [docs/system-design/MLX_RESEARCH.md](docs/system-design/MLX_RESEARCH.md) | Runtime versions and model-format proposal; adoption pending approval |
 | [docs/ui-design/SITE_MAP.md](docs/ui-design/SITE_MAP.md) | Screens and flows |
 
 ## License
