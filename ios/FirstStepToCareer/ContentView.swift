@@ -8,36 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var phase: LaunchPhase = .splash
+    @State private var viewModel = LaunchViewModel()
 
     var body: some View {
         Group {
-            switch phase {
+            switch viewModel.phase {
             case .splash:
                 SplashView()
                     .task {
-                        do {
-                            try await Task.sleep(for: .milliseconds(800))
-                            phase = .onboarding
-                        } catch {
-                            return
-                        }
+                        await viewModel.showSplash()
                     }
             case .onboarding:
                 OnboardingView {
-                    phase = .main
+                    viewModel.start()
                 }
             case .main:
                 MainTabView()
             }
         }
         .tint(.teal)
-    }
-
-    private enum LaunchPhase {
-        case splash
-        case onboarding
-        case main
     }
 }
 

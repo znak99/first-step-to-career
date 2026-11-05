@@ -1,13 +1,12 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @State private var questionCount = InterviewConfiguration.defaultQuestionCount
-    @State private var movementScoringEnabled = true
+    @State private var settings = SettingsViewModel()
 
     var body: some View {
         TabView {
             NavigationStack {
-                MockInterviewView(questionCount: questionCount)
+                MockInterviewView(questionCount: settings.questionCount)
             }
             .tabItem {
                 Label("模擬面接", systemImage: "bubble.left.and.bubble.right")
@@ -28,7 +27,7 @@ struct MainTabView: View {
             }
 
             NavigationStack {
-                SettingsView(questionCount: $questionCount, movementScoringEnabled: $movementScoringEnabled)
+                SettingsView(viewModel: settings)
             }
             .tabItem {
                 Label("メニュー", systemImage: "line.3.horizontal")

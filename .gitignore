@@ -1,4 +1,6 @@
 /llm/LFM2.5-1.2B-JP-202606/
+/llm/LFM2.5-1.2B-JP-202606-MLX-4bit/
+/llm/LFM2.5-350M-MLX-4bit/
 
 .DS_Store
 **/xcuserdata/

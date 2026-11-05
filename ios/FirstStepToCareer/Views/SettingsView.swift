@@ -1,18 +1,17 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @Binding var questionCount: Int
-    @Binding var movementScoringEnabled: Bool
+    @Bindable var viewModel: SettingsViewModel
 
     var body: some View {
         Form {
             Section("面接の設定") {
-                Stepper(value: $questionCount, in: InterviewConfiguration.allowedQuestionCounts) {
-                    LabeledContent("質問数", value: "\(questionCount)問")
+                Stepper(value: $viewModel.questionCount, in: viewModel.allowedQuestionCounts) {
+                    LabeledContent("質問数", value: "\(viewModel.questionCount)問")
                 }
                 .accessibilityIdentifier("settings.questionCount")
 
-                Toggle("視線・頭の動きを評価", isOn: $movementScoringEnabled)
+                Toggle("視線・頭の動きを評価", isOn: $viewModel.movementScoringEnabled)
                     .accessibilityIdentifier("settings.movementScoring")
             }
 
@@ -28,6 +27,6 @@ struct SettingsView: View {
 
 #Preview {
     NavigationStack {
-        SettingsView(questionCount: .constant(5), movementScoringEnabled: .constant(true))
+        SettingsView(viewModel: SettingsViewModel())
     }
 }

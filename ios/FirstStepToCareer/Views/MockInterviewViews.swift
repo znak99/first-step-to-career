@@ -3,10 +3,7 @@ import SwiftUI
 struct MockInterviewView: View {
     let questionCount: Int
 
-    @State private var company = ""
-    @State private var industry = ""
-    @State private var role = ""
-    @State private var interviewType = ""
+    @State private var viewModel = MockInterviewSetupViewModel()
 
     var body: some View {
         Form {
@@ -27,13 +24,13 @@ struct MockInterviewView: View {
             }
 
             Section("面接の条件") {
-                TextField("会社名", text: $company)
+                TextField("会社名", text: $viewModel.company)
                     .accessibilityIdentifier("setup.company")
-                TextField("業種", text: $industry)
+                TextField("業種", text: $viewModel.industry)
                     .accessibilityIdentifier("setup.industry")
-                TextField("職種", text: $role)
+                TextField("職種", text: $viewModel.role)
                     .accessibilityIdentifier("setup.role")
-                Picker("面接の種類", selection: $interviewType) {
+                Picker("面接の種類", selection: $viewModel.interviewType) {
                     Text("選択してください").tag("")
                     Text("人事面接").tag("hr")
                     Text("職種別面接").tag("jobSpecific")
