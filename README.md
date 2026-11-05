@@ -85,7 +85,7 @@ No external libraries or models are required for the staged core tests.
 bash ios_temp/Scripts/verify.sh
 ```
 
-This checks the sources for iOS 26 with both default isolation configurations and runs 39 Swift Testing test functions, including parameterized cases, on the Mac. The verification package and build outputs are created only in a temporary directory. See [integration instructions](ios_temp/INTEGRATION.md) for copying app and test sources into separate Xcode targets. UI, persistence, AI, speech, tracking adapters, and their undecided policies are not implemented.
+This checks the sources for iOS 26 with both default isolation configurations and runs 45 Swift Testing test functions, including parameterized cases, on the Mac. The verification package and build outputs are created only in a temporary directory. See [integration instructions](ios_temp/INTEGRATION.md) for copying app and test sources into separate Xcode targets. UI, persistence, AI, speech, tracking adapters, and their undecided policies are not implemented.
 
 ## Documentation
 | Document | What it covers |
