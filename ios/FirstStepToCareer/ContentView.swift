@@ -8,14 +8,36 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var phase: LaunchPhase = .splash
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        Group {
+            switch phase {
+            case .splash:
+                SplashView()
+                    .task {
+                        do {
+                            try await Task.sleep(for: .milliseconds(800))
+                            phase = .onboarding
+                        } catch {
+                            return
+                        }
+                    }
+            case .onboarding:
+                OnboardingView {
+                    phase = .main
+                }
+            case .main:
+                MainTabView()
+            }
         }
-        .padding()
+        .tint(.teal)
+    }
+
+    private enum LaunchPhase {
+        case splash
+        case onboarding
+        case main
     }
 }
 

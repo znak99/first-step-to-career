@@ -297,7 +297,7 @@ MLX 버전·형식 조사는 [MLX_RESEARCH.md](MLX_RESEARCH.md)를 따른다. �
 | 의존성 설치 | 외부 패키지 없음 |
 | 개발 실행 | `open ios/FirstStepToCareer.xcodeproj` 후 `FirstStepToCareer` 스킴·실행 기기 선택 |
 | iOS 26 소스 검사·Mac 단위 시험 | `bash ios/Scripts/verify.sh` |
-| 앱 빌드·단위 시험 | `xcodebuild test -project ios/FirstStepToCareer.xcodeproj -scheme FirstStepToCareer -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17' -derivedDataPath /tmp/first-step-ios-build CODE_SIGNING_ALLOWED=NO` |
+| 앱 빌드·단위/UI 시험 | `xcodebuild test -project ios/FirstStepToCareer.xcodeproj -scheme FirstStepToCareer -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17' -derivedDataPath /tmp/first-step-ios-build CODE_SIGNING_ALLOWED=NO` |
 | UI·실기기 시험 | 별도 미실시 |
 
 검증 도구는 소스와 시험의 사본으로 임시 디렉터리에만 Swift 패키지를 만든다. 저장소·전역 경로에 패키지를 설치하지 않는다. 현재 Xcode 27.2·Swift 6.4.2로 질문 설정·점수·움직임·면접 진행·종료 확인 정지/취소 재개 시험 함수 48개(매개변수 사례 포함)가 통과했다. 핵심 값 형식에 `nonisolated`를 명시해 Xcode의 기본 MainActor 설정과 무관하게 시험할 수 있도록 했으며, 기본 설정과 MainActor 설정 양쪽에서 iOS 26 소스 검사를 수행한다. MainActor는 화면 처리를 직렬로 수행하는 실행 영역이다. iOS 26 배포 대상의 소스 검사는 실제 앱의 링크·실행 검증과 구분한다. 사건·시간은 시험에서 입력하며 질문 준비·재생·평가·음성 인식 지시는 실제 장치를 실행하지 않는다. 이전 절의 미실시 기록은 각 승인 당시 상태다. 확인 창의 표시 시간 제외·남은 시간 보존·이전 자료 차단을 합성 입력으로 검증했다. 최신 무응답 무평가 종료·완료 수와 관계없는 점수 미생성·이전 결과/관찰 차단도 검증했다. 9개 진행 단계의 확인 종료·잘못된/이전 확인 번호 거부·취소 후 정상 완료도 검증했다. 실제 장치 작업 중단·이력 저장·화면 이동은 미구현이다. 이전 방법은 [INTEGRATION.md](../../ios/INTEGRATION.md)를 따른다.
@@ -311,3 +311,9 @@ MLX 버전·형식 조사는 [MLX_RESEARCH.md](MLX_RESEARCH.md)를 따른다. �
 ## iOS 프로젝트 이전 검증 (2026-11-05)
 
 생성된 Xcode 프로젝트에 앱 Core·별도 단위 시험 대상·공유 스킴을 연결했다. iOS 26.0·Swift 6으로 설정했으며 기존 앱 시작점/화면/서명은 유지했다. iOS 27.0 iPhone 17 시뮬레이터에서 앱 빌드와 Swift Testing 함수48개가 실제 실행되어 통과했고, 독립 스크립트의 iOS 26 기본/MainActor 검사·Mac 시험48개도 통과했다. 시험0개로 끝난 초기 실행은 검증 성공으로 집계하지 않고 제외 설정 수정 후 재검증했다. 실기기 설치·UI 자동화·AI/음성/카메라 기능 검증은 미실시다. `ios_temp/`는 파일 이전·동일성 확인 후 빈 폴더만 삭제했다.
+
+## 기본 화면 검증 (2026-11-05)
+
+공유 스킴에 `FirstStepToCareerUITests` 대상을 추가했다. 기존 `xcodebuild test` 명령으로 Core 단위 시험과 XCTest UI 시험을 함께 실행하며, `bash ios/Scripts/verify.sh`는 기존 Core만 독립 검사한다. UI 시험은 온보딩에서 4개 탭과 모든 하위 화면을 실제로 열고, 질문 수 3~7 경계·탭 간 임시 설정 반영을 확인한다. 화면별 스크린샷은 Xcode 시험 결과의 첨부로 보관한다. 실제 AI·음성·카메라·영구 저장이나 실기기 검증은 포함하지 않는다.
+
+Xcode 27.2·iOS 27.0 iPhone 17 시뮬레이터에서 앱 빌드·Core48개·UI2개 시험이 통과했다. 독립 검증 도구의 iOS26 기본/MainActor 소스 검사와 Mac48개 시험도 통과했다. 초기 UI 시험의 스위치 조작 위치·질문 수 접근성 선택자를 보완한 뒤 전체 시험을 다시 실행해 성공을 확인했다. 최종 결과는 `/tmp/first-step-ui-build/Logs/Test/Test-FirstStepToCareer-2026.11.05_21-48-28-+0900.xcresult`에 있다.

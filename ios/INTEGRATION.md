@@ -4,12 +4,14 @@
 
 ## 폴더와 대상
 
+- `FirstStepToCareer/Views/`: 시작·4개 탭·하위 화면의 일본어 SwiftUI 화면과 이동.
 - `FirstStepToCareer/Core/`: 기존 Swift 핵심 소스 7개. 앱 대상에 포함한다.
 - `FirstStepToCareerTests/Core/`: 기존 Swift Testing 파일 6개. `FirstStepToCareerTests` 대상에만 포함한다.
+- `FirstStepToCareerUITests/`: 화면 이동과 임시 설정 상태를 확인하는 별도 XCTest UI 시험 대상.
 - `Scripts/verify.sh`: iOS 26 소스 검사·Mac 독립 시험 도구. 외부 패키지는 추가하지 않는다.
 - `FirstStepToCareer.xcodeproj/`: 사용자가 생성한 Xcode 27.2 JSON 프로젝트. 앱 시작점·화면·서명 설정을 유지한다.
 
-최소 iOS 26.0·Swift 6 언어 모드를 적용했다. 공유 스킴 `FirstStepToCareer`에 단위 시험 대상을 연결했다. Xcode에서 이 프로젝트를 열고 실행 기기를 선택하면 앱을 빌드할 수 있으며, Product > Test로 기존 시험을 실행한다. 현재 화면은 사용자가 생성한 기본 화면이고 면접 화면·기기 연결을 추가한 것은 아니다.
+최소 iOS 26.0·Swift 6 언어 모드를 적용했다. 공유 스킴 `FirstStepToCareer`에 단위 시험과 UI 시험 대상을 연결했다. Xcode에서 이 프로젝트를 열고 실행 기기를 선택하면 앱을 빌드할 수 있으며, Product > Test로 기존 시험을 실행한다. 현재 화면은 스플래시·온보딩·4개 탭과 하위 화면의 기본 UI다. 실제 면접 진행·모델·음성·카메라·저장은 연결하지 않았다.
 
 ## 검증
 
@@ -19,7 +21,7 @@
 bash ios/Scripts/verify.sh
 ```
 
-실제 Xcode 시험은 설치된 시뮬레이터 이름 또는 ID를 지정한다.
+실제 Xcode 시험은 설치된 시뮬레이터 이름 또는 ID를 지정한다. 아래 명령은 기존 단위 시험과 화면 이동 UI 시험을 함께 실행한다. 독립 검증 스크립트는 Core 시험만 실행한다.
 
 ```bash
 xcodebuild test -project ios/FirstStepToCareer.xcodeproj -scheme FirstStepToCareer -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17' -derivedDataPath /tmp/first-step-ios-build CODE_SIGNING_ALLOWED=NO
@@ -68,3 +70,7 @@ xcodebuild test -project ios/FirstStepToCareer.xcodeproj -scheme FirstStepToCare
 세션 생성 시 받는 질문 설정과 제외 조건은 독립 시험의 입력이다. 최신 승인에 따라 실제 연결 시에는 면접 시작 시의 공동 채점 설정을 전달하며, 현재 세션에는 설정을 바꾸는 기능을 제공하지 않는다. 저장 방식·잠금 표시·조기 종료 후 시작 조건 입력 화면으로 돌아가며 직전 회사명·업종·직무·면접 종류를 유지해야 한다. 이 네 입력값은 실제 면접 시작 때만 기기 내부에 별도 저장해 앱 재실행 후에도 복원해야 한다. 입력 수정·준비 화면 진입만으로 갱신하지 않으며 시작하지 않고 앱을 완전히 종료하면 직전 저장값을 복원한다. 실제 시작 순간은 준비 화면 확인 후 첫 질문 생성을 시작하는 때로 승인받았다. 저장된 조건이 없는 첫 실행에서는 회사명·업종·직무를 미입력 상태로 둔다. 면접 종류의 초기 선택·항목별 필수 여부·입력/선택 방식은 미정이다. 네 입력값 저장과 기존 공동 설정 잠금·평가 가능한 움직임 관찰 시작에 같은 시점을 사용한다. 저장 기술·초기화·안내 문구·첫 질문 생성 실패 처리·전환 방식은 미정이고 스크립트·기본정보의 이력 저장은 하지 않으며 평가·점수 미산출은 최신 승인 규칙이다. 사용자 종료 전 확인·취소와 확인 창 표시 중 전체 정지·취소 후 기존 상태를 유지한 재개는 [SITE_MAP.md](../docs/ui-design/SITE_MAP.md)의 4.28·4.29를 따른다. 정지 대상에는 AI·음성·응답 타이머·움직임 관찰/채점·추적 누락 집계가 모두 포함되며 실제 연결 API와 재개 방법은 별도 결정이 필요하다. 최신 4.32에 따라 취소 후 첫 단어7초·답변무음3초의 실제 잔여가 1초 미만이면 1초를 더한다. 0.9초는 1.9초이며 정확히 1초는 유지한다. 추적 누락3초·움직임 확인 주기는 추가 보정하지 않는다. 답변 조각은 순서대로 보존하며 화면·저장용 문자열의 결합 방식도 정하지 않았다.
 
 참고: [Xcode의 파일·폴더 관리](https://developer.apple.com/documentation/xcode/managing-files-and-folders-in-your-xcode-project), [시험 추가](https://developer.apple.com/documentation/xcode/adding-tests-to-your-xcode-project), [Swift Testing](https://developer.apple.com/documentation/testing).
+
+## 화면 뼈대와 실제 기능의 경계
+
+`ContentView`와 `Views/`는 일본어 기본 화면 및 이동만 담당한다. 현재는 실행마다 스플래시 후 온보딩을 표시하고 완료 상태를 저장하지 않는다. 입력과 질문 수·움직임 설정은 실행 중에만 보관한다. 준비·면접 화면 이동으로 Core의 `.start`를 보내거나 장치 권한을 요청하지 않으며, 결과·과거 결과·일정·분석에 임의 데이터를 만들지 않는다. 실제 면접 시작·잠금·중도 종료·저장·복원은 후속 연결 시 위의 기존 계약을 따라야 한다.

@@ -18,13 +18,14 @@
       "children": [
         { "path": "<PRODUCTS>/FirstStepToCareer.app", "id": "1D87B91C309C9CE0008D5034", "type": "wrapper.application", "index": false },
         { "path": "<PRODUCTS>/FirstStepToCareerTests.xctest", "id": "1D73A113309C9DB000FFFFFF", "type": "wrapper.cfbundle", "index": false },
+        { "path": "<PRODUCTS>/FirstStepToCareerUITests.xctest", "id": "F5710002309C9DB000FFFFFF", "type": "wrapper.cfbundle", "index": false },
       ],
-    }, {
+    },
+    { "kind": "folder", "path": "FirstStepToCareerTests", "target-membership": [ "FirstStepToCareerTests" ] },
+    {
       "kind": "folder",
-      "path": "FirstStepToCareerTests",
-      "target-membership": [
-        "FirstStepToCareerTests",
-      ],
+      "path": "FirstStepToCareerUITests",
+      "target-membership": [ "FirstStepToCareerUITests" ],
     },
   ],
   "targets": [
@@ -68,10 +69,10 @@
       },
     }, {
       "name": "FirstStepToCareerTests",
-      "test-host-target": "FirstStepToCareer",
       "id": "1D73A112309C9DB000FFFFFF",
       "product": "Products/FirstStepToCareerTests.xctest",
       "product-type": "bundle.unit-test",
+      "test-host-target": "FirstStepToCareer",
       "dependencies": [
         "FirstStepToCareer",
       ],
@@ -87,6 +88,21 @@
         "PRODUCT_NAME": "$(TARGET_NAME)",
         "SWIFT_VERSION": "6.0",
         "TEST_HOST": "$(BUILT_PRODUCTS_DIR)/FirstStepToCareer.app/FirstStepToCareer",
+      },
+    },
+    {
+      "name": "FirstStepToCareerUITests",
+      "id": "F5710001309C9DB000FFFFFF",
+      "product": "Products/FirstStepToCareerUITests.xctest",
+      "product-type": "bundle.ui-testing",
+      "dependencies": [ "FirstStepToCareer" ],
+      "build-phases": [ "compile-sources", "frameworks", "resources" ],
+      "build-settings": {
+        "GENERATE_INFOPLIST_FILE": "YES",
+        "PRODUCT_BUNDLE_IDENTIFIER": "cloud.znak99.FirstStepToCareerUITests",
+        "PRODUCT_NAME": "$(TARGET_NAME)",
+        "SWIFT_VERSION": "6.0",
+        "TEST_TARGET_NAME": "FirstStepToCareer",
       },
     },
   ],
