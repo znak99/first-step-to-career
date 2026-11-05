@@ -3,7 +3,7 @@
   "revision": "52b8b4475311a63bf839c6494f78f8ad59d13515",
   "source_url": "https://huggingface.co/LiquidAI/LFM2.5-1.2B-JP-202606",
   "format": "original BF16 Safetensors",
-  "status": "pending_download",
+  "status": "downloaded_and_verified",
   "expected_total_bytes": 2345557023,
   "local_directory": "llm/LFM2.5-1.2B-JP-202606",
   "files": [
@@ -11,61 +11,108 @@
       "path": ".gitattributes",
       "size_bytes": 1519,
       "url": "https://huggingface.co/LiquidAI/LFM2.5-1.2B-JP-202606/resolve/52b8b4475311a63bf839c6494f78f8ad59d13515/.gitattributes?download=true",
-      "expected_git_blob_sha1": "a6344aac8c09253b3b630fb776ae94478aa0275b"
+      "expected_git_blob_sha1": "a6344aac8c09253b3b630fb776ae94478aa0275b",
+      "verified_sha256": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361",
+      "verified_git_blob_sha1": "a6344aac8c09253b3b630fb776ae94478aa0275b",
+      "verified_size_bytes": 1519,
+      "verification_method": "official_git_blob_sha1"
     },
     {
       "path": "LICENSE",
       "size_bytes": 10596,
       "url": "https://huggingface.co/LiquidAI/LFM2.5-1.2B-JP-202606/resolve/52b8b4475311a63bf839c6494f78f8ad59d13515/LICENSE?download=true",
-      "expected_git_blob_sha1": "d24c9208b10e63d317589bc8d6fc34967c3068d3"
+      "expected_git_blob_sha1": "d24c9208b10e63d317589bc8d6fc34967c3068d3",
+      "verified_sha256": "5188f2b355da20647257a3156db5834c794e5fb5e6d8dc4d4cdbb3180e75b85b",
+      "verified_git_blob_sha1": "d24c9208b10e63d317589bc8d6fc34967c3068d3",
+      "verified_size_bytes": 10596,
+      "verification_method": "official_git_blob_sha1"
     },
     {
       "path": "README.md",
       "size_bytes": 18895,
       "url": "https://huggingface.co/LiquidAI/LFM2.5-1.2B-JP-202606/resolve/52b8b4475311a63bf839c6494f78f8ad59d13515/README.md?download=true",
-      "expected_git_blob_sha1": "b1d7105c9f6f7666a55624d68878079929663fec"
+      "expected_git_blob_sha1": "b1d7105c9f6f7666a55624d68878079929663fec",
+      "verified_sha256": "efc509d872990c90addc0e50342e0db09826f7d6c218df7c22995b2cc6e77b00",
+      "verified_git_blob_sha1": "b1d7105c9f6f7666a55624d68878079929663fec",
+      "verified_size_bytes": 18895,
+      "verification_method": "official_git_blob_sha1"
     },
     {
       "path": "chat_template.jinja",
       "size_bytes": 1296,
       "url": "https://huggingface.co/LiquidAI/LFM2.5-1.2B-JP-202606/resolve/52b8b4475311a63bf839c6494f78f8ad59d13515/chat_template.jinja?download=true",
-      "expected_git_blob_sha1": "99f3593d02fff6c0ac1f3c1293d5e2d1fa182dc8"
+      "expected_git_blob_sha1": "99f3593d02fff6c0ac1f3c1293d5e2d1fa182dc8",
+      "verified_sha256": "89e790f027916b5a2bca145a6a8454e06ffc7a5043bf3b6d97829aff86bb543f",
+      "verified_git_blob_sha1": "99f3593d02fff6c0ac1f3c1293d5e2d1fa182dc8",
+      "verified_size_bytes": 1296,
+      "verification_method": "official_git_blob_sha1"
     },
     {
       "path": "config.json",
       "size_bytes": 1309,
       "url": "https://huggingface.co/LiquidAI/LFM2.5-1.2B-JP-202606/resolve/52b8b4475311a63bf839c6494f78f8ad59d13515/config.json?download=true",
-      "expected_git_blob_sha1": "9dfd472f6315751a2f6a0d471b5c3eef8cd45f4b"
+      "expected_git_blob_sha1": "9dfd472f6315751a2f6a0d471b5c3eef8cd45f4b",
+      "verified_sha256": "df8dac1ebef28c06a010be6353e7dd2d0a3ff9c2ca23591bb8ced252d74510a1",
+      "verified_git_blob_sha1": "9dfd472f6315751a2f6a0d471b5c3eef8cd45f4b",
+      "verified_size_bytes": 1309,
+      "verification_method": "official_git_blob_sha1"
     },
     {
       "path": "generation_config.json",
       "size_bytes": 142,
       "url": "https://huggingface.co/LiquidAI/LFM2.5-1.2B-JP-202606/resolve/52b8b4475311a63bf839c6494f78f8ad59d13515/generation_config.json?download=true",
-      "expected_git_blob_sha1": "263ed637315a308548560951e0b32061486d648a"
+      "expected_git_blob_sha1": "263ed637315a308548560951e0b32061486d648a",
+      "verified_sha256": "d3b247950f781b928f3824190f59f11b8b59c6824b59b1c7ba064b201a288b6f",
+      "verified_git_blob_sha1": "263ed637315a308548560951e0b32061486d648a",
+      "verified_size_bytes": 142,
+      "verification_method": "official_git_blob_sha1"
     },
     {
       "path": "model.safetensors",
       "size_bytes": 2340697936,
       "url": "https://huggingface.co/LiquidAI/LFM2.5-1.2B-JP-202606/resolve/52b8b4475311a63bf839c6494f78f8ad59d13515/model.safetensors?download=true",
-      "expected_sha256": "abf38960d3f37c2be7c946a9b6b06d23ed04a1afb8ac192aa3b491e3dcdcf325"
+      "expected_sha256": "abf38960d3f37c2be7c946a9b6b06d23ed04a1afb8ac192aa3b491e3dcdcf325",
+      "verified_sha256": "abf38960d3f37c2be7c946a9b6b06d23ed04a1afb8ac192aa3b491e3dcdcf325",
+      "verified_size_bytes": 2340697936,
+      "verification_method": "official_sha256"
     },
     {
       "path": "special_tokens_map.json",
       "size_bytes": 434,
       "url": "https://huggingface.co/LiquidAI/LFM2.5-1.2B-JP-202606/resolve/52b8b4475311a63bf839c6494f78f8ad59d13515/special_tokens_map.json?download=true",
-      "expected_git_blob_sha1": "b28c8a1e9ecfa97dfc04bf0a5951183155ccc6d7"
+      "expected_git_blob_sha1": "b28c8a1e9ecfa97dfc04bf0a5951183155ccc6d7",
+      "verified_sha256": "742aefe2b7dec496e8caffdba03a75d0c1a9925d53bd3f3e0d388c96b591b6f4",
+      "verified_git_blob_sha1": "b28c8a1e9ecfa97dfc04bf0a5951183155ccc6d7",
+      "verified_size_bytes": 434,
+      "verification_method": "official_git_blob_sha1"
     },
     {
       "path": "tokenizer.json",
       "size_bytes": 4733020,
       "url": "https://huggingface.co/LiquidAI/LFM2.5-1.2B-JP-202606/resolve/52b8b4475311a63bf839c6494f78f8ad59d13515/tokenizer.json?download=true",
-      "expected_git_blob_sha1": "3062743cefbe5f5fb6f01908610c5e01cf17d0a5"
+      "expected_git_blob_sha1": "3062743cefbe5f5fb6f01908610c5e01cf17d0a5",
+      "verified_sha256": "d7a0ab0fc22e41ec8c6d7450a9ff9ce40e196ec5e5a2fa6a2105e064e0514ed7",
+      "verified_git_blob_sha1": "3062743cefbe5f5fb6f01908610c5e01cf17d0a5",
+      "verified_size_bytes": 4733020,
+      "verification_method": "official_git_blob_sha1"
     },
     {
       "path": "tokenizer_config.json",
       "size_bytes": 91876,
       "url": "https://huggingface.co/LiquidAI/LFM2.5-1.2B-JP-202606/resolve/52b8b4475311a63bf839c6494f78f8ad59d13515/tokenizer_config.json?download=true",
-      "expected_git_blob_sha1": "2c72f5aa0bafe95857700d89fb4243fad11113cb"
+      "expected_git_blob_sha1": "2c72f5aa0bafe95857700d89fb4243fad11113cb",
+      "verified_sha256": "8cba5b0c7acab23a0d4cc9ac587346c9220a1b6d288fc5346fe118202fd6f43e",
+      "verified_git_blob_sha1": "2c72f5aa0bafe95857700d89fb4243fad11113cb",
+      "verified_size_bytes": 91876,
+      "verification_method": "official_git_blob_sha1"
     }
-  ]
+  ],
+  "verified_at_utc": "2026-11-05T09:18:18.000270+00:00",
+  "verified_total_bytes": 2345557023,
+  "safetensors_validation": {
+    "dtype": "BF16",
+    "tensor_count": 148,
+    "parameter_count": 1170340608,
+    "header_and_data_offsets_valid": true
+  }
 }

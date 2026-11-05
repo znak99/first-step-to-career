@@ -11,7 +11,7 @@
 - Minimum iOS version: 26.0 (approved).
 - Target devices: iPhone 13 and later if feasible; final support depends on device and performance validation.
 - First validation LLM: LFM2.5-1.2B-JP-202606, approved for evaluation; production adoption remains undecided.
-- Local model download: [source and status](llm/README.md). Original files are stored under `llm/` and excluded from Git; the production precision and app distribution method remain undecided.
+- Local model download: the [original model files](llm/README.md) (10 files, about 2.35 GB) have been downloaded and verified under `llm/`. Model files are excluded from Git; the production precision and app distribution method remain undecided. The model has not been executed.
 - Validation runtime: MLX Swift LM, approved; package version and integration settings remain undecided.
 - Speech-to-text: Apple SpeechAnalyzer + SpeechTranscriber, approved for on-device recognition; device and Japanese-language support require validation.
 - Text-to-speech: Apple AVSpeechSynthesizer, approved; voice, speaking rate, and playback validation remain pending.
