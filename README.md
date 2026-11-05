@@ -27,6 +27,7 @@
 - A question count that defaults to 5 on first use and is adjustable from 3 to 7 through settings or a similar menu.
 - A next question interrupted by continue-speaking does not count toward the configured total. The reconsidered question uses the same question number.
 - A preparation screen checks the distance needed to observe gaze and head movement. If the front camera does not work or the device lacks TrueDepth support, both movement categories are excluded from scoring and the overall score.
+- Gaze and head movement are scored throughout the interval from interview start until immediately before results are displayed, including AI question preparation/playback, waiting, repeat questions, answers and silence, continued answers, and post-interview evaluation waits. Preparation before interview start is outside this interval. Movement metrics, aggregation, thresholds, and tracking-failure handling remain undecided.
 - Questions are read aloud through text-to-speech (TTS). During the user's turn, speech-to-text (STT) displays the answer.
 - Starting to speak means STT detects at least one word from the new speech, including when resuming an answer. Previously stored answer text does not satisfy a resumed answer's start condition.
 - For both a new answer and a continue-speaking request, if STT starts and detects no word for 7 seconds, ask again. If another 7-second STT wait after asking again also detects no word, end the interview and apply the approved penalties below. This replaces the earlier unlimited first-word wait.
