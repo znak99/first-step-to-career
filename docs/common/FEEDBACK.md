@@ -23,3 +23,4 @@ Corrections the user has given to AI agents. Read this before any work, every se
 - [2026-11-05] Explain approval questions briefly with concrete before-and-after behavior.
 - [2026-11-05] For solo development with AI agents, agree only on a simple overall design and discuss details during implementation.
 - [2026-11-05] Keep dependency downloads and build caches inside the project; never install packages globally.
+- [2026-11-06] Keep subagent runs to the minimum needed; state the count and token use before running many.
