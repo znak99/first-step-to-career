@@ -114,11 +114,11 @@
 | 기법 | 넣어야 할 데이터 | 위치 |
 |---|---|---|
 | 경계값 | 질문 수·점수·중앙 사각형 선/모서리와 바로 안팎·추적 누락 2.999/3초 | `ios_temp/Tests/Core/InterviewConfigurationTests.swift`, `ScoringTests.swift`, `MovementScoringTests.swift` |
-| 문자열 길이 | 빈 문자열, 최소 길이, 최대 길이, 최대 초과 | |
-| 특수 문자 | 따옴표, 공백만, 앞뒤 공백, 줄바꿈, 이모지, 다국어(한글·일본어 등), HTML·SQL에서 의미 있는 기호(`< > ' " ; --`) | |
-| 형식 | 잘못된 이메일·날짜·숫자·URL 형식 | |
+| 문자열 길이 | 빈 문자열·공백만인 새 발화 사건 거부, 승인되지 않은 길이 상한은 추가하지 않음 | `ios_temp/Tests/Core/InterviewSessionTests.swift` |
+| 특수 문자 | 앞뒤 공백·줄바꿈·따옴표·이모지·한글/일본어·`< > ; --` 원문 보존 | `ios_temp/Tests/Core/InterviewSessionTests.swift` |
+| 형식 | 음수/역행 시각·점수 범위/분모 오류, 해당 없는 이메일·URL 검증은 추가하지 않음 | `ios_temp/Tests/Core/ScoringTests.swift`, `InterviewSessionTests.swift` |
 | 수량 | 완료 문항 0개·복수, 중복 문항 번호 거부, 5문 중 3문 완료 | `ios_temp/Tests/Core/ScoringTests.swift` |
-| 상태 | 가능한 모든 상태값, 허용되지 않는 상태 전이 | |
+| 상태 | 준비·재생·STT 시작·대기·답변·재질문·평가·표시, 취소·재개·이전 결과 무시·미승인 재개 경계 | `ios_temp/Tests/Core/InterviewSessionTests.swift` |
 | 동등 분할 | 세부 배점 0/1/2·범위 밖, 점수 범위·분모 오류, 완료 수와 종료 이유의 불일치 | `ios_temp/Tests/Core/ScoringTests.swift` |
 
 ## 임시 점수 계산 자료
@@ -126,3 +126,7 @@
 점수·세부 배점·문항 번호는 `ios_temp/Sources/Core/`의 메모리 값으로만 다룬다. 분자·분모 정수로 점수를 유지하며 반올림은 표시 문자열 생성 때만 한다. 세부 점수는 시험에서 제공하고 AI 평가는 연결하지 않는다. 평균 자료가 없는 상태와 0점은 구분한다. SwiftData 엔티티·이력 저장 필드와 시점은 정하지 않았으며 점수의 영구 저장도 추가하지 않았다.
 
 움직임 시험은 `MovementScoringTests.swift`에 화면 위치·누락/회복 시각을 직접 전달한다. 확인에서 자료가 없으면 해당 항목의 감점을 건너뛰며, 연속 누락 시간은 별도의 정상 자료 유무 사건으로 전달한다. 3초 도달 시 두 항목과 이전 감점을 전체 제외한다. 정상 자료의 품질·누락 시각 감지와 실제 초당 예약은 정하지 않는다. 복수 제외 사유는 순서 없는 집합으로 보관해 화면 표시 우선순위를 만들지 않으며 저장 이력에 추가하지 않는다.
+
+## 임시 면접 진행 자료
+
+`InterviewSession`은 문항 번호·최종 질문·원문과 추가 발화의 순서 있는 조각·완료 여부·작업 번호·진행 시각을 메모리에만 보관한다. 중단된 준비/재생 질문은 문항 자료에 추가하지 않는다. `completedTurns`는 완료한 답변만 반환하며 무응답으로 끝난 전체 `turns`의 저장 여부와 실제 저장 시점은 미정이다. 답변 조각 결합 구분자·STT 중간/확정 결과 교체·SwiftData 필드/관계는 확정하지 않았다.

@@ -37,6 +37,8 @@ nonisolated func verifyCoreIsolation() throws {
     _ = try OverallScoring.calculate(configuration: configuration, completedQuestions: [], movement: nil, termination: .newQuestionNonresponse)
     var movement = MovementScoring()
     movement.recordCheck(gaze: nil, head: nil)
+    var session = InterviewSession(configuration: configuration, movementExclusions: [])
+    try session.handle(.start, at: .zero)
 }
 SWIFT
 
