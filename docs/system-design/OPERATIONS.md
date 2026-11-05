@@ -294,10 +294,10 @@ MLX 버전·형식 조사는 [MLX_RESEARCH.md](MLX_RESEARCH.md)를 따른다. �
 
 | 작업 | 명령 |
 |---|---|
-| 의존성 설치 | 외부 패키지 없음 |
-| 개발 실행 | `open ios/FirstStepToCareer.xcodeproj` 후 `FirstStepToCareer` 스킴·실행 기기 선택 |
+| 의존성 준비 | 아래 개발용 LLM 명령의 Swift Package 해결; 전역 설치 없음 |
+| 개발 실행 | 아래 Metal 경로 안내 확인 후 `bash ios/Scripts/project-env.sh xcode`; `FirstStepToCareer` 스킴·실기기 선택 |
 | iOS 26 소스 검사·Mac 단위 시험 | `bash ios/Scripts/verify.sh` |
-| 앱 빌드·단위/UI 시험 | `xcodebuild test -project ios/FirstStepToCareer.xcodeproj -scheme FirstStepToCareer -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17' -derivedDataPath /tmp/first-step-ios-build CODE_SIGNING_ALLOWED=NO` |
+| 앱 빌드·단위/UI 시험 | 아래 프로젝트 내부 경로를 지정한 `xcodebuild test` 명령 |
 | UI·실기기 시험 | 별도 미실시 |
 
 검증 도구는 소스와 시험의 사본으로 임시 디렉터리에만 Swift 패키지를 만든다. 저장소·전역 경로에 패키지를 설치하지 않는다. 현재 Xcode 27.2·Swift 6.4.2로 질문 설정·점수·움직임·면접 진행·종료 확인 정지/취소 재개 시험 함수 48개(매개변수 사례 포함)가 통과했다. 핵심 값 형식에 `nonisolated`를 명시해 Xcode의 기본 MainActor 설정과 무관하게 시험할 수 있도록 했으며, 기본 설정과 MainActor 설정 양쪽에서 iOS 26 소스 검사를 수행한다. MainActor는 화면 처리를 직렬로 수행하는 실행 영역이다. iOS 26 배포 대상의 소스 검사는 실제 앱의 링크·실행 검증과 구분한다. 사건·시간은 시험에서 입력하며 질문 준비·재생·평가·음성 인식 지시는 실제 장치를 실행하지 않는다. 이전 절의 미실시 기록은 각 승인 당시 상태다. 확인 창의 표시 시간 제외·남은 시간 보존·이전 자료 차단을 합성 입력으로 검증했다. 최신 무응답 무평가 종료·완료 수와 관계없는 점수 미생성·이전 결과/관찰 차단도 검증했다. 9개 진행 단계의 확인 종료·잘못된/이전 확인 번호 거부·취소 후 정상 완료도 검증했다. 실제 장치 작업 중단·이력 저장·화면 이동은 미구현이다. 이전 방법은 [INTEGRATION.md](../../ios/INTEGRATION.md)를 따른다.
@@ -317,3 +317,54 @@ MLX 버전·형식 조사는 [MLX_RESEARCH.md](MLX_RESEARCH.md)를 따른다. �
 공유 스킴에 `FirstStepToCareerUITests` 대상을 추가했다. 기존 `xcodebuild test` 명령으로 Core 단위 시험과 XCTest UI 시험을 함께 실행하며, `bash ios/Scripts/verify.sh`는 기존 Core만 독립 검사한다. UI 시험은 온보딩에서 4개 탭과 모든 하위 화면을 실제로 열고, 질문 수 3~7 경계·탭 간 임시 설정 반영을 확인한다. 화면별 스크린샷은 Xcode 시험 결과의 첨부로 보관한다. 실제 AI·음성·카메라·영구 저장이나 실기기 검증은 포함하지 않는다.
 
 Xcode 27.2·iOS 27.0 iPhone 17 시뮬레이터에서 앱 빌드·Core48개·UI2개 시험이 통과했다. 독립 검증 도구의 iOS26 기본/MainActor 소스 검사와 Mac48개 시험도 통과했다. 초기 UI 시험의 스위치 조작 위치·질문 수 접근성 선택자를 보완한 뒤 전체 시험을 다시 실행해 성공을 확인했다. 최종 결과는 `/tmp/first-step-ui-build/Logs/Test/Test-FirstStepToCareer-2026.11.05_21-48-28-+0900.xcresult`에 있다.
+
+## 개발용 LLM 빌드·실행 (2026-11-05)
+
+개발용 의존성은 MLX Swift LM 3.32.3·mlx-swift 0.32.3·swift-transformers 1.4.0으로 고정했다. Mac 검증 패키지의 `Package.resolved`에 실제 간접 의존성도 기록하고 앱의 체크아웃 버전·커밋과 동일함을 확인했다. Xcode는 앱의 별도 `Package.resolved`를 유지하지 않았으므로 앱 간접 의존성의 영구 고정을 검증했다고 보고하지 않는다. Python 패키지·시스템 라이브러리·전역 Swift 패키지를 설치하지 않는다. 아래 명령은 저장소 루트에서 실행하며 체크아웃·빌드 결과를 `ios/.build/`에 둔다. Xcode/운영체제가 관리하는 진단·다운로드 캐시는 패키지의 전역 설치와 구분한다.
+
+이 Mac에는 Metal 컴파일 도구가 없었다. Apple의 `xcodebuild -downloadComponent MetalToolchain -exportPath ios/.build/MetalToolchainDownload`로 내보낸 디스크 이미지에서 `Metal.xctoolchain`을 `ios/.build/`로 복사하고 이미지 연결을 해제했다. **전역 설치·등록·`-importComponent`는 하지 않았다.** 다만 Apple 명령이 `/System/Library/AssetsV2/com_apple_MobileAsset_MetalToolchain/`에도 다운로드 캐시를 만든 점은 프로젝트 안에서만 내려받겠다는 초기 설명과 다르다. 이 명령은 자동 실행 스크립트에 넣지 않는다. 시스템 캐시를 임의 삭제하지 않는다.
+
+`project-env.sh`는 프로젝트 내부 Metal 사본이 있을 때만 `EXTERNAL_TOOLCHAINS_DIR`과 `TOOLCHAINS`를 해당 실행에 지정한다. 기본 Swift/Xcode 도구도 함께 유지한다. 사용자 전역 설정을 변경하지 않는다. 다른 Mac에서 Metal 도구가 없다면 별도 준비가 필요하며 이 스크립트는 자동 설치하지 않는다. 경로 지정 근거는 [공식 Swift 빌드 소스](https://github.com/swiftlang/swift-build/blob/main/Sources/SWBCore/Core.swift)다.
+
+Xcode를 기존 일반 실행으로 열었다면 저장 후 종료하고 `bash ios/Scripts/project-env.sh xcode`로 다시 연다. 이 명령은 프로젝트 내부 Metal 경로를 전달한 새 Xcode 인스턴스를 연다. GUI의 빌드·패키지 캐시 위치는 Xcode의 프로젝트 설정도 적용되므로, 프로젝트 안의 경로를 확실하게 지정하는 검증에는 아래 명령을 사용한다. 앱을 실행할 때는 Debug 구성·iOS 26 이상 실기기를 선택한다. 기존 개발자 팀과 서명 설정은 유지한다.
+
+```bash
+# 시뮬레이터: Core 및 화면 시험; 모델 생성은 제한 안내 표시
+bash ios/Scripts/project-env.sh xcodebuild test \
+  -project ios/FirstStepToCareer.xcodeproj -scheme FirstStepToCareer \
+  -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17' \
+  -derivedDataPath ios/.build/Xcode \
+  -clonedSourcePackagesDirPath ios/.build/XcodeSourcePackages \
+  -packageCachePath ios/.build/package-cache -disablePackageRepositoryCache \
+  -parallel-testing-enabled NO CODE_SIGNING_ALLOWED=NO
+
+# 서명 없이 실기기용 소스·모델 복사 빌드만 검증; 설치/실행 시험과 다름
+bash ios/Scripts/project-env.sh xcodebuild build \
+  -project ios/FirstStepToCareer.xcodeproj -scheme FirstStepToCareer \
+  -configuration Debug -destination 'generic/platform=iOS' \
+  -derivedDataPath ios/.build/Xcode \
+  -clonedSourcePackagesDirPath ios/.build/XcodeSourcePackages \
+  -packageCachePath ios/.build/package-cache -disablePackageRepositoryCache \
+  CODE_SIGNING_ALLOWED=NO
+
+# 같은 연결 코드의 Mac 오류·취소 단위 시험
+bash ios/Scripts/project-env.sh xcrun swift test \
+  --package-path ios/Packages/LocalLLMRuntime --scratch-path ios/.build/runtime \
+  --cache-path ios/.build/package-cache --config-path ios/.build/package-config \
+  --security-path ios/.build/package-security --disable-sandbox
+
+# 기존 원본의 실제 일본어 생성·출력 도중 취소·재생성
+bash ios/Scripts/project-env.sh xcrun swift run \
+  --package-path ios/Packages/LocalLLMRuntime --scratch-path ios/.build/runtime \
+  --cache-path ios/.build/package-cache --config-path ios/.build/package-config \
+  --security-path ios/.build/package-security --disable-sandbox \
+  LLMSmoke "$PWD/llm/LFM2.5-1.2B-JP-202606"
+```
+
+화면 이동: 온보딩 「はじめる」 → 모의 면접 「面接の準備へ」 → 준비 「面接画面へ」 → 면접 「開発用：LLMテスト」. 입력 후 「生成する」로 시작하고 「停止する」로 중단한다. 화면 이탈 시에도 중단한다. 256토큰 출력 상한이며 요청마다 새 대화로 시작하고 내용을 저장하지 않는다.
+
+`copy-local-model.sh`가 Debug 실기기 앱에만 기존 모델 9개 파일(가중치·설정·템플릿·라이선스/안내, Git 관리용 `.gitattributes` 제외)을 복사한다. Xcode의 스크립트 접근 제한을 유지하면서 모든 입출력 파일을 명시한다. Release·시뮬레이터는 모델을 복사하지 않는다. 배포용 모델 구성이나 4비트 채택을 정한 것은 아니다.
+
+Mac에서 실제 `こんにちは。` 생성, 출력 도중 취소, 같은 서비스에서 `ありがとう。` 재생성을 확인했다. 빈 입력·파일 누락 후 재시도·이미 취소된 요청 단위 시험 3개도 통과했다. 시뮬레이터에서 Core48개·UI3개(개발 화면 이동·제한 오류·복귀 포함)가 통과했다. 독립 Core iOS26 기본/MainActor 검사·Mac48개도 통과했다. Mac 생성 성공은 iPhone 메모리·속도·발열·AI 면접 품질 검증을 대신하지 않는다.
+
+실기기용 Debug 앱 빌드(서명 없음)가 통과했고, 앱에 복사된 9개 파일 2,345,555,504바이트의 SHA-256이 보관 원본과 일치했다. 초기 rsync 임시 파일 쓰기 차단은 파일별 입출력 선언과 직접 복사로 수정했다. 실제 iPhone에 설치하거나 실행한 결과는 아니다.

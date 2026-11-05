@@ -22,3 +22,4 @@ Corrections the user has given to AI agents. Read this before any work, every se
 - [2026-11-04] Commit changes in appropriate task units and push after every commit to keep GitHub synchronized with the latest documentation and source code.
 - [2026-11-05] Explain approval questions briefly with concrete before-and-after behavior.
 - [2026-11-05] For solo development with AI agents, agree only on a simple overall design and discuss details during implementation.
+- [2026-11-05] Keep dependency downloads and build caches inside the project; never install packages globally.

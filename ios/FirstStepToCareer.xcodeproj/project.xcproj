@@ -10,6 +10,27 @@
       "Base",
     ],
   },
+  "packages": [
+    {
+      "kind": "remote",
+      "repository": "https://github.com/ml-explore/mlx-swift-lm",
+      "version": {
+        "version": "3.32.3",
+      },
+    }, {
+      "kind": "remote",
+      "repository": "https://github.com/ml-explore/mlx-swift",
+      "version": {
+        "version": "0.32.3",
+      },
+    }, {
+      "kind": "remote",
+      "repository": "https://github.com/huggingface/swift-transformers",
+      "version": {
+        "version": "1.4.0",
+      },
+    },
+  ],
   "files": [
     { "kind": "folder", "path": "FirstStepToCareer", "target-membership": [ "FirstStepToCareer" ] },
     {
@@ -22,11 +43,8 @@
       ],
     },
     { "kind": "folder", "path": "FirstStepToCareerTests", "target-membership": [ "FirstStepToCareerTests" ] },
-    {
-      "kind": "folder",
-      "path": "FirstStepToCareerUITests",
-      "target-membership": [ "FirstStepToCareerUITests" ],
-    },
+    { "kind": "folder", "path": "FirstStepToCareerUITests", "target-membership": [ "FirstStepToCareerUITests" ] },
+    { "kind": "folder", "path": "Packages/LocalLLMRuntime/Sources/LocalLLMRuntime", "target-membership": [ "FirstStepToCareer" ] },
   ],
   "targets": [
     {
@@ -38,6 +56,52 @@
         "compile-sources",
         "frameworks",
         "resources",
+        {
+          "kind": "script",
+          "name": "Copy local development model",
+          "input-paths": [
+            "$(SRCROOT)/Scripts/copy-local-model.sh",
+            "$(SRCROOT)/../llm/LFM2.5-1.2B-JP-202606/LICENSE",
+            "$(SRCROOT)/../llm/LFM2.5-1.2B-JP-202606/README.md",
+            "$(SRCROOT)/../llm/LFM2.5-1.2B-JP-202606/chat_template.jinja",
+            "$(SRCROOT)/../llm/LFM2.5-1.2B-JP-202606/config.json",
+            "$(SRCROOT)/../llm/LFM2.5-1.2B-JP-202606/generation_config.json",
+            "$(SRCROOT)/../llm/LFM2.5-1.2B-JP-202606/model.safetensors",
+            "$(SRCROOT)/../llm/LFM2.5-1.2B-JP-202606/special_tokens_map.json",
+            "$(SRCROOT)/../llm/LFM2.5-1.2B-JP-202606/tokenizer.json",
+            "$(SRCROOT)/../llm/LFM2.5-1.2B-JP-202606/tokenizer_config.json",
+          ],
+          "output-paths": [
+            "$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/LocalLLM",
+            "$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/LocalLLM/LICENSE",
+            "$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/LocalLLM/README.md",
+            "$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/LocalLLM/chat_template.jinja",
+            "$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/LocalLLM/config.json",
+            "$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/LocalLLM/generation_config.json",
+            "$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/LocalLLM/model.safetensors",
+            "$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/LocalLLM/special_tokens_map.json",
+            "$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/LocalLLM/tokenizer.json",
+            "$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/LocalLLM/tokenizer_config.json",
+          ],
+          "run-on-every-build": true,
+          "shell": "/bin/bash",
+          "script": "/bin/bash \"${SRCROOT}/Scripts/copy-local-model.sh\"",
+        },
+      ],
+      "package-product-members": [
+        {
+          "package": "mlx-swift-lm",
+          "product-name": "MLXLLM",
+          "build-phase": { "build-phase": "frameworks" },
+        }, {
+          "package": "mlx-swift-lm",
+          "product-name": "MLXLMCommon",
+          "build-phase": { "build-phase": "frameworks" },
+        }, {
+          "package": "swift-transformers",
+          "product-name": "Tokenizers",
+          "build-phase": { "build-phase": "frameworks" },
+        },
       ],
       "build-settings": {
         "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon",
@@ -89,14 +153,19 @@
         "SWIFT_VERSION": "6.0",
         "TEST_HOST": "$(BUILT_PRODUCTS_DIR)/FirstStepToCareer.app/FirstStepToCareer",
       },
-    },
-    {
+    }, {
       "name": "FirstStepToCareerUITests",
       "id": "F5710001309C9DB000FFFFFF",
       "product": "Products/FirstStepToCareerUITests.xctest",
       "product-type": "bundle.ui-testing",
-      "dependencies": [ "FirstStepToCareer" ],
-      "build-phases": [ "compile-sources", "frameworks", "resources" ],
+      "dependencies": [
+        "FirstStepToCareer",
+      ],
+      "build-phases": [
+        "compile-sources",
+        "frameworks",
+        "resources",
+      ],
       "build-settings": {
         "GENERATE_INFOPLIST_FILE": "YES",
         "PRODUCT_BUNDLE_IDENTIFIER": "cloud.znak99.FirstStepToCareerUITests",

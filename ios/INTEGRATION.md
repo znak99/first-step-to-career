@@ -74,3 +74,11 @@ xcodebuild test -project ios/FirstStepToCareer.xcodeproj -scheme FirstStepToCare
 ## 화면 뼈대와 실제 기능의 경계
 
 `ContentView`와 `Views/`는 일본어 기본 화면 및 이동만 담당한다. 현재는 실행마다 스플래시 후 온보딩을 표시하고 완료 상태를 저장하지 않는다. 입력과 질문 수·움직임 설정은 실행 중에만 보관한다. 준비·면접 화면 이동으로 Core의 `.start`를 보내거나 장치 권한을 요청하지 않으며, 결과·과거 결과·일정·분석에 임의 데이터를 만들지 않는다. 실제 면접 시작·잠금·중도 종료·저장·복원은 후속 연결 시 위의 기존 계약을 따라야 한다.
+
+## 개발용 로컬 LLM 연결
+
+`Views/LLMTestView.swift`는 Debug 면접 화면에서만 열린다. `Packages/LocalLLMRuntime/Sources/LocalLLMRuntime/LocalLLMService.swift`를 앱 소스에도 포함해 Mac 검증과 같은 로컬 읽기·대화 템플릿·스트림 생성 코드를 사용한다. 실행 중 중복 요청을 막고 취소와 오류 후 다시 요청할 수 있다. 새 요청은 새 대화 문맥이며 입력·출력은 저장하지 않는다. 면접 Core·질문 생성/채점·음성·카메라에는 연결하지 않는다.
+
+앱은 MLXLLM·MLXLMCommon·Tokenizers 제품을 직접 연결하고 독립 검증 패키지도 같은 버전을 고정한다. 별도의 iOS 27 FoundationModels 제품은 연결하지 않는다. `copy-local-model.sh`는 Debug 실기기 앱에만 기존 원본을 복사한다. 시뮬레이터는 모델을 읽지 않고 일본어 오류를 표시하며 Release에는 개발 화면 진입점과 모델이 없다. 서명·앱 시작점·기존 Core와 시험 대상은 유지한다.
+
+프로젝트 내부 Metal 도구 경로를 사용하는 빌드/실행과 Mac 시험 명령은 [OPERATIONS.md](../docs/system-design/OPERATIONS.md#개발용-llm-빌드실행-2026-11-05)를 따른다. 원본 BF16의 iPhone 메모리·속도·발열과 실제 설치 여부는 Mac 생성 성공과 구분해 검증해야 한다.
