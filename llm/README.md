@@ -22,3 +22,12 @@ Version and format research is recorded in [MLX_RESEARCH.md](../docs/system-desi
 사용자가 기존 BF16 원본으로 시험하는 MLX Swift LM 3.32.3·mlx-swift 0.32.3·swift-transformers 1.4.0 연결을 승인했다. 추가 모델 다운로드·정밀도 변환은 하지 않는다. 의존성과 빌드 결과는 `ios/.build/` 아래에서 관리하며 패키지를 전역 설치하지 않는다. Debug 실기기 빌드만 원본을 앱의 `LocalLLM` 리소스에 복사한다. Release·시뮬레이터는 모델을 제외하고 시뮬레이터에는 실행 제한을 표시한다.
 
 같은 연결 소스로 Mac에서 일본어 `こんにちは。` 생성·출력 도중 취소·취소 후 `ありがとう。` 재생성을 확인했다. 이는 iPhone 지원·속도·메모리·발열 또는 면접 답변 품질 검증을 대신하지 않는다. 실행 방법과 Metal 도구의 프로젝트 내부 사용 방식은 [OPERATIONS.md](../docs/system-design/OPERATIONS.md#개발용-llm-빌드실행-2026-11-05)를 따른다.
+
+## 비교용 추가 모델 (2026-11-05)
+
+사용자가 비교 시험용으로 직접 내려받았다. Git에서 제외하며, 모든 파일의 크기·해시가 공식 정보와 일치한다. 제품 모델로 선택한 것은 아니다. 비교 결과는 [MLX_RESEARCH.md](../docs/system-design/MLX_RESEARCH.md)에 있다.
+
+| 폴더 | 출처 | 리비전 | 크기 |
+|---|---|---|---|
+| `llm/LFM2.5-1.2B-JP-202606-MLX-4bit/` | [공식 저장소](https://huggingface.co/LiquidAI/LFM2.5-1.2B-JP-202606-MLX-4bit) | `90aac12667f814fb003a2ced67572af1c2a3c8f4` | 파일 10개, 696,868,510바이트 |
+| `llm/LFM2.5-350M-MLX-4bit/` | [공식 저장소](https://huggingface.co/LiquidAI/LFM2.5-350M-MLX-4bit) | `f6cb4e006bb7a2d8a6afa14ec0a53e0586f65a5b` | 파일 9개, 약 226.6MB |
