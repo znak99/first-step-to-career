@@ -320,6 +320,8 @@ Xcode 27.2·iOS 27.0 iPhone 17 시뮬레이터에서 앱 빌드·Core48개·UI2�
 
 ## 개발용 LLM 빌드·실행 (2026-11-05)
 
+> 2026-11-06 사용자 결정으로 이 개발용 시험 화면과 MLX 연결 코드·패키지를 삭제했다. 아래는 당시 기록이다. 코드는 Git 이력에 남아 있다.
+
 개발용 의존성은 MLX Swift LM 3.32.3·mlx-swift 0.32.3·swift-transformers 1.4.0으로 고정했다. Xcode가 생성한 앱의 `Package.resolved`와 Mac 검증 패키지의 `Package.resolved`에 실제 의존성 12개의 버전·커밋도 기록하고 두 파일이 동일함을 확인했다. Python 패키지·시스템 라이브러리·전역 Swift 패키지를 설치하지 않는다. 아래 명령은 저장소 루트에서 실행하며 체크아웃·빌드 결과를 `ios/.build/`에 둔다. Xcode/운영체제가 관리하는 진단·다운로드 캐시는 패키지의 전역 설치와 구분한다.
 
 이 Mac에는 Metal 컴파일 도구가 없었다. Apple의 `xcodebuild -downloadComponent MetalToolchain -exportPath ios/.build/MetalToolchainDownload`로 내보낸 디스크 이미지에서 `Metal.xctoolchain`을 `ios/.build/`로 복사하고 이미지 연결을 해제했다. **전역 설치·등록·`-importComponent`는 하지 않았다.** 다만 Apple 명령이 `/System/Library/AssetsV2/com_apple_MobileAsset_MetalToolchain/`에도 다운로드 캐시를 만든 점은 프로젝트 안에서만 내려받겠다는 초기 설명과 다르다. 이 명령은 자동 실행 스크립트에 넣지 않는다. 시스템 캐시를 임의 삭제하지 않는다.

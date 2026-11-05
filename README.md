@@ -19,11 +19,12 @@
 - Local persistence: SwiftData with CloudKit automatic sync disabled, approved; schema and remaining storage policies remain undecided.
 - UI language: Japanese (`ja`).
 - Release market: Japan only.
-- Product AI: Claude Haiku API (`claude-haiku-5-5`), decided 2026-11-06. Direct API calls have not been verified yet; whether question generation also uses the API is undecided.
-- Server: a small intermediary server is effectively required to protect the API key; its design is undecided.
+- Product AI: Claude Haiku API (`claude-haiku-5-5`), decided 2026-11-06. Question generation and answer evaluation both use it. Direct API calls have not been verified yet.
+- Server: Cloudflare with Hono, keeping the API key off the device; abuse prevention and details are under discussion.
+- Consent: collected during onboarding; wording and refusal behavior are undecided.
 - Remaining application stack and data model: undecided, pending user approval.
 - The user-created Xcode project is under `ios/`. Question configuration, scoring, movement, tracking-gap, and interview-session sources are included in its app target, with a separate Swift Testing target. All staged files were migrated and `ios_temp/` was removed.
-- The Japanese UI shell includes splash, onboarding, four tabs, and child-screen navigation. Results, history, schedules, and analysis have empty states. The separate Debug LLM test uses the local model; interview AI, speech, camera, interview execution, and persistence remain unconnected.
+- The Japanese UI shell includes splash, onboarding, four tabs, and child-screen navigation. Results, history, schedules, and analysis have empty states. Interview AI, speech, camera, interview execution, and persistence remain unconnected.
 - Run `bash ios/Scripts/verify.sh` for iOS 26 source type checking and Mac unit tests. The shared Xcode scheme also includes a separate UI navigation test target. See [source integration instructions](ios/INTEGRATION.md).
 
 ## Features
@@ -62,7 +63,7 @@ HR interviews assess personality, values, collaboration, and motivation for appl
 - Language: Swift (approved).
 - User interface: SwiftUI (approved).
 - Product AI: Claude Haiku API (decided; connection not implemented).
-- LLM validation runtime: MLX Swift LM (approved; development test only).
+- Server: Cloudflare + Hono (decided; not implemented).
 - Speech-to-text: Apple SpeechAnalyzer + SpeechTranscriber (approved).
 - Text-to-speech: Apple AVSpeechSynthesizer (approved).
 - Face tracking: Apple ARKit (approved).
@@ -105,6 +106,4 @@ Exit-confirmation pause/cancel core handling preserves active time and rotates w
 
 ## Local LLM development test
 
-Debug iPhone builds include the existing BF16 model. Open the interview screen, then select `開発用：LLMテスト`. The screen accepts a prompt, streams generated text, and supports stopping generation. Each request starts a fresh conversation; prompts and outputs are not saved. Simulator builds show an execution limitation; Release builds omit the development entry and model.
-
-Dependencies and build outputs use `ios/.build/`. No packages or toolchains are installed globally. This Mac uses a project-local Metal toolchain; Apple’s export command also retained a system download-cache copy. See [build and test commands](docs/system-design/OPERATIONS.md#개발용-llm-빌드실행-2026-11-05) before opening Xcode or building. iPhone 14 Plus installation, generation, stopping, memory, and speed were checked; output quality, heat, and iPhone 13 behavior remain pending.
+Removed on 2026-11-06, along with the MLX packages. The history and [measurements](docs/system-design/MLX_RESEARCH.md) remain.

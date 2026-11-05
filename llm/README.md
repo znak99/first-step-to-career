@@ -31,3 +31,7 @@ Version and format research is recorded in [MLX_RESEARCH.md](../docs/system-desi
 |---|---|---|---|
 | `llm/LFM2.5-1.2B-JP-202606-MLX-4bit/` | [공식 저장소](https://huggingface.co/LiquidAI/LFM2.5-1.2B-JP-202606-MLX-4bit) | `90aac12667f814fb003a2ced67572af1c2a3c8f4` | 파일 10개, 696,868,510바이트 |
 | `llm/LFM2.5-350M-MLX-4bit/` | [공식 저장소](https://huggingface.co/LiquidAI/LFM2.5-350M-MLX-4bit) | `f6cb4e006bb7a2d8a6afa14ec0a53e0586f65a5b` | 파일 9개, 약 226.6MB |
+
+## 앱 연결 해제 (2026-11-06)
+
+앱은 더 이상 이 폴더의 모델을 사용하지 않는다. 로컬 모델 파일의 삭제 여부는 미정이다.

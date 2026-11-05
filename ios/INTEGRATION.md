@@ -79,6 +79,8 @@ xcodebuild test -project ios/FirstStepToCareer.xcodeproj -scheme FirstStepToCare
 
 ## 개발용 로컬 LLM 연결
 
+> 2026-11-06 사용자 결정으로 이 개발용 시험 화면과 MLX 연결 코드·패키지를 삭제했다. 아래는 당시 기록이다. 코드는 Git 이력에 남아 있다.
+
 `Views/LLMTestView.swift`와 `ViewModels/LLMTestViewModel.swift`는 Debug 면접 화면에서만 열린다. `Packages/LocalLLMRuntime/Sources/LocalLLMRuntime/LocalLLMService.swift`를 앱 소스에도 포함해 Mac 검증과 같은 로컬 읽기·대화 템플릿·스트림 생성 코드를 사용한다. 실행 중 중복 요청을 막고 취소와 오류 후 다시 요청할 수 있다. 새 요청은 새 대화 문맥이며 입력·출력은 저장하지 않는다. 면접 Core·질문 생성/채점·음성·카메라에는 연결하지 않는다.
 
 앱은 MLXLLM·MLXLMCommon·Tokenizers 제품을 직접 연결하고 독립 검증 패키지도 같은 버전을 고정한다. 별도의 iOS 27 FoundationModels 제품은 연결하지 않는다. `copy-local-model.sh`는 Debug 실기기 앱에만 기존 원본을 복사한다. 시뮬레이터는 모델을 읽지 않고 일본어 오류를 표시하며 Release에는 개발 화면 진입점과 모델이 없다. 서명·앱 시작점·기존 Core와 시험 대상은 유지한다.

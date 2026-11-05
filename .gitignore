@@ -9,5 +9,3 @@
 /ios/DerivedData/
 /ios/.build/
 /ios/.swiftpm/
-/ios/Packages/LocalLLMRuntime/.build/
-/ios/Packages/LocalLLMRuntime/.swiftpm/

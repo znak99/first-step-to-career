@@ -110,14 +110,6 @@ struct InterviewView: View {
             .controlSize(.large)
             .accessibilityIdentifier("interview.openResult")
             .padding(24)
-
-            #if DEBUG
-            NavigationLink("開発用：LLMテスト") {
-                LLMTestView()
-            }
-            .accessibilityIdentifier("interview.openLLMTest")
-            .padding(.bottom, 16)
-            #endif
         }
         .navigationTitle("面接")
         .navigationBarTitleDisplayMode(.inline)
