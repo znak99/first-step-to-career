@@ -19,7 +19,8 @@
 - Local persistence: SwiftData with CloudKit automatic sync disabled, approved; schema and remaining storage policies remain undecided.
 - UI language: Japanese (`ja`).
 - Release market: Japan only.
-- Server: undecided; prefer avoiding a server where feasible.
+- Product AI: Claude Haiku API (`claude-haiku-5-5`), decided 2026-11-06. Direct API calls have not been verified yet; whether question generation also uses the API is undecided.
+- Server: a small intermediary server is effectively required to protect the API key; its design is undecided.
 - Remaining application stack and data model: undecided, pending user approval.
 - The user-created Xcode project is under `ios/`. Question configuration, scoring, movement, tracking-gap, and interview-session sources are included in its app target, with a separate Swift Testing target. All staged files were migrated and `ios_temp/` was removed.
 - The Japanese UI shell includes splash, onboarding, four tabs, and child-screen navigation. Results, history, schedules, and analysis have empty states. The separate Debug LLM test uses the local model; interview AI, speech, camera, interview execution, and persistence remain unconnected.
@@ -60,7 +61,8 @@ HR interviews assess personality, values, collaboration, and motivation for appl
 ## Tech Stack
 - Language: Swift (approved).
 - User interface: SwiftUI (approved).
-- LLM validation runtime: MLX Swift LM (approved).
+- Product AI: Claude Haiku API (decided; connection not implemented).
+- LLM validation runtime: MLX Swift LM (approved; development test only).
 - Speech-to-text: Apple SpeechAnalyzer + SpeechTranscriber (approved).
 - Text-to-speech: Apple AVSpeechSynthesizer (approved).
 - Face tracking: Apple ARKit (approved).
