@@ -5,8 +5,10 @@
 ## 폴더와 대상
 
 - `FirstStepToCareer/Views/`: 시작·4개 탭·하위 화면의 일본어 SwiftUI 화면과 이동.
+- `FirstStepToCareer/ViewModels/`: 화면이 쓰는 값과 동작. 시작 화면 전환·설정·면접 조건 입력·개발용 LLM 시험을 맡는다. 실제 면접 연결은 이 층에서 `Core`를 호출하는 방식으로 추가한다.
 - `FirstStepToCareer/Core/`: 기존 Swift 핵심 소스 7개. 앱 대상에 포함한다.
 - `FirstStepToCareerTests/Core/`: 기존 Swift Testing 파일 6개. `FirstStepToCareerTests` 대상에만 포함한다.
+- `FirstStepToCareerTests/ViewModels/`: ViewModel 시험 4개. 앱 모듈이 필요해 Xcode 시험에서만 실행하며 `verify.sh`에는 포함되지 않는다.
 - `FirstStepToCareerUITests/`: 화면 이동과 임시 설정 상태를 확인하는 별도 XCTest UI 시험 대상.
 - `Scripts/verify.sh`: iOS 26 소스 검사·Mac 독립 시험 도구. 외부 패키지는 추가하지 않는다.
 - `FirstStepToCareer.xcodeproj/`: 사용자가 생성한 Xcode 27.2 JSON 프로젝트. 앱 시작점·화면·서명 설정을 유지한다.
@@ -77,7 +79,7 @@ xcodebuild test -project ios/FirstStepToCareer.xcodeproj -scheme FirstStepToCare
 
 ## 개발용 로컬 LLM 연결
 
-`Views/LLMTestView.swift`는 Debug 면접 화면에서만 열린다. `Packages/LocalLLMRuntime/Sources/LocalLLMRuntime/LocalLLMService.swift`를 앱 소스에도 포함해 Mac 검증과 같은 로컬 읽기·대화 템플릿·스트림 생성 코드를 사용한다. 실행 중 중복 요청을 막고 취소와 오류 후 다시 요청할 수 있다. 새 요청은 새 대화 문맥이며 입력·출력은 저장하지 않는다. 면접 Core·질문 생성/채점·음성·카메라에는 연결하지 않는다.
+`Views/LLMTestView.swift`와 `ViewModels/LLMTestViewModel.swift`는 Debug 면접 화면에서만 열린다. `Packages/LocalLLMRuntime/Sources/LocalLLMRuntime/LocalLLMService.swift`를 앱 소스에도 포함해 Mac 검증과 같은 로컬 읽기·대화 템플릿·스트림 생성 코드를 사용한다. 실행 중 중복 요청을 막고 취소와 오류 후 다시 요청할 수 있다. 새 요청은 새 대화 문맥이며 입력·출력은 저장하지 않는다. 면접 Core·질문 생성/채점·음성·카메라에는 연결하지 않는다.
 
 앱은 MLXLLM·MLXLMCommon·Tokenizers 제품을 직접 연결하고 독립 검증 패키지도 같은 버전을 고정한다. 별도의 iOS 27 FoundationModels 제품은 연결하지 않는다. `copy-local-model.sh`는 Debug 실기기 앱에만 기존 원본을 복사한다. 시뮬레이터는 모델을 읽지 않고 일본어 오류를 표시하며 Release에는 개발 화면 진입점과 모델이 없다. 서명·앱 시작점·기존 Core와 시험 대상은 유지한다.
 

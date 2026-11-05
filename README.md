@@ -75,7 +75,7 @@ The user-created Xcode project is in `ios/FirstStepToCareer.xcodeproj`. Core sou
 
 ### Prerequisites
 - Validated with Xcode 27.2, Swift 6.4.2, and SDK 27.2.
-- The app deployment target remains iOS 26.0. App build and all 48 Swift Testing test functions passed on the iOS 27.0 iPhone 17 simulator. The development LLM test ran on an iPhone 14 Plus (iOS 27.0.1); see [the measurements](docs/system-design/OPERATIONS.md#실제-iphone-시험-결과-2026-11-05).
+- The app deployment target remains iOS 26.0. App build and all 52 Swift Testing test functions (48 Core, 4 ViewModel) passed on the iOS 27.0 iPhone 17 simulator. The development LLM test ran on an iPhone 14 Plus (iOS 27.0.1); see [the measurements](docs/system-design/OPERATIONS.md#실제-iphone-시험-결과-2026-11-05).
 
 ### Install
 No external libraries or models are required for the staged core tests.
