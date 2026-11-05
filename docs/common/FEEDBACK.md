@@ -20,3 +20,4 @@ Corrections the user has given to AI agents. Read this before any work, every se
 ## This project
 - [2026-11-04] Obtain explicit user approval before making project decisions or changing the approved scope.
 - [2026-11-04] Commit changes in appropriate task units and push after every commit to keep GitHub synchronized with the latest documentation and source code.
+- [2026-11-05] Explain approval questions briefly with concrete before-and-after behavior.
