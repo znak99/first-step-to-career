@@ -11,7 +11,7 @@
 - Minimum iOS version: 26.0 (approved).
 - Target devices: iPhone 13 and later if feasible; final support depends on device and performance validation.
 - First validation LLM: LFM2.5-1.2B-JP-202606, approved for evaluation; production adoption remains undecided.
-- Local model download: the [original model files](llm/README.md) (10 files, about 2.35 GB) have been downloaded and verified under `llm/`. Model files are excluded from Git; the production precision and app distribution method remain undecided. Japanese generation, mid-generation cancellation, and reuse after cancellation have been verified on Mac; iPhone performance remains unverified.
+- Local model download: the [original model files](llm/README.md) (10 files, about 2.35 GB) have been downloaded and verified under `llm/`. Model files are excluded from Git; the production precision and app distribution method remain undecided. Japanese generation, mid-generation cancellation, and reuse after cancellation have been verified on Mac and on an iPhone 14 Plus (peak app memory about 2.5 GB, about 10 output chunks per second). iPhone 13 support, heat, and full-interview performance remain unverified.
 - Validation runtime: MLX Swift LM 3.32.3, mlx-swift 0.32.3, and swift-transformers 1.4.0, approved for the development test.
 - Speech-to-text: Apple SpeechAnalyzer + SpeechTranscriber, approved for on-device recognition; device and Japanese-language support require validation.
 - Text-to-speech: Apple AVSpeechSynthesizer, approved; voice, speaking rate, and playback validation remain pending.
@@ -75,7 +75,7 @@ The user-created Xcode project is in `ios/FirstStepToCareer.xcodeproj`. Core sou
 
 ### Prerequisites
 - Validated with Xcode 27.2, Swift 6.4.2, and SDK 27.2.
-- The app deployment target remains iOS 26.0. App build and all 48 Swift Testing test functions passed on the iOS 27.0 iPhone 17 simulator. Physical-device testing is pending.
+- The app deployment target remains iOS 26.0. App build and all 48 Swift Testing test functions passed on the iOS 27.0 iPhone 17 simulator. The development LLM test ran on an iPhone 14 Plus (iOS 27.0.1); see [the measurements](docs/system-design/OPERATIONS.md#실제-iphone-시험-결과-2026-11-05).
 
 ### Install
 No external libraries or models are required for the staged core tests.
@@ -105,4 +105,4 @@ Exit-confirmation pause/cancel core handling preserves active time and rotates w
 
 Debug iPhone builds include the existing BF16 model. Open the interview screen, then select `開発用：LLMテスト`. The screen accepts a prompt, streams generated text, and supports stopping generation. Each request starts a fresh conversation; prompts and outputs are not saved. Simulator builds show an execution limitation; Release builds omit the development entry and model.
 
-Dependencies and build outputs use `ios/.build/`. No packages or toolchains are installed globally. This Mac uses a project-local Metal toolchain; Apple’s export command also retained a system download-cache copy. See [build and test commands](docs/system-design/OPERATIONS.md#개발용-llm-빌드실행-2026-11-05) before opening Xcode or building. iPhone installation, memory, speed, and output-quality validation remain pending.
+Dependencies and build outputs use `ios/.build/`. No packages or toolchains are installed globally. This Mac uses a project-local Metal toolchain; Apple’s export command also retained a system download-cache copy. See [build and test commands](docs/system-design/OPERATIONS.md#개발용-llm-빌드실행-2026-11-05) before opening Xcode or building. iPhone 14 Plus installation, generation, stopping, memory, and speed were checked; output quality, heat, and iPhone 13 behavior remain pending.

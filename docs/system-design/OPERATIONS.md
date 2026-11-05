@@ -14,7 +14,7 @@
 ### 1.1 사용자가 보유한 테스트 기기 (2026-11-05)
 | 기기 | 칩 | TrueDepth 카메라 | Apple Intelligence | 실제 설치된 iOS |
 |---|---|---|---|---|
-| [iPhone 14 Plus](https://support.apple.com/en-sg/111854) | A15 Bionic | 탑재 | 미지원 | 미확인 |
+| [iPhone 14 Plus](https://support.apple.com/en-sg/111854) | A15 Bionic | 탑재 | 미지원 | 27.0.1 (2026-11-05 연결 확인) |
 | [iPhone XR](https://support.apple.com/en-la/111868) | A12 Bionic | 탑재 | 미지원 | 미확인 |
 
 - 두 기기를 보유하고 있다는 사용자 확인을 기록했다. 출시 지원 목표는 가능하다면 iPhone 13 이상이고, 최소 OS는 iOS 26.0이다. 하드웨어 지원 가능 여부는 검증이 필요하며, 보유 기기 목록을 출시 지원 범위로 간주하지 않는다.
@@ -370,3 +370,34 @@ Mac에서 실제 `こんにちは。` 생성, 출력 도중 취소, 같은 서�
 실기기용 Debug 앱 빌드(서명 없음)가 통과했고, 앱에 복사된 9개 파일 2,345,555,504바이트의 SHA-256이 보관 원본과 일치했다. 초기 rsync 임시 파일 쓰기 차단은 파일별 입출력 선언과 직접 복사로 수정했다. 실제 iPhone에 설치하거나 실행한 결과는 아니다.
 
 Release 실기기용 빌드(서명 없음)도 통과했다. 실행 파일에 개발용 버튼 문자열이 없고 `LocalLLM`은 Xcode가 만든 빈 폴더만 존재하며 모델 파일은 없다. 최종 LLM 화면의 이동·오류·복귀 시험도 다시 통과했고 첨부 스크린샷을 확인했다. 시험 결과는 `ios/.build/Xcode/Logs/Test/Test-FirstStepToCareer-2026.11.05_22-29-49-+0900.xcresult`(전체 Core/UI)와 `Test-FirstStepToCareer-2026.11.05_22-37-20-+0900.xcresult`(LLM 화면)다.
+
+### 실제 iPhone 시험 결과 (2026-11-05)
+
+iPhone 14 Plus(iOS 27.0.1)에 서명한 Debug 앱을 설치해 기존 BF16 모델을 실행했다. 서명한 빌드·설치 명령은 아래와 같다. 기기 ID는 `xcrun devicectl list devices`로 확인한다.
+
+```bash
+bash ios/Scripts/project-env.sh xcodebuild build \
+  -project ios/FirstStepToCareer.xcodeproj -scheme FirstStepToCareer \
+  -configuration Debug -destination 'id=<기기 ID>' \
+  -derivedDataPath ios/.build/Xcode \
+  -clonedSourcePackagesDirPath ios/.build/XcodeSourcePackages \
+  -packageCachePath ios/.build/package-cache -disablePackageRepositoryCache \
+  -allowProvisioningUpdates
+
+xcrun devicectl device install app --device <기기 ID> \
+  ios/.build/Xcode/Build/Products/Debug-iphoneos/FirstStepToCareer.app
+```
+
+| 항목 | 결과 |
+|---|---|
+| 설치·실행 | 성공, 앱 크기 약 2.3GB |
+| 긴 문장 출력(최대 256토큰) | 약 250조각, 약 23~25초, 초당 약 10조각, 일본어 약 420자 |
+| 첫 출력까지 | 설치 직후 첫 실행 약 13.9초(화면 시험의 상태 확인 기준), 이후 앱 재실행 3.3초, 모델을 읽은 뒤 1.5~1.7초 |
+| 출력 중 중단 | 2초 뒤 중단 요청, 약 0.5초 안에 멈춤(32조각에서 정지), 이후 재생성 성공 |
+| 앱 메모리 | 최대 2,480MB, 생성 후에도 약 2,440MB 유지, 앱이 더 쓸 수 있는 여유 약 780MB |
+
+- 조각은 화면에 전달된 출력 단위로 토큰과 대체로 대응하지만 같은 값으로 단정하지 않는다.
+- 첫 실행 중 앱이 기기에서 가장 큰 프로세스(약 1.9GB)인 상태로 메모리 부족 기록(JetsamEvent)이 생겼다. 다른 시스템 프로세스가 종료됐고 앱은 계속 실행됐다. 그 뒤의 측정에서는 새 기록이 없었다.
+- 긴 문장의 256토큰 출력은 10문항 요청 중 4번째 답변 중간에서 끊겼다. 면접 기능에서 필요한 길이는 연결 작업에서 정한다.
+- 측정은 커밋하지 않은 임시 UI 시험과 앱 내 메모리 측정 코드로 수행한 뒤 되돌렸다. 시험 중 Instruments(`xctrace`)를 함께 실행하면 기기 연결이 끊겨 사용하지 않았다.
+- 측정 시간은 2분 미만이다. 발열·배터리·장시간 연속 사용, 음성·카메라를 함께 쓰는 실제 면접 상황, 답변 평가 품질, iPhone 13의 동작은 확인하지 않았다.
